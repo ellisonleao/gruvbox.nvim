@@ -1,8 +1,8 @@
 # gruvbox.nvim
 
-A port of [gruvbox](https://github.com/morhetz/gruvbox) theme to lua.
+A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) theme to lua.
 
-Please not this plugin in active development right now, so the status for it is still
+Please note that this plugin is under active development right now, so the status for it is still
 alpha.
 
 # Installing
@@ -29,3 +29,11 @@ lua require("colorbuddy").colorscheme("gruvbox", "light") -- for light mode
 # Configuration
 
 all `g:gruvbox_` configs are the same [as the original one](https://github.com/morhetz/gruvbox/wiki/Configuration) except for `g:gruvbox_guisp_fallback`
+
+# Supported plugins
+
+- [vim-signify](https://github.com/mhinz/vim-signify)
+- [vim-startify](https://github.com/mhinz/vim-startify)
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/)
+
+More to be added..

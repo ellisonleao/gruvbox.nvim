@@ -705,8 +705,8 @@ Group.new("haskellLiquid", groups.GruvboxPurpleBold, groups.GruvboxPurpleBold,
           groups.GruvboxPurpleBold)
 Group.new("haskellQuasiQuoted", groups.GruvboxBlueBold, groups.GruvboxBlueBold,
           groups.GruvboxBlueBold)
-Group.new("haskellRecursiveDo", groups.GruvboxPurlpe, groups.GruvboxPurlpe,
-          groups.GruvboxPurlpe)
+Group.new("haskellRecursiveDo", groups.GruvboxPurple, groups.GruvboxPurple,
+          groups.GruvboxPurple)
 Group.new("haskellQuotedType", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
 Group.new("haskellPreProc", groups.GruvboxFg4, groups.GruvboxFg4, groups.GruvboxFg4)
 Group.new("haskellTypeRoles", groups.GruvboxRedBold, groups.GruvboxRedBold,
@@ -813,3 +813,5 @@ Group.new("LspDiagnosticsUnderlineHint", groups.GruvboxAquaUnderline,
           groups.GruvboxAquaUnderline, groups.GruvboxAquaUnderline)
 
 -- Galaxyline
+
+-- Treesitter
