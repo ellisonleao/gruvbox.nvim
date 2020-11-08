@@ -34,6 +34,6 @@ all `g:gruvbox_` configs are the same [as the original one](https://github.com/m
 
 - [vim-signify](https://github.com/mhinz/vim-signify)
 - [vim-startify](https://github.com/mhinz/vim-startify)
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/)
+- [diagnostic-nvim](https://github.com/nvim-lua/diagnostic-nvim) - **Should be moved to Neovim core in 0.5.x**
 
 More to be added..
