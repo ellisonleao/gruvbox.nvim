@@ -94,7 +94,7 @@ for k, val in pairs(settings) do
   end
 end
 
--- handle light/dark settings
+-- handle light/dark contrast settings
 local bg = vim.o.background
 local contrast = vim.g["gruvbox_contrast_" .. bg]
 if contrast == "hard" then
@@ -232,7 +232,7 @@ Group.new("GruvboxRedUnderline", nil, nil, styles.undercurl, red)
 Group.new("GruvboxYellowUnderline", nil, nil, styles.undercurl, yellow)
 
 -- base highlight groups
-Group.new("Normal", fg1, bg0)
+Group.new("Normal", fg0, bg0)
 Group.new("CursorLine", nil, bg1)
 Group.new("CursorColumn", groups.CursorLine, groups.CursorLine, groups.CursorLine)
 Group.new("TabLineFill", bg4, bg1, invert_tabline)
@@ -585,7 +585,8 @@ Group.new("javaAnnotation", groups.GruvboxBlue, groups.GruvboxBlue, groups.Gruvb
           groups.GruvboxBlue, groups.GruvboxBlue)
 Group.new("javaDocTags", groups.GruvboxAqua, groups.GruvboxAqua, groups.GruvboxAqua,
           groups.GruvboxAqua, groups.GruvboxAqua)
-Group.new("javaCommentTitle", groups.vimCommentTitle)
+Group.new("javaCommentTitle", groups.vimCommentTitle, groups.vimCommentTitle,
+          groups.vimCommentTitle)
 Group.new("javaParen", groups.GruvboxFg3, groups.GruvboxFg3, groups.GruvboxFg3)
 Group.new("javaParen1", groups.GruvboxFg3, groups.GruvboxFg3, groups.GruvboxFg3)
 Group.new("javaParen2", groups.GruvboxFg3, groups.GruvboxFg3, groups.GruvboxFg3)
@@ -598,7 +599,7 @@ Group.new("javaVarArg", groups.GruvboxGreen, groups.GruvboxGreen, groups.Gruvbox
           groups.GruvboxGreen, groups.GruvboxGreen)
 
 -- Elixir
-Group.new("elixirDocString", groups.Comment)
+Group.new("elixirDocString", groups.Comment, groups.Comment, groups.Comment)
 Group.new("elixirStringDelimiter", groups.GruvboxGreen, groups.GruvboxGreen,
           groups.GruvboxGreen)
 Group.new("elixirInterpolationDelimiter", groups.GruvboxAqua, groups.GruvboxAqua,
@@ -652,8 +653,95 @@ Group.new("markdownUrlTitleDelimiter", groups.GruvboxGreen, groups.GruvboxGreen,
 Group.new("markdownIdDeclaration", groups.markdownLinkText, groups.markdownLinkText,
           groups.markdownLinkText)
 
+-- Haskell
+Group.new("haskellType", groups.GruvboxBlue, groups.GruvboxBlue, groups.GruvboxBlue)
+Group.new("haskellIdentifier", groups.GruvboxAqua, groups.GruvboxAqua,
+          groups.GruvboxAqua)
+Group.new("haskellSeparator", groups.GruvboxFg4, groups.GruvboxFg4, groups.GruvboxFg4)
+Group.new("haskellDelimiter", groups.GruvboxOrange, groups.GruvboxOrange,
+          groups.GruvboxOrange)
+Group.new("haskellOperators", groups.GruvboxPurple, groups.GruvboxPurple,
+          groups.GruvboxPurple)
+
+Group.new("haskellBacktick", groups.GruvboxOrange, groups.GruvboxOrange,
+          groups.GruvboxOrange)
+Group.new("haskellStatement", groups.GruvboxPurple, groups.GruvboxPurple,
+          groups.GruvboxPurple)
+Group.new("haskellConditional", groups.GruvboxPurple, groups.GruvboxPurple,
+          groups.GruvboxPurple)
+
+Group.new("haskellLet", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
+Group.new("haskellDefault", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
+Group.new("haskellWhere", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
+Group.new("haskellBottom", groups.GruvboxRedBold, groups.GruvboxRedBold,
+          groups.GruvboxRedBold)
+Group.new("haskellImportKeywords", groups.GruvboxPurpleBold, groups.GruvboxPurpleBold,
+          groups.GruvboxPurpleBold)
+Group.new("haskellDeclKeyword", groups.GruvboxOrange, groups.GruvboxOrange,
+          groups.GruvboxOrange)
+Group.new("haskellDecl", groups.GruvboxOrange, groups.GruvboxOrange,
+          groups.GruvboxOrange)
+Group.new("haskellDeriving", groups.GruvboxPurple, groups.GruvboxPurple,
+          groups.GruvboxPurple)
+Group.new("haskellAssocType", groups.GruvboxAqua, groups.GruvboxAqua, groups.GruvboxAqua)
+
+Group.new("haskellNumber", groups.GruvboxAqua, groups.GruvboxAqua, groups.GruvboxAqua)
+Group.new("haskellPragma", groups.GruvboxRedBold, groups.GruvboxRedBold,
+          groups.GruvboxRedBold)
+
+Group.new("haskellTH", groups.GruvboxAquaBold, groups.GruvboxAquaBold,
+          groups.GruvboxAquaBold)
+Group.new("haskellForeignKeywords", groups.GruvboxGreen, groups.GruvboxGreen,
+          groups.GruvboxGreen)
+Group.new("haskellKeyword", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
+Group.new("haskellFloat", groups.GruvboxAqua, groups.GruvboxAqua, groups.GruvboxAqua)
+Group.new("haskellInfix", groups.GruvboxPurple, groups.GruvboxPurple,
+          groups.GruvboxPurple)
+Group.new("haskellQuote", groups.GruvboxGreenBold, groups.GruvboxGreenBold,
+          groups.GruvboxGreenBold)
+Group.new("haskellShebang", groups.GruvboxYellowBold, groups.GruvboxYellowBold,
+          groups.GruvboxYellowBold)
+Group.new("haskellLiquid", groups.GruvboxPurpleBold, groups.GruvboxPurpleBold,
+          groups.GruvboxPurpleBold)
+Group.new("haskellQuasiQuoted", groups.GruvboxBlueBold, groups.GruvboxBlueBold,
+          groups.GruvboxBlueBold)
+Group.new("haskellRecursiveDo", groups.GruvboxPurlpe, groups.GruvboxPurlpe,
+          groups.GruvboxPurlpe)
+Group.new("haskellQuotedType", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
+Group.new("haskellPreProc", groups.GruvboxFg4, groups.GruvboxFg4, groups.GruvboxFg4)
+Group.new("haskellTypeRoles", groups.GruvboxRedBold, groups.GruvboxRedBold,
+          groups.GruvboxRedBold)
+Group.new("haskellTypeForall", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
+Group.new("haskellPatternKeyword", groups.GruvboxBlue, groups.GruvboxBlue,
+          groups.GruvboxBlue)
+
+-- JSON
+Group.new("jsonKeyword", groups.GruvboxGreen, groups.GruvboxGreen, groups.GruvboxGreen)
+Group.new("jsonQuote", groups.GruvboxGreen, groups.GruvboxGreen, groups.GruvboxGreen)
+Group.new("jsonBraces", groups.GruvboxFg1, groups.GruvboxFg1, groups.GruvboxFg1)
+Group.new("jsonString", groups.GruvboxFg1, groups.GruvboxFg1, groups.GruvboxFg1)
+
+-- Rust
+Group.new("rustSigil", groups.GruvboxOrange, groups.GruvboxOrange, groups.GruvboxOrange)
+Group.new("rustEscape", groups.GruvboxAqua, groups.GruvboxAqua, groups.GruvboxAqua)
+Group.new("rustStringContinuation", groups.GruvboxAqua, groups.GruvboxAqua,
+          groups.GruvboxAqua)
+Group.new("rustEnum", groups.GruvboxAqua, groups.GruvboxAqua, groups.GruvboxAqua)
+Group.new("rustStructure", groups.GruvboxAqua, groups.GruvboxAqua, groups.GruvboxAqua)
+Group.new("rustModPathSep", groups.GruvboxFg2, groups.GruvboxFg2, groups.GruvboxFg2)
+Group.new("rustCommentLineDoc", groups.Comment, groups.Comment, groups.Comment)
+Group.new("rustDefault", groups.GruvboxAqua, groups.GruvboxAqua, groups.GruvboxAqua)
+
+-- Ocaml
+Group.new("ocamlOperator", groups.GruvboxFg1, groups.GruvboxFg1, groups.GruvboxFg1)
+Group.new("ocamlKeyChar", groups.GruvboxOrange, groups.GruvboxOrange,
+          groups.GruvboxOrange)
+Group.new("ocamlArrow", groups.GruvboxOrange, groups.GruvboxOrange, groups.GruvboxOrange)
+Group.new("ocamlInfixOpKeyword", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
+Group.new("ocamlConstructor", groups.GruvboxOrange, groups.GruvboxOrange,
+          groups.GruvboxOrange)
+
 -- Plugin specific
--- (ellisonleao) addings the ones i am using for now
 
 -- vim-signify
 Group.new("SignifySignAdd", groups.GruvboxGreenSign, groups.GruvboxGreenSign,
@@ -688,5 +776,40 @@ Group.new("netrwHelpCmd", groups.GruvboxAqua, groups.GruvboxAqua, groups.Gruvbox
 Group.new("netrwCmdSep", groups.GruvboxFg3, groups.GruvboxFg3, groups.GruvboxFg3)
 Group.new("netrwVersion", groups.GruvboxGreen, groups.GruvboxGreen, groups.GruvboxGreen)
 
+-- LSP
+Group.new("LspDiagnosticsError", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
+Group.new("LspDiagnosticsErrorSign", groups.GruvboxRedSign, groups.GruvboxRedSign,
+          groups.GruvboxRedSign)
+Group.new("LspDiagnosticsErrorFloating", groups.GruvboxRed, groups.GruvboxRed,
+          groups.GruvboxRed)
+Group.new("LspDiagnosticsUnderlineError", groups.GruvboxRedUnderline,
+          groups.GruvboxRedUnderline, groups.GruvboxRedUnderline)
+
+Group.new("LspDiagnosticsWarning", groups.GruvboxYellow, groups.GruvboxYellow,
+          groups.GruvboxYellow)
+Group.new("LspDiagnosticsWarningSign", groups.GruvboxYellowSign,
+          groups.GruvboxYellowSign, groups.GruvboxYellowSign)
+Group.new("LspDiagnosticsWarningFloating", groups.GruvboxYellow, groups.GruvboxYellow,
+          groups.GruvboxYellow)
+Group.new("LspDiagnosticsUnderlineWarning", groups.GruvboxYellowUnderline,
+          groups.GruvboxYellowUnderline, groups.GruvboxYellowUnderline)
+
+Group.new("LspDiagnosticsInformation", groups.GruvboxBlue, groups.GruvboxBlue,
+          groups.GruvboxBlue)
+Group.new("LspDiagnosticsInformationSign", groups.GruvboxBlueSign,
+          groups.GruvboxBlueSign, groups.GruvboxBlueSign)
+Group.new("LspDiagnosticsInformationFloating", groups.GruvboxBlue, groups.GruvboxBlue,
+          groups.GruvboxBlue)
+Group.new("LspDiagnosticsUnderlineInformation", groups.GruvboxBlueUnderline,
+          groups.GruvboxBlueUnderline, groups.GruvboxBlueUnderline)
+
+Group.new("LspDiagnosticsHint", groups.GruvboxAqua, groups.GruvboxAqua,
+          groups.GruvboxAqua)
+Group.new("LspDiagnosticsHintSign", groups.GruvboxAquaSign, groups.GruvboxAquaSign,
+          groups.GruvboxAquaSign)
+Group.new("LspDiagnosticsHintFloating", groups.GruvboxAqua, groups.GruvboxAqua,
+          groups.GruvboxAqua)
+Group.new("LspDiagnosticsUnderlineHint", groups.GruvboxAquaUnderline,
+          groups.GruvboxAquaUnderline, groups.GruvboxAquaUnderline)
+
 -- Galaxyline
--- TODO(ellisonleao
