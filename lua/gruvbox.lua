@@ -737,38 +737,31 @@ Group.new("netrwCmdSep", groups.GruvboxFg3, groups.GruvboxFg3, groups.GruvboxFg3
 Group.new("netrwVersion", groups.GruvboxGreen, groups.GruvboxGreen, groups.GruvboxGreen)
 
 -- LSP
-Group.new("LspDiagnosticsError", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
-Group.new("LspDiagnosticsErrorSign", groups.GruvboxRedSign, groups.GruvboxRedSign,
-          groups.GruvboxRedSign)
-Group.new("LspDiagnosticsErrorFloating", groups.GruvboxRed, groups.GruvboxRed,
+Group.new("LspDiagnosticsDefaultError", groups.GruvboxRed, groups.GruvboxRed,
           groups.GruvboxRed)
+Group.new("LspDiagnosticsSignError", groups.GruvboxRedSign, groups.GruvboxRedSign,
+          groups.GruvboxRedSign)
 Group.new("LspDiagnosticsUnderlineError", groups.GruvboxRedUnderline,
           groups.GruvboxRedUnderline, groups.GruvboxRedUnderline)
 
-Group.new("LspDiagnosticsWarning", groups.GruvboxYellow, groups.GruvboxYellow,
+Group.new("LspDiagnosticsDefaultWarning", groups.GruvboxYellow, groups.GruvboxYellow,
           groups.GruvboxYellow)
-Group.new("LspDiagnosticsWarningSign", groups.GruvboxYellowSign,
+Group.new("LspDiagnosticsSignWarning", groups.GruvboxYellowSign,
           groups.GruvboxYellowSign, groups.GruvboxYellowSign)
-Group.new("LspDiagnosticsWarningFloating", groups.GruvboxYellow, groups.GruvboxYellow,
-          groups.GruvboxYellow)
 Group.new("LspDiagnosticsUnderlineWarning", groups.GruvboxYellowUnderline,
           groups.GruvboxYellowUnderline, groups.GruvboxYellowUnderline)
 
-Group.new("LspDiagnosticsInformation", groups.GruvboxBlue, groups.GruvboxBlue,
+Group.new("LspDiagnosticsDefaultInformation", groups.GruvboxBlue, groups.GruvboxBlue,
           groups.GruvboxBlue)
-Group.new("LspDiagnosticsInformationSign", groups.GruvboxBlueSign,
+Group.new("LspDiagnosticsSignInformation", groups.GruvboxBlueSign,
           groups.GruvboxBlueSign, groups.GruvboxBlueSign)
-Group.new("LspDiagnosticsInformationFloating", groups.GruvboxBlue, groups.GruvboxBlue,
-          groups.GruvboxBlue)
 Group.new("LspDiagnosticsUnderlineInformation", groups.GruvboxBlueUnderline,
           groups.GruvboxBlueUnderline, groups.GruvboxBlueUnderline)
 
-Group.new("LspDiagnosticsHint", groups.GruvboxAqua, groups.GruvboxAqua,
+Group.new("LspDiagnosticsDefaultHint", groups.GruvboxAqua, groups.GruvboxAqua,
           groups.GruvboxAqua)
-Group.new("LspDiagnosticsHintSign", groups.GruvboxAquaSign, groups.GruvboxAquaSign,
+Group.new("LspDiagnosticsSignHint", groups.GruvboxAquaSign, groups.GruvboxAquaSign,
           groups.GruvboxAquaSign)
-Group.new("LspDiagnosticsHintFloating", groups.GruvboxAqua, groups.GruvboxAqua,
-          groups.GruvboxAqua)
 Group.new("LspDiagnosticsUnderlineHint", groups.GruvboxAquaUnderline,
           groups.GruvboxAquaUnderline, groups.GruvboxAquaUnderline)
 
