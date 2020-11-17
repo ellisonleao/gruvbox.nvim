@@ -34,6 +34,6 @@ all `g:gruvbox_` configs are the same [as the original one](https://github.com/m
 
 - [vim-signify](https://github.com/mhinz/vim-signify)
 - [vim-startify](https://github.com/mhinz/vim-startify)
-- [diagnostic-nvim](https://github.com/nvim-lua/diagnostic-nvim) - **Should be moved to Neovim core in 0.5.x**
+- [galaxyline.nvim](https://github.com/glepnir/galaxyline.nvim)
 
 More to be added..
