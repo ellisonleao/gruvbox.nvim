@@ -765,6 +765,22 @@ Group.new("LspDiagnosticsSignHint", groups.GruvboxAquaSign, groups.GruvboxAquaSi
 Group.new("LspDiagnosticsUnderlineHint", groups.GruvboxAquaUnderline,
           groups.GruvboxAquaUnderline, groups.GruvboxAquaUnderline)
 
--- Galaxyline
+-- Galaxyline default providers
+Group.new("GalaxyGitBranch", fg0, blue, nil)
+Group.new("GalaxyGitBranchSeparator", yellow, bg0, nil)
+Group.new("GalaxyDiffAdd", green, bg0, nil)
+Group.new("GalaxyDiffAddSeparator", yellow, bg0, nil)
+Group.new("GalaxyScrollbar", green, bg0, nil)
+Group.new("GalaxyLinePercent", fg0, bg0, nil)
+Group.new("GalaxyFileTypeName", fg0, bg0, styles.bold)
+Group.new("GalaxyFileName", blue, bg0, styles.bold)
+Group.new("GalaxyFileIcon", groups.GalaxyFileName, groups.GalaxyFileName,
+          groups.GalaxyFileName)
+Group.new("GalaxyFileSize", groups.GalaxyFileName, groups.GalaxyFileName,
+          groups.GalaxyFileName)
+Group.new("GalaxyFileEncode", groups.GalaxyFileName, groups.GalaxyFileName,
+          groups.GalaxyFileName)
+Group.new("GalaxyFileFormat", groups.GalaxyFileName, groups.GalaxyFileName,
+          groups.GalaxyFileName)
 
 -- Treesitter
