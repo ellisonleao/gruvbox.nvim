@@ -768,8 +768,9 @@ Group.new("LspDiagnosticsUnderlineHint", groups.GruvboxAquaUnderline,
 -- Galaxyline default providers
 Group.new("GalaxyGitBranch", fg0, blue, nil)
 Group.new("GalaxyGitBranchSeparator", yellow, bg0, nil)
-Group.new("GalaxyDiffAdd", green, bg0, nil)
-Group.new("GalaxyDiffAddSeparator", yellow, bg0, nil)
+Group.new("GalaxyDiffAdd", groups.DiffAdd, nil, styles.bold)
+Group.new("GalaxyDiffModified", groups.DiffChange, nil, styles.bold)
+Group.new("GalaxyDiffRemove", groups.DiffDelete, nil, styles.bold)
 Group.new("GalaxyScrollbar", green, bg0, nil)
 Group.new("GalaxyLinePercent", fg0, bg0, nil)
 Group.new("GalaxyFileTypeName", fg0, bg0, styles.bold)
@@ -782,5 +783,14 @@ Group.new("GalaxyFileEncode", groups.GalaxyFileName, groups.GalaxyFileName,
           groups.GalaxyFileName)
 Group.new("GalaxyFileFormat", groups.GalaxyFileName, groups.GalaxyFileName,
           groups.GalaxyFileName)
+Group.new("GalaxyDiagnosticError", groups.LspDiagnosticsDefaultError,
+          groups.LspDiagnosticsDefaultError, groups.LspDiagnosticsDefaultError)
+Group.new("GalaxyDiagnosticWarn", groups.LspDiagnosticsDefaultWarning,
+          groups.LspDiagnosticsDefaultWarning, groups.LspDiagnosticsDefaultWarning)
+Group.new("GalaxyDiagnosticHint", groups.LspDiagnosticsDefaultHint,
+          groups.LspDiagnosticsDefaultHint, groups.LspDiagnosticsDefaultHint)
+Group.new("GalaxyDiagnosticInformation", groups.LspDiagnosticsDefaultInformation,
+          groups.LspDiagnosticsDefaultInformation,
+          groups.LspDiagnosticsDefaultInformation)
 
 -- Treesitter
