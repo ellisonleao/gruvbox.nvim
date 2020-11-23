@@ -766,7 +766,7 @@ Group.new("LspDiagnosticsUnderlineHint", groups.GruvboxAquaUnderline,
           groups.GruvboxAquaUnderline, groups.GruvboxAquaUnderline)
 
 -- Galaxyline default providers
-Group.new("GalaxyGitBranch", fg0, , nil)
+Group.new("GalaxyGitBranch", fg0, colors.faded_aqua, nil)
 Group.new("GalaxyGitBranchSeparator", yellow, bg0, nil)
 Group.new("GalaxyDiffAdd", groups.DiffAdd, nil, styles.bold)
 Group.new("GalaxyDiffModified", groups.DiffChange, nil, styles.bold)
