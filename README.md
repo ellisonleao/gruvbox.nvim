@@ -1,9 +1,8 @@
 # gruvbox.nvim
 
-A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) theme to lua.
+A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) theme to lua with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support!
 
-Please note that this plugin is under active development right now, so the status for it is still
-alpha.
+Please note that this plugin is under active development right now, so the status for it is still alpha.
 
 # Installing
 
@@ -14,6 +13,12 @@ Plug 'tjdevries/colorbuddy.nvim' # required
 Plug 'npxbr/gruvbox.nvim'
 ```
 
+Using `packer`
+
+```
+use {"npxbr/gruvbox.nvim", requires = {"tjdevries/colorbuddy.vim"}}
+```
+
 # Usage
 
 Inside `init.vim`
@@ -21,7 +26,7 @@ Inside `init.vim`
 ```lua
 lua require("colorbuddy").colorscheme("gruvbox")
 
-or
+-- or
 
 lua require("colorbuddy").colorscheme("gruvbox", "light") -- for light mode
 ```
