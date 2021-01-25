@@ -245,8 +245,8 @@ end
 
 Group.new("Delimiter", fg0)
 Group.new("Comment", colors.gray, nil, italic_comments)
-Group.new("Todo", fg0, bg0, styles.bold + styles.italic)
-Group.new("Error", red, bg0, styles.bold + styles.inverse)
+Group.new("Todo", fg0, nil, styles.bold + styles.italic)
+Group.new("Error", red, nil, styles.bold + styles.inverse)
 Group.new("Statement", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
 Group.new("Conditional", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
 Group.new("Repeat", groups.GruvboxRed, groups.GruvboxRed, groups.GruvboxRed)
