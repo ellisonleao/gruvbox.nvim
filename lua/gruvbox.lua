@@ -90,8 +90,8 @@ if vim.g.gruvbox_hls_cursor ~= nil then
 end
 
 local hls_highlight = yellow
-if vim.g.gruvbox_hls_cursor ~= nil then
-  hls_cursor = colors[vim.g.gruvbox_hls_highlight]
+if vim.g.gruvbox_hls_highlight ~= nil then
+  hls_highlight = colors[vim.g.gruvbox_hls_highlight]
 end
 
 local number_column
