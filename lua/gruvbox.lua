@@ -280,10 +280,10 @@ Group.new("PmenuSbar", nil, bg2)
 Group.new("PmenuThumb", nil, bg4)
 
 -- Diffs
-Group.new("DiffDelete", red, bg0, styles.inverse)
-Group.new("DiffAdd", green, bg0, styles.inverse)
-Group.new("DiffChange", aqua, bg0, styles.inverse)
-Group.new("DiffText", yellow, bg0, styles.inverse)
+Group.new("DiffDelete", red, bg1, invert_signs)
+Group.new("DiffAdd", green, bg1, invert_signs)
+Group.new("DiffChange", aqua, bg1, invert_signs)
+Group.new("DiffText", yellow, bg1, invert_signs)
 
 -- Spelling
 if vim.fn.has("spell") == 1 then
