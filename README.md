@@ -16,7 +16,7 @@ Plug 'npxbr/gruvbox.nvim'
 Using `packer`
 
 ```
-use {"npxbr/gruvbox.nvim", requires = {"tjdevries/colorbuddy.vim"}}
+use {"npxbr/gruvbox.nvim", requires = {"tjdevries/colorbuddy.nvim"}}
 ```
 
 # Usage
