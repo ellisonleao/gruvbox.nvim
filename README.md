@@ -9,26 +9,28 @@ Please note that this plugin is under active development right now, so the statu
 Using `vim-plug`
 
 ```
-Plug 'tjdevries/colorbuddy.nvim' # required
+Plug 'rktjmp/lush.nvim' # required
 Plug 'npxbr/gruvbox.nvim'
 ```
 
 Using `packer`
 
 ```
-use {"npxbr/gruvbox.nvim", requires = {"tjdevries/colorbuddy.vim"}}
+use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 ```
 
 # Usage
 
 Inside `init.vim`
 
+```vimscript
+set background=dark
+set colorscheme=gruvbox
+```
+
 ```lua
-lua require("colorbuddy").colorscheme("gruvbox")
-
--- or
-
-lua require("colorbuddy").colorscheme("gruvbox", "light") -- for light mode
+vim.o.background = "dark"
+vim.o.colorscheme = "gruvbox"
 ```
 
 # Configuration
@@ -39,6 +41,5 @@ all `g:gruvbox_` configs are the same [as the original one](https://github.com/m
 
 - [vim-signify](https://github.com/mhinz/vim-signify)
 - [vim-startify](https://github.com/mhinz/vim-startify)
-- [galaxyline.nvim](https://github.com/glepnir/galaxyline.nvim)
 
 More to be added..
