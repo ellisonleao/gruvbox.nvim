@@ -195,35 +195,22 @@ if not vim.g.gruvbox_improved_strings then
   special_string = {fg = hsl(green), gui = italic_strings}
 end
 
---[[
- let g:terminal_color_0 = s:gb.bg0[0]
-  let g:terminal_color_8 = s:gb.gray[0]
-
-  let g:terminal_color_1 = s:gb.neutral_red[0]
-  let g:terminal_color_9 = s:gb.red[0]
-
-  let g:terminal_color_2 = s:gb.neutral_green[0]
-  let g:terminal_color_10 = s:gb.green[0]
-
-  let g:terminal_color_3 = s:gb.neutral_yellow[0]
-  let g:terminal_color_11 = s:gb.yellow[0]
-
-  let g:terminal_color_4 = s:gb.neutral_blue[0]
-  let g:terminal_color_12 = s:gb.blue[0]
-
-  let g:terminal_color_5 = s:gb.neutral_purple[0]
-  let g:terminal_color_13 = s:gb.purple[0]
-
-  let g:terminal_color_6 = s:gb.neutral_aqua[0]
-  let g:terminal_color_14 = s:gb.aqua[0]
-
-  let g:terminal_color_7 = s:gb.fg4[0]
-  let g:terminal_color_15 = s:gb.fg1[0]
- ]]
-
+-- neovim terminal mode colors
 vim.g.terminal_color_0 = hsl(bg0)
 vim.g.terminal_color_8 = hsl(gray)
 vim.g.terminal_color_1 = hsl(colors.neutral_red)
+vim.g.terminal_color_2 = hsl(red)
+vim.g.terminal_color_10 = hsl(green)
+vim.g.terminal_color_3 = hsl(colors.neutral_yellow)
+vim.g.terminal_color_11 = hsl(yellow)
+vim.g.terminal_color_4 = hsl(colors.neutral_blue)
+vim.g.terminal_color_12 = hsl(blue)
+vim.g.terminal_color_5 = hsl(colors.neutral_purple)
+vim.g.terminal_color_13 = hsl(purple)
+vim.g.terminal_color_6 = hsl(colors.neutral_aqua)
+vim.g.terminal_color_14 = hsl(aqua)
+vim.g.terminal_color_7 = hsl(fg4)
+vim.g.terminal_color_15 = hsl(fg1)
 
 local theme = lush(function()
   return {
