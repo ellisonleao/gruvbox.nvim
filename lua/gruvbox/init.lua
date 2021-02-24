@@ -95,8 +95,16 @@ for k, val in pairs(settings) do
   end
 end
 
+-- set colors_name var
+vim.g.colors_name = "gruvbox"
+
 -- handle light/dark contrast settings
 local bg = vim.o.background
+if bg == nil then
+  bg = "dark"
+  vim.o.background = bg
+end
+
 local contrast = vim.g["gruvbox_contrast_" .. bg]
 if contrast == "hard" then
   bg0 = colors[bg .. "0_hard"]
@@ -186,6 +194,36 @@ if not vim.g.gruvbox_improved_strings then
   special = {fg = hsl(orange)}
   special_string = {fg = hsl(green), gui = italic_strings}
 end
+
+--[[
+ let g:terminal_color_0 = s:gb.bg0[0]
+  let g:terminal_color_8 = s:gb.gray[0]
+
+  let g:terminal_color_1 = s:gb.neutral_red[0]
+  let g:terminal_color_9 = s:gb.red[0]
+
+  let g:terminal_color_2 = s:gb.neutral_green[0]
+  let g:terminal_color_10 = s:gb.green[0]
+
+  let g:terminal_color_3 = s:gb.neutral_yellow[0]
+  let g:terminal_color_11 = s:gb.yellow[0]
+
+  let g:terminal_color_4 = s:gb.neutral_blue[0]
+  let g:terminal_color_12 = s:gb.blue[0]
+
+  let g:terminal_color_5 = s:gb.neutral_purple[0]
+  let g:terminal_color_13 = s:gb.purple[0]
+
+  let g:terminal_color_6 = s:gb.neutral_aqua[0]
+  let g:terminal_color_14 = s:gb.aqua[0]
+
+  let g:terminal_color_7 = s:gb.fg4[0]
+  let g:terminal_color_15 = s:gb.fg1[0]
+ ]]
+
+vim.g.terminal_color_0 = hsl(bg0)
+vim.g.terminal_color_8 = hsl(gray)
+vim.g.terminal_color_1 = hsl(colors.neutral_red)
 
 local theme = lush(function()
   return {

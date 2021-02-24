@@ -24,13 +24,13 @@ use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 Inside `init.vim`
 
 ```vimscript
-set background=dark
+set background=dark " or light if you want light mode
 set colorscheme=gruvbox
 ```
 
 ```lua
-vim.o.background = "dark"
-vim.o.colorscheme = "gruvbox"
+vim.o.background = "dark" -- or "light" for light mode
+vim.cmd([[ colorscheme  gruvbox]])
 ```
 
 # Configuration
