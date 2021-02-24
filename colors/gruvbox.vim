@@ -1,2 +1,2 @@
 lua package.loaded["gruvbox"] = nil
-lua require("gruvbox")
+lua require("lush")(require("gruvbox"))

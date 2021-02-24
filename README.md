@@ -2,43 +2,46 @@
 
 A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) theme to lua with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support!
 
-Please note that this plugin is under active development right now, so the status for it is still alpha.
+Please note that this plugin is under active development right now, so the status for it is still alpha. Please file issues if you find any bugs.
 
 # Installing
 
 Using `vim-plug`
 
 ```
-Plug 'tjdevries/colorbuddy.nvim' # required
+Plug 'rktjmp/lush.nvim' # required
 Plug 'npxbr/gruvbox.nvim'
 ```
 
 Using `packer`
 
 ```
-use {"npxbr/gruvbox.nvim", requires = {"tjdevries/colorbuddy.nvim"}}
+use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 ```
 
 # Usage
 
 Inside `init.vim`
 
+```vimscript
+set background=dark " or light if you want light mode
+set colorscheme=gruvbox
+```
+
 ```lua
-lua require("colorbuddy").colorscheme("gruvbox")
-
--- or
-
-lua require("colorbuddy").colorscheme("gruvbox", "light") -- for light mode
+vim.o.background = "dark" -- or "light" for light mode
+vim.cmd([[ colorscheme  gruvbox]])
 ```
 
 # Configuration
 
 all `g:gruvbox_` configs are the same [as the original one](https://github.com/morhetz/gruvbox/wiki/Configuration) except for `g:gruvbox_guisp_fallback`
 
-# Supported plugins
+# Additional supported plugins
 
 - [vim-signify](https://github.com/mhinz/vim-signify)
 - [vim-startify](https://github.com/mhinz/vim-startify)
-- [galaxyline.nvim](https://github.com/glepnir/galaxyline.nvim)
+- [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
 More to be added..
