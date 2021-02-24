@@ -8,14 +8,14 @@ Please note that this plugin is under active development right now, so the statu
 
 Using `vim-plug`
 
-```
+```vim
 Plug 'rktjmp/lush.nvim' # required
 Plug 'npxbr/gruvbox.nvim'
 ```
 
 Using `packer`
 
-```
+```lua
 use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 ```
 
@@ -23,7 +23,7 @@ use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
 Inside `init.vim`
 
-```vimscript
+```vim
 set background=dark " or light if you want light mode
 set colorscheme=gruvbox
 ```
