@@ -85,6 +85,7 @@ local styles = {
   bold = "bold",
   undercurl = "undercurl",
   underline = "underline",
+  boldunderline = "bold,underline",
 }
 
 -- setting default values
@@ -196,21 +197,21 @@ if not vim.g.gruvbox_improved_strings then
 end
 
 -- neovim terminal mode colors
-vim.g.terminal_color_0 = hsl(bg0)
-vim.g.terminal_color_8 = hsl(gray)
-vim.g.terminal_color_1 = hsl(colors.neutral_red)
-vim.g.terminal_color_2 = hsl(red)
-vim.g.terminal_color_10 = hsl(green)
-vim.g.terminal_color_3 = hsl(colors.neutral_yellow)
-vim.g.terminal_color_11 = hsl(yellow)
-vim.g.terminal_color_4 = hsl(colors.neutral_blue)
-vim.g.terminal_color_12 = hsl(blue)
-vim.g.terminal_color_5 = hsl(colors.neutral_purple)
-vim.g.terminal_color_13 = hsl(purple)
-vim.g.terminal_color_6 = hsl(colors.neutral_aqua)
-vim.g.terminal_color_14 = hsl(aqua)
-vim.g.terminal_color_7 = hsl(fg4)
-vim.g.terminal_color_15 = hsl(fg1)
+vim.g.terminal_color_0 = bg0
+vim.g.terminal_color_8 = gray
+vim.g.terminal_color_1 = colors.neutral_red
+vim.g.terminal_color_2 = red
+vim.g.terminal_color_10 = green
+vim.g.terminal_color_3 = colors.neutral_yellow
+vim.g.terminal_color_11 = yellow
+vim.g.terminal_color_4 = colors.neutral_blue
+vim.g.terminal_color_12 = blue
+vim.g.terminal_color_5 = colors.neutral_purple
+vim.g.terminal_color_13 = purple
+vim.g.terminal_color_6 = colors.neutral_aqua
+vim.g.terminal_color_14 = aqua
+vim.g.terminal_color_7 = fg4
+vim.g.terminal_color_15 = fg1
 
 local theme = lush(function()
   return {
@@ -304,7 +305,7 @@ local theme = lush(function()
     Bold {gui = styles.bold},
     Italic {gui = styles.italic},
     Ignore {},
-    Error {fg = hsl(red), gui = styles.bold .. "," .. styles.underline}, -- TODO: check if we have some abstraction to merge two styles
+    Error {fg = hsl(red), gui = styles.boldunderline}, -- TODO: check if we have some abstraction to merge two styles
     Todo {fg = hsl(fg0), gui = styles.bold .. "," .. italic_comments},
 
     -- LSP
@@ -525,11 +526,11 @@ local theme = lush(function()
     htmlSpecialChar {fg = hsl(red)},
     htmlLink {fg = hsl(fg4), gui = styles.underline},
     htmlBold {fg = hsl(fg1), gui = styles.bold},
-    htmlBoldUnderline {fg = hsl(fg1), gui = styles.bold .. "," .. styles.underline},
+    htmlBoldUnderline {fg = hsl(fg1), gui = styles.boldunderline},
     htmlBoldItalic {fg = hsl(fg1), gui = styles.bold .. "," .. italic_strings},
     htmlBoldUnderlineItalic {
       fg = hsl(fg1),
-      gui = styles.bold .. "," .. styles.underline .. "," .. italic_strings,
+      gui = styles.boldunderline .. "," .. italic_strings,
     },
     htmlItalic {fg = hsl(fg1), gui = italic_strings},
 
