@@ -37,9 +37,11 @@ vim.cmd([[ colorscheme  gruvbox]])
 
 all `g:gruvbox_` configs are the same [as the original one](https://github.com/morhetz/gruvbox/wiki/Configuration) except for `g:gruvbox_guisp_fallback`
 
-# Supported plugins
+# Additional supported plugins
 
 - [vim-signify](https://github.com/mhinz/vim-signify)
 - [vim-startify](https://github.com/mhinz/vim-startify)
+- [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
 More to be added..

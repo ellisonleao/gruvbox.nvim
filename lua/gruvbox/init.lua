@@ -178,12 +178,12 @@ if vim.g.gruvbox_tabline_sel then
   tabline_sel = colors[vim.g.gruvbox_tabline_sel]
 end
 
-local italic_comments = settings.italic
+local italic_comments = styles.italic
 if not vim.g.gruvbox_italicize_comments then
-  italic_comments = nil
+  italic_comments = ""
 end
 
-local italic_strings
+local italic_strings = "NONE"
 if vim.g.gruvbox_italicize_strings then
   italic_strings = styles.italic
 end
@@ -249,7 +249,7 @@ local theme = lush(function()
     DiffText {fg = hsl(yellow), bg = hsl(bg1), gui = invert_signs},
     ErrorMsg {fg = hsl(bg0), bg = hsl(red), gui = styles.bold},
     VertSplit {fg = hsl(bg3), bgb = hsl(vert_split)},
-    Folded {fg = hsl(gray), bg = hsl(bg1), gui = styles.italic},
+    Folded {fg = hsl(gray), bg = hsl(bg1), gui = italic_strings},
     FoldColumn {fg = hsl(gray), bg = hsl(bg1)},
     SignColumn {bg = hsl(sign_column)},
     IncSearch {fg = hsl(hls_cursor), bg = hsl(bg0), gui = styles.inverse},
@@ -310,14 +310,15 @@ local theme = lush(function()
     SpecialChar {fg = hsl(red)},
     Tag {fg = hsl(aqua), gui = styles.bold},
     Delimiter {fg = hsl(fg0)},
-    SpecialComment {fg = hsl(gray), gui = styles.italic},
+    Comment {fg = hsl(gray), gui = italic_comments},
+    SpecialComment {fg = hsl(gray), gui = styles.bold .. "," .. italic_comments},
     Debug {fg = hsl(red)},
     Underlined {gui = styles.underline},
     Bold {gui = styles.bold},
     Italic {gui = styles.italic},
     Ignore {},
     Error {fg = hsl(red), gui = styles.bold .. "," .. styles.underline}, -- TODO: check if we have some abstraction to merge two styles
-    Todo {fg = hsl(fg0), gui = styles.bold .. "," .. styles.italic},
+    Todo {fg = hsl(fg0), gui = styles.bold .. "," .. italic_comments},
 
     -- LSP
     LspDiagnosticsError {Error},
@@ -385,7 +386,7 @@ local theme = lush(function()
     TSAnnotation {PreProc},
     TSText {TSNone},
     TSStrong {gui = styles.bold},
-    TSEmphasis {gui = styles.italic},
+    TSEmphasis {gui = italic_strings},
     TSUnderline {gui = styles.underline},
     TSTitle {Title},
     TSLiteral {String},
@@ -538,12 +539,12 @@ local theme = lush(function()
     htmlLink {fg = hsl(fg4), gui = styles.underline},
     htmlBold {fg = hsl(fg1), gui = styles.bold},
     htmlBoldUnderline {fg = hsl(fg1), gui = styles.bold .. "," .. styles.underline},
-    htmlBoldItalic {fg = hsl(fg1), gui = styles.bold .. "," .. styles.italic},
+    htmlBoldItalic {fg = hsl(fg1), gui = styles.bold .. "," .. italic_strings},
     htmlBoldUnderlineItalic {
       fg = hsl(fg1),
-      gui = styles.bold .. "," .. styles.underline .. "," .. styles.italic,
+      gui = styles.bold .. "," .. styles.underline .. "," .. italic_strings,
     },
-    htmlItalic {fg = hsl(fg1), gui = styles.italic},
+    htmlItalic {fg = hsl(fg1), gui = italic_strings},
 
     -- special diffs
     diffAdded {fg = hsl(green)},
@@ -751,7 +752,7 @@ local theme = lush(function()
     scalaInterpolation {fg = hsl(aqua)},
 
     -- markdown
-    markdownItalic {fg = hsl(fg3), gui = styles.italic},
+    markdownItalic {fg = hsl(fg3), gui = italic_strings},
     markdownH1 {fg = hsl(green), gui = styles.bold},
     markdownH2 {markdownH1},
     markdownH3 {fg = hsl(yellow), gui = styles.bold},
@@ -942,6 +943,55 @@ local theme = lush(function()
     -- gitcommit
     gitcommitSelectedFile {fg = hsl(green)},
     gitcommitDiscardedFile {fg = hsl(red)},
+
+    -- lspsaga
+    LspSagaDiagnosticBorder {NormalNC},
+    LspSagaDiagnosticHeader {fg = hsl(red)},
+    LspSagaDiagnosticTruncateLine {NormalNC},
+    LspFloatWinBorder {NormalNC},
+    LspSagaBorderTitle {Title},
+    TargetWord {Error},
+    ReferencesCount {Title},
+    ReferencesIcon {Special},
+    DefinitionCount {Title},
+    TargetFileName {Comment},
+    DefinitionIcon {Special},
+    ProviderTruncateLine {NormalNC},
+    SagaShadow {bg = hsl(bg0)},
+    LspSagaFinderSelection {Search},
+    DiagnosticTruncateLine {NormalNC},
+    DiagnosticError {LspDiagnosticsError},
+    DiagnosticWarning {LspDiagnosticsWarning},
+    DiagnosticInformation {LspDiagnosticsInformation},
+    DiagnosticHint {LspDiagnosticsHint},
+    DefinitionPreviewTitle {Title},
+    LspSagaShTruncateLine {NormalNC},
+    LspSagaDocTruncateLine {NormalNC},
+    LineDiagTuncateLine {NormalNC},
+    LspSagaCodeActionTitle {Title},
+    LspSagaCodeActionTruncateLine {NormalNC},
+    LspSagaCodeActionContent {Normal},
+    LspSagaRenamePromptPrefix {fg = hsl(fg2)},
+    LspSagaRenameBorder {gui = styles.bold},
+    LspSagaHoverBorder {gui = styles.bold},
+    LspSagaSignatureHelpBorder {gui = styles.bold},
+    LspSagaCodeActionBorder {gui = styles.bold},
+    LspSagaAutoPreview {},
+    LspSagaDefPreviewBorder {gui = styles.bold},
+    LspLinesDiagBorder {gui = styles.bold},
+
+    -- telescope
+    TelescopeSelection {fg = hsl(orange), gui = styles.bold},
+    TelescopeSlectionCaret {fg = hsl(red)},
+    TelescopeMultiSelection {fg = hsl(gray)},
+    TelescopeNormal {fg = hsl(fg1)},
+    TelescopeBorder {TelescopeNormal},
+    TelescopePromptBorder {TelescopeNormal},
+    TelescopeResultsBorder {TelescopeNormal},
+    TelescopePreviewBorder {TelescopeNormal},
+    TelescopeMatching {fg = hsl(blue)},
+    TelescopePromptPrefix {fg = hsl(red)},
+    TelescopePrompt {TelescopeNormal},
   }
 end)
 
