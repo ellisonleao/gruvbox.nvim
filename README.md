@@ -28,9 +28,10 @@ set background=dark " or light if you want light mode
 set colorscheme=gruvbox
 ```
 
+Inside `init.lua`
 ```lua
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[ colorscheme  gruvbox]])
+vim.cmd([[colorscheme gruvbox]])
 ```
 
 # Configuration
