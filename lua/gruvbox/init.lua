@@ -318,14 +318,12 @@ local groups = lush(function()
     netrwHelpCmd {netrwDir},
     netrwCmdSep {fg = hsl(fg3)},
     netrwVersion {fg = hsl(green)},
-
     -- golang
     goDirective {fg = hsl(aqua)},
     goConstants {fg = hsl(purple)},
     goDeclaration {fg = hsl(red)},
     goDeclType {fg = hsl(blue)},
     goBuiltins {fg = hsl(orange)},
-
     -- java
     javaAnnotation {fg = hsl(blue)},
     javaDocTags {fg = hsl(aqua)},
@@ -337,7 +335,6 @@ local groups = lush(function()
     javaParen4 {fg = hsl(fg3)},
     javaParen5 {fg = hsl(fg3)},
     javaOperator {fg = hsl(orange)},
-
     -- xml
     xmlTag {fg = hsl(aqua), gui = styles.bold},
     xmlEndTag {fg = hsl(aqua), gui = styles.bold},
@@ -357,7 +354,6 @@ local groups = lush(function()
     xmlAttribPunct {fg = hsl(gray)},
     xmlEntity {fg = hsl(red)},
     xmlEntityPunct {fg = hsl(red)},
-
     -- viml
     vimNotation {fg = hsl(orange)},
     vimBracket {fg = hsl(orange)},
@@ -366,12 +362,10 @@ local groups = lush(function()
     vimSetSep {fg = hsl(fg3)},
     vimSep {fg = hsl(fg3)},
     vimContinue {fg = hsl(fg3)},
-
     -- c
     cOperator {fg = hsl(purple)},
     cppOperator {fg = hsl(purple)},
     cStructure {fg = hsl(orange)},
-
     -- python
     pythonBuiltin {fg = hsl(orange)},
     pythonBuiltinObj {fg = hsl(orange)},
@@ -390,35 +384,29 @@ local groups = lush(function()
     pythonConditional {fg = hsl(red)},
     pythonRepeat {fg = hsl(red)},
     pythonDottedName {fg = hsl(green), gui = styles.bold},
-
     -- clojure
     clojureRegexpCharClass {fg = hsl(fg3), gui = styles.bold},
     clojureKeyword {fg = hsl(blue)},
     clojureCond {fg = hsl(orange)},
     clojureSpecial {fg = hsl(orange)},
     clojureDefine {fg = hsl(orange)},
-
     clojureFunc {fg = hsl(yellow)},
     clojureRepeat {fg = hsl(yellow)},
     clojureCharacter {fg = hsl(aqua)},
     clojureStringEscape {fg = hsl(aqua)},
     clojureException {fg = hsl(red)},
-
     clojureRegexp {fg = hsl(aqua)},
     clojureRegexpEscape {fg = hsl(aqua)},
     clojureRegexpMod {clojureRegexpCharClass},
     clojureRegexpQuantifier {clojureRegexpCharClass},
-
     clojureParen {fg = hsl(fg3)},
     clojureAnonArg {fg = hsl(yellow)},
     clojureVariable {fg = hsl(blue)},
     clojureMacro {fg = hsl(orange)},
-
     clojureMeta {fg = hsl(yellow)},
     clojureDeref {fg = hsl(yellow)},
     clojureQuote {fg = hsl(yellow)},
     clojureUnquote {fg = hsl(yellow)},
-
     -- html
     htmlTag {fg = hsl(aqua), gui = styles.bold},
     htmlEndTag {fg = hsl(aqua), gui = styles.bold},
@@ -437,7 +425,6 @@ local groups = lush(function()
       gui = styles.boldunderline .. "," .. italic_strings,
     },
     htmlItalic {fg = hsl(fg1), gui = italic_strings},
-
     -- special diffs
     diffAdded {fg = hsl(green)},
     diffRemoved {fg = hsl(red)},
@@ -445,7 +432,6 @@ local groups = lush(function()
     diffFile {fg = hsl(orange)},
     diffNewFile {fg = hsl(yellow)},
     diffLine {fg = hsl(blue)},
-
     -- css
     cssBraces {fg = hsl(blue)},
     cssFunctionName {fg = hsl(yellow)},
@@ -477,7 +463,6 @@ local groups = lush(function()
     cssRenderProp {fg = hsl(aqua)},
     cssColorProp {fg = hsl(aqua)},
     cssGeneratedContentProp {fg = hsl(aqua)},
-
     -- js
     javaScriptBraces {fg = hsl(fg1)},
     javaScriptFunction {fg = hsl(aqua)},
@@ -557,7 +542,6 @@ local groups = lush(function()
     jsUndefined {fg = hsl(purple)},
     jsClassDefinition {fg = hsl(yellow)},
     jsOperatorKeyword {fg = hsl(red)},
-
     -- typescript
     typescriptReserved {fg = hsl(aqua)},
     typescriptLabel {fg = hsl(aqua)},
@@ -577,14 +561,12 @@ local groups = lush(function()
     typescriptHtmlElemProperties {fg = hsl(fg1)},
     typescriptNull {fg = hsl(purple)},
     typescriptInterpolationDelimiter {fg = hsl(aqua)},
-
     -- jsx
     jsxTagName {fg = hsl(aqua)},
     jsxComponentName {fg = hsl(green)},
     jsxCloseString {fg = hsl(fg4)},
     jsxAttrib {fg = hsl(yellow)},
     jsxEqual {fg = hsl(aqua)},
-
     -- purescript
     purescriptModuleKeyword {fg = hsl(aqua)},
     purescriptModuleName {fg = hsl(fg1)},
@@ -601,34 +583,28 @@ local groups = lush(function()
     purescriptFunction {fg = hsl(fg1)},
     purescriptConditional {fg = hsl(orange)},
     purescriptBacktick {fg = hsl(orange)},
-
     -- coffeescript
     coffeeExtendedOp {fg = hsl(fg3)},
     coffeeSpecialOp {fg = hsl(fg3)},
     coffeeCurly {fg = hsl(orange)},
     coffeeParen {fg = hsl(fg3)},
     coffeeBracket {fg = hsl(orange)},
-
     -- ruby
     rubyStringDelimiter {fg = hsl(green)},
     rubyInterpolationDelimiter {fg = hsl(aqua)},
-
     -- obj-c
     objcTypeModifier {fg = hsl(red)},
     objcDirective {fg = hsl(blue)},
-
     -- moonscript
     moonSpecialOp {fg = hsl(fg3)},
     moonExtendedOp {fg = hsl(fg3)},
     moonFunction {fg = hsl(fg3)},
     moonObject {fg = hsl(yellow)},
-
     -- elixir
     elixirDocString {SpecialComment},
     elixirStringDelimiter {fg = hsl(green)},
     elixirInterpolationDelimiter {fg = hsl(aqua)},
     elixirModuleDeclaration {fg = hsl(yellow)},
-
     -- scala
     scalaNameDefinition {fg = hsl(fg1)},
     scalaCaseFollowing {fg = hsl(fg1)},
@@ -642,7 +618,6 @@ local groups = lush(function()
     scalaTypeTypePostDeclaration {fg = hsl(yellow)},
     scalaInstanceDeclaration {fg = hsl(fg1)},
     scalaInterpolation {fg = hsl(aqua)},
-
     -- markdown
     markdownItalic {fg = hsl(fg3), gui = italic_strings},
     markdownH1 {fg = hsl(green), gui = styles.bold},
@@ -667,7 +642,6 @@ local groups = lush(function()
     markdownUrlTitleDelimiter {fg = hsl(green)},
     markdownLinkText {fg = hsl(gray), gui = styles.underline},
     markdownIdDeclaration {markdownLinkText},
-
     -- haskell
     haskellType {fg = hsl(blue)},
     haskellIdentifier {fg = hsl(aqua)},
@@ -703,13 +677,11 @@ local groups = lush(function()
     haskellTypeRoles {fg = hsl(red), gui = styles.bold},
     haskellTypeForall {fg = hsl(red)},
     haskellPatternKeyword {fg = hsl(blue)},
-
     -- json
     jsonKeyword {fg = hsl(green)},
     jsonQuote {fg = hsl(green)},
     jsonBraces {fg = hsl(fg1)},
     jsonString {fg = hsl(fg1)},
-
     -- mail.vim
     mailQuoted1 {fg = hsl(aqua)},
     mailQuoted2 {fg = hsl(purple)},
@@ -718,7 +690,6 @@ local groups = lush(function()
     mailQuoted5 {fg = hsl(red)},
     mailQuoted6 {fg = hsl(orange)},
     mailSignature {SpecialComment},
-
     -- csharp
     csBraces {fg = hsl(fg1)},
     csEndColon {fg = hsl(fg1)},
@@ -729,7 +700,6 @@ local groups = lush(function()
     csInterpolationAlignDel {fg = hsl(aqua), gui = styles.bold},
     csInterpolationFormat {fg = hsl(aqua)},
     csInterpolationFormatDel {fg = hsl(aqua), gui = styles.bold},
-
     -- rust
     rustSigil {fg = hsl(orange)},
     rustEscape {fg = hsl(aqua)},
@@ -739,19 +709,16 @@ local groups = lush(function()
     rustModPathSep {fg = hsl(fg2)},
     rustCommentLineDoc {SpecialComment},
     rustDefault {fg = hsl(aqua)},
-
     -- ocaml
     ocamlOperator {fg = hsl(fg1)},
     ocamlKeyChar {fg = hsl(orange)},
     ocamlArrow {fg = hsl(orange)},
     ocamlInfixOpKeyword {fg = hsl(red)},
     ocamlConstructor {fg = hsl(orange)},
-
     -- lua
     luaIn {fg = hsl(red)},
     luaFunction {fg = hsl(aqua)},
     luaTable {fg = hsl(orange)},
-
     -- LSP
     LspDiagnosticsError {Error},
     LspDiagnosticsErrorSign {fg = hsl(red), bg = hsl(sign_column), gui = invert_signs},
@@ -784,303 +751,192 @@ local groups = lush(function()
     -- gitcommit
     gitcommitSelectedFile {fg = hsl(green)},
     gitcommitDiscardedFile {fg = hsl(red)},
+
+    -- nvim-treesitter
+    TSNone {},
+    TSError {Error},
+    TSPunctDelimiter {Delimiter},
+    TSPunctBracket {Delimiter},
+    TSPunctSpecial {Delimiter},
+    TSConstant {Constant},
+    TSConstBuiltin {Special},
+    TSConstMacro {Define},
+    TSString {String},
+    TSStringRegex {String},
+    TSStringEscape {SpecialChar},
+    TSCharacter {Character},
+    TSNumber {Number},
+    TSBoolean {Boolean},
+    TSFloat {Float},
+    TSFunction {Function},
+    TSFuncBuiltin {Special},
+    TSFuncMacro {Macro},
+    TSParameter {Identifier},
+    TSParameterReference {TSParameter},
+    TSMethod {Function},
+    TSField {Identifier},
+    TSProperty {Identifier},
+    TSConstructor {Special},
+    TSConditional {Conditional},
+    TSRepeat {Repeat},
+    TSLabel {Label},
+    TSOperator {Operator},
+    TSKeyword {Keyword},
+    TSKeywordFunction {Keyword},
+    TSException {Exception},
+    TSType {Type},
+    TSTypeBuiltin {Type},
+    TSNamespace {Include},
+    TSInclude {Include},
+    TSAnnotation {PreProc},
+    TSText {TSNone},
+    TSStrong {gui = styles.bold},
+    TSEmphasis {gui = italic_strings},
+    TSUnderline {gui = styles.underline},
+    TSTitle {Title},
+    TSLiteral {String},
+    TSURI {Underlined},
+    TSVariable {Special},
+    TSVariableBuiltin {Special},
+    -- telescope.nvim
+    -- telescope
+    TelescopeSelection {fg = hsl(orange), gui = styles.bold},
+    TelescopeSlectionCaret {fg = hsl(red)},
+    TelescopeMultiSelection {fg = hsl(gray)},
+    TelescopeNormal {fg = hsl(fg1)},
+    TelescopeBorder {TelescopeNormal},
+    TelescopePromptBorder {TelescopeNormal},
+    TelescopeResultsBorder {TelescopeNormal},
+    TelescopePreviewBorder {TelescopeNormal},
+    TelescopeMatching {fg = hsl(blue)},
+    TelescopePromptPrefix {fg = hsl(red)},
+    TelescopePrompt {TelescopeNormal},
+    LspSagaDiagnosticBorder {NormalNC},
+    LspSagaDiagnosticHeader {fg = hsl(red)},
+    LspSagaDiagnosticTruncateLine {NormalNC},
+    LspFloatWinBorder {NormalNC},
+    LspSagaBorderTitle {Title},
+    TargetWord {Error},
+    ReferencesCount {Title},
+    ReferencesIcon {Special},
+    DefinitionCount {Title},
+    TargetFileName {Comment},
+    DefinitionIcon {Special},
+    ProviderTruncateLine {NormalNC},
+    SagaShadow {bg = hsl(bg0)},
+    LspSagaFinderSelection {Search},
+    DiagnosticTruncateLine {NormalNC},
+    DiagnosticError {LspDiagnosticsError},
+    DiagnosticWarning {LspDiagnosticsWarning},
+    DiagnosticInformation {LspDiagnosticsInformation},
+    DiagnosticHint {LspDiagnosticsHint},
+    DefinitionPreviewTitle {Title},
+    LspSagaShTruncateLine {NormalNC},
+    LspSagaDocTruncateLine {NormalNC},
+    LineDiagTuncateLine {NormalNC},
+    LspSagaCodeActionTitle {Title},
+    LspSagaCodeActionTruncateLine {NormalNC},
+    LspSagaCodeActionContent {Normal},
+    LspSagaRenamePromptPrefix {fg = hsl(fg2)},
+    LspSagaRenameBorder {gui = styles.bold},
+    LspSagaHoverBorder {gui = styles.bold},
+    LspSagaSignatureHelpBorder {gui = styles.bold},
+    LspSagaCodeActionBorder {gui = styles.bold},
+    LspSagaAutoPreview {},
+    LspSagaDefPreviewBorder {gui = styles.bold},
+    LspLinesDiagBorder {gui = styles.bold},
+    -- vim-startify
+    StartifyBracket {Delimiter},
+    StartifyFile {Identifier},
+    StartifyNumber {Number},
+    StartifyPath {Directory},
+    StartifySlash {Delimiter},
+    StartifySection {Statement},
+    StartifySpecial {Comment},
+    StartifyHeader {Title},
+    StartifyFooter {Title},
+    StartifyVar {StartifyPath},
+    StartifySelect {Title},
+    -- vim-signify
+    SignifySignAdd {fg = hsl(green), bg = hsl(sign_column), gui = invert_signs},
+    SignifySignChange {fg = hsl(aqua), bg = hsl(sign_column), gui = invert_signs},
+    SignifySignDelete {fg = hsl(red), bg = hsl(sign_column), gui = invert_signs},
+    -- vim-dirvish
+    DirvishPathTail {fg = hsl(aqua)},
+    DirvishArg {fg = hsl(yellow)},
+    -- nerdtree 
+    NERDTreeDir {fg = hsl(aqua)},
+    NERDTreeDirSlash {fg = hsl(aqua)},
+    NERDTreeOpenable {fg = hsl(orange)},
+    NERDTreeClosable {fg = hsl(orange)},
+    NERDTreeFile {fg = hsl(fg1)},
+    NERDTreeExecFile {fg = hsl(yellow)},
+    NERDTreeUp {fg = hsl(gray)},
+    NERDTreeCWD {fg = hsl(green)},
+    NERDTreeHelp {fg = hsl(fg1)},
+    NERDTreeToggleOn {fg = hsl(green)},
+    NERDTreeToggleOff {fg = hsl(red)},
+    -- coc.nvim
+    CocErrorSign {fg = hsl(red), bg = hsl(sign_column)},
+    CocWarningSign {fg = hsl(orange), bg = hsl(sign_column)},
+    CocInfoSign {fg = hsl(blue), bg = hsl(sign_column)},
+    CocHintSign {fg = hsl(aqua), bg = hsl(sign_column)},
+    CocErrorFloat {fg = hsl(red)},
+    CocWarningFloat {fg = hsl(orange)},
+    CocInfoFloat {fg = hsl(blue)},
+    CocHintFloat {fg = hsl(aqua)},
+    CocDiagnosticsError {fg = hsl(red)},
+    CocDiagnosticsWarning {fg = hsl(orange)},
+    CocDiagnosticsInfo {fg = hsl(blue)},
+    CocDiagnosticsHint {fg = hsl(aqua)},
+    CocSelectedText {fg = hsl(red)},
+    CocCodeLens {fg = hsl(gray)},
+    CocErrorHighlight {fg = hsl(red), gui = styles.underline},
+    CocWarningHighlight {fg = hsl(orange), gui = styles.underline},
+    CocInfoHighlight {fg = hsl(blue), gui = styles.underline},
+    CocHintHighlight {fg = hsl(aqua), gui = styles.underline},
+
+    -- ale.vim
+    ALEError {fg = hsl(red), gui = styles.underline},
+    ALEWarning {fg = hsl(yellow), gui = styles.underline},
+    ALEInfo {fg = hsl(blue), gui = styles.underline},
+    ALEErrorSign {fg = hsl(red), bg = hsl(sign_column)},
+    ALEWarningSign {fg = hsl(yellow), bg = hsl(sign_column)},
+    ALEInfoSign {fg = hsl(blue), bg = hsl(sign_column)},
+    ALEVirtualTextError {fg = hsl(red)},
+    ALEVirtualTextWarning {fg = hsl(yellow)},
+    ALEVirtualTextInfo {fg = hsl(blue)},
+    -- vim-buftabline
+    BufTabLineCurrent {TabLineSel},
+    BufTabLineActive {PmenuSel},
+    BufTabLineHidden {TabLine},
+    BufTabLineFill {TabLineFill},
+    BufTabLineModifiedCurrent {BufTabLineCurrent},
+    BufTabLineModifiedActive {BufTabLineActive},
+    BufTabLineModifiedHidden {BufTabLineHidden},
+    -- ctrlP 
+    CtrlPMatch {Identifier},
+    CtrlPNoEntries {Error},
+    CtrlPPrtBase {Comment},
+    CtrlPPrtCursor {Constant},
+    CtrlPLinePre {fg = hsl(bg2)},
+    CtrlPMode1 {Character},
+    CtrlPMode2 {LineNr},
+    CtrlPStats {Function},
+    -- fzf.vim
+    Fzf1 {fg = hsl(blue), bg = hsl(bg1)},
+    Fzf2 {fg = hsl(orange), bg = hsl(bg1)},
+    Fzf3 {fg = hsl(fg4), bg = hsl(bg1)},
+    ShowMarksHLl {fg = hsl(blue), bg = hsl(sign_column)},
+    ShowMarksHLu {fg = hsl(blue), bg = hsl(sign_column)},
+    ShowMarksHLo {fg = hsl(blue), bg = hsl(sign_column)},
+    ShowMarksHLm {fg = hsl(blue), bg = hsl(sign_column)},
+    -- git-gutter
+    GitGutterAdd {fg = hsl(green), bg = hsl(sign_column)},
+    GitGutterChange {fg = hsl(aqua), bg = hsl(sign_column)},
+    GitGutterDelete {fg = hsl(red), bg = hsl(sign_column)},
+    GitGutterChangeDelete {fg = hsl(aqua), bg = hsl(sign_column)},
   }
 end)
-
--- loading highlight groups only if the plugin is installed
--- nvim-treesitter
-if vim.g.loaded_nvim_treesitter == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        TSNone {},
-        TSError {Error},
-        TSPunctDelimiter {Delimiter},
-        TSPunctBracket {Delimiter},
-        TSPunctSpecial {Delimiter},
-        TSConstant {Constant},
-        TSConstBuiltin {Special},
-        TSConstMacro {Define},
-        TSString {String},
-        TSStringRegex {String},
-        TSStringEscape {SpecialChar},
-        TSCharacter {Character},
-        TSNumber {Number},
-        TSBoolean {Boolean},
-        TSFloat {Float},
-        TSFunction {Function},
-        TSFuncBuiltin {Special},
-        TSFuncMacro {Macro},
-        TSParameter {Identifier},
-        TSParameterReference {TSParameter},
-        TSMethod {Function},
-        TSField {Identifier},
-        TSProperty {Identifier},
-        TSConstructor {Special},
-        TSConditional {Conditional},
-        TSRepeat {Repeat},
-        TSLabel {Label},
-        TSOperator {Operator},
-        TSKeyword {Keyword},
-        TSKeywordFunction {Keyword},
-        TSException {Exception},
-        TSType {Type},
-        TSTypeBuiltin {Type},
-        TSNamespace {Include},
-        TSInclude {Include},
-        TSAnnotation {PreProc},
-        TSText {TSNone},
-        TSStrong {gui = styles.bold},
-        TSEmphasis {gui = italic_strings},
-        TSUnderline {gui = styles.underline},
-        TSTitle {Title},
-        TSLiteral {String},
-        TSURI {Underlined},
-        TSVariable {Special},
-        TSVariableBuiltin {Special},
-      }
-    end))
-end
-
--- telescope.nvim
-local telescope_exists = pcall(require, "telescope.builtin")
-if telescope_exists then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        -- telescope
-        TelescopeSelection {fg = hsl(orange), gui = styles.bold},
-        TelescopeSlectionCaret {fg = hsl(red)},
-        TelescopeMultiSelection {fg = hsl(gray)},
-        TelescopeNormal {fg = hsl(fg1)},
-        TelescopeBorder {TelescopeNormal},
-        TelescopePromptBorder {TelescopeNormal},
-        TelescopeResultsBorder {TelescopeNormal},
-        TelescopePreviewBorder {TelescopeNormal},
-        TelescopeMatching {fg = hsl(blue)},
-        TelescopePromptPrefix {fg = hsl(red)},
-        TelescopePrompt {TelescopeNormal},
-      }
-    end))
-end
-
--- lspsaga.nvim
-if vim.g.loaded_lspsaga == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        LspSagaDiagnosticBorder {NormalNC},
-        LspSagaDiagnosticHeader {fg = hsl(red)},
-        LspSagaDiagnosticTruncateLine {NormalNC},
-        LspFloatWinBorder {NormalNC},
-        LspSagaBorderTitle {Title},
-        TargetWord {Error},
-        ReferencesCount {Title},
-        ReferencesIcon {Special},
-        DefinitionCount {Title},
-        TargetFileName {Comment},
-        DefinitionIcon {Special},
-        ProviderTruncateLine {NormalNC},
-        SagaShadow {bg = hsl(bg0)},
-        LspSagaFinderSelection {Search},
-        DiagnosticTruncateLine {NormalNC},
-        DiagnosticError {LspDiagnosticsError},
-        DiagnosticWarning {LspDiagnosticsWarning},
-        DiagnosticInformation {LspDiagnosticsInformation},
-        DiagnosticHint {LspDiagnosticsHint},
-        DefinitionPreviewTitle {Title},
-        LspSagaShTruncateLine {NormalNC},
-        LspSagaDocTruncateLine {NormalNC},
-        LineDiagTuncateLine {NormalNC},
-        LspSagaCodeActionTitle {Title},
-        LspSagaCodeActionTruncateLine {NormalNC},
-        LspSagaCodeActionContent {Normal},
-        LspSagaRenamePromptPrefix {fg = hsl(fg2)},
-        LspSagaRenameBorder {gui = styles.bold},
-        LspSagaHoverBorder {gui = styles.bold},
-        LspSagaSignatureHelpBorder {gui = styles.bold},
-        LspSagaCodeActionBorder {gui = styles.bold},
-        LspSagaAutoPreview {},
-        LspSagaDefPreviewBorder {gui = styles.bold},
-        LspLinesDiagBorder {gui = styles.bold},
-      }
-    end))
-end
-
--- vim-startify
-if vim.g.loaded_startify == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        StartifyBracket {Delimiter},
-        StartifyFile {Identifier},
-        StartifyNumber {Number},
-        StartifyPath {Directory},
-        StartifySlash {Delimiter},
-        StartifySection {Statement},
-        StartifySpecial {Comment},
-        StartifyHeader {Title},
-        StartifyFooter {Title},
-        StartifyVar {StartifyPath},
-        StartifySelect {Title},
-      }
-    end))
-end
-
--- vim-signify
-if vim.g.loaded_signify == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        SignifySignAdd {fg = hsl(green), bg = hsl(sign_column), gui = invert_signs},
-        SignifySignChange {fg = hsl(aqua), bg = hsl(sign_column), gui = invert_signs},
-        SignifySignDelete {fg = hsl(red), bg = hsl(sign_column), gui = invert_signs},
-      }
-    end))
-end
-
--- vim-dirvish
-if vim.g.loaded_dirvish == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {DirvishPathTail {fg = hsl(aqua)}, DirvishArg {fg = hsl(yellow)}}
-    end))
-end
-
--- nerdtree 
-if vim.g.loaded_nerd_tree == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        NERDTreeDir {fg = hsl(aqua)},
-        NERDTreeDirSlash {fg = hsl(aqua)},
-        NERDTreeOpenable {fg = hsl(orange)},
-        NERDTreeClosable {fg = hsl(orange)},
-        NERDTreeFile {fg = hsl(fg1)},
-        NERDTreeExecFile {fg = hsl(yellow)},
-        NERDTreeUp {fg = hsl(gray)},
-        NERDTreeCWD {fg = hsl(green)},
-        NERDTreeHelp {fg = hsl(fg1)},
-        NERDTreeToggleOn {fg = hsl(green)},
-        NERDTreeToggleOff {fg = hsl(red)},
-
-      }
-    end))
-end
-
--- coc.nvim
-if vim.g.did_coc_loaded == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        CocErrorSign {fg = hsl(red), bg = hsl(sign_column)},
-        CocWarningSign {fg = hsl(orange), bg = hsl(sign_column)},
-        CocInfoSign {fg = hsl(blue), bg = hsl(sign_column)},
-        CocHintSign {fg = hsl(aqua), bg = hsl(sign_column)},
-        CocErrorFloat {fg = hsl(red)},
-        CocWarningFloat {fg = hsl(orange)},
-        CocInfoFloat {fg = hsl(blue)},
-        CocHintFloat {fg = hsl(aqua)},
-        CocDiagnosticsError {fg = hsl(red)},
-        CocDiagnosticsWarning {fg = hsl(orange)},
-        CocDiagnosticsInfo {fg = hsl(blue)},
-        CocDiagnosticsHint {fg = hsl(aqua)},
-        CocSelectedText {fg = hsl(red)},
-        CocCodeLens {fg = hsl(gray)},
-        CocErrorHighlight {fg = hsl(red), gui = styles.underline},
-        CocWarningHighlight {fg = hsl(orange), gui = styles.underline},
-        CocInfoHighlight {fg = hsl(blue), gui = styles.underline},
-        CocHintHighlight {fg = hsl(aqua), gui = styles.underline},
-
-      }
-    end))
-end
-
--- ale.vim
-if vim.g.loaded_ale_dont_use_this_in_other_plugins_please == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        ALEError {fg = hsl(red), gui = styles.underline},
-        ALEWarning {fg = hsl(yellow), gui = styles.underline},
-        ALEInfo {fg = hsl(blue), gui = styles.underline},
-        ALEErrorSign {fg = hsl(red), bg = hsl(sign_column)},
-        ALEWarningSign {fg = hsl(yellow), bg = hsl(sign_column)},
-        ALEInfoSign {fg = hsl(blue), bg = hsl(sign_column)},
-        ALEVirtualTextError {fg = hsl(red)},
-        ALEVirtualTextWarning {fg = hsl(yellow)},
-        ALEVirtualTextInfo {fg = hsl(blue)},
-      }
-    end))
-end
-
--- vim-buftabline
-if vim.g.buftabline_show == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        BufTabLineCurrent {TabLineSel},
-        BufTabLineActive {PmenuSel},
-        BufTabLineHidden {TabLine},
-        BufTabLineFill {TablineFill},
-        BufTabLineModifiedCurrent {BufTabLineCurrent},
-        BufTabLineModifiedActive {BufTabLineActive},
-        BufTabLineModifiedHidden {BufTabLineHidden},
-      }
-    end))
-end
-
--- ctrlP 
-if vim.g.loaded_ctrlp == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        CtrlPMatch {Identifier},
-        CtrlPNoEntries {Error},
-        CtrlPPrtBase {Comment},
-        CtrlPPrtCursor {Constant},
-        CtrlPLinePre {fg = hsl(bg2)},
-        CtrlPMode1 {Character},
-        CtrlPMode2 {LineNr},
-        CtrlPStats {Function},
-      }
-    end))
-end
-
--- fzf.vim
-if vim.g.loaded_fzf_vim == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        Fzf1 {fg = hsl(blue), bg = hsl(bg1)},
-        Fzf2 {fg = hsl(orange), bg = hsl(bg1)},
-        Fzf3 {fg = hsl(fg4), bg = hsl(bg1)},
-      }
-    end))
-end
-
-if vim.g.loaded_showmarks == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        ShowMarksHLl {fg = hsl(blue), bg = hsl(sign_column)},
-        ShowMarksHLu {fg = hsl(blue), bg = hsl(sign_column)},
-        ShowMarksHLo {fg = hsl(blue), bg = hsl(sign_column)},
-        ShowMarksHLm {fg = hsl(blue), bg = hsl(sign_column)},
-      }
-    end))
-end
-
-if vim.g.loaded_gitgutter == true then
-  groups = vim.tbl_extend("force", groups, lush(
-                            function()
-      return {
-        GitGutterAdd {fg = hsl(green), bg = hsl(sign_column)},
-        GitGutterChange {fg = hsl(aqua), bg = hsl(sign_column)},
-        GitGutterDelete {fg = hsl(red), bg = hsl(sign_column)},
-        GitGutterChangeDelete {fg = hsl(aqua), bg = hsl(sign_column)},
-      }
-    end))
-end
 
 return groups

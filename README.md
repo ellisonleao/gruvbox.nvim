@@ -9,7 +9,7 @@ Please note that this plugin is under active development right now, so the statu
 Using `vim-plug`
 
 ```vim
-Plug 'rktjmp/lush.nvim' # required
+Plug 'rktjmp/lush.nvim'
 Plug 'npxbr/gruvbox.nvim'
 ```
 
