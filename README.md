@@ -46,3 +46,13 @@ all `g:gruvbox_` configs are the same [as the original one](https://github.com/m
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
 More to be added..
+
+# Screenshots
+
+## dark mode
+
+![Screenshot-from-2021-02-25-11-41-18.png](https://i.postimg.cc/66fSHrV8/Screenshot-from-2021-02-25-11-41-18.png)
+
+## light mode
+
+![Screenshot-from-2021-02-25-11-41-33.png](https://i.postimg.cc/pXVS3mkq/Screenshot-from-2021-02-25-11-41-33.png)
