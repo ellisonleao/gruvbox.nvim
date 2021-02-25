@@ -213,7 +213,7 @@ vim.g.terminal_color_14 = aqua
 vim.g.terminal_color_7 = fg4
 vim.g.terminal_color_15 = fg1
 
-local theme = lush(function()
+local groups = lush(function()
   return {
     -- EndOfBuffer  { },
     -- TermCursor   { },
@@ -264,7 +264,7 @@ local theme = lush(function()
     StatusLineNC {fg = hsl(bg1), bg = hsl(fg4), gui = styles.inverse},
     TabLine {fg = hsl(bg4), bg = hsl(bg1), gui = invert_tabline},
     TabLineFill {fg = hsl(bg4), bg = hsl(bg1), gui = invert_tabline},
-    TabLineSel {fg = hsl(tabline_sel), bg = hsl(bg1), gui = invert_tabline},
+    TabLineSel {fg = hsl(tabline_sel), bg = hsl(bg0), gui = invert_tabline},
     Title {fg = hsl(green), gui = styles.bold},
     Visual {bg = hsl(bg3), gui = invert_selection},
     VisualNOS {bg = hsl(bg3), gui = invert_selection},
@@ -307,81 +307,6 @@ local theme = lush(function()
     Ignore {},
     Error {fg = hsl(red), gui = styles.boldunderline}, -- TODO: check if we have some abstraction to merge two styles
     Todo {fg = hsl(fg0), gui = styles.bold .. "," .. italic_comments},
-
-    -- LSP
-    LspDiagnosticsError {Error},
-    LspDiagnosticsErrorSign {fg = hsl(red), bg = hsl(sign_column), gui = invert_signs},
-    LspDiagnosticsErrorFloating {LspDiagnosticsError},
-    LspDiagnosticsWarning {fg = hsl(yellow)},
-    LspDiagnosticsWarningSign {
-      LspDiagnosticsWarning,
-      bg = hsl(sign_column),
-      gui = styles.undercurl,
-      sp = hsl(yellow),
-    },
-    LspDiagnosticsWarningFloating {LspDiagnosticsWarning},
-    LspDiagnosticsInformation {fg = hsl(blue)},
-    LspDiagnosticsInformationSign {
-      LspDiagnosticsInformation,
-      bg = hsl(sign_column),
-      gui = invert_signs,
-    },
-    LspDiagnosticsInformationFloating {LspDiagnosticsInformation},
-    LspDiagnosticsHint {fg = hsl(aqua)},
-    LspDiagnosticsHintSign {
-      LspDiagnosticsHint,
-      bg = hsl(sign_column),
-      gui = invert_signs,
-    },
-    LspDiagnosticsHintFloating {LspDiagnosticsHint},
-
-    -- Treesitter
-    TSNone {},
-    TSError {Error},
-    TSPunctDelimiter {Delimiter},
-    TSPunctBracket {Delimiter},
-    TSPunctSpecial {Delimiter},
-    TSConstant {Constant},
-    TSConstBuiltin {Special},
-    TSConstMacro {Define},
-    TSString {String},
-    TSStringRegex {String},
-    TSStringEscape {SpecialChar},
-    TSCharacter {Character},
-    TSNumber {Number},
-    TSBoolean {Boolean},
-    TSFloat {Float},
-    TSFunction {Function},
-    TSFuncBuiltin {Special},
-    TSFuncMacro {Macro},
-    TSParameter {Identifier},
-    TSParameterReference {TSParameter},
-    TSMethod {Function},
-    TSField {Identifier},
-    TSProperty {Identifier},
-    TSConstructor {Special},
-    TSConditional {Conditional},
-    TSRepeat {Repeat},
-    TSLabel {Label},
-    TSOperator {Operator},
-    TSKeyword {Keyword},
-    TSKeywordFunction {Keyword},
-    TSException {Exception},
-    TSType {Type},
-    TSTypeBuiltin {Type},
-    TSNamespace {Include},
-    TSInclude {Include},
-    TSAnnotation {PreProc},
-    TSText {TSNone},
-    TSStrong {gui = styles.bold},
-    TSEmphasis {gui = italic_strings},
-    TSUnderline {gui = styles.underline},
-    TSTitle {Title},
-    TSLiteral {String},
-    TSURI {Underlined},
-    TSVariable {Special},
-    TSVariableBuiltin {Special},
-
     -- netrw
     netrwDir {fg = hsl(aqua)},
     netrwClassify {netrwDir},
@@ -393,27 +318,6 @@ local theme = lush(function()
     netrwHelpCmd {netrwDir},
     netrwCmdSep {fg = hsl(fg3)},
     netrwVersion {fg = hsl(green)},
-
-    -- vim-startify
-    StartifyBracket {fg = hsl(fg3)},
-    StartifyFile {fg = hsl(fg1)},
-    StartifyNumber {fg = hsl(blue)},
-    StartifyPath {fg = hsl(gray)},
-    StartifySlash {StartifyPath},
-    StartifySection {fg = hsl(yellow)},
-    StartifySpecial {fg = hsl(bg2)},
-    StartifyHeader {fg = hsl(orange)},
-    StartifyFooter {fg = hsl(bg2)},
-
-    -- vim-signify
-    SignifySignAdd {fg = hsl(green), bg = hsl(sign_column), gui = invert_signs},
-    SignifySignChange {fg = hsl(aqua), bg = hsl(sign_column), gui = invert_signs},
-    SignifySignDelete {fg = hsl(red), bg = hsl(sign_column), gui = invert_signs},
-
-    -- lua
-    luaIn {fg = hsl(red)},
-    luaFunction {fg = hsl(aqua)},
-    luaTable {fg = hsl(orange)},
 
     -- golang
     goDirective {fg = hsl(aqua)},
@@ -843,144 +747,340 @@ local theme = lush(function()
     ocamlInfixOpKeyword {fg = hsl(red)},
     ocamlConstructor {fg = hsl(orange)},
 
-    -- coc.nvim
-    CocErrorSign {fg = hsl(red), bg = hsl(sign_column)},
-    CocWarningSign {fg = hsl(orange), bg = hsl(sign_column)},
-    CocInfoSign {fg = hsl(blue), bg = hsl(sign_column)},
-    CocHintSign {fg = hsl(aqua), bg = hsl(sign_column)},
-    CocErrorFloat {fg = hsl(red)},
-    CocWarningFloat {fg = hsl(orange)},
-    CocInfoFloat {fg = hsl(blue)},
-    CocHintFloat {fg = hsl(aqua)},
-    CocDiagnosticsError {fg = hsl(red)},
-    CocDiagnosticsWarning {fg = hsl(orange)},
-    CocDiagnosticsInfo {fg = hsl(blue)},
-    CocDiagnosticsHint {fg = hsl(aqua)},
-    CocSelectedText {fg = hsl(red)},
-    CocCodeLens {fg = hsl(gray)},
-    CocErrorHighlight {fg = hsl(red), gui = styles.underline},
-    CocWarningHighlight {fg = hsl(orange), gui = styles.underline},
-    CocInfoHighlight {fg = hsl(blue), gui = styles.underline},
-    CocHintHighlight {fg = hsl(aqua), gui = styles.underline},
+    -- lua
+    luaIn {fg = hsl(red)},
+    luaFunction {fg = hsl(aqua)},
+    luaTable {fg = hsl(orange)},
 
-    -- nerdtree
-    NERDTreeDir {fg = hsl(aqua)},
-    NERDTreeDirSlash {fg = hsl(aqua)},
-    NERDTreeOpenable {fg = hsl(orange)},
-    NERDTreeClosable {fg = hsl(orange)},
-    NERDTreeFile {fg = hsl(fg1)},
-    NERDTreeExecFile {fg = hsl(yellow)},
-    NERDTreeUp {fg = hsl(gray)},
-    NERDTreeCWD {fg = hsl(green)},
-    NERDTreeHelp {fg = hsl(fg1)},
-    NERDTreeToggleOn {fg = hsl(green)},
-    NERDTreeToggleOff {fg = hsl(red)},
-
-    -- vim dirvish
-    DirvishPathTail {fg = hsl(aqua)},
-    DirvishArg {fg = hsl(yellow)},
-
-    -- ale.vim
-    ALEError {fg = hsl(red), gui = styles.underline},
-    ALEWarning {fg = hsl(yellow), gui = styles.underline},
-    ALEInfo {fg = hsl(blue), gui = styles.underline},
-    ALEErrorSign {fg = hsl(red), bg = hsl(sign_column)},
-    ALEWarningSign {fg = hsl(yellow), bg = hsl(sign_column)},
-    ALEInfoSign {fg = hsl(blue), bg = hsl(sign_column)},
-    ALEVirtualTextError {fg = hsl(red)},
-    ALEVirtualTextWarning {fg = hsl(yellow)},
-    ALEVirtualTextInfo {fg = hsl(blue)},
-
-    -- BufTabLine
-    BufTabLineCurrent {fg = hsl(bg0), bg = hsl(fg4)},
-    BufTabLineActive {fg = hsl(fg4), bg = hsl(bg2)},
-    BufTabLineHidden {fg = hsl(bg4), bg = hsl(bg1)},
-    BufTabLineFill {fg = hsl(bg0), bg = hsl(bg0)},
-
-    -- fzf
-    Fzf1 {fg = hsl(blue), bg = hsl(bg1)},
-    Fzf2 {fg = hsl(orange), bg = hsl(bg1)},
-    Fzf3 {fg = hsl(fg4), bg = hsl(bg1)},
-
-    -- ctrlP
-    CtrlPMatch {fg = hsl(yellow)},
-    CtrlPNoEntries {fg = hsl(red)},
-    CtrlPPrtBase {fg = hsl(bg2)},
-    CtrlPPrtCursor {fg = hsl(blue)},
-    CtrlPLinePre {fg = hsl(bg2)},
-    CtrlPMode1 {fg = hsl(blue), bg = hsl(bg2), gui = styles.bold},
-    CtrlPMode2 {fg = hsl(bg0), bg = hsl(blue), gui = styles.bold},
-    CtrlPStats {fg = hsl(fg4), bg = hsl(bg2), gui = styles.bold},
-
-    -- showmarks
-    ShowMarksHLl {fg = hsl(blue), bg = hsl(sign_column)},
-    ShowMarksHLu {fg = hsl(blue), bg = hsl(sign_column)},
-    ShowMarksHLo {fg = hsl(blue), bg = hsl(sign_column)},
-    ShowMarksHLm {fg = hsl(blue), bg = hsl(sign_column)},
-
+    -- LSP
+    LspDiagnosticsError {Error},
+    LspDiagnosticsErrorSign {fg = hsl(red), bg = hsl(sign_column), gui = invert_signs},
+    LspDiagnosticsErrorFloating {LspDiagnosticsError},
+    LspDiagnosticsWarning {fg = hsl(yellow)},
+    LspDiagnosticsWarningSign {
+      LspDiagnosticsWarning,
+      bg = hsl(sign_column),
+      gui = styles.undercurl,
+      sp = hsl(yellow),
+    },
+    LspDiagnosticsWarningFloating {LspDiagnosticsWarning},
+    LspDiagnosticsInformation {fg = hsl(blue)},
+    LspDiagnosticsInformationSign {
+      LspDiagnosticsInformation,
+      bg = hsl(sign_column),
+      gui = invert_signs,
+    },
+    LspDiagnosticsInformationFloating {LspDiagnosticsInformation},
+    LspDiagnosticsHint {fg = hsl(aqua)},
+    LspDiagnosticsHintSign {
+      LspDiagnosticsHint,
+      bg = hsl(sign_column),
+      gui = invert_signs,
+    },
+    LspDiagnosticsHintFloating {LspDiagnosticsHint},
     -- signature
     SignatureMarkText {fg = hsl(blue), bg = hsl(sign_column)},
     SignatureMarkerText {fg = hsl(purple), bg = hsl(sign_column)},
-
-    -- gitgutter
-    GitGutterAdd {fg = hsl(green), bg = hsl(sign_column)},
-    GitGutterChange {fg = hsl(aqua), bg = hsl(sign_column)},
-    GitGutterDelete {fg = hsl(red), bg = hsl(sign_column)},
-    GitGutterChangeDelete {fg = hsl(aqua), bg = hsl(sign_column)},
-
     -- gitcommit
     gitcommitSelectedFile {fg = hsl(green)},
     gitcommitDiscardedFile {fg = hsl(red)},
-
-    -- lspsaga
-    LspSagaDiagnosticBorder {NormalNC},
-    LspSagaDiagnosticHeader {fg = hsl(red)},
-    LspSagaDiagnosticTruncateLine {NormalNC},
-    LspFloatWinBorder {NormalNC},
-    LspSagaBorderTitle {Title},
-    TargetWord {Error},
-    ReferencesCount {Title},
-    ReferencesIcon {Special},
-    DefinitionCount {Title},
-    TargetFileName {Comment},
-    DefinitionIcon {Special},
-    ProviderTruncateLine {NormalNC},
-    SagaShadow {bg = hsl(bg0)},
-    LspSagaFinderSelection {Search},
-    DiagnosticTruncateLine {NormalNC},
-    DiagnosticError {LspDiagnosticsError},
-    DiagnosticWarning {LspDiagnosticsWarning},
-    DiagnosticInformation {LspDiagnosticsInformation},
-    DiagnosticHint {LspDiagnosticsHint},
-    DefinitionPreviewTitle {Title},
-    LspSagaShTruncateLine {NormalNC},
-    LspSagaDocTruncateLine {NormalNC},
-    LineDiagTuncateLine {NormalNC},
-    LspSagaCodeActionTitle {Title},
-    LspSagaCodeActionTruncateLine {NormalNC},
-    LspSagaCodeActionContent {Normal},
-    LspSagaRenamePromptPrefix {fg = hsl(fg2)},
-    LspSagaRenameBorder {gui = styles.bold},
-    LspSagaHoverBorder {gui = styles.bold},
-    LspSagaSignatureHelpBorder {gui = styles.bold},
-    LspSagaCodeActionBorder {gui = styles.bold},
-    LspSagaAutoPreview {},
-    LspSagaDefPreviewBorder {gui = styles.bold},
-    LspLinesDiagBorder {gui = styles.bold},
-
-    -- telescope
-    TelescopeSelection {fg = hsl(orange), gui = styles.bold},
-    TelescopeSlectionCaret {fg = hsl(red)},
-    TelescopeMultiSelection {fg = hsl(gray)},
-    TelescopeNormal {fg = hsl(fg1)},
-    TelescopeBorder {TelescopeNormal},
-    TelescopePromptBorder {TelescopeNormal},
-    TelescopeResultsBorder {TelescopeNormal},
-    TelescopePreviewBorder {TelescopeNormal},
-    TelescopeMatching {fg = hsl(blue)},
-    TelescopePromptPrefix {fg = hsl(red)},
-    TelescopePrompt {TelescopeNormal},
   }
 end)
 
-return theme
+-- loading highlight groups only if the plugin is installed
+-- nvim-treesitter
+if vim.g.loaded_nvim_treesitter == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        TSNone {},
+        TSError {Error},
+        TSPunctDelimiter {Delimiter},
+        TSPunctBracket {Delimiter},
+        TSPunctSpecial {Delimiter},
+        TSConstant {Constant},
+        TSConstBuiltin {Special},
+        TSConstMacro {Define},
+        TSString {String},
+        TSStringRegex {String},
+        TSStringEscape {SpecialChar},
+        TSCharacter {Character},
+        TSNumber {Number},
+        TSBoolean {Boolean},
+        TSFloat {Float},
+        TSFunction {Function},
+        TSFuncBuiltin {Special},
+        TSFuncMacro {Macro},
+        TSParameter {Identifier},
+        TSParameterReference {TSParameter},
+        TSMethod {Function},
+        TSField {Identifier},
+        TSProperty {Identifier},
+        TSConstructor {Special},
+        TSConditional {Conditional},
+        TSRepeat {Repeat},
+        TSLabel {Label},
+        TSOperator {Operator},
+        TSKeyword {Keyword},
+        TSKeywordFunction {Keyword},
+        TSException {Exception},
+        TSType {Type},
+        TSTypeBuiltin {Type},
+        TSNamespace {Include},
+        TSInclude {Include},
+        TSAnnotation {PreProc},
+        TSText {TSNone},
+        TSStrong {gui = styles.bold},
+        TSEmphasis {gui = italic_strings},
+        TSUnderline {gui = styles.underline},
+        TSTitle {Title},
+        TSLiteral {String},
+        TSURI {Underlined},
+        TSVariable {Special},
+        TSVariableBuiltin {Special},
+      }
+    end))
+end
+
+-- telescope.nvim
+local telescope_exists = pcall(require("telescope.builtin"))
+if telescope_exists then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        -- telescope
+        TelescopeSelection {fg = hsl(orange), gui = styles.bold},
+        TelescopeSlectionCaret {fg = hsl(red)},
+        TelescopeMultiSelection {fg = hsl(gray)},
+        TelescopeNormal {fg = hsl(fg1)},
+        TelescopeBorder {TelescopeNormal},
+        TelescopePromptBorder {TelescopeNormal},
+        TelescopeResultsBorder {TelescopeNormal},
+        TelescopePreviewBorder {TelescopeNormal},
+        TelescopeMatching {fg = hsl(blue)},
+        TelescopePromptPrefix {fg = hsl(red)},
+        TelescopePrompt {TelescopeNormal},
+      }
+    end))
+end
+
+-- lspsaga.nvim
+if vim.g.loaded_lspsaga == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        LspSagaDiagnosticBorder {NormalNC},
+        LspSagaDiagnosticHeader {fg = hsl(red)},
+        LspSagaDiagnosticTruncateLine {NormalNC},
+        LspFloatWinBorder {NormalNC},
+        LspSagaBorderTitle {Title},
+        TargetWord {Error},
+        ReferencesCount {Title},
+        ReferencesIcon {Special},
+        DefinitionCount {Title},
+        TargetFileName {Comment},
+        DefinitionIcon {Special},
+        ProviderTruncateLine {NormalNC},
+        SagaShadow {bg = hsl(bg0)},
+        LspSagaFinderSelection {Search},
+        DiagnosticTruncateLine {NormalNC},
+        DiagnosticError {LspDiagnosticsError},
+        DiagnosticWarning {LspDiagnosticsWarning},
+        DiagnosticInformation {LspDiagnosticsInformation},
+        DiagnosticHint {LspDiagnosticsHint},
+        DefinitionPreviewTitle {Title},
+        LspSagaShTruncateLine {NormalNC},
+        LspSagaDocTruncateLine {NormalNC},
+        LineDiagTuncateLine {NormalNC},
+        LspSagaCodeActionTitle {Title},
+        LspSagaCodeActionTruncateLine {NormalNC},
+        LspSagaCodeActionContent {Normal},
+        LspSagaRenamePromptPrefix {fg = hsl(fg2)},
+        LspSagaRenameBorder {gui = styles.bold},
+        LspSagaHoverBorder {gui = styles.bold},
+        LspSagaSignatureHelpBorder {gui = styles.bold},
+        LspSagaCodeActionBorder {gui = styles.bold},
+        LspSagaAutoPreview {},
+        LspSagaDefPreviewBorder {gui = styles.bold},
+        LspLinesDiagBorder {gui = styles.bold},
+      }
+    end))
+end
+
+-- vim-startify
+if vim.g.loaded_startify == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        StartifyBracket {Delimiter},
+        StartifyFile {Identifier},
+        StartifyNumber {Number},
+        StartifyPath {Directory},
+        StartifySlash {Delimiter},
+        StartifySection {Statement},
+        StartifySpecial {Comment},
+        StartifyHeader {Title},
+        StartifyFooter {Title},
+        StartifyVar {StartifyPath},
+        StartifySelect {Title},
+      }
+    end))
+end
+
+-- vim-signify
+if vim.g.loaded_signify == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        SignifySignAdd {fg = hsl(green), bg = hsl(sign_column), gui = invert_signs},
+        SignifySignChange {fg = hsl(aqua), bg = hsl(sign_column), gui = invert_signs},
+        SignifySignDelete {fg = hsl(red), bg = hsl(sign_column), gui = invert_signs},
+      }
+    end))
+end
+
+-- vim-dirvish
+if vim.g.loaded_dirvish == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {DirvishPathTail {fg = hsl(aqua)}, DirvishArg {fg = hsl(yellow)}}
+    end))
+end
+
+-- nerdtree 
+if vim.g.loaded_nerd_tree == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        NERDTreeDir {fg = hsl(aqua)},
+        NERDTreeDirSlash {fg = hsl(aqua)},
+        NERDTreeOpenable {fg = hsl(orange)},
+        NERDTreeClosable {fg = hsl(orange)},
+        NERDTreeFile {fg = hsl(fg1)},
+        NERDTreeExecFile {fg = hsl(yellow)},
+        NERDTreeUp {fg = hsl(gray)},
+        NERDTreeCWD {fg = hsl(green)},
+        NERDTreeHelp {fg = hsl(fg1)},
+        NERDTreeToggleOn {fg = hsl(green)},
+        NERDTreeToggleOff {fg = hsl(red)},
+
+      }
+    end))
+end
+
+-- coc.nvim
+if vim.g.did_coc_loaded == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        CocErrorSign {fg = hsl(red), bg = hsl(sign_column)},
+        CocWarningSign {fg = hsl(orange), bg = hsl(sign_column)},
+        CocInfoSign {fg = hsl(blue), bg = hsl(sign_column)},
+        CocHintSign {fg = hsl(aqua), bg = hsl(sign_column)},
+        CocErrorFloat {fg = hsl(red)},
+        CocWarningFloat {fg = hsl(orange)},
+        CocInfoFloat {fg = hsl(blue)},
+        CocHintFloat {fg = hsl(aqua)},
+        CocDiagnosticsError {fg = hsl(red)},
+        CocDiagnosticsWarning {fg = hsl(orange)},
+        CocDiagnosticsInfo {fg = hsl(blue)},
+        CocDiagnosticsHint {fg = hsl(aqua)},
+        CocSelectedText {fg = hsl(red)},
+        CocCodeLens {fg = hsl(gray)},
+        CocErrorHighlight {fg = hsl(red), gui = styles.underline},
+        CocWarningHighlight {fg = hsl(orange), gui = styles.underline},
+        CocInfoHighlight {fg = hsl(blue), gui = styles.underline},
+        CocHintHighlight {fg = hsl(aqua), gui = styles.underline},
+
+      }
+    end))
+end
+
+-- ale.vim
+if vim.g.loaded_ale_dont_use_this_in_other_plugins_please == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        ALEError {fg = hsl(red), gui = styles.underline},
+        ALEWarning {fg = hsl(yellow), gui = styles.underline},
+        ALEInfo {fg = hsl(blue), gui = styles.underline},
+        ALEErrorSign {fg = hsl(red), bg = hsl(sign_column)},
+        ALEWarningSign {fg = hsl(yellow), bg = hsl(sign_column)},
+        ALEInfoSign {fg = hsl(blue), bg = hsl(sign_column)},
+        ALEVirtualTextError {fg = hsl(red)},
+        ALEVirtualTextWarning {fg = hsl(yellow)},
+        ALEVirtualTextInfo {fg = hsl(blue)},
+      }
+    end))
+end
+
+-- vim-buftabline
+if vim.g.buftabline_show == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        BufTabLineCurrent {TabLineSel},
+        BufTabLineActive {PmenuSel},
+        BufTabLineHidden {TabLine},
+        BufTabLineFill {TablineFill},
+        BufTabLineModifiedCurrent {BufTabLineCurrent},
+        BufTabLineModifiedActive {BufTabLineActive},
+        BufTabLineModifiedHidden {BufTabLineHidden},
+      }
+    end))
+end
+
+-- ctrlP 
+if vim.g.loaded_ctrlp == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        CtrlPMatch {Identifier},
+        CtrlPNoEntries {Error},
+        CtrlPPrtBase {Comment},
+        CtrlPPrtCursor {Constant},
+        CtrlPLinePre {fg = hsl(bg2)},
+        CtrlPMode1 {Character},
+        CtrlPMode2 {LineNr},
+        CtrlPStats {Function},
+      }
+    end))
+end
+
+-- fzf.vim
+if vim.g.loaded_fzf_vim == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        Fzf1 {fg = hsl(blue), bg = hsl(bg1)},
+        Fzf2 {fg = hsl(orange), bg = hsl(bg1)},
+        Fzf3 {fg = hsl(fg4), bg = hsl(bg1)},
+      }
+    end))
+end
+
+if vim.g.loaded_showmarks == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        ShowMarksHLl {fg = hsl(blue), bg = hsl(sign_column)},
+        ShowMarksHLu {fg = hsl(blue), bg = hsl(sign_column)},
+        ShowMarksHLo {fg = hsl(blue), bg = hsl(sign_column)},
+        ShowMarksHLm {fg = hsl(blue), bg = hsl(sign_column)},
+      }
+    end))
+end
+
+if vim.g.loaded_gitgutter == true then
+  groups = vim.tbl_extend("force", groups, lush(
+                            function()
+      return {
+        GitGutterAdd {fg = hsl(green), bg = hsl(sign_column)},
+        GitGutterChange {fg = hsl(aqua), bg = hsl(sign_column)},
+        GitGutterDelete {fg = hsl(red), bg = hsl(sign_column)},
+        GitGutterChangeDelete {fg = hsl(aqua), bg = hsl(sign_column)},
+      }
+    end))
+end
+
+return groups
