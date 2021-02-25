@@ -31,7 +31,7 @@ set colorscheme=gruvbox
 Inside `init.lua`
 ```lua
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
+vim.g.colors_name = "gruvbox"
 ```
 
 # Configuration
