@@ -843,7 +843,7 @@ if vim.g.loaded_nvim_treesitter == true then
 end
 
 -- telescope.nvim
-local telescope_exists = pcall(require("telescope.builtin"))
+local telescope_exists = pcall(require, "telescope.builtin")
 if telescope_exists then
   groups = vim.tbl_extend("force", groups, lush(
                             function()
