@@ -248,8 +248,6 @@ vim.g.terminal_color_6 = colors.neutral_aqua
 vim.g.terminal_color_14 = aqua
 vim.g.terminal_color_7 = fg4
 vim.g.terminal_color_15 = fg1
---[[
-]]
 
 local groups = lush(function()
   return {
@@ -348,7 +346,7 @@ local groups = lush(function()
     WildMenu {fg = blue, bg = bg2, gui = styles.bold},
     Constant {GruvboxPurple},
     -- Special {fg = special_string_fg, bg = special_string_bg, gui = special_string_gui},
-		Special{},
+    Special {},
     String {
       fg = improved_strings_fg,
       bg = improved_strings_bg,
@@ -812,6 +810,9 @@ local groups = lush(function()
     LspDiagnosticsDefaultHint {GruvboxAqua},
     LspDiagnosticsSignHint {GruvboxAquaSign},
     LspDiagnosticsUnderlineHint {GruvboxAquaUnderline},
+    LspReferenceRead {GruvboxYellowBold},
+    LspReferenceText {GruvboxYellowBold},
+    LspReferenceWrite {GruvboxYellowBold},
     -- signature
     SignatureMarkText {GruvboxBlueSign},
     SignatureMarkerText {GruvboxPurpleSign},
