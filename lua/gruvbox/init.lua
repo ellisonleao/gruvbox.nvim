@@ -2,42 +2,42 @@ local lush = require("lush")
 local hsl = lush.hsl
 -- gruvbox palette
 local colors = {
-  dark0_hard = "#1d2021",
-  dark0 = "#282828",
-  dark0_soft = "#32302f",
-  dark1 = "#3c3836",
-  dark2 = "#504945",
-  dark3 = "#665c54",
-  dark4 = "#7c6f64",
-  light0_hard = "#f9f5d7",
-  light0 = "#fbf1c7",
-  light0_soft = "#f2e5bc",
-  light1 = "#ebdbb2",
-  light2 = "#d5c4a1",
-  light3 = "#bdae93",
-  light4 = "#a89984",
-  bright_red = "#fb4934",
-  bright_green = "#b8bb26",
-  bright_yellow = "#fabd2f",
-  bright_blue = "#83a598",
-  bright_purple = "#d3869b",
-  bright_aqua = "#8ec07c",
-  bright_orange = "#fe8019",
-  neutral_red = "#cc241d",
-  neutral_green = "#98971a",
-  neutral_yellow = "#d79921",
-  neutral_blue = "#458588",
-  neutral_purple = "#b16286",
-  neutral_aqua = "#689d6a",
-  neutral_orange = "#d65d0e",
-  faded_red = "#9d0006",
-  faded_green = "#79740e",
-  faded_yellow = "#b57614",
-  faded_blue = "#076678",
-  faded_purple = "#8f3f71",
-  faded_aqua = "#427b58",
-  faded_orange = "#af3a03",
-  gray = "#928374",
+  dark0_hard = hsl("#1d2021"),
+  dark0 = hsl("#282828"),
+  dark0_soft = hsl("#32302f"),
+  dark1 = hsl("#3c3836"),
+  dark2 = hsl("#504945"),
+  dark3 = hsl("#665c54"),
+  dark4 = hsl("#7c6f64"),
+  light0_hard = hsl("#f9f5d7"),
+  light0 = hsl("#fbf1c7"),
+  light0_soft = hsl("#f2e5bc"),
+  light1 = hsl("#ebdbb2"),
+  light2 = hsl("#d5c4a1"),
+  light3 = hsl("#bdae93"),
+  light4 = hsl("#a89984"),
+  bright_red = hsl("#fb4934"),
+  bright_green = hsl("#b8bb26"),
+  bright_yellow = hsl("#fabd2f"),
+  bright_blue = hsl("#83a598"),
+  bright_purple = hsl("#d3869b"),
+  bright_aqua = hsl("#8ec07c"),
+  bright_orange = hsl("#fe8019"),
+  neutral_red = hsl("#cc241d"),
+  neutral_green = hsl("#98971a"),
+  neutral_yellow = hsl("#d79921"),
+  neutral_blue = hsl("#458588"),
+  neutral_purple = hsl("#b16286"),
+  neutral_aqua = hsl("#689d6a"),
+  neutral_orange = hsl("#d65d0e"),
+  faded_red = hsl("#9d0006"),
+  faded_green = hsl("#79740e"),
+  faded_yellow = hsl("#b57614"),
+  faded_blue = hsl("#076678"),
+  faded_purple = hsl("#8f3f71"),
+  faded_aqua = hsl("#427b58"),
+  faded_orange = hsl("#af3a03"),
+  gray = hsl("#928374"),
 }
 
 -- options (dark mode by default)
@@ -161,12 +161,12 @@ if bg == "light" then
   orange = colors.faded_orange
 end
 
-local hls_cursor = hsl(orange)
+local hls_cursor = orange
 if vim.g.gruvbox_hls_cursor ~= nil then
   hls_cursor = hsl(colors[vim.g.gruvbox_hls_cursor])
 end
 
-local hls_highlight = hsl(yellow)
+local hls_highlight = yellow
 if vim.g.gruvbox_hls_cursor ~= nil then
   hls_highlight = hsl(colors[vim.g.gruvbox_hls_highlight])
 end
@@ -176,12 +176,12 @@ if vim.g.gruvbox_number_column ~= nil then
   number_column = hsl(colors[vim.g.gruvbox_number_column])
 end
 
-local color_column = hsl(bg1)
+local color_column = bg1
 if vim.g.gruvbox_color_column ~= nil then
   color_column = hsl(colors[vim.g.gruvbox_color_column])
 end
 
-local vert_split = hsl(bg0)
+local vert_split = bg0
 if vim.g.gruvbox_vert_split ~= nil then
   vert_split = hsl(colors[vim.g.gruvbox_vert_split])
 end
@@ -201,7 +201,7 @@ if vim.g.gruvbox_invert_tabline then
   invert_tabline = styles.inverse
 end
 
-local tabline_sel = hsl(green)
+local tabline_sel = green
 if vim.g.gruvbox_tabline_sel then
   tabline_sel = hsl(colors[vim.g.gruvbox_tabline_sel])
 end
@@ -216,16 +216,16 @@ if vim.g.gruvbox_italicize_strings then
   italic_strings = styles.italic
 end
 
-local improved_strings_fg = hsl(fg1)
-local improved_strings_bg = hsl(bg1)
+local improved_strings_fg = fg1
+local improved_strings_bg = bg1
 local improved_strings_gui = italic_strings
 
-local special_string_fg = hsl(orange)
-local special_string_bg = hsl(bg1)
+local special_string_fg = orange
+local special_string_bg = bg1
 local special_string_gui = italic_strings
 
 if not vim.g.gruvbox_improved_strings then
-  improved_strings_fg = hsl(green)
+  improved_strings_fg = green
   improved_strings_bg = nil
 
   special_string_bg = nil
@@ -248,186 +248,6 @@ vim.g.terminal_color_6 = colors.neutral_aqua
 vim.g.terminal_color_14 = aqua
 vim.g.terminal_color_7 = fg4
 vim.g.terminal_color_15 = fg1
-
-local function airline()
-  vim.g["airline#themes.gruvbox#palette"] = {}
-  local M0 = vim.fn["airline#themes#get_highlight"]({"Identifier"})
-  local accents_group = vim.fn["airline#themes#get_highlight"]({"Special"})
-  local modified_group = {M0[1], "", M0[2], "", ""}
-  local warning_group = vim.fn["airline#themes#get_highlight2"](
-                          {{"GruvboxBg0", "fg"}, {"Question", "fg"}})
-  local error_group = vim.fn["airline#themes#get_highlight2"](
-                        {{"GruvboxBg0", "fg"}, {"WarningMsg", "fg"}})
-
-  local N1 = vim.fn["airline#themes#get_highlight2"](
-               {{"GruvboxBg0", "fg"}, {"StatusLineNC", "fg"}})
-  local N2 = vim.fn["airline#themes#get_highlight2"](
-               {{"StatusLineNC", "bg"}, {"PMenu", "bg"}})
-  local N3 = vim.fn["airline#themes#get_highlight2"](
-               {{"StatusLineNC", "bg"}, {"StatusLineNC", "fg"}})
-
-  -- normal mode vars
-  vim.g["airline#themes#gruvbox#palette.normal"] =
-    vim.fn["airline#themes#generate_color_map"]({N1, N2, N3})
-  vim.g["airline#themes#gruvbox#palette.normal_modified"] = {airline_c = modified_group}
-  vim.g["airline#themes#gruvbox#palette.normal.airline_warning"] = warning_group
-  vim.g["airline#themes#gruvbox#palette.normal_modified.airline_warning"] =
-    warning_group
-  vim.g["airline#themes#gruvbox#palette.normal_modified.airline_warning"] =
-    warning_group
-  vim.g["airline#themes#gruvbox#palette.normal.airline_error"] = error_group
-  vim.g["airline#themes#gruvbox#palette.normal_modified.airline_error"] = error_group
-  vim.g["airline#themes#gruvbox#palette.normal.airline_term"] = N3
-  vim.g["airline#themes#gruvbox#palette.normal_modified.airline_term"] = N3
-
-  -- insert mode vars
-  local I1 = vim.fn["airline#themes#get_highlight2"](
-               {{"GruvboxBg0", "fg"}, {"Identifier", "fg"}})
-  local I2 = N2
-  local I3 = vim.fn["airline#themes#get_highlight2"](
-               {{"GruvboxFg1", "fg"}, {"Pmenu", "bg"}})
-
-  vim.g["airline#themes#gruvbox#palette.insert"] =
-    vim.fn["airline#themes#generate_color_map"]({I1, I2, I3})
-
-  vim.g["airline#themes#gruvbox#palette.insert_modified"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified"]
-
-  vim.g["airline#themes#gruvbox#palette.insert.airline_warning"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_warning"]
-
-  vim.g["airline#themes#gruvbox#palette.insert_modified.airline_warning"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_warning"]
-
-  vim.g["airline#themes#gruvbox#palette.insert.airline_error"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_error"]
-
-  vim.g["airline#themes#gruvbox#palette.insert_modified.airline_error"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_error"]
-
-  vim.g["airline#themes#gruvbox#palette.insert.airline_term"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_term"]
-
-  vim.g["airline#themes#gruvbox#palette.insert_modified.airline_term"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_term"]
-
-  -- replace mode vars
-  local R1 = vim.fn["airline#themes#get_highlight2"](
-               {{"GruvboxBg0", "fg"}, {"Structure", "fg"}})
-  local R2 = I2
-  local R3 = I3
-
-  vim.g["airline#themes#gruvbox#palette.replace"] =
-    vim.fn["airline#themes#generate_color_map"]({R1, R2, R3})
-
-  vim.g["airline#themes#gruvbox#palette.replace_modified"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified"]
-
-  vim.g["airline#themes#gruvbox#palette.replace.airline_warning"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_warning"]
-
-  vim.g["airline#themes#gruvbox#palette.replace_modified.airline_warning"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_warning"]
-
-  vim.g["airline#themes#gruvbox#palette.replace.airline_error"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_error"]
-
-  vim.g["airline#themes#gruvbox#palette.replace_modified.airline_error"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_error"]
-
-  vim.g["airline#themes#gruvbox#palette.replace.airline_term"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_term"]
-
-  vim.g["airline#themes#gruvbox#palette.replace_modified.airline_term"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_term"]
-
-  -- visual mode vars
-  local V1 = vim.fn["airline#themes#get_highlight2"](
-               {{"GruvboxBg0", "fg"}, {"Question", "fg"}})
-  local V2 = N2
-  local V3 = vim.fn["airline#themes#get_highlight2"](
-               {{"GruvboxBg0", "fg"}, {"TabLine", "fg"}})
-
-  vim.g["airline#themes#gruvbox#palette.replace"] =
-    vim.fn["airline#themes#generate_color_map"]({V1, V2, V3})
-
-  vim.g["airline#themes#gruvbox#palette.visual_modified"] =
-    {airline_c = {V3[1], "", V3[3], "", ""}}
-
-  vim.g["airline#themes#gruvbox#palette.visual.airline_warning"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_warning"]
-
-  vim.g["airline#themes#gruvbox#palette.visual_modified.airline_warning"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_warning"]
-
-  vim.g["airline#themes#gruvbox#palette.visual.airline_error"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_error"]
-
-  vim.g["airline#themes#gruvbox#palette.visual_modified.airline_error"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_error"]
-
-  vim.g["airline#themes#gruvbox#palette.visual.airline_term"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_term"]
-
-  vim.g["airline#themes#gruvbox#palette.visual_modified.airline_term"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_term"]
-
-  local C1 = vim.fn["airline#themes#get_highlight2"](
-               {{"GruvboxBg0", "fg"}, {"GruvboxGreen", "fg"}})
-  local C2 = I2
-  local C3 = I3
-
-  vim.g["airline#themes#gruvbox#palette.commandline"] =
-    vim.fn["airline#themes#generate_color_map"]({C1, C2, C3})
-
-  vim.g["airline#themes#gruvbox#palette.commandline_modified"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified"]
-
-  vim.g["airline#themes#gruvbox#palette.commandline.airline_warning"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_warning"]
-
-  vim.g["airline#themes#gruvbox#palette.commandline_modified.airline_warning"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_warning"]
-
-  vim.g["airline#themes#gruvbox#palette.commandline.airline_error"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_error"]
-
-  vim.g["airline#themes#gruvbox#palette.commandline_modified.airline_error"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_error"]
-
-  vim.g["airline#themes#gruvbox#palette.commandline.airline_term"] =
-    vim.g["airline#themes#gruvbox#palette.normal.airline_term"]
-
-  vim.g["airline#themes#gruvbox#palette.commandline_modified.airline_term"] =
-    vim.g["airline#themes#gruvbox#palette.normal_modified.airline_term"]
-
-  local IA = vim.fn["airline#themes#get_highlight2"](
-               {{"TabLine", "fg"}, {"CursorLine", "bg"}})
-  vim.g["airline#themes#gruvbox#palette.inactive"] =
-    vim.fn["airline#themes#generate_color_map"]({IA, IA, IA})
-
-  vim.g["airline#themes#gruvbox#palette.inactive_modified"] =
-    {airline_c = modified_group}
-  vim.g["airline#themes#gruvbox#palette.accents"] = {red = accents_group}
-
-  local TF = vim.fn["airline#themes#get_highlight2"](
-               {{"GruvboxBg0", "fg"}, {"GruvboxBg0", "fg"}})
-
-  vim.g["airline#themes#gruvbox#palette.tabline"] =
-    {
-      airline_tab = N2,
-      airline_tabsel = N1,
-      airline_tabtype = V1,
-      airline_tablabel = V1,
-      airline_tablabel_right = V1,
-      airline_tabfill = TF,
-      airline_tabhid = IA,
-      airline_tabmod = I1,
-    }
-end
-
--- Need to provide this function
--- vim.fn["airline#themes#gruvbox#refresh"] = airline()
 
 local groups = lush(function()
   return {
@@ -526,7 +346,7 @@ local groups = lush(function()
     WildMenu {fg = blue, bg = bg2, gui = styles.bold},
     Constant {GruvboxPurple},
     -- Special {fg = special_string_fg, bg = special_string_bg, gui = special_string_gui},
-    Special {},
+    Special {fg = special_string_fg, bg = special_string_bg, gui = special_string_gui},
     String {
       fg = improved_strings_fg,
       bg = improved_strings_bg,
@@ -1005,7 +825,7 @@ local groups = lush(function()
     TSTitle {Title},
     TSLiteral {String},
     TSURI {Underlined},
-    TSVariable {Special},
+    TSVariable {},
     TSPunctDelimiter {Delimiter},
     TSPunctBracket {Delimiter},
     TSPunctSpecial {Delimiter},
