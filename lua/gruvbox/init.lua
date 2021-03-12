@@ -1,5 +1,7 @@
 local lush = require("lush")
 local hsl = lush.hsl
+local convert = require("lush.hsl.convert")
+
 -- gruvbox palette
 local colors = {
   dark0_hard = hsl("#1d2021"),
@@ -233,21 +235,21 @@ if not vim.g.gruvbox_improved_strings then
 end
 
 -- neovim terminal mode colors
-vim.g.terminal_color_0 = bg0
-vim.g.terminal_color_8 = gray
-vim.g.terminal_color_1 = colors.neutral_red
-vim.g.terminal_color_2 = red
-vim.g.terminal_color_10 = green
-vim.g.terminal_color_3 = colors.neutral_yellow
-vim.g.terminal_color_11 = yellow
-vim.g.terminal_color_4 = colors.neutral_blue
-vim.g.terminal_color_12 = blue
-vim.g.terminal_color_5 = colors.neutral_purple
-vim.g.terminal_color_13 = purple
-vim.g.terminal_color_6 = colors.neutral_aqua
-vim.g.terminal_color_14 = aqua
-vim.g.terminal_color_7 = fg4
-vim.g.terminal_color_15 = fg1
+vim.g.terminal_color_0 = convert.hsl_to_hex(bg0)
+vim.g.terminal_color_8 = convert.hsl_to_hex(gray)
+vim.g.terminal_color_1 = convert.hsl_to_hex(colors.neutral_red)
+vim.g.terminal_color_2 = convert.hsl_to_hex(red)
+vim.g.terminal_color_10 = convert.hsl_to_hex(green)
+vim.g.terminal_color_3 = convert.hsl_to_hex(colors.neutral_yellow)
+vim.g.terminal_color_11 = convert.hsl_to_hex(yellow)
+vim.g.terminal_color_4 = convert.hsl_to_hex(colors.neutral_blue)
+vim.g.terminal_color_12 = convert.hsl_to_hex(blue)
+vim.g.terminal_color_5 = convert.hsl_to_hex(colors.neutral_purple)
+vim.g.terminal_color_13 = convert.hsl_to_hex(purple)
+vim.g.terminal_color_6 = convert.hsl_to_hex(colors.neutral_aqua)
+vim.g.terminal_color_14 = convert.hsl_to_hex(aqua)
+vim.g.terminal_color_7 = convert.hsl_to_hex(fg4)
+vim.g.terminal_color_15 = convert.hsl_to_hex(fg1)
 
 local groups = lush(function()
   return {
