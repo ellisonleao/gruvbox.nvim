@@ -61,28 +61,35 @@ for k, val in pairs(settings) do
   end
 end
 
+local function tobool(val)
+  if val == 0 or not val then
+    return false
+  end
+  return true
+end
+
 -- styles check
-if not vim.g.gruvbox_bold then
+if not tobool(vim.g.gruvbox_bold) then
   styles.bold = ""
 end
 
-if not vim.g.gruvbox_underline then
+if not tobool(vim.g.gruvbox_underline) then
   styles.underline = ""
 end
 
-if not vim.g.gruvbox_italic then
+if not tobool(vim.g.gruvbox_italic) then
   styles.italic = ""
 end
 
-if not vim.g.gruvbox_inverse then
+if not tobool(vim.g.gruvbox_inverse) then
   styles.inverse = ""
 end
 
-if not vim.g.gruvbox_inverse then
+if not tobool(vim.g.gruvbox_inverse) then
   styles.inverse = ""
 end
 
-if not vim.g.gruvbox_undercurl then
+if not tobool(vim.g.gruvbox_undercurl) then
   styles.undercurl = ""
 end
 
@@ -150,32 +157,32 @@ if vim.g.gruvbox_vert_split ~= nil then
 end
 
 local invert_signs
-if vim.g.gruvbox_invert_signs then
+if tobool(vim.g.gruvbox_invert_signs) then
   invert_signs = styles.inverse
 end
 
 local invert_selection = styles.inverse
-if not vim.g.gruvbox_invert_selection then
-  invert_selection = nil
+if not tobool(vim.g.gruvbox_invert_selection) then
+  invert_selection = "NONE"
 end
 
 local invert_tabline
-if vim.g.gruvbox_invert_tabline then
+if tobool(vim.g.gruvbox_invert_tabline) then
   invert_tabline = styles.inverse
 end
 
 local tabline_sel = green
-if vim.g.gruvbox_tabline_sel then
+if tobool(vim.g.gruvbox_tabline_sel) then
   tabline_sel = hsl(colors[vim.g.gruvbox_tabline_sel])
 end
 
 local italic_comments = styles.italic
-if not vim.g.gruvbox_italicize_comments then
-  italic_comments = ""
+if not tobool(vim.g.gruvbox_italicize_comments) then
+  italic_comments = "NONE"
 end
 
 local italic_strings = "NONE"
-if vim.g.gruvbox_italicize_strings then
+if tobool(vim.g.gruvbox_italicize_strings) then
   italic_strings = styles.italic
 end
 
