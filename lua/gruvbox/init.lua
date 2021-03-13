@@ -983,4 +983,8 @@ local groups = lush(function()
     GitGutterChangeDelete {GruvboxAquaSign},
   }
 end)
+
+-- lightline check
+require("gruvbox.plugins.lightline").start()
+
 return groups
