@@ -984,7 +984,6 @@ local groups = lush(function()
   }
 end)
 
--- lightline check
-require("gruvbox.plugins.lightline").start()
+require("gruvbox.plugins.lightline").start(groups)
 
 return groups
