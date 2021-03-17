@@ -2,10 +2,10 @@
 local M = {}
 
 M.start = function(theme)
-  local bg0 = theme.GruvboxBg0.bg.hex
-  local bg1 = theme.GruvboxBg1.bg.hex
-  local bg2 = theme.GruvboxBg2.bg.hex
-  local bg4 = theme.GruvboxBg4.bg.hex
+  local bg0 = theme.GruvboxBg0.fg.hex
+  local bg1 = theme.GruvboxBg1.fg.hex
+  local bg2 = theme.GruvboxBg2.fg.hex
+  local bg4 = theme.GruvboxBg4.fg.hex
   local fg1 = theme.GruvboxFg1.fg.hex
   local fg4 = theme.GruvboxFg4.fg.hex
 
