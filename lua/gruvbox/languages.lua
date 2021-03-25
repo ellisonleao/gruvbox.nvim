@@ -125,6 +125,7 @@ local clojure = lush(function()
 end)
 
 local html = lush(function()
+  local table_concat = table.concat
   return {
     htmlTag {base.GruvboxAquaBold},
     htmlEndTag {base.GruvboxAquaBold},
@@ -138,15 +139,15 @@ local html = lush(function()
     htmlBold {fg = base.GruvboxFg1.fg.hex, gui = styles.bold},
     htmlBoldUnderline {
       fg = base.GruvboxFg1.fg.hex,
-      gui = styles.bold .. "," .. styles.underline,
+      gui = table_concat({styles.bold, styles.underline}, ","),
     },
     htmlBoldItalic {
       fg = base.GruvboxFg1.fg.hex,
-      gui = styles.bold .. "," .. styles.italic_strings,
+      gui = table_concat({styles.bold, styles.italic_strings}, ","),
     },
     htmlBoldUnderlineItalic {
       fg = base.GruvboxFg1.fg.hex,
-      gui = styles.bold .. "," .. styles.underline .. "," .. styles.italic_strings,
+      gui = table_concat({styles.bold, styles.italic_strings}, ","),
     },
     htmlItalic {fg = base.GruvboxFg1.fg.hex, gui = styles.italic_strings},
   }

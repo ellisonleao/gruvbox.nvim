@@ -128,6 +128,8 @@ vim.g.terminal_color_15 = convert.hsl_to_hex(fg1)
 
 vim.g.colors_name = "gruvbox"
 
+local table_concat = table.concat
+
 local base_group = lush(function()
   return {
     -- Base groups
@@ -261,8 +263,8 @@ local base_group = lush(function()
     Bold {gui = styles.bold},
     Italic {gui = styles.italic},
     Ignore {},
-    Error {GruvboxRed, gui = styles.bold .. "," .. styles.underline},
-    Todo {fg = fg0, gui = styles.bold .. "," .. styles.italic_comments},
+    Error {GruvboxRed, gui = table_concat({styles.bold, styles.underline}, ",")},
+    Todo {fg = fg0, gui = table_concat({styles.bold, styles.italic_comments}, ",")},
     diffAdded {GruvboxGreen},
     diffRemoved {GruvboxRed},
     diffChanged {GruvboxAqua},

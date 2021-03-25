@@ -42,27 +42,27 @@ end
 
 -- styles check
 if not utils.tobool(vim.g.gruvbox_bold) then
-  styles.bold = ""
+  styles.bold = "NONE"
 end
 
 if not utils.tobool(vim.g.gruvbox_underline) then
-  styles.underline = ""
+  styles.underline = "NONE"
 end
 
 if not utils.tobool(vim.g.gruvbox_italic) then
-  styles.italic = ""
+  styles.italic = "NONE"
 end
 
 if not utils.tobool(vim.g.gruvbox_inverse) then
-  styles.inverse = ""
+  styles.inverse = "NONE"
 end
 
 if not utils.tobool(vim.g.gruvbox_inverse) then
-  styles.inverse = ""
+  styles.inverse = "NONE"
 end
 
 if not utils.tobool(vim.g.gruvbox_undercurl) then
-  styles.undercurl = ""
+  styles.undercurl = "NONE"
 end
 
 if utils.tobool(vim.g.gruvbox_invert_signs) then
