@@ -3,7 +3,6 @@ local convert = require("lush.hsl.convert")
 local colors = require("gruvbox.colors")
 local styles = require("gruvbox.settings").styles
 local utils = require("gruvbox.utils")
-local hsl = lush.hsl
 
 -- options (dark mode by default)
 local bg0 = colors.dark0
@@ -26,7 +25,6 @@ local purple = colors.bright_purple
 local aqua = colors.bright_aqua
 local orange = colors.bright_orange
 local gray = colors.gray
-local sign_column = bg1
 
 -- handle light/dark contrast settings
 local bg = vim.o.background
@@ -63,35 +61,13 @@ if bg == "light" then
   orange = colors.faded_orange
 end
 
-local hls_cursor = orange
-if vim.g.gruvbox_hls_cursor ~= nil then
-  hls_cursor = hsl(colors[vim.g.gruvbox_hls_cursor])
-end
-
-local hls_highlight = yellow
-if vim.g.gruvbox_hls_cursor ~= nil then
-  hls_highlight = hsl(colors[vim.g.gruvbox_hls_highlight])
-end
-
-local number_column
-if vim.g.gruvbox_number_column ~= nil then
-  number_column = hsl(colors[vim.g.gruvbox_number_column])
-end
-
-local color_column = bg1
-if vim.g.gruvbox_color_column ~= nil then
-  color_column = hsl(colors[vim.g.gruvbox_color_column])
-end
-
-local vert_split = bg0
-if vim.g.gruvbox_vert_split ~= nil then
-  vert_split = hsl(colors[vim.g.gruvbox_vert_split])
-end
-
-local tabline_sel = green
-if utils.tobool(vim.g.gruvbox_tabline_sel) then
-  tabline_sel = hsl(colors[vim.g.gruvbox_tabline_sel])
-end
+local hls_cursor = utils.get_color_from_var(vim.g.gruvbox_hls_cursor, orange)
+local hls_highlight = utils.get_color_from_var(vim.g.gruvbox_hls_highlight, yellow)
+local number_column = utils.get_color_from_var(vim.g.gruvbox_number_column, nil)
+local color_column = utils.get_color_from_var(vim.g.gruvbox_color_column, bg1)
+local vert_split = utils.get_color_from_var(vim.g.gruvbox_vert_split, bg0)
+local tabline_sel = utils.get_color_from_var(vim.g.gruvbox_tabline_sel, green)
+local sign_column = utils.get_color_from_var(vim.g.gruvbox_sign_column, bg1)
 
 local improved_strings_fg = fg1
 local improved_strings_bg = bg1
