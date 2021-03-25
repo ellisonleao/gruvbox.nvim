@@ -263,6 +263,18 @@ local base_group = lush(function()
     Ignore {},
     Error {GruvboxRed, gui = styles.bold .. "," .. styles.underline},
     Todo {fg = fg0, gui = styles.bold .. "," .. styles.italic_comments},
+    diffAdded {GruvboxGreen},
+    diffRemoved {GruvboxRed},
+    diffChanged {GruvboxAqua},
+    diffFile {GruvboxOrange},
+    diffNewFile {GruvboxYellow},
+    diffLine {GruvboxBlue},
+    -- signature
+    SignatureMarkText {GruvboxBlueSign},
+    SignatureMarkerText {GruvboxPurpleSign},
+    -- gitcommit
+    gitcommitSelectedFile {GruvboxGreen},
+    gitcommitDiscardedFile {GruvboxRed},
   }
 end)
 

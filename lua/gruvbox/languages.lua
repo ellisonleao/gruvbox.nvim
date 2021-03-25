@@ -3,23 +3,20 @@ local lush = require("lush")
 local base = require("gruvbox.base")
 local styles = require("gruvbox.settings").styles
 
-local langs = lush(function()
+-- golang
+local golang = lush(function()
   return {
-    -- mail.vim
-    mailQuoted1 {base.GruvboxAqua},
-    mailQuoted2 {base.GruvboxPurple},
-    mailQuoted3 {base.GruvboxYellow},
-    mailQuoted4 {base.GruvboxGreen},
-    mailQuoted5 {base.GruvboxRed},
-    mailQuoted6 {base.GruvboxOrange},
-    mailSignature {base.Comment},
-    -- -- golang
     goDirective {base.GruvboxAqua},
     goConstants {base.GruvboxPurple},
     goDeclaration {base.GruvboxRed},
     goDeclType {base.GruvboxBlue},
     goBuiltins {base.GruvboxOrange},
-    -- java
+  }
+end)
+
+-- java
+local java = lush(function()
+  return {
     javaAnnotation {base.GruvboxBlue},
     javaDocTags {base.GruvboxAqua},
     javaCommentTitle {base.Comment},
@@ -30,7 +27,12 @@ local langs = lush(function()
     javaParen4 {base.GruvboxFg3},
     javaParen5 {base.GruvboxFg3},
     javaOperator {base.GruvboxOrange},
-    -- xml
+  }
+end)
+
+-- xml
+local xml = lush(function()
+  return {
     xmlTag {base.GruvboxAquaBold},
     xmlEndTag {base.GruvboxAquaBold},
     xmlTagName {base.GruvboxBlue},
@@ -49,7 +51,11 @@ local langs = lush(function()
     xmlAttribPunct {base.GruvboxGray},
     xmlEntity {base.GruvboxRed},
     xmlEntityPunct {base.GruvboxRed},
-    -- -- viml
+  }
+end)
+
+local viml = lush(function()
+  return {
     vimNotation {base.GruvboxOrange},
     vimBracket {base.GruvboxOrange},
     vimMapModKey {base.GruvboxOrange},
@@ -57,11 +63,20 @@ local langs = lush(function()
     vimSetSep {base.GruvboxFg3},
     vimSep {base.GruvboxFg3},
     vimContinue {base.GruvboxFg3},
-    -- c
+  }
+end)
+
+local c = lush(function()
+  return {
     cOperator {base.GruvboxPurple},
     cppOperator {base.GruvboxPurple},
     cStructure {base.GruvboxOrange},
-    -- python
+
+  }
+end)
+
+local python = lush(function()
+  return {
     pythonBuiltin {base.GruvboxOrange},
     pythonBuiltinObj {base.GruvboxOrange},
     pythonBuiltinFunc {base.GruvboxOrange},
@@ -79,7 +94,11 @@ local langs = lush(function()
     pythonConditional {base.GruvboxRed},
     pythonRepeat {base.GruvboxRed},
     pythonDottedName {base.GruvboxGreenBold},
-    -- clojure
+  }
+end)
+
+local clojure = lush(function()
+  return {
     clojureKeyword {base.GruvboxBlue},
     clojureCond {base.GruvboxOrange},
     clojureSpecial {base.GruvboxOrange},
@@ -102,7 +121,11 @@ local langs = lush(function()
     clojureRegexpCharClass {fg = base.GruvboxFg3.fg.hex, gui = styles.bold},
     clojureRegexpMod {clojureRegexpCharClass},
     clojureRegexpQuantifier {clojureRegexpCharClass},
-    -- html
+  }
+end)
+
+local html = lush(function()
+  return {
     htmlTag {base.GruvboxAquaBold},
     htmlEndTag {base.GruvboxAquaBold},
     htmlTagName {base.GruvboxBlue},
@@ -126,14 +149,11 @@ local langs = lush(function()
       gui = styles.bold .. "," .. styles.underline .. "," .. styles.italic_strings,
     },
     htmlItalic {fg = base.GruvboxFg1.fg.hex, gui = styles.italic_strings},
-    -- special diffs
-    diffAdded {base.GruvboxGreen},
-    diffRemoved {base.GruvboxRed},
-    diffChanged {base.GruvboxAqua},
-    diffFile {base.GruvboxOrange},
-    diffNewFile {base.GruvboxYellow},
-    diffLine {base.GruvboxBlue},
-    -- css
+  }
+end)
+
+local css = lush(function()
+  return {
     cssBraces {base.GruvboxBlue},
     cssFunctionName {base.GruvboxYellow},
     cssIdentifier {base.GruvboxOrange},
@@ -164,7 +184,11 @@ local langs = lush(function()
     cssRenderProp {base.GruvboxAqua},
     cssColorProp {base.GruvboxAqua},
     cssGeneratedContentProp {base.GruvboxAqua},
-    -- js
+  }
+end)
+
+local js = lush(function()
+  return {
     javaScriptBraces {base.GruvboxFg1},
     javaScriptFunction {base.GruvboxAqua},
     javaScriptIdentifier {base.GruvboxRed},
@@ -243,7 +267,11 @@ local langs = lush(function()
     jsUndefined {base.GruvboxPurple},
     jsClassDefinition {base.GruvboxYellow},
     jsOperatorKeyword {base.GruvboxRed},
-    -- typescript
+  }
+end)
+
+local typescript = lush(function()
+  return {
     typescriptReserved {base.GruvboxAqua},
     typescriptLabel {base.GruvboxAqua},
     typescriptFuncKeyword {base.GruvboxAqua},
@@ -267,13 +295,21 @@ local langs = lush(function()
     typescriptUnion {base.GruvboxOrange},
     typescriptDotNotation {base.GruvboxOrange},
     typescriptGlobalObjectDot {typescriptDotNotation},
-    -- -- jsx
+  }
+end)
+
+local jsx = lush(function()
+  return {
     jsxTagName {base.GruvboxAqua},
     jsxComponentName {base.GruvboxGreen},
     jsxCloseString {base.GruvboxFg4},
     jsxAttrib {base.GruvboxYellow},
     jsxEqual {base.GruvboxAqua},
-    -- purescript
+  }
+end)
+
+local purescript = lush(function()
+  return {
     purescriptModuleKeyword {base.GruvboxAqua},
     purescriptModuleName {base.GruvboxFg1},
     purescriptWhere {base.GruvboxAqua},
@@ -289,29 +325,50 @@ local langs = lush(function()
     purescriptFunction {base.GruvboxFg1},
     purescriptConditional {base.GruvboxOrange},
     purescriptBacktick {base.GruvboxOrange},
-    -- coffeescript
+  }
+end)
+
+local coffeescript = lush(function()
+  return {
     coffeeExtendedOp {base.GruvboxFg3},
     coffeeSpecialOp {base.GruvboxFg3},
     coffeeCurly {base.GruvboxOrange},
     coffeeParen {base.GruvboxFg3},
     coffeeBracket {base.GruvboxOrange},
-    -- ruby
+  }
+end)
+
+local ruby = lush(function()
+  return {
     rubyStringDelimiter {base.GruvboxGreen},
     rubyInterpolationDelimiter {base.GruvboxAqua},
-    -- obj-c
-    objcTypeModifier {base.GruvboxRed},
-    objcDirective {base.GruvboxBlue},
-    -- moonscript
+  }
+end)
+
+local objc = lush(function()
+  return {objcTypeModifier {base.GruvboxRed}, objcDirective {base.GruvboxBlue}}
+end)
+
+local moonscript = lush(function()
+  return {
     moonSpecialOp {base.GruvboxFg3},
     moonExtendedOp {base.GruvboxFg3},
     moonFunction {base.GruvboxFg3},
     moonObject {base.GruvboxYellow},
-    -- elixir
+  }
+end)
+
+local elixir = lush(function()
+  return {
     elixirDocString {base.Comment},
     elixirStringDelimiter {base.GruvboxGreen},
     elixirInterpolationDelimiter {base.GruvboxAqua},
     elixirModuleDeclaration {base.GruvboxYellow},
-    -- scala
+  }
+end)
+
+local scala = lush(function()
+  return {
     scalaNameDefinition {base.GruvboxFg1},
     scalaCaseFollowing {base.GruvboxFg1},
     scalaCapitalWord {base.GruvboxFg1},
@@ -324,7 +381,11 @@ local langs = lush(function()
     scalaTypeTypePostDeclaration {base.GruvboxYellow},
     scalaInstanceDeclaration {base.GruvboxFg1},
     scalaInterpolation {base.GruvboxAqua},
-    -- markdown
+  }
+end)
+
+local markdown = lush(function()
+  return {
     markdownItalic {fg = base.GruvboxFg3.fg.hex, gui = styles.italic_strings},
     markdownH1 {base.GruvboxGreenBold},
     markdownH2 {markdownH1},
@@ -348,7 +409,11 @@ local langs = lush(function()
     markdownUrlTitleDelimiter {base.GruvboxGreen},
     markdownLinkText {fg = base.GruvboxGray.fg.hex, gui = styles.underline},
     markdownIdDeclaration {markdownLinkText},
-    -- haskell
+  }
+end)
+
+local haskell = lush(function()
+  return {
     haskellType {base.GruvboxBlue},
     haskellIdentifier {base.GruvboxAqua},
     haskellSeparator {base.GruvboxFg4},
@@ -383,12 +448,21 @@ local langs = lush(function()
     haskellTypeRoles {base.GruvboxRedBold},
     haskellTypeForall {base.GruvboxRed},
     haskellPatternKeyword {base.GruvboxBlue},
-    -- json
+
+  }
+end)
+
+local json = lush(function()
+  return {
     jsonKeyword {base.GruvboxGreen},
     jsonQuote {base.GruvboxGreen},
     jsonBraces {base.GruvboxFg1},
     jsonString {base.GruvboxFg1},
-    -- csharp
+  }
+end)
+
+local csharp = lush(function()
+  return {
     csBraces {base.GruvboxFg1},
     csEndColon {base.GruvboxFg1},
     csLogicSymbols {base.GruvboxFg1},
@@ -398,7 +472,11 @@ local langs = lush(function()
     csInterpolationAlignDel {base.GruvboxAquaBold},
     csInterpolationFormat {base.GruvboxAqua},
     csInterpolationFormatDel {base.GruvboxAquaBold},
-    -- rust
+  }
+end)
+
+local rust = lush(function()
+  return {
     rustSigil {base.GruvboxOrange},
     rustEscape {base.GruvboxAqua},
     rustStringContinuation {base.GruvboxAqua},
@@ -407,23 +485,54 @@ local langs = lush(function()
     rustModPathSep {base.GruvboxFg2},
     rustCommentLineDoc {base.Comment},
     rustDefault {base.GruvboxAqua},
-    -- ocaml
+  }
+end)
+
+local ocaml = lush(function()
+  return {
     ocamlOperator {base.GruvboxFg1},
     ocamlKeyChar {base.GruvboxOrange},
     ocamlArrow {base.GruvboxOrange},
     ocamlInfixOpKeyword {base.GruvboxRed},
     ocamlConstructor {base.GruvboxOrange},
-    -- lua
+  }
+end)
+
+local lua = lush(function()
+  return {
     luaIn {base.GruvboxRed},
     luaFunction {base.GruvboxAqua},
     luaTable {base.GruvboxOrange},
-    -- signature
-    SignatureMarkText {base.GruvboxBlueSign},
-    SignatureMarkerText {base.GruvboxPurpleSign},
-    -- gitcommit
-    gitcommitSelectedFile {base.GruvboxGreen},
-    gitcommitDiscardedFile {base.GruvboxRed},
   }
 end)
+
+local langs = lush.merge({
+  golang,
+  java,
+  xml,
+  viml,
+  c,
+  python,
+  clojure,
+  html,
+  css,
+  js,
+  typescript,
+  jsx,
+  purescript,
+  coffeescript,
+  ruby,
+  objc,
+  moonscript,
+  elixir,
+  scala,
+  markdown,
+  haskell,
+  json,
+  csharp,
+  rust,
+  ocaml,
+  lua,
+})
 
 return langs

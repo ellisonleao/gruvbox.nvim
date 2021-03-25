@@ -225,6 +225,14 @@ local plugins = lush(function()
     LspReferenceRead {base.GruvboxYellowBold},
     LspReferenceText {base.GruvboxYellowBold},
     LspReferenceWrite {base.GruvboxYellowBold},
+    -- mail.vim
+    mailQuoted1 {base.GruvboxAqua},
+    mailQuoted2 {base.GruvboxPurple},
+    mailQuoted3 {base.GruvboxYellow},
+    mailQuoted4 {base.GruvboxGreen},
+    mailQuoted5 {base.GruvboxRed},
+    mailQuoted6 {base.GruvboxOrange},
+    mailSignature {base.Comment},
   }
 end)
 
