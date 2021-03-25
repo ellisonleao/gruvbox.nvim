@@ -2,6 +2,7 @@
 local lush = require("lush")
 local base = require("gruvbox.base")
 local styles = require("gruvbox.settings").styles
+local table_concat = table.concat
 
 -- golang
 local golang = lush(function()
@@ -125,7 +126,6 @@ local clojure = lush(function()
 end)
 
 local html = lush(function()
-  local table_concat = table.concat
   return {
     htmlTag {base.GruvboxAquaBold},
     htmlEndTag {base.GruvboxAquaBold},
