@@ -1,5 +1,4 @@
 -- util functions
-local colors = require("gruvbox.colors")
 local M = {}
 
 M.tobool = function(val)
@@ -11,7 +10,7 @@ end
 
 -- check if vim.g.gruvbox_* color exists in current palette, return default color
 -- otherwise
-M.get_color_from_var = function(color, default)
+M.get_color_from_var = function(color, default, colors)
   if color == nil then
     return default
   end

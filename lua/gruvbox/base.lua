@@ -61,13 +61,33 @@ if bg == "light" then
   orange = colors.faded_orange
 end
 
-local hls_cursor = utils.get_color_from_var(vim.g.gruvbox_hls_cursor, orange)
-local hls_highlight = utils.get_color_from_var(vim.g.gruvbox_hls_highlight, yellow)
-local number_column = utils.get_color_from_var(vim.g.gruvbox_number_column, nil)
-local color_column = utils.get_color_from_var(vim.g.gruvbox_color_column, bg1)
-local vert_split = utils.get_color_from_var(vim.g.gruvbox_vert_split, bg0)
-local tabline_sel = utils.get_color_from_var(vim.g.gruvbox_tabline_sel, green)
-local sign_column = utils.get_color_from_var(vim.g.gruvbox_sign_column, bg1)
+-- extending colors table with basic names for easy customization in g:gruvbox_* options
+colors.bg0 = bg0
+colors.bg1 = bg1
+colors.bg2 = bg2
+colors.bg3 = bg3
+colors.bg4 = bg4
+colors.fg0 = fg0
+colors.fg1 = fg1
+colors.fg2 = fg2
+colors.fg3 = fg3
+colors.fg4 = fg4
+colors.red = red
+colors.green = green
+colors.yellow = yellow
+colors.blue = blue
+colors.purple = purple
+colors.aqua = aqua
+colors.orange = orange
+
+local hls_cursor = utils.get_color_from_var(vim.g.gruvbox_hls_cursor, orange, colors)
+local hls_highlight = utils.get_color_from_var(vim.g.gruvbox_hls_highlight, yellow,
+                                               colors)
+local number_column = utils.get_color_from_var(vim.g.gruvbox_number_column, nil, colors)
+local color_column = utils.get_color_from_var(vim.g.gruvbox_color_column, bg1, colors)
+local vert_split = utils.get_color_from_var(vim.g.gruvbox_vert_split, bg0, colors)
+local tabline_sel = utils.get_color_from_var(vim.g.gruvbox_tabline_sel, green, colors)
+local sign_column = utils.get_color_from_var(vim.g.gruvbox_sign_column, bg1, colors)
 
 local improved_strings_fg = fg1
 local improved_strings_bg = bg1
