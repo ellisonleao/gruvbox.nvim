@@ -25,7 +25,7 @@ Inside `init.vim`
 
 ```vim
 set background=dark " or light if you want light mode
-set colorscheme=gruvbox
+colorscheme gruvbox
 ```
 
 Inside `init.lua`
