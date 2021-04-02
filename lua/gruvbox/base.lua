@@ -97,10 +97,9 @@ local special_string_fg = orange
 local special_string_bg = bg1
 local special_string_gui = styles.italic_strings
 
-if not vim.g.gruvbox_improved_strings then
+if not utils.tobool(vim.g.gruvbox_improved_strings) then
   improved_strings_fg = green
   improved_strings_bg = nil
-
   special_string_bg = nil
   special_string_gui = nil
 end
@@ -252,7 +251,7 @@ local base_group = lush(function()
     Typedef {GruvboxYellow},
     SpecialChar {GruvboxRed},
     Tag {GruvboxAquaBold},
-    Delimiter {GruvboxFg0},
+    Delimiter {Special},
     Comment {fg = gray, gui = styles.italic_comments},
     Debug {GruvboxRed},
     Underlined {fg = blue, gui = styles.underline},
