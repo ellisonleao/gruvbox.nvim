@@ -272,6 +272,10 @@ local base_group = lush(function()
     -- gitcommit
     gitcommitSelectedFile {GruvboxGreen},
     gitcommitDiscardedFile {GruvboxRed},
+    -- checkhealth
+    healthError {fg = bg0, bg = red},
+    healthSuccess {fg = bg0, bg = green},
+    healthWarning {fg = bg0, bg = yellow},
   }
 end)
 
