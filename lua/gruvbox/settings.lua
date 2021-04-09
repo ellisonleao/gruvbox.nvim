@@ -27,7 +27,7 @@ local styles = {
   undercurl = "undercurl",
   invert_signs = "",
   invert_selection = "inverse",
-  invert_tabline = "inverse",
+  invert_tabline = "",
   italic_comments = "italic",
   italic_strings = "NONE",
 }
