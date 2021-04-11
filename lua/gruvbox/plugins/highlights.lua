@@ -22,7 +22,7 @@ local plugins = lush(function()
     TSTitle {base.Title},
     TSLiteral {base.String},
     TSURI {base.Underlined},
-    TSVariable {},
+    TSVariable {base.GruvboxFg1},
     TSPunctDelimiter {base.Delimiter},
     TSPunctBracket {base.Delimiter},
     TSPunctSpecial {base.Delimiter},
@@ -64,6 +64,11 @@ local plugins = lush(function()
     TSStrong {gui = styles.bold},
     TSEmphasis {gui = styles.italic_strings},
     TSUnderline {gui = styles.underline},
+    TSComment {base.Comment},
+    TSStructure {base.GruvboxOrange},
+    TSTag {base.GruvboxOrange},
+    TSTagDelimiter {base.GruvboxGreen},
+
     -- telescope.nvim
     TelescopeSelection {base.GruvboxOrangeBold},
     TelescopeSlectionCaret {base.GruvboxRed},
