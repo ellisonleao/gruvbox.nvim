@@ -26,18 +26,10 @@ local aqua = colors.bright_aqua
 local orange = colors.bright_orange
 local gray = colors.gray
 
--- handle light/dark contrast settings
 local bg = vim.o.background
 if bg == nil then
   bg = "dark"
   vim.o.background = bg
-end
-
-local contrast = vim.g["gruvbox_contrast_" .. bg]
-if contrast == "hard" then
-  bg0 = colors[bg .. "0_hard"]
-elseif contrast == "soft" then
-  bg0 = colors[bg .. "0_soft"]
 end
 
 -- swap colors if light mode
@@ -59,6 +51,14 @@ if bg == "light" then
   purple = colors.faded_purple
   aqua = colors.faded_aqua
   orange = colors.faded_orange
+end
+
+-- handle light/dark contrast settings
+local contrast = vim.g["gruvbox_contrast_" .. bg]
+if contrast == "hard" then
+  bg0 = colors[bg .. "0_hard"]
+elseif contrast == "soft" then
+  bg0 = colors[bg .. "0_soft"]
 end
 
 -- extending colors table with basic names for easy customization in g:gruvbox_* options
