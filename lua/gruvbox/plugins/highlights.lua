@@ -214,6 +214,11 @@ local plugins = lush(function()
     GitGutterChange {base.GruvboxAquaSign},
     GitGutterDelete {base.GruvboxRedSign},
     GitGutterChangeDelete {base.GruvboxAquaSign},
+    -- gitsigns.nvim
+    GitSignsAdd {base.GruvboxGreenSign},
+    GitSignsChange {base.GruvboxAquaSign},
+    GitSignsDelete {base.GruvboxRedSign},
+    GitSignsCurrentLineBlame {base.NonText},
     -- LSP
     LspDiagnosticsDefaultError {base.GruvboxRed},
     LspDiagnosticsSignError {base.GruvboxRedSign},
