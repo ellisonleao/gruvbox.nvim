@@ -180,7 +180,7 @@ local base_group = lush(function()
     CursorIM {Cursor},
     CursorLine {bg = bg1},
     CursorColumn {CursorLine},
-    Directory {GruvboxRedBold},
+    Directory {GruvboxGreenBold},
     DiffAdd {fg = green, bg = bg0, gui = styles.invert_signs},
     DiffChange {fg = aqua, bg = bg0, gui = styles.invert_signs},
     DiffDelete {fg = red, bg = bg0, gui = styles.invert_signs},
