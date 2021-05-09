@@ -21,27 +21,27 @@ M.start = function(theme)
       left = {{bg0, fg4, "bold"}, {fg4, bg2}},
       middle = {{fg4, bg1}},
       right = {{bg0, fg4}, {fg4, bg2}},
-      error = {{bg0, red}},
-      warning = {{bg0, yellow}},
+      error = {{bg0, orange}},
+      warning = {{bg2, yellow}},
     },
     insert = {
       left = {{bg0, blue, "bold"}, {fg1, bg2}},
-      middle = {{fg4, bg1}},
+      middle = {{fg4, bg2}},
       right = {{bg0, blue}, {fg1, bg2}},
     },
     inactive = {
-      left = {{bg4, bg1}},
+      left = {{bg4, bg1}, {bg4, bg1}},
       middle = {{bg4, bg1}},
       right = {{bg4, bg1}, {bg4, bg1}},
     },
     terminal = {
       left = {{bg0, green, "bold"}, {fg1, bg2}},
-      middle = {{fg4, bg1}},
+      middle = {{fg4, bg2}},
       right = {{bg0, green}, {fg1, bg2}},
     },
     replace = {
       left = {{bg0, aqua, "bold"}, {fg1, bg2}},
-      middle = {{fg4, bg1}},
+      middle = {{fg4, bg2}},
       right = {{bg0, aqua}, {fg1, bg2}},
     },
     visual = {
@@ -51,7 +51,7 @@ M.start = function(theme)
     },
     tabline = {
       left = {{fg4, bg2}},
-      middle = {{bg0, bg4}},
+      middle = {{bg0, bg0}},
       right = {{bg0, orange}},
       tabsel = {{bg0, fg4}},
     },
