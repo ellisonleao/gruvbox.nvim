@@ -198,8 +198,6 @@ local base_group = lush(function()
     MoreMsg {GruvboxYellowBold},
     NonText {GruvboxBg2},
     Normal {fg = fg1, bg = bg0},
-    NormalFloat {Normal},
-    NormalNC {Normal},
     Pmenu {fg = fg1, bg = bg2},
     PmenuSel {fg = bg2, bg = blue, gui = styles.bold},
     PmenuSbar {bg = bg2},
