@@ -3,7 +3,7 @@ local utils = require("gruvbox.utils")
 
 local settings = {
   contrast_dark = "medium",
-  contrart_light = "medium",
+  contrast_light = "medium",
   bold = true,
   italic = true,
   undercurl = true,
