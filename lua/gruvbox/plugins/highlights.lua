@@ -220,6 +220,7 @@ local plugins = lush(function()
     GitSignsDelete {base.GruvboxRedSign},
     GitSignsCurrentLineBlame {base.NonText},
     -- LSP
+    LspCodeLens {base.GruvboxGray},
     LspDiagnosticsDefaultError {base.GruvboxRed},
     LspDiagnosticsSignError {base.GruvboxRedSign},
     LspDiagnosticsUnderlineError {base.GruvboxRedUnderline},
