@@ -484,7 +484,8 @@ local rust = lush(function()
     rustEnum {base.GruvboxAqua},
     rustStructure {base.GruvboxAqua},
     rustModPathSep {base.GruvboxFg2},
-    rustCommentLineDoc {base.Comment},
+    rustCommentLineDoc {base.GruvboxOrange},
+    rustCommentBlockDoc {base.GruvboxOrange},
     rustDefault {base.GruvboxAqua},
   }
 end)
