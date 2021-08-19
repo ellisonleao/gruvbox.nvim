@@ -10,13 +10,13 @@ Using `vim-plug`
 
 ```vim
 Plug 'rktjmp/lush.nvim'
-Plug 'npxbr/gruvbox.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 ```
 
 Using `packer`
 
 ```lua
-use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 ```
 
 # Usage
