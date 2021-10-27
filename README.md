@@ -4,6 +4,10 @@ A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) them
 
 Please note that this plugin is under active development right now, so the status for it is still alpha. Please file issues if you find any bugs.
 
+# Prerequisites
+
+Neovim 0.5.0+
+
 # Installing
 
 Using `vim-plug`
