@@ -8,34 +8,44 @@ Please note that this plugin is under active development right now, so the statu
 
 Neovim 0.5.0+
 
-# Installing
+# Installation
 
-Using `vim-plug`
+Using [vim-plug](https://github.com/junegunn/vim-plug)
 
-```vim
+```viml
 Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 ```
 
-Using `packer`
+Using [dein](https://github.com/Shougo/dein.vim)
+
+```viml
+call dein#add('rktjmp/lush.nvim')
+call dein#add('ellisonleao/gruvbox.nvim')
+```
+
+Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+use {
+  'ellisonleao/gruvbox.nvim',
+  requires = { {'rktjmp/lush.nvim'} }
+}
 ```
 
 # Usage
 
-Inside `init.vim`
+For `init.vim`
 
 ```vim
-set background=dark " or light if you want light mode
+set background=dark " or light for light mode
 colorscheme gruvbox
 ```
 
-Inside `init.lua`
+For `init.lua`
 ```lua
-vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
+vim.o.background = "dark" -- or light for light mode
+vim.cmd[[colorscheme gruvbox]]
 ```
 
 # Configuration
