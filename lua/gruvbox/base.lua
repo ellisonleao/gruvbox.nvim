@@ -199,7 +199,7 @@ local base_group = lush(function()
     NonText {GruvboxBg2},
     Normal {fg = fg1, bg = bg0},
     Pmenu {fg = fg1, bg = bg2},
-    PmenuSel {fg = bg2, bg = blue, gui = styles.bold},
+    PmenuSel {fg = bg2, bg = fg4, gui = styles.bold},
     PmenuSbar {bg = bg2},
     PmenuThumb {bg = bg4},
     Question {GruvboxOrangeBold},
