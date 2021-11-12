@@ -141,7 +141,7 @@ local plugins = lush(function()
     -- vim-dirvish
     DirvishPathTail {base.GruvboxAqua},
     DirvishArg {base.GruvboxYellow},
-    -- nerdtree 
+    -- nerdtree
     NERDTreeDir {base.GruvboxAqua},
     NERDTreeDirSlash {base.GruvboxAqua},
     NERDTreeOpenable {base.GruvboxOrange},
@@ -190,7 +190,7 @@ local plugins = lush(function()
     BufTabLineModifiedCurrent {BufTabLineCurrent},
     BufTabLineModifiedActive {BufTabLineActive},
     BufTabLineModifiedHidden {BufTabLineHidden},
-    -- ctrlP 
+    -- ctrlP
     CtrlPMatch {base.Identifier},
     CtrlPNoEntries {base.Error},
     CtrlPPrtBase {base.Comment},
@@ -217,11 +217,18 @@ local plugins = lush(function()
     GitSignsChange {base.GruvboxAquaSign},
     GitSignsDelete {base.GruvboxRedSign},
     GitSignsCurrentLineBlame {base.NonText},
+    -- nvim-cmp
+    CmpItemAbbr {base.GruvboxFg0},
+    CmpItemAbbrDeprecated {base.GruvboxFg0},
+    CmpItemAbbrMatch {base.GruvboxBlue},
+    CmpItemAbbrMatchFuzzy {gui = styles.underline, fg = base.GruvboxBlue.fg.hex},
+    CmpItemKind {base.GruvboxOrange},
+    CmpItemMenu {base.GruvboxGray},
     -- LSP
     LspCodeLens {base.GruvboxGray},
-    LspReferenceRead {base.GruvboxYellowBold},
-    LspReferenceText {base.GruvboxYellowBold},
-    LspReferenceWrite {base.GruvboxYellowBold},
+    LspReferenceRead {bg = base.GruvboxBg2.fg.hex, gui = styles.underline},
+    LspReferenceText {bg = base.GruvboxBg2.fg.hex, gui = styles.underline},
+    LspReferenceWrite {bg = base.GruvboxBg2.fg.hex, gui = styles.underline},
     -- NOTE: Deprecated settings (see https://github.com/neovim/neovim/pull/15585)
     LspDiagnosticsDefaultError {base.GruvboxRed},
     LspDiagnosticsSignError {base.GruvboxRedSign},
