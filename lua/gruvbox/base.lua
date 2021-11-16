@@ -103,6 +103,11 @@ if not utils.tobool(vim.g.gruvbox_improved_strings) then
   special_string_gui = nil
 end
 
+-- erase background if we are told to do so
+if utils.tobool(vim.g.gruvbox_transparent_bg) then
+  bg0 = "NONE"
+end
+
 -- neovim terminal mode colors
 vim.g.terminal_color_0 = bg0.hex
 vim.g.terminal_color_8 = gray.hex
