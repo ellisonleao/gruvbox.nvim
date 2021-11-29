@@ -57,10 +57,6 @@ if not utils.tobool(vim.g.gruvbox_inverse) then
   styles.inverse = "NONE"
 end
 
-if not utils.tobool(vim.g.gruvbox_inverse) then
-  styles.inverse = "NONE"
-end
-
 if not utils.tobool(vim.g.gruvbox_undercurl) then
   styles.undercurl = "NONE"
 end
