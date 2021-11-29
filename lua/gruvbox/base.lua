@@ -249,7 +249,7 @@ local base_group = lush(function()
     Typedef {GruvboxYellow},
     SpecialChar {GruvboxRed},
     Tag {GruvboxAquaBold},
-    Delimiter {GruvboxGray},
+    Delimiter {GruvboxFg3},
     Comment {fg = gray, gui = styles.italic_comments},
     Debug {GruvboxRed},
     Underlined {fg = blue, gui = styles.underline},
