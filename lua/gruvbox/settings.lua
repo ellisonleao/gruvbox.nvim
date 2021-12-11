@@ -81,4 +81,4 @@ if utils.tobool(vim.g.gruvbox_italicize_strings) then
   styles.italic_strings = "italic"
 end
 
-return {settings = settings, styles = styles}
+return { settings = settings, styles = styles }

@@ -1,9 +1,0 @@
-align_table_field: true
-column_limit: 88
-continuation_indent_width: 2
-extra_sep_at_table_end: true
-indent_width: 2
-chop_down_table: true
-keep_simple_function_one_line: false
-keep_simple_control_block_one_line: false
-tab_width: 2
