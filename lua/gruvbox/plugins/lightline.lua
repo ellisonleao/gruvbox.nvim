@@ -2,8 +2,8 @@
 local M = {}
 
 M.init = function(theme)
-	local has_lightline, _ = pcall(vim.fn["lightline#update"])
-	if not has_lightline then
+	local has_lightline, _ = vim.fn.exists("*lightline#update")
+	if has_lightline == 0 then
 		return
 	end
 
