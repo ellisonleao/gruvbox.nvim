@@ -68,7 +68,12 @@ local elixir = {
 }
 
 local markdown = {
-  markdownItalic = { fg = base.GruvboxFg3.fg, gui = styles.italic_strings },
+  markdownItalic = { fg = base.GruvboxFg3.fg, gui = styles.italic },
+  markdownBold = { fg = base.GruvboxFg3.fg, gui = styles.bold },
+  markdownBoldItalic = {
+    fg = base.GruvboxFg3.fg,
+    gui = table.concat({ styles.bold, styles.italic }, ","),
+  },
   markdownH1 = base.GruvboxGreenBold,
   markdownH2 = "markdownH1",
   markdownH3 = base.GruvboxYellowBold,
