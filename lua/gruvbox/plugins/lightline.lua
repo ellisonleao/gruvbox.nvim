@@ -1,7 +1,12 @@
 -- lightline support
 local M = {}
 
-M.start = function(theme)
+M.init = function(theme)
+  local has_lightline, _ = pcall(vim.fn["lightline#update"])
+  if not has_lightline then
+    return
+  end
+
   local bg0 = theme.GruvboxBg0.fg
   local bg1 = theme.GruvboxBg1.fg
   local bg2 = theme.GruvboxBg2.fg
@@ -57,15 +62,12 @@ M.start = function(theme)
     },
   }
 
-  local has_lightline, _ = pcall(vim.fn["lightline#update"])
-  if has_lightline then
-    local ll_filled = vim.fn["lightline#colorscheme#fill"](lightline_theme)
-    vim.g["lightline#colorscheme#gruvbox#palette"] = ll_filled
-    vim.schedule(function()
-      vim.fn["lightline#disable"]()
-      vim.fn["lightline#enable"]()
-    end)
-  end
+  local ll_filled = vim.fn["lightline#colorscheme#fill"](lightline_theme)
+  vim.g["lightline#colorscheme#gruvbox#palette"] = ll_filled
+  vim.schedule(function()
+    vim.fn["lightline#disable"]()
+    vim.fn["lightline#enable"]()
+  end)
 end
 
 return M
