@@ -18,7 +18,7 @@ local plugins = lush(function()
 		netrwVersion({ base.GruvboxGreen }),
 		-- nvim-treesitter
 		TSNone({}),
-		TSError({ base.Error }),
+		TSError({ }),
 		TSTitle({ base.Title }),
 		TSLiteral({ base.String }),
 		TSURI({ base.Underlined }),
