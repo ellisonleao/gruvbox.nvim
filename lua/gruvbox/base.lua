@@ -255,7 +255,7 @@ local base_group = lush(function()
 		Bold({ gui = styles.bold }),
 		Italic({ gui = styles.italic }),
 		Ignore({}),
-		Error({ GruvboxRed, gui = table_concat({ styles.bold, styles.underline }, ",") }),
+		Error({ GruvboxRed, gui = table_concat({ styles.bold, styles.inverse }, ",") }),
 		Todo({ fg = fg0, gui = table_concat({ styles.bold, styles.italic_comments }, ",") }),
 		diffAdded({ GruvboxGreen }),
 		diffRemoved({ GruvboxRed }),
