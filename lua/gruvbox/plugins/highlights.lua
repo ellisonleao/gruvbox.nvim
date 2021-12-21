@@ -293,6 +293,8 @@ local plugins = lush(function()
 		mailQuoted5({ base.GruvboxRed }),
 		mailQuoted6({ base.GruvboxOrange }),
 		mailSignature({ base.Comment }),
+		-- FTerm.vim
+		FTermNormal({ bg = base.GruvboxBg2.fg.hex })
 	}
 end)
 
