@@ -294,7 +294,7 @@ local plugins = lush(function()
 		mailQuoted6({ base.GruvboxOrange }),
 		mailSignature({ base.Comment }),
 		-- vim-floaterm
-		Floaterm({ bg = base.GruvboxBg1.fg.hex })
+		Floaterm({ bg = base.GruvboxBg1.fg.hex }),
 		FloatermBorder({ fg = base.GruvboxOrange })
 	}
 end)
