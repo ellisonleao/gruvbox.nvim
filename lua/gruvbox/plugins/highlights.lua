@@ -295,7 +295,7 @@ local plugins = lush(function()
 		mailSignature({ base.Comment }),
 		-- vim-floaterm
 		Floaterm({ bg = base.GruvboxBg1.fg.hex }),
-		FloatermBorder({ fg = base.GruvboxOrange })
+		FloatermBorder({ base.GruvboxOrange })
 	}
 end)
 
