@@ -35,6 +35,7 @@ colorscheme gruvbox
 Inside `init.lua`
 ```lua
 vim.o.background = "dark" -- or "light" for light mode
+vim.g.gruvbox_contrast_dark = "hard" -- or "soft" for soft version or omit this line if you want default "medium" version
 vim.cmd([[colorscheme gruvbox]])
 ```
 
