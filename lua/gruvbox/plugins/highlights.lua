@@ -17,7 +17,7 @@ local plugins = {
   netrwVersion = base.GruvboxGreen,
   -- nvim-treesitter
   TSNone = {},
-  TSError = base.Error,
+  TSError = {},
   TSTitle = base.Title,
   TSLiteral = base.String,
   TSURI = base.Underlined,
@@ -118,7 +118,7 @@ local plugins = {
   StartifyFile = base.Identifier,
   StartifyNumber = base.Number,
   StartifyPath = base.Directory,
- StartifySlash = base.Delimiter,
+  StartifySlash = base.Delimiter,
   StartifySection = base.Statement,
   StartifySpecial = base.Comment,
   StartifyHeader = base.Title,
@@ -293,4 +293,4 @@ local plugins = {
   mailSignature = base.Comment,
 }
 
-return plugins 
+return plugins
