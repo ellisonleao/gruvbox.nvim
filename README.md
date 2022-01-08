@@ -13,14 +13,13 @@ Neovim 0.5.0+
 Using `vim-plug`
 
 ```vim
-Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 ```
 
 Using `packer`
 
 ```lua
-use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+use { "ellisonleao/gruvbox.nvim" }
 ```
 
 # Usage
