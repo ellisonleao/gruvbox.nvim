@@ -6,7 +6,7 @@ Please note that this plugin is under active development right now, so the statu
 
 # Prerequisites
 
-Neovim 0.5.0+
+Neovim 0.6.0+
 
 # Installing
 
@@ -32,6 +32,7 @@ colorscheme gruvbox
 ```
 
 Inside `init.lua`
+
 ```lua
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
