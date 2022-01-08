@@ -2,6 +2,7 @@
 local base = require("gruvbox.base")
 local styles = require("gruvbox.settings").styles
 local utils = require("gruvbox.utils")
+local colors = require("gruvbox.colors")
 
 -- xml
 local xml = {
@@ -135,6 +136,36 @@ local haskell = {
   haskellPatternKeyword = base.GruvboxBlue,
 }
 
+local html = {
+  htmlTag = base.GruvboxAquaBold,
+  htmlEndTag = base.GruvboxAquaBold,
+  htmlTagName = base.GruvboxBlue,
+  htmlArg = base.GruvboxOrange,
+  htmlTagN = base.GruvboxFg1,
+  htmlSpecialTagName = base.GruvboxBlue,
+  htmlLink = { fg = colors.fg4, gui = styles.underline },
+  htmlSpecialChar = "GruvboxRed",
+  htmlBold = { fg = colors.fg0, bg = colors.bg0, gui = styles.bold },
+  htmlBoldUnderline = {
+    fg = colors.fg0,
+    bg = colors.bg0,
+    gui = table.concat({ styles.bold, styles.underline }, ","),
+  },
+  htmlBoldItalic = { fg = colors.fg0, bg = colors.bg0, gui = table.concat({ styles.bold, styles.italic }, ",") },
+  htmlBoldUnderlineItalic = {
+    fg = colors.fg0,
+    bg = colors.bg0,
+    gui = table.concat({ styles.bold, styles.underline, styles.italic }, ","),
+  },
+  htmlUnderline = { fg = colors.fg0, bg = colors.bg0, gui = styles.underline },
+  htmlUnderlineItalic = {
+    fg = colors.fg0,
+    bg = colors.bg0,
+    gui = table.concat({ styles.underline, styles.italic }, ","),
+  },
+  htmlItalic = { fg = colors.fg0, bg = colors.bg0, gui = styles.italic },
+}
+
 local langs = utils.merge({
   xml,
   purescript,
@@ -144,6 +175,7 @@ local langs = utils.merge({
   elixir,
   markdown,
   haskell,
+  html,
 })
 
 return langs
