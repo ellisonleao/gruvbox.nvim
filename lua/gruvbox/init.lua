@@ -11,7 +11,4 @@ M.load = function()
   utils.highlights(spec)
 end
 
--- checking if user has lightline and adding support
-require("gruvbox.plugins.lightline").init(spec)
-
 return M
