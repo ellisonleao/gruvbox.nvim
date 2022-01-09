@@ -26,37 +26,37 @@ local gray = colors.gray
 
 local bg = vim.o.background
 if bg == nil then
-	bg = "dark"
-	vim.o.background = bg
+  bg = "dark"
+  vim.o.background = bg
 end
 
 -- swap colors if light mode
 if bg == "light" then
-	bg0 = colors.light0
-	bg1 = colors.light1
-	bg2 = colors.light2
-	bg3 = colors.light3
-	bg4 = colors.light4
-	fg0 = colors.dark0
-	fg1 = colors.dark1
-	fg2 = colors.dark2
-	fg3 = colors.dark3
-	fg4 = colors.dark4
-	red = colors.faded_red
-	green = colors.faded_green
-	yellow = colors.faded_yellow
-	blue = colors.faded_blue
-	purple = colors.faded_purple
-	aqua = colors.faded_aqua
-	orange = colors.faded_orange
+  bg0 = colors.light0
+  bg1 = colors.light1
+  bg2 = colors.light2
+  bg3 = colors.light3
+  bg4 = colors.light4
+  fg0 = colors.dark0
+  fg1 = colors.dark1
+  fg2 = colors.dark2
+  fg3 = colors.dark3
+  fg4 = colors.dark4
+  red = colors.faded_red
+  green = colors.faded_green
+  yellow = colors.faded_yellow
+  blue = colors.faded_blue
+  purple = colors.faded_purple
+  aqua = colors.faded_aqua
+  orange = colors.faded_orange
 end
 
 -- handle light/dark contrast settings
 local contrast = vim.g["gruvbox_contrast_" .. bg]
 if contrast == "hard" then
-	bg0 = colors[bg .. "0_hard"]
+  bg0 = colors[bg .. "0_hard"]
 elseif contrast == "soft" then
-	bg0 = colors[bg .. "0_soft"]
+  bg0 = colors[bg .. "0_soft"]
 end
 
 -- extending colors table with basic names for easy customization in g:gruvbox_* options
@@ -95,10 +95,10 @@ local special_string_bg = bg1
 local special_string_gui = styles.italic_strings
 
 if not utils.tobool(vim.g.gruvbox_improved_strings) then
-	improved_strings_fg = green
-	improved_strings_bg = nil
-	special_string_bg = nil
-	special_string_gui = nil
+  improved_strings_fg = green
+  improved_strings_bg = nil
+  special_string_bg = nil
+  special_string_gui = nil
 end
 
 -- neovim terminal mode colors
