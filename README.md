@@ -1,7 +1,7 @@
 <div align="center">
       <h1> <img src="https://i.postimg.cc/WpQzgxVh/plugin-Icon.png" width="80px"><br/>gruvbox.nvim</h1>
      </div>
-<p align="center"> <a href="ellisonleao" target="_blank"><img alt="" src="https://img.shields.io/twitter/follow/ellisonleao?style=flat-square" style="vertical-align:center" /></a> </p>
+<p align="center"> <a href="https://twitter.com/intent/user?screen_name=ellisonleao" target="_blank"><img alt="Follow me on twitter" src="https://img.shields.io/twitter/follow/ellisonleao?style=flat-square" style="vertical-align:center" /></a> </p>
 
 A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) theme to lua with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support!
 
