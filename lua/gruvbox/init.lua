@@ -11,6 +11,10 @@ M.load = function()
   utils.highlights(spec)
 end
 
+M.export_to_buffer = function()
+  utils.export_to_buffer(spec)
+end
+
 require("gruvbox.plugins.lightline").init(spec)
 
 return M
