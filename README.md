@@ -1,26 +1,26 @@
-# gruvbox.nvim
+<div align="center">
+      <h1> <img src="https://i.postimg.cc/WpQzgxVh/plugin-Icon.png" width="80px"><br/>gruvbox.nvim</h1>
+     </div>
+<p align="center"> <a href="https://twitter.com/intent/user?screen_name=ellisonleao" target="_blank"><img alt="Follow me on twitter" src="https://img.shields.io/twitter/follow/ellisonleao?style=flat-square" style="vertical-align:center" /></a> </p>
 
 A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) theme to lua with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support!
 
-Please note that this plugin is under active development right now, so the status for it is still alpha. Please file issues if you find any bugs.
-
 # Prerequisites
 
-Neovim 0.5.0+
+Neovim 0.6.0+
 
 # Installing
 
 Using `vim-plug`
 
 ```vim
-Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 ```
 
 Using `packer`
 
 ```lua
-use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+use { "ellisonleao/gruvbox.nvim" }
 ```
 
 # Usage
@@ -33,6 +33,7 @@ colorscheme gruvbox
 ```
 
 Inside `init.lua`
+
 ```lua
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
