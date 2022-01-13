@@ -63,4 +63,49 @@ M.highlights = function(hls)
   end
 end
 
+M.export_to_buffer = function(hls)
+  local commands = {}
+  for k, v in pairs(hls) do
+    local command = ""
+    if type(v) == "table" then
+      -- no blank strings allowed for guifg, guibg, guisp and gui
+      local opt = {}
+      for kk, vv in pairs(v) do
+        if vv == "" then
+          vv = nil
+        end
+
+        opt[kk] = vv
+      end
+
+        command = string.format(
+          "hi %s guifg=%s guibg=%s guisp=%s gui=%s",
+          k,
+          opt.fg or "NONE",
+          opt.bg or "NONE",
+          opt.sp or "NONE",
+          opt.gui or "NONE"
+        )
+    else
+      command = string.format("hi! link %s %s", k, v)
+    end
+
+    if command ~= "" then
+      table.insert(commands, command)
+    end
+  end
+
+  local buf = vim.api.nvim_create_buf(false, true)
+  local win = vim.api.nvim_open_win(buf, true, {
+    relative = "editor",
+    width = vim.api.nvim_win_get_width(0) - 2 ,
+    height = vim.api.nvim_win_get_height(0) - 2,
+    row = 1,
+    col = 1,
+    style = "minimal",
+  })
+
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, commands)
+end
+
 return M
