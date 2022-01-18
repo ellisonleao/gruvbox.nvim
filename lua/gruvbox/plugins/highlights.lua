@@ -270,6 +270,8 @@ local plugins = {
   mailQuoted5 = base.GruvboxRed,
   mailQuoted6 = base.GruvboxOrange,
   mailSignature = base.Comment,
+  -- vim-floaterm
+  FloatermBorder = { fg = base.GruvboxOrange }
 }
 
 return plugins
