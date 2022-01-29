@@ -28,6 +28,7 @@ use { "ellisonleao/gruvbox.nvim" }
 Inside `init.vim`
 
 ```vim
+set termguicolors
 set background=dark " or light if you want light mode
 colorscheme gruvbox
 ```
@@ -35,6 +36,7 @@ colorscheme gruvbox
 Inside `init.lua`
 
 ```lua
+vim.opt.termguicolors = true
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
 ```
