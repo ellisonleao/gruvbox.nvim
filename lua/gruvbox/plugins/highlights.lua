@@ -81,9 +81,9 @@ local plugins = {
   TelescopePromptPrefix = base.GruvboxRed,
   TelescopePrompt = "TelescopeNormal",
   -- lspsaga.nvim
-  LspSagaDiagnosticBorder = base.NormalNC,
+  LspSagaDiagnosticBorder = base.GruvboxYellow,
   LspSagaDiagnosticHeader = base.GruvboxRed,
-  LspSagaDiagnosticTruncateLine = base.NormalNC,
+  LspSagaDiagnosticTruncateLine = base.GruvboxYellow,
   LspFloatWinBorder = base.NormalNC,
   LspSagaBorderTitle = base.Title,
   TargetWord = base.Error,
