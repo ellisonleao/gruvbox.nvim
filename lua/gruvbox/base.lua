@@ -84,7 +84,7 @@ local number_column = utils.get_color_from_var(vim.g.gruvbox_number_column, nil,
 local color_column = utils.get_color_from_var(vim.g.gruvbox_color_column, bg1, colors)
 local vert_split = utils.get_color_from_var(vim.g.gruvbox_vert_split, bg0, colors)
 local tabline_sel = utils.get_color_from_var(vim.g.gruvbox_tabline_sel, green, colors)
-local sign_column = utils.get_color_from_var(vim.g.gruvbox_sign_column, bg1, colors)
+local sign_column = utils.get_color_from_var(vim.g.gruvbox_sign_column, bg0, colors)
 local cursor_line = utils.get_color_from_var(vim.g.gruvbox_cursor_line, bg1, colors)
 
 local improved_strings_fg = fg1
