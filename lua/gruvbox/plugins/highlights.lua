@@ -1,6 +1,5 @@
 -- 3rd party plugins highlights
 local base = require("gruvbox.base")
-local styles = require("gruvbox.settings").styles
 local colors = require("gruvbox.colors")
 
 local plugins = {
@@ -60,9 +59,9 @@ local plugins = {
   TSInclude = base.Include,
   TSVariableBuiltin = base.Special,
   TSText = "TSNone",
-  TSStrong = { gui = styles.bold },
-  TSEmphasis = { gui = styles.italic_strings },
-  TSUnderline = { gui = styles.underline },
+  TSStrong = { bold = vim.g.gruvbox_bold },
+  TSEmphasis = { italic = vim.g.gruvbox_italicize_strings },
+  TSUnderline = { underline = vim.g.gruvbox_underline },
   TSComment = base.Comment,
   TSStructure = base.GruvboxOrange,
   TSTag = base.GruvboxOrange,
@@ -106,13 +105,13 @@ local plugins = {
   LspSagaCodeActionTruncateLine = base.NormalNC,
   LspSagaCodeActionContent = base.Normal,
   LspSagaRenamePromptPrefix = base.GruvboxFg2,
-  LspSagaRenameBorder = { gui = styles.bold },
-  LspSagaHoverBorder = { gui = styles.bold },
-  LspSagaSignatureHelpBorder = { gui = styles.bold },
-  LspSagaCodeActionBorder = { gui = styles.bold },
+  LspSagaRenameBorder = { bold = vim.g.gruvbox_bold },
+  LspSagaHoverBorder = { bold = vim.g.gruvbox_bold },
+  LspSagaSignatureHelpBorder = { bold = vim.g.gruvbox_bold },
+  LspSagaCodeActionBorder = { bold = vim.g.gruvbox_bold },
   LspSagaAutoPreview = {},
-  LspSagaDefPreviewBorder = { gui = styles.bold },
-  LspLinesDiagBorder = { gui = styles.bold },
+  LspSagaDefPreviewBorder = { bold = vim.g.gruvbox_bold },
+  LspLinesDiagBorder = { bold = vim.g.gruvbox_bold },
   -- vim-startify
   StartifyBracket = base.GruvboxFg3,
   StartifyFile = base.GruvboxFg1,
@@ -220,7 +219,7 @@ local plugins = {
   CmpItemAbbr = base.GruvboxFg0,
   CmpItemAbbrDeprecated = base.GruvboxFg0,
   CmpItemAbbrMatch = base.GruvboxBlue,
-  CmpItemAbbrMatchFuzzy = { gui = styles.underline, fg = base.GruvboxAqua.fg },
+  CmpItemAbbrMatchFuzzy = { underline = vim.g.gruvbox_underline, fg = base.GruvboxAqua.fg },
   CmpItemKind = base.GruvboxOrange,
   CmpItemKindClass = base.GruvboxGreen,
   CmpItemKindConstructor = base.GruvboxGreen,
@@ -238,9 +237,9 @@ local plugins = {
   CmpItemMenu = base.GruvboxGray,
   -- LSP
   LspCodeLens = base.GruvboxGray,
-  LspReferenceRead = { bg = base.GruvboxBg2.fg, gui = styles.underline },
-  LspReferenceText = { bg = base.GruvboxBg2.fg, gui = styles.underline },
-  LspReferenceWrite = { bg = base.GruvboxBg2.fg, gui = styles.underline },
+  LspReferenceRead = { bg = base.GruvboxBg2.fg, underline = vim.g.gruvbox_underline },
+  LspReferenceText = { bg = base.GruvboxBg2.fg, underline = vim.g.gruvbox_underline },
+  LspReferenceWrite = { bg = base.GruvboxBg2.fg, underline = vim.g.gruvbox_underline },
   -- Diagnostic
   DiagnosticError = base.GruvboxRed,
   DiagnosticSignError = base.GruvboxRedSign,

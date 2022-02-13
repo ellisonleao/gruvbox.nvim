@@ -1,5 +1,4 @@
 local colors = require("gruvbox.colors")
-local styles = require("gruvbox.settings").styles
 local utils = require("gruvbox.utils")
 
 -- options (dark mode by default)
@@ -89,17 +88,14 @@ local cursor_line = utils.get_color_from_var(vim.g.gruvbox_cursor_line, bg1, col
 
 local improved_strings_fg = fg1
 local improved_strings_bg = bg1
-local improved_strings_gui = styles.italic_strings
 
 local special_string_fg = orange
 local special_string_bg = bg1
-local special_string_gui = styles.italic_strings
 
-if not utils.tobool(vim.g.gruvbox_improved_strings) then
+if not vim.g.gruvbox_improved_strings then
   improved_strings_fg = green
   improved_strings_bg = nil
   special_string_bg = nil
-  special_string_gui = nil
 end
 
 -- neovim terminal mode colors
@@ -122,8 +118,6 @@ vim.g.terminal_color_15 = fg1
 
 vim.g.colors_name = "gruvbox"
 
-local table_concat = table.concat
-
 local base_group = {
   -- Base groups
   GruvboxFg0 = { fg = fg0 },
@@ -139,39 +133,39 @@ local base_group = {
   GruvboxBg4 = { fg = bg4 },
 
   GruvboxRed = { fg = red },
-  GruvboxRedBold = { fg = red, gui = styles.bold },
+  GruvboxRedBold = { fg = red, bold = vim.g.gruvbox_bold },
   GruvboxGreen = { fg = green },
-  GruvboxGreenBold = { fg = green, gui = styles.bold },
+  GruvboxGreenBold = { fg = green, bold = vim.g.gruvbox_bold },
   GruvboxYellow = { fg = yellow },
-  GruvboxYellowBold = { fg = yellow, gui = styles.bold },
+  GruvboxYellowBold = { fg = yellow, bold = vim.g.gruvbox_bold },
   GruvboxBlue = { fg = blue },
-  GruvboxBlueBold = { fg = blue, gui = styles.bold },
+  GruvboxBlueBold = { fg = blue, bold = vim.g.gruvbox_bold },
   GruvboxPurple = { fg = purple },
-  GruvboxPurpleBold = { fg = purple, gui = styles.bold },
+  GruvboxPurpleBold = { fg = purple, bold = vim.g.gruvbox_bold },
   GruvboxAqua = { fg = aqua },
-  GruvboxAquaBold = { fg = aqua, gui = styles.bold },
+  GruvboxAquaBold = { fg = aqua, bold = vim.g.gruvbox_bold },
   GruvboxOrange = { fg = orange },
-  GruvboxOrangeBold = { fg = orange, gui = styles.bold },
+  GruvboxOrangeBold = { fg = orange, bold = vim.g.gruvbox_bold },
 
-  GruvboxRedSign = { fg = red, bg = sign_column, gui = styles.invert_signs },
-  GruvboxGreenSign = { fg = green, bg = sign_column, gui = styles.invert_signs },
-  GruvboxYellowSign = { fg = yellow, bg = sign_column, gui = styles.invert_signs },
-  GruvboxBlueSign = { fg = blue, bg = sign_column, gui = styles.invert_signs },
-  GruvboxPurpleSign = { fg = purple, bg = sign_column, gui = styles.invert_signs },
-  GruvboxAquaSign = { fg = aqua, bg = sign_column, gui = styles.invert_signs },
-  GruvboxOrangeSign = { fg = orange, bg = sign_column, gui = styles.invert_signs },
+  GruvboxRedSign = { fg = red, bg = sign_column, inverse = vim.g.gruvbox_invert_signs },
+  GruvboxGreenSign = { fg = green, bg = sign_column, inverse = vim.g.gruvbox_invert_signs },
+  GruvboxYellowSign = { fg = yellow, bg = sign_column, inverse = vim.g.gruvbox_invert_signs },
+  GruvboxBlueSign = { fg = blue, bg = sign_column, inverse = vim.g.gruvbox_invert_signs },
+  GruvboxPurpleSign = { fg = purple, bg = sign_column, inverse = vim.g.gruvbox_invert_signs },
+  GruvboxAquaSign = { fg = aqua, bg = sign_column, inverse = vim.g.gruvbox_invert_signs },
+  GruvboxOrangeSign = { fg = orange, bg = sign_column, inverse = vim.g.gruvbox_invert_signs },
 
-  GruvboxRedUnderline = { gui = styles.undercurl, sp = red },
-  GruvboxGreenUnderline = { gui = styles.undercurl, sp = green },
-  GruvboxYellowUnderline = { gui = styles.undercurl, sp = yellow },
-  GruvboxBlueUnderline = { gui = styles.undercurl, sp = blue },
-  GruvboxPurpleUnderline = { gui = styles.undercurl, sp = purple },
-  GruvboxAquaUnderline = { gui = styles.undercurl, sp = aqua },
-  GruvboxOrangeUnderline = { gui = styles.undercurl, sp = orange },
+  GruvboxRedUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = red },
+  GruvboxGreenUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = green },
+  GruvboxYellowUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = yellow },
+  GruvboxBlueUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = blue },
+  GruvboxPurpleUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = purple },
+  GruvboxAquaUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = aqua },
+  GruvboxOrangeUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = orange },
 
   ColorColumn = { bg = color_column },
   Conceal = { fg = blue },
-  Cursor = { gui = styles.inverse },
+  Cursor = { inverse = vim.g.gruvbox_inverse },
   lCursor = "Cursor",
   iCursor = "Cursor",
   vCursor = "Cursor",
@@ -179,54 +173,54 @@ local base_group = {
   CursorLine = { bg = cursor_line },
   CursorColumn = "CursorLine",
   Directory = "GruvboxGreenBold",
-  DiffAdd = { fg = green, bg = bg0, gui = styles.inverse },
-  DiffChange = { fg = aqua, bg = bg0, gui = styles.inverse },
-  DiffDelete = { fg = red, bg = bg0, gui = styles.inverse },
-  DiffText = { fg = yellow, bg = bg0, gui = styles.inverse },
-  ErrorMsg = { fg = bg0, bg = red, gui = styles.bold },
+  DiffAdd = { fg = green, bg = bg0, inverse = vim.g.gruvbox_inverse },
+  DiffChange = { fg = aqua, bg = bg0, inverse = vim.g.gruvbox_inverse },
+  DiffDelete = { fg = red, bg = bg0, inverse = vim.g.gruvbox_inverse },
+  DiffText = { fg = yellow, bg = bg0, inverse = vim.g.gruvbox_inverse },
+  ErrorMsg = { fg = bg0, bg = red, bold = vim.g.gruvbox_bold },
   VertSplit = { fg = bg3, bg = vert_split },
-  Folded = { fg = gray, bg = bg1, gui = styles.italic },
+  Folded = { fg = gray, bg = bg1, italic = vim.g.gruvbox_italic },
   FoldColumn = { fg = gray, bg = bg1 },
   SignColumn = { bg = sign_column },
-  IncSearch = { fg = hls_cursor, bg = bg0, gui = styles.inverse },
+  IncSearch = { fg = hls_cursor, bg = bg0, inverse = vim.g.gruvbox_inverse },
   LineNr = { fg = bg4, bg = number_column },
   CursorLineNr = { fg = yellow, bg = bg1 },
-  MatchParen = { bg = bg3, gui = styles.bold },
+  MatchParen = { bg = bg3, bold = vim.g.gruvbox_bold },
   ModeMsg = "GruvboxYellowBold",
   MoreMsg = "GruvboxYellowBold",
   NonText = "GruvboxBg2",
   Normal = { fg = fg1, bg = bg0 },
   Pmenu = { fg = fg1, bg = bg2 },
-  PmenuSel = { fg = bg2, bg = blue, gui = styles.bold },
+  PmenuSel = { fg = bg2, bg = blue, bold = vim.g.gruvbox_bold },
   PmenuSbar = { bg = bg2 },
   PmenuThumb = { bg = bg4 },
   Question = "GruvboxOrangeBold",
-  QuickFixLine = { bg = bg0, gui = styles.bold },
-  Search = { fg = hls_highlight, bg = bg0, gui = styles.inverse },
+  QuickFixLine = { bg = bg0, bold = vim.g.gruvbox_bold },
+  Search = { fg = hls_highlight, bg = bg0, inverse = vim.g.gruvbox_inverse },
   SpecialKey = "GruvboxFg4",
   SpellRare = "GruvboxPurpleUnderline",
   SpellBad = "GruvboxRedUnderline",
   SpellLocal = "GruvboxAquaUnderline",
-  SpellCap = utils.tobool(vim.g.gruvbox_improved_warnings) and {
+  SpellCap = vim.g.gruvbox_improved_warnings and {
     fg = green,
-    gui = table_concat({ styles.bold, styles.italic }, ","),
+    bold = vim.g.gruvbox_bold, italic = vim.g.gruvbox_italic,
   } or "GruvboxBlueUnderline",
-  StatusLine = { fg = bg2, bg = fg1, gui = styles.inverse },
-  StatusLineNC = { fg = bg1, bg = fg4, gui = styles.inverse },
-  TabLineFill = { fg = bg4, bg = bg1, gui = styles.invert_tabline },
+  StatusLine = { fg = bg2, bg = fg1, inverse = vim.g.gruvbox_inverse },
+  StatusLineNC = { fg = bg1, bg = fg4, inverse = vim.g.gruvbox_inverse },
+  TabLineFill = { fg = bg4, bg = bg1, inverse = vim.g.gruvbox_invert_tabline },
   TabLine = "TabLineFill",
-  TabLineSel = { fg = tabline_sel, bg = bg1, gui = styles.invert_tabline },
+  TabLineSel = { fg = tabline_sel, bg = bg1, inverse = vim.g.gruvbox_invert_tabline },
   Title = "GruvboxGreenBold",
-  Visual = { bg = bg3, gui = styles.invert_selection },
+  Visual = { bg = bg3, inverse = vim.g.gruvbox_invert_selection },
   VisualNOS = "Visual",
   WarningMsg = "GruvboxRedBold",
-  WildMenu = { fg = blue, bg = bg2, gui = styles.bold },
+  WildMenu = { fg = blue, bg = bg2, bold = vim.g.gruvbox_bold },
   Constant = "GruvboxPurple",
-  Special = { fg = special_string_fg, bg = special_string_bg, gui = special_string_gui },
+  Special = { fg = special_string_fg, bg = special_string_bg, italic = vim.g.gruvbox_improved_strings },
   String = {
     fg = improved_strings_fg,
     bg = improved_strings_bg,
-    gui = improved_strings_gui,
+    italic = vim.g.gruvbox_italicize_strings,
   },
   Character = "GruvboxPurple",
   Number = "GruvboxPurple",
@@ -253,14 +247,14 @@ local base_group = {
   SpecialChar = "GruvboxRed",
   Tag = "GruvboxAquaBold",
   Delimiter = "GruvboxFg3",
-  Comment = { fg = gray, gui = styles.italic_comments },
+  Comment = { fg = gray, italic = vim.g.gruvbox_italic_comments },
   Debug = "GruvboxRed",
-  Underlined = { fg = blue, gui = styles.underline },
-  Bold = { gui = styles.bold },
-  Italic = { gui = styles.italic },
+  Underlined = { fg = blue, underline = vim.g.gruvbox_underline },
+  Bold = { bold = vim.g.gruvbox_bold },
+  Italic = { italic = vim.g.gruvbox_italic },
   Ignore = {},
-  Error = { fg = red, gui = table_concat({ styles.bold, styles.inverse }, ",") },
-  Todo = { fg = fg0, gui = table_concat({ styles.bold, styles.italic }, ",") },
+  Error = { fg = red,  bold = vim.g.gruvbox_bold, inverse = vim.g.gruvbox_inverse },
+  Todo = { fg = fg0,  bold = vim.g.gruvbox_bold, italic = vim.g.gruvbox_italic },
   diffAdded = "GruvboxGreen",
   diffRemoved = "GruvboxRed",
   diffChanged = "GruvboxAqua",

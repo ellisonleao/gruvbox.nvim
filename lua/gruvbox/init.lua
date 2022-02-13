@@ -8,7 +8,7 @@ local spec = utils.merge(specs)
 
 local M = {}
 M.load = function()
-  utils.highlights(spec)
+  utils.add_highlights(spec)
 end
 
 return M
