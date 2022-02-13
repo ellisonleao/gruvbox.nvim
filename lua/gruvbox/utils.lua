@@ -30,29 +30,13 @@ M.merge = function(tbls)
 end
 
 M.add_highlights = function(hls)
-    for k, v in pairs(hls) do
-      if type(v) == "table" then
-        hl(0, k, v)
-      else
-        link(k, v, true)
-      end
+  for k, v in pairs(hls) do
+    if type(v) == "table" then
+      hl(0, k, v)
+    else
+      link(k, v, true)
     end
-  -- for k, v in pairs(hls) do
-  --   if type(v) == "table" then
-  --     vim.cmd(
-  --       string.format(
-  --         "hi %s guifg=%s guibg=%s guisp=%s gui=%s",
-  --         k,
-  --         opt.fg or "NONE",
-  --         opt.bg or "NONE",
-  --         opt.sp or "NONE",
-  --         opt.gui or "NONE"
-  --       )
-  --     )
-  --   else
-  --     vim.cmd(string.format("hi! link %s %s", k, v))
-  --   end
-  -- end
+  end
 end
 
 return M
