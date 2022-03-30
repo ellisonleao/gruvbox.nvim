@@ -201,7 +201,7 @@ local base_group = {
   PmenuSbar = { bg = bg2 },
   PmenuThumb = { bg = bg4 },
   Question = "GruvboxOrangeBold",
-  QuickFixLine = { fg = bg0, bg = yellow, gui = styles.bold },
+  QuickFixLine = { bg = bg0, gui = styles.bold },
   Search = { fg = hls_highlight, bg = bg0, gui = styles.inverse },
   SpecialKey = "GruvboxFg4",
   SpellRare = "GruvboxPurpleUnderline",

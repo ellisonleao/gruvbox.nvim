@@ -11,6 +11,4 @@ M.load = function()
   utils.highlights(spec)
 end
 
-require("gruvbox.plugins.lightline").init(spec)
-
 return M
