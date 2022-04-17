@@ -1,6 +1,12 @@
 local colors = require("gruvbox.colors")
 local utils = require("gruvbox.utils")
 
+-- reset colors
+vim.cmd("hi clear")
+if vim.fn.exists("syntax_on") then
+  vim.cmd("syntax reset")
+end
+
 -- options (dark mode by default)
 local bg0 = colors.dark0
 local bg1 = colors.dark1
@@ -23,7 +29,7 @@ local aqua = colors.bright_aqua
 local orange = colors.bright_orange
 local gray = colors.gray
 
-local bg = vim.o.background
+local bg = vim.opt.background:get()
 if bg == nil then
   bg = "dark"
   vim.o.background = bg
@@ -203,7 +209,8 @@ local base_group = {
   SpellLocal = "GruvboxAquaUnderline",
   SpellCap = vim.g.gruvbox_improved_warnings and {
     fg = green,
-    bold = vim.g.gruvbox_bold, italic = vim.g.gruvbox_italic,
+    bold = vim.g.gruvbox_bold,
+    italic = vim.g.gruvbox_italic,
   } or "GruvboxBlueUnderline",
   StatusLine = { fg = bg2, bg = fg1, inverse = vim.g.gruvbox_inverse },
   StatusLineNC = { fg = bg1, bg = fg4, inverse = vim.g.gruvbox_inverse },
@@ -253,8 +260,8 @@ local base_group = {
   Bold = { bold = vim.g.gruvbox_bold },
   Italic = { italic = vim.g.gruvbox_italic },
   Ignore = {},
-  Error = { fg = red,  bold = vim.g.gruvbox_bold, inverse = vim.g.gruvbox_inverse },
-  Todo = { fg = fg0,  bold = vim.g.gruvbox_bold, italic = vim.g.gruvbox_italic },
+  Error = { fg = red, bold = vim.g.gruvbox_bold, inverse = vim.g.gruvbox_inverse },
+  Todo = { fg = fg0, bold = vim.g.gruvbox_bold, italic = vim.g.gruvbox_italic },
   diffAdded = "GruvboxGreen",
   diffRemoved = "GruvboxRed",
   diffChanged = "GruvboxAqua",

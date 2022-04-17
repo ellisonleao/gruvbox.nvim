@@ -7,7 +7,7 @@ A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) them
 
 # Prerequisites
 
-Neovim 0.6.0+
+Neovim 0.7.0+
 
 # Installing
 
@@ -28,7 +28,6 @@ use { "ellisonleao/gruvbox.nvim" }
 Inside `init.vim`
 
 ```vim
-set termguicolors
 set background=dark " or light if you want light mode
 colorscheme gruvbox
 ```
@@ -36,8 +35,7 @@ colorscheme gruvbox
 Inside `init.lua`
 
 ```lua
-vim.opt.termguicolors = true
-vim.o.background = "dark" -- or "light" for light mode
+vim.opt.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
 ```
 
@@ -52,7 +50,7 @@ all `g:gruvbox_` configs are the same [as the original one](https://github.com/m
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
-More to be added..
+And more..
 
 # Screenshots
 
