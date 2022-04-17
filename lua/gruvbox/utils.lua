@@ -1,12 +1,7 @@
 -- util functions
 local M = {}
-
-M.tobool = function(val)
-  if val == 0 or not val then
-    return false
-  end
-  return true
-end
+local hl = vim.api.nvim_set_hl
+local link = vim.highlight.link
 
 -- check if vim.g.gruvbox_* color exists in current palette, return default color
 -- otherwise
@@ -34,31 +29,12 @@ M.merge = function(tbls)
   return source
 end
 
-M.highlights = function(hls)
+M.add_highlights = function(hls)
   for k, v in pairs(hls) do
     if type(v) == "table" then
-      -- no blank strings allowed for guifg, guibg, guisp and gui
-      local opt = {}
-      for kk, vv in pairs(v) do
-        if vv == "" then
-          vv = nil
-        end
-
-        opt[kk] = vv
-      end
-
-      vim.cmd(
-        string.format(
-          "hi %s guifg=%s guibg=%s guisp=%s gui=%s",
-          k,
-          opt.fg or "NONE",
-          opt.bg or "NONE",
-          opt.sp or "NONE",
-          opt.gui or "NONE"
-        )
-      )
+      hl(0, k, v)
     else
-      vim.cmd(string.format("hi! link %s %s", k, v))
+      link(k, v, true)
     end
   end
 end
