@@ -1,7 +1,6 @@
 -- util functions
 local M = {}
 local hl = vim.api.nvim_set_hl
-local link = vim.highlight.link
 
 -- check if vim.g.gruvbox_* color exists in current palette, return default color
 -- otherwise
@@ -30,12 +29,8 @@ M.merge = function(tbls)
 end
 
 M.add_highlights = function(hls)
-  for k, v in pairs(hls) do
-    if type(v) == "table" then
-      hl(0, k, v)
-    else
-      link(k, v, true)
-    end
+  for group, settings in pairs(hls) do
+    hl(0, group, settings)
   end
 end
 

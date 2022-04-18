@@ -76,11 +76,11 @@ local markdown = {
     italic = vim.g.gruvbox_italic,
   },
   markdownH1 = base.GruvboxGreenBold,
-  markdownH2 = "markdownH1",
+  markdownH2 = { link = "markdownH1" },
   markdownH3 = base.GruvboxYellowBold,
-  markdownH4 = "markdownH3",
+  markdownH4 = { link = "markdownH3" },
   markdownH5 = base.GruvboxYellow,
-  markdownH6 = "markdownH5",
+  markdownH6 = { link = "markdownH5" },
   markdownCode = base.GruvboxAqua,
   markdownCodeBlock = base.GruvboxAqua,
   markdownCodeDelimiter = base.GruvboxAqua,
@@ -96,7 +96,7 @@ local markdown = {
   markdownUrl = base.GruvboxPurple,
   markdownUrlTitleDelimiter = base.GruvboxGreen,
   markdownLinkText = { fg = base.GruvboxGray.fg, underline = vim.g.gruvbox_underline },
-  markdownIdDeclaration = "markdownLinkText",
+  markdownIdDeclaration = { link = "markdownLinkText" },
 }
 
 local haskell = {
@@ -144,7 +144,7 @@ local html = {
   htmlTagN = base.GruvboxFg1,
   htmlSpecialTagName = base.GruvboxBlue,
   htmlLink = { fg = colors.fg4, underline = vim.g.gruvbox_underline },
-  htmlSpecialChar = "GruvboxRed",
+  htmlSpecialChar = { link = "GruvboxRed" },
   htmlBold = { fg = colors.fg0, bg = colors.bg0, bold = vim.g.gruvbox_bold },
   htmlBoldUnderline = {
     fg = colors.fg0,
