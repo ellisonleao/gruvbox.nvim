@@ -230,6 +230,7 @@ local base_group = {
   Question = { link = "GruvboxOrangeBold" },
   QuickFixLine = { bg = bg0, bold = vim.g.gruvbox_bold },
   Search = { fg = hls_highlight, bg = bg0, reverse = vim.g.gruvbox_inverse },
+  CurSearch = { link = "IncSearch" },
   SpecialKey = { link = "GruvboxFg4" },
   SpellRare = { link = "GruvboxPurpleUnderline" },
   SpellBad = { link = "GruvboxRedUnderline" },
