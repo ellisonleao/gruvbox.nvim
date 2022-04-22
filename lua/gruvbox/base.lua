@@ -282,7 +282,7 @@ local base_group = {
   SpecialChar = { link = "GruvboxRed" },
   Tag = { link = "GruvboxAquaBold" },
   Delimiter = { link = "GruvboxFg3" },
-  Comment = { fg = gray, italic = vim.g.gruvbox_italic_comments },
+  Comment = { fg = gray, italic = vim.g.gruvbox_italicize_comments },
   Debug = { link = "GruvboxRed" },
   Underlined = { fg = blue, underline = vim.g.gruvbox_underline },
   Bold = { bold = vim.g.gruvbox_bold },
