@@ -30,7 +30,12 @@ end
 
 M.add_highlights = function(hls)
   for group, settings in pairs(hls) do
-    hl(0, group, settings)
+    -- https://github.com/akinsho/bufferline.nvim/issues/386#issuecomment-1103849289
+    if group == "Normal" then
+      vim.cmd(string.format("hi! Normal guifg=%s guibg=%s", settings.fg, settings.bg))
+    else
+      hl(0, group, settings)
+    end
   end
 end
 

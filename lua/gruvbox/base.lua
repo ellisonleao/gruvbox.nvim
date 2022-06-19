@@ -1,12 +1,6 @@
 local colors = require("gruvbox.colors")
 local utils = require("gruvbox.utils")
 
--- reset colors
-vim.cmd("hi clear")
-if vim.fn.exists("syntax_on") then
-  vim.cmd("syntax reset")
-end
-
 -- gruvbox settings handler
 local settings = {
   contrast_dark = "medium",
@@ -56,11 +50,7 @@ local aqua = colors.bright_aqua
 local orange = colors.bright_orange
 local gray = colors.gray
 
-local bg = vim.opt.background:get()
-if bg == nil then
-  bg = "dark"
-  vim.o.background = bg
-end
+local bg = vim.o.background
 
 -- swap colors if light mode
 if bg == "light" then
@@ -148,8 +138,6 @@ vim.g.terminal_color_6 = colors.neutral_aqua
 vim.g.terminal_color_14 = aqua
 vim.g.terminal_color_7 = fg4
 vim.g.terminal_color_15 = fg1
-
-vim.g.colors_name = "gruvbox"
 
 local base_group = {
   -- Base groups

@@ -13,7 +13,14 @@ M.load = function()
     return
   end
 
-  vim.opt.termguicolors = true
+  -- reset colors
+  vim.cmd("hi clear")
+  if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+  end
+
+  vim.g.colors_name = "gruvbox"
+  vim.o.termguicolors = true
   utils.add_highlights(spec)
 end
 
