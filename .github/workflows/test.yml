@@ -1,0 +1,34 @@
+---
+on: [push, pull_request]
+name: default
+
+jobs:
+  stylua:
+    name: stylua
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: JohnnyMorganz/stylua-action@1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          args: --color always --check lua
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        nvim-versions: ['stable', 'nightly']
+    name: test
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: ${{ matrix.nvim-versions }}
+
+      - name: run tests
+        run: make test
+        env:
+          PLENARY_DIR: vendor/plenary.nvim
