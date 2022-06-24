@@ -37,17 +37,17 @@ M.load = function()
   end
 
   -- reset colors
-  vim.cmd("hi clear")
-  if vim.fn.exists("syntax_on") then
-    vim.cmd("syntax reset")
+  if vim.g.colors_name then
+    vim.cmd("hi clear")
   end
 
-  vim.g.colors_name = "gruvbox"
   vim.o.termguicolors = true
 
   local hlgroups = require("gruvbox.hlgroups").setup()
 
   add_highlights(hlgroups)
+
+  vim.cmd("colorscheme gruvbox")
 end
 
 return M

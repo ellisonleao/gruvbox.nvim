@@ -92,5 +92,4 @@ describe("highlight overrides", function()
 
     assert.are.same(new_group_values, { background = "#ff9900" })
   end)
-
 end)
