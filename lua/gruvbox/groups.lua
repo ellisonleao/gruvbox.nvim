@@ -214,6 +214,10 @@ M.setup = function()
 
   -- TODO: overrides
   for group, hl in pairs(config.overrides) do
+    -- link settings should be removed before new ones
+    if groups[group] and not vim.tbl_isempty(hl) then
+      groups[group].link = nil
+    end
     groups[group] = vim.tbl_extend("force", groups[group] or {}, hl)
   end
 

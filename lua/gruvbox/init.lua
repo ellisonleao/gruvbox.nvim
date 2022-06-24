@@ -43,9 +43,9 @@ M.load = function()
 
   vim.o.termguicolors = true
 
-  local hlgroups = require("gruvbox.hlgroups").setup()
+  local groups = require("gruvbox.groups").setup()
 
-  add_highlights(hlgroups)
+  add_highlights(groups)
 
   vim.cmd("colorscheme gruvbox")
 end

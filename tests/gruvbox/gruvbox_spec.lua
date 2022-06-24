@@ -1,3 +1,4 @@
+require("plenary.reload").reload_module("gruvbox", true)
 local gruvbox = require("gruvbox")
 
 describe("setup", function()
@@ -91,5 +92,22 @@ describe("highlight overrides", function()
     }
 
     assert.are.same(new_group_values, { background = "#ff9900" })
+  end)
+
+  it("should override links", function()
+    local config = {
+      overrides = {
+        Function = { bg = "#990000" },
+      },
+    }
+
+    gruvbox.setup(config)
+    gruvbox.load()
+
+    local group_id = vim.api.nvim_get_hl_id_by_name("Function")
+    local values = {
+      background = vim.fn.synIDattr(group_id, "bg", "gui"),
+    }
+    assert.are.same(values, { background = "#990000" })
   end)
 end)
