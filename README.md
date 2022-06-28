@@ -44,7 +44,7 @@ colorscheme gruvbox
 Inside `init.lua`
 
 ```lua
-vim.opt.background = "dark" -- or "light" for light mode
+vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
 ```
 
@@ -53,6 +53,7 @@ vim.cmd([[colorscheme gruvbox]])
 Additional settings for gruvbox are:
 
 ```lua
+-- setup must be called before loading the colorscheme
 -- Default options:
 require("gruvbox").setup({
   undercurl = true,
@@ -66,8 +67,6 @@ require("gruvbox").setup({
   contrast = "hard", -- can be "hard" or "light"
   overrides = {},
 })
-
--- setup must be called before loading the colorscheme
 vim.cmd("colorscheme gruvbox")
 ```
 
