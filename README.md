@@ -9,9 +9,7 @@
 A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) theme to lua with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support!
 
 <p align="center">
-    <img src="https://i.postimg.cc/66fSHrV8/Screenshot-from-2021-02-25-11-41-18.png" />
-    <br/>
-    <img src="https://i.postimg.cc/pXVS3mkq/Screenshot-from-2021-02-25-11-41-33.png" />
+    <img src="https://i.postimg.cc/fy3tnGFt/gruvbox-themes.png" />
 </p>
 
 # Prerequisites
