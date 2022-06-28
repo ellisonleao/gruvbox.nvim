@@ -143,24 +143,20 @@ M.setup = function()
     SpellRare = { link = "GruvboxPurpleUnderline" },
     SpellBad = { link = "GruvboxRedUnderline" },
     SpellLocal = { link = "GruvboxAquaUnderline" },
-    SpellCap = vim.g.gruvbox_improved_warnings and {
-      fg = colors.green,
-      bold = config.bold,
-      italic = config.italic,
-    } or { link = "GruvboxBlueUnderline" },
+    SpellCap = { link = "GruvboxBlueUnderline" },
     StatusLine = { fg = colors.bg2, bg = colors.fg1, reverse = config.inverse },
     StatusLineNC = { fg = colors.bg1, bg = colors.fg4, reverse = config.inverse },
-    TabLineFill = { fg = colors.bg4, bg = colors.bg1, reverse = vim.g.gruvbox_invert_tabline },
+    TabLineFill = { fg = colors.bg4, bg = colors.bg1, reverse = config.invert_tabline },
     TabLine = { link = "TabLineFill" },
-    TabLineSel = { fg = colors.green, bg = colors.bg1, reverse = vim.g.gruvbox_invert_tabline },
+    TabLineSel = { fg = colors.green, bg = colors.bg1, reverse = config.invert_tabline },
     Title = { link = "GruvboxGreenBold" },
-    Visual = { bg = colors.bg3, reverse = vim.g.gruvbox_invert_selection },
+    Visual = { bg = colors.bg3, reverse = config.invert_selection },
     VisualNOS = { link = "Visual" },
     WarningMsg = { link = "GruvboxRedBold" },
     WildMenu = { fg = colors.blue, bg = colors.bg2, bold = config.bold },
     Constant = { link = "GruvboxPurple" },
-    Special = { fg = colors.orange, bg = colors.bg1, italic = config.italic },
-    String = { fg = colors.fg1, bg = colors.bg1, italic = config.italic },
+    Special = { link = "GruvboxOrange" },
+    String = { fg = colors.green, italic = config.italic },
     Character = { link = "GruvboxPurple" },
     Number = { link = "GruvboxPurple" },
     Boolean = { link = "GruvboxPurple" },
@@ -212,9 +208,7 @@ M.setup = function()
     healthWarning = { fg = colors.bg0, bg = colors.yellow },
   }
 
-  -- TODO: overrides
   for group, hl in pairs(config.overrides) do
-    -- link settings should be removed before new ones
     if groups[group] and not vim.tbl_isempty(hl) then
       groups[group].link = nil
     end
