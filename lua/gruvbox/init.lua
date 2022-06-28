@@ -1,27 +1,54 @@
-local base = require("gruvbox.base")
-local plugins = require("gruvbox.plugins")
-local languages = require("gruvbox.languages")
-local utils = require("gruvbox.utils")
-
-local specs = { base, languages, plugins }
-local spec = utils.merge(specs)
-
 local M = {}
+
+local function add_highlights(hls)
+  for group, settings in pairs(hls) do
+    -- we need https://github.com/neovim/neovim/commit/9aba2043351c79cd9bc8fa7b229ee7629ba178f0 in stable version first
+    -- in order to get Normal using nvim_set_hl
+    if group == "Normal" then
+      vim.cmd(string.format("hi! Normal guifg=%s guibg=%s", settings.fg, settings.bg))
+    else
+      vim.api.nvim_set_hl(0, group, settings)
+    end
+  end
+end
+
+-- default configs
+M.config = {
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = true, -- will make italic comments and special strings
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  contrast = "hard",
+  overrides = {},
+}
+
+function M.setup(config)
+  M.config = vim.tbl_extend("force", M.config, config or {})
+end
+
 M.load = function()
   if vim.version().minor < 7 then
-    vim.api.nvim_err_writeln("gruvbox.nvim: you must use neovim 0.7 or higher")
+    vim.notify_once("gruvbox.nvim: you must use neovim 0.7 or higher")
     return
   end
 
   -- reset colors
-  vim.cmd("hi clear")
-  if vim.fn.exists("syntax_on") then
-    vim.cmd("syntax reset")
+  if vim.g.colors_name then
+    vim.cmd("hi clear")
   end
 
   vim.g.colors_name = "gruvbox"
   vim.o.termguicolors = true
-  utils.add_highlights(spec)
+
+  local groups = require("gruvbox.groups").setup()
+
+  add_highlights(groups)
+
+  vim.cmd("colorscheme gruvbox")
 end
 
 return M

@@ -8,6 +8,10 @@
 
 A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) theme to lua with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support!
 
+<p align="center">
+    <img src="https://i.postimg.cc/fy3tnGFt/gruvbox-themes.png" />
+</p>
+
 # Prerequisites
 
 Neovim 0.7.0+
@@ -26,7 +30,7 @@ Using `packer`
 use { "ellisonleao/gruvbox.nvim" }
 ```
 
-# Usage
+# Basic Usage
 
 Inside `init.vim`
 
@@ -38,13 +42,54 @@ colorscheme gruvbox
 Inside `init.lua`
 
 ```lua
-vim.opt.background = "dark" -- or "light" for light mode
+vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
 ```
 
 # Configuration
 
-all `g:gruvbox_` configs are the same [as the original one](https://github.com/morhetz/gruvbox/wiki/Configuration) except for `g:gruvbox_guisp_fallback`
+Additional settings for gruvbox are:
+
+```lua
+-- setup must be called before loading the colorscheme
+-- Default options:
+require("gruvbox").setup({
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = true, -- will make italic comments and special strings
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  contrast = "hard", -- can be "hard" or "light"
+  overrides = {},
+})
+vim.cmd("colorscheme gruvbox")
+```
+
+## Overriding Highlight groups
+
+If you don't enjoy the current color for a specific highlight group, now you can just override it in the setup. For
+example:
+
+```lua
+require("gruvbox").setup({
+    overrides = {
+        SignColumn = {bg = "#ff9900"}
+    }
+})
+vim.cmd("colorscheme gruvbox")
+```
+
+Please note that the override values must follow the attributes from the highlight group map, such as:
+
+- **fg** - foreground color
+- **bg** - background color
+- **bold** - true or false for bold font
+- **italic** - true or false for italic font
+
+Other values can be seen in `:h synIDattr`
 
 # Additional supported plugins
 
@@ -54,13 +99,3 @@ all `g:gruvbox_` configs are the same [as the original one](https://github.com/m
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
 And more..
-
-# Screenshots
-
-## dark mode
-
-![Screenshot-from-2021-02-25-11-41-18.png](https://i.postimg.cc/66fSHrV8/Screenshot-from-2021-02-25-11-41-18.png)
-
-## light mode
-
-![Screenshot-from-2021-02-25-11-41-33.png](https://i.postimg.cc/pXVS3mkq/Screenshot-from-2021-02-25-11-41-33.png)

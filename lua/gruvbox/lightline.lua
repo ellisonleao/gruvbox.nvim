@@ -1,5 +1,6 @@
 -- lightline support
-local theme = require("gruvbox.base")
+local theme = require("gruvbox.groups").setup()
+
 local bg0 = theme.GruvboxBg0.fg
 local bg1 = theme.GruvboxBg1.fg
 local bg2 = theme.GruvboxBg2.fg
