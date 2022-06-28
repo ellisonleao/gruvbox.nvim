@@ -543,7 +543,7 @@ M.setup = function()
     CtrlPStats = { link = "Function" },
     -- fzf.vim
     Fzf1 = { fg = colors.blue, bg = colors.bg1 },
-    Fzf2 = { fg = colors.orange, bg = colors.bg1},
+    Fzf2 = { fg = colors.orange, bg = colors.bg1 },
     Fzf3 = { fg = colors.fg4, bg = colors.bg1 },
     ShowMarksHLl = { link = "GruvboxBlueSign" },
     ShowMarksHLu = { link = "GruvboxBlueSign" },
@@ -563,7 +563,7 @@ M.setup = function()
     CmpItemAbbr = { link = "GruvboxFg0" },
     CmpItemAbbrDeprecated = { link = "GruvboxFg0" },
     CmpItemAbbrMatch = { link = "GruvboxBlue" },
-    CmpItemAbbrMatchFuzzy = { underline = config.underline, fg = colors.aqua},
+    CmpItemAbbrMatchFuzzy = { underline = config.underline, fg = colors.aqua },
     CmpItemKind = { link = "GruvboxOrange" },
     CmpItemKindClass = { link = "GruvboxGreen" },
     CmpItemKindConstructor = { link = "GruvboxGreen" },
