@@ -62,7 +62,7 @@ require("gruvbox").setup({
   invert_signs = false,
   invert_tabline = false,
   invert_intend_guides = false,
-  contrast = "hard", -- can be "hard" or "light"
+  contrast = "", -- can be "hard" or "soft"
   overrides = {},
 })
 vim.cmd("colorscheme gruvbox")

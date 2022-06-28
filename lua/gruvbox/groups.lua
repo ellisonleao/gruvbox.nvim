@@ -49,7 +49,7 @@ local function get_base_colors(colors, contrast)
     base_colors = light_colors
   end
 
-  if contrast == "dark" then
+  if contrast == "hard" then
     base_colors.bg0 = colors[bg .. "0_hard"]
   elseif contrast == "soft" then
     base_colors.bg0 = colors[bg .. "0_soft"]
