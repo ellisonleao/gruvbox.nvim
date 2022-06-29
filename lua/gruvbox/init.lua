@@ -22,6 +22,7 @@ M.config = {
   invert_signs = false,
   invert_tabline = false,
   invert_intend_guides = false,
+  inverse = true,
   contrast = "",
   overrides = {},
 }
