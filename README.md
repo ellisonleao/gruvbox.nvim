@@ -58,7 +58,7 @@ require("gruvbox").setup({
   underline = true,
   bold = true,
   italic = true, -- will make italic comments and special strings
-  inverse = false, -- invert background for search, diffs, statuslines and errors
+  inverse = true, -- invert background for search, diffs, statuslines and errors
   invert_selection = false,
   invert_signs = false,
   invert_tabline = false,
