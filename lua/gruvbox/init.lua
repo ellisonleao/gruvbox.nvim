@@ -1,17 +1,5 @@
 local M = {}
 
-local function add_highlights(hls)
-  for group, settings in pairs(hls) do
-    -- we need https://github.com/neovim/neovim/commit/9aba2043351c79cd9bc8fa7b229ee7629ba178f0 in stable version first
-    -- in order to get Normal using nvim_set_hl
-    if group == "Normal" then
-      vim.cmd(string.format("hi! Normal guifg=%s guibg=%s", settings.fg, settings.bg))
-    else
-      vim.api.nvim_set_hl(0, group, settings)
-    end
-  end
-end
-
 -- default configs
 M.config = {
   undercurl = true,
@@ -22,8 +10,8 @@ M.config = {
   invert_signs = false,
   invert_tabline = false,
   invert_intend_guides = false,
-  inverse = true,
-  contrast = "",
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  contrast = "", -- can be "hard" or "soft"
   overrides = {},
 }
 
@@ -47,7 +35,10 @@ M.load = function()
 
   local groups = require("gruvbox.groups").setup()
 
-  add_highlights(groups)
+  -- add highlights
+  for group, settings in pairs(groups) do
+    vim.api.nvim_set_hl(0, group, settings)
+  end
 
   vim.cmd("colorscheme gruvbox")
 end
