@@ -21,7 +21,6 @@ local function get_base_colors(colors, contrast)
     purple = colors.bright_purple,
     aqua = colors.bright_aqua,
     orange = colors.bright_orange,
-    gray = colors.gray,
   }
 
   local light_colors = {
@@ -54,6 +53,8 @@ local function get_base_colors(colors, contrast)
   elseif contrast == "soft" then
     base_colors.bg0 = colors[bg .. "0_soft"]
   end
+
+  base_colors.gray = colors.gray
 
   return base_colors
 end
