@@ -145,7 +145,7 @@ M.setup = function()
     Folded = { fg = colors.gray, bg = colors.bg1, italic = config.italic },
     FoldColumn = { fg = colors.gray, bg = colors.bg1 },
     SignColumn = { bg = colors.bg1 },
-    IncSearch = { fg = colors.hls_cursor, bg = colors.bg0, reverse = config.inverse },
+    IncSearch = { fg = colors.orange, bg = colors.bg0, reverse = config.inverse },
     LineNr = { fg = colors.bg4 },
     CursorLineNr = { fg = colors.yellow, bg = colors.bg1 },
     MatchParen = { bg = colors.bg3, bold = config.bold },
