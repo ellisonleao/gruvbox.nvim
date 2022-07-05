@@ -21,6 +21,12 @@ local function get_base_colors(colors, contrast)
     purple = colors.bright_purple,
     aqua = colors.bright_aqua,
     orange = colors.bright_orange,
+    neutral_red = colors.neutral_red,
+    neutral_green = colors.neutral_green,
+    neutral_yellow = colors.neutral_yellow,
+    neutral_blue = colors.neutral_blue,
+    neutral_purple = colors.neutral_purple,
+    neutral_aqua = colors.neutral_aqua,
   }
 
   local light_colors = {
@@ -41,6 +47,12 @@ local function get_base_colors(colors, contrast)
     purple = colors.faded_purple,
     aqua = colors.faded_aqua,
     orange = colors.faded_orange,
+    neutral_red = colors.neutral_red,
+    neutral_green = colors.neutral_green,
+    neutral_yellow = colors.neutral_yellow,
+    neutral_blue = colors.neutral_blue,
+    neutral_purple = colors.neutral_purple,
+    neutral_aqua = colors.neutral_aqua,
   }
 
   -- swap colors if light mode
