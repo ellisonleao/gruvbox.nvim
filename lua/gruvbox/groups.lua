@@ -1,4 +1,4 @@
-local M = {}
+local groups = {}
 
 local function get_base_colors(colors, contrast)
   local bg = vim.o.background
@@ -91,7 +91,7 @@ local function set_terminal_colors(colors)
   vim.g.terminal_color_15 = colors.fg1
 end
 
-M.setup = function()
+groups.setup = function()
   local config = require("gruvbox").config
   local palette = require("gruvbox.palette")
   local colors = get_base_colors(palette, config.contrast)
@@ -395,57 +395,9 @@ M.setup = function()
     netrwCmdSep = { link = "GruvboxFg3" },
     netrwVersion = { link = "GruvboxGreen" },
     -- nvim-treesitter
-    TSNone = {},
-    TSError = {},
-    TSTitle = { link = "Title" },
-    TSLiteral = { link = "String" },
-    TSURI = { link = "Underlined" },
-    TSVariable = { link = "GruvboxFg1" },
-    TSPunctDelimiter = { link = "Delimiter" },
-    TSPunctBracket = { link = "Delimiter" },
-    TSPunctSpecial = { link = "Delimiter" },
-    TSConstant = { link = "Constant" },
-    TSConstBuiltin = { link = "Special" },
-    TSConstMacro = { link = "Define" },
-    TSString = { link = "String" },
-    TSStringRegex = { link = "String" },
-    TSStringEscape = { link = "SpecialChar" },
-    TSCharacter = { link = "Character" },
-    TSNumber = { link = "Number" },
-    TSBoolean = { link = "Boolean" },
-    TSFloat = { link = "Float" },
-    TSFunction = { link = "Function" },
-    TSFuncBuiltin = { link = "Special" },
-    TSFuncMacro = { link = "Macro" },
-    TSParameter = { link = "Identifier" },
-    TSParameterReference = { link = "TSParameter" },
-    TSMethod = { link = "Function" },
-    TSField = { link = "Identifier" },
-    TSProperty = { link = "Identifier" },
-    TSConstructor = { link = "Special" },
-    TSAnnotation = { link = "PreProc" },
-    TSAttribute = { link = "PreProc" },
-    TSNamespace = { link = "Include" },
-    TSConditional = { link = "Conditional" },
-    TSRepeat = { link = "Repeat" },
-    TSLabel = { link = "Label" },
-    TSOperator = { link = "Operator" },
-    TSKeyword = { link = "Keyword" },
-    TSKeywordFunction = { link = "Keyword" },
-    TSKeywordOperator = { link = "GruvboxRed" },
-    TSException = { link = "Exception" },
-    TSType = { link = "Type" },
-    TSTypeBuiltin = { link = "Type" },
-    TSInclude = { link = "Include" },
-    TSVariableBuiltin = { link = "Special" },
-    TSText = { link = "TSNone" },
     TSStrong = { bold = config.bold },
     TSEmphasis = { italic = config.italic },
     TSUnderline = { underline = config.underline },
-    TSComment = { link = "Comment" },
-    TSStructure = { link = "GruvboxOrange" },
-    TSTag = { link = "GruvboxOrange" },
-    TSTagDelimiter = { link = "GruvboxGreen" },
     -- telescope.nvim
     TelescopeSelection = { link = "GruvboxOrangeBold" },
     TelescopeSlectionCaret = { link = "GruvboxRed" },
@@ -660,4 +612,4 @@ M.setup = function()
   return groups
 end
 
-return M
+return groups
