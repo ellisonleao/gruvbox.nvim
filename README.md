@@ -18,12 +18,6 @@ Neovim 0.7.0+
 
 # Installing
 
-Using `vim-plug`
-
-```vim
-Plug 'ellisonleao/gruvbox.nvim'
-```
-
 Using `packer`
 
 ```lua
@@ -57,13 +51,14 @@ require("gruvbox").setup({
   undercurl = true,
   underline = true,
   bold = true,
-  italic = true, -- will make italic comments and special strings
-  inverse = true, -- invert background for search, diffs, statuslines and errors
+  italic = true,
+  strikethrough = true,
   invert_selection = false,
   invert_signs = false,
   invert_tabline = false,
   invert_intend_guides = false,
-  contrast = "", -- can be "hard" or "soft"
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  contrast = "", -- can be "hard", "soft" or empty string
   overrides = {},
 })
 vim.cmd("colorscheme gruvbox")
@@ -91,12 +86,3 @@ Please note that the override values must follow the attributes from the highlig
 - **italic** - true or false for italic font
 
 Other values can be seen in `:h synIDattr`
-
-# Additional supported plugins
-
-- [vim-signify](https://github.com/mhinz/vim-signify)
-- [vim-startify](https://github.com/mhinz/vim-startify)
-- [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-
-And more..

@@ -396,6 +396,7 @@ groups.setup = function()
     netrwVersion = { link = "GruvboxGreen" },
     -- nvim-treesitter
     TSStrong = { bold = config.bold },
+    TSStrike = { strikethrough = config.strikethrough },
     TSEmphasis = { italic = config.italic },
     TSUnderline = { underline = config.underline },
     -- telescope.nvim

@@ -5,13 +5,14 @@ M.config = {
   undercurl = true,
   underline = true,
   bold = true,
-  italic = true, -- will make italic comments and special strings
+  italic = true,
+  strikethrough = true,
   invert_selection = false,
   invert_signs = false,
   invert_tabline = false,
   invert_intend_guides = false,
   inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = "", -- can be "hard" or "soft"
+  contrast = "", -- can be "hard", "soft" or empty string
   overrides = {},
 }
 
