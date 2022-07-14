@@ -40,8 +40,6 @@ M.load = function()
   for group, settings in pairs(groups) do
     vim.api.nvim_set_hl(0, group, settings)
   end
-
-  vim.cmd("colorscheme gruvbox")
 end
 
 return M
