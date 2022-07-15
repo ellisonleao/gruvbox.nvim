@@ -580,7 +580,7 @@ groups.setup = function()
     scalaInstanceDeclaration = { link = "GruvboxFg1" },
     scalaInterpolation = { link = "GruvboxAqua" },
     -- markdown
-    markdownItalic = { fg = colors.fg3, bold = config.italic },
+    markdownItalic = { fg = colors.fg3, italic = config.italic },
     markdownBold = { fg = colors.fg3, bold = config.bold },
     markdownBoldItalic = { fg = colors.fg3, bold = config.bold, italic = config.italic },
     markdownH1 = { link = "GruvboxGreenBold" },
