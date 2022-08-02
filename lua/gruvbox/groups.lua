@@ -696,10 +696,10 @@ groups.setup = function()
     SagaShadow = { link = "GruvboxBg0" },
 
     -- dashboard-nvim
-    DashboardShortCut = {link = "GruvboxOrange"},
-    DashboardHeader = {link = "GruvboxAqua"},
-    DashboardCenter = {link = "GruvboxYellow"},
-    DashboardFooter = {fg = colors.purple, italic = config.italic}
+    DashboardShortCut = { link = "GruvboxOrange" },
+    DashboardHeader = { link = "GruvboxAqua" },
+    DashboardCenter = { link = "GruvboxYellow" },
+    DashboardFooter = { fg = colors.purple, italic = config.italic}
   }
 
   for group, hl in pairs(config.overrides) do
