@@ -699,7 +699,7 @@ groups.setup = function()
     DashboardShortCut = { link = "GruvboxOrange" },
     DashboardHeader = { link = "GruvboxAqua" },
     DashboardCenter = { link = "GruvboxYellow" },
-    DashboardFooter = { fg = colors.purple, italic = config.italic}
+    DashboardFooter = { fg = colors.purple, italic = config.italic },
   }
 
   for group, hl in pairs(config.overrides) do
