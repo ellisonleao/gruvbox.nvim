@@ -694,6 +694,12 @@ groups.setup = function()
     LspSagaDiagnosticHeader = { link = "GruvboxGreen" },
     LspSagaSignatureHelpBorder = { link = "GruvboxGreen" },
     SagaShadow = { link = "GruvboxBg0" },
+
+    -- dashboard-nvim
+    DashboardShortCut = { link = "GruvboxOrange" },
+    DashboardHeader = { link = "GruvboxAqua" },
+    DashboardCenter = { link = "GruvboxYellow" },
+    DashboardFooter = { fg = colors.purple, italic = config.italic}
   }
 
   for group, hl in pairs(config.overrides) do
