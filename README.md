@@ -53,6 +53,7 @@ require("gruvbox").setup({
   bold = true,
   italic = true,
   strikethrough = true,
+  distinct_sign = true,
   invert_selection = false,
   invert_signs = false,
   invert_tabline = false,

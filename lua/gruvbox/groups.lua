@@ -1,6 +1,6 @@
 local groups = {}
 
-local function get_base_colors(colors, contrast)
+local function get_base_colors(colors, config)
   local bg = vim.o.background
   local base_colors = {
     -- options (dark mode by default)
@@ -60,13 +60,19 @@ local function get_base_colors(colors, contrast)
     base_colors = light_colors
   end
 
-  if contrast == "hard" then
+  if config.contrast == "hard" then
     base_colors.bg0 = colors[bg .. "0_hard"]
-  elseif contrast == "soft" then
+  elseif config.contrast == "soft" then
     base_colors.bg0 = colors[bg .. "0_soft"]
   end
 
   base_colors.gray = colors.gray
+
+  if config.distinct_sign then
+    base_colors.sign_bg = base_colors.bg1
+  else
+    base_colors.sign_bg = base_colors.bg0
+  end
 
   return base_colors
 end
@@ -94,7 +100,7 @@ end
 groups.setup = function()
   local config = require("gruvbox").config
   local palette = require("gruvbox.palette")
-  local colors = get_base_colors(palette, config.contrast)
+  local colors = get_base_colors(palette, config)
 
   set_terminal_colors(colors)
 
@@ -125,13 +131,13 @@ groups.setup = function()
     GruvboxAquaBold = { fg = colors.aqua, bold = config.bold },
     GruvboxOrange = { fg = colors.orange },
     GruvboxOrangeBold = { fg = colors.orange, bold = config.bold },
-    GruvboxRedSign = { fg = colors.red, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxGreenSign = { fg = colors.green, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxYellowSign = { fg = colors.yellow, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxBlueSign = { fg = colors.blue, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxPurpleSign = { fg = colors.purple, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxAquaSign = { fg = colors.aqua, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxOrangeSign = { fg = colors.orange, bg = colors.bg1, reverse = config.invert_signs },
+    GruvboxRedSign = { fg = colors.red, bg = colors.sign_bg, reverse = config.invert_signs },
+    GruvboxGreenSign = { fg = colors.green, bg = colors.sign_bg, reverse = config.invert_signs },
+    GruvboxYellowSign = { fg = colors.yellow, bg = colors.sign_bg, reverse = config.invert_signs },
+    GruvboxBlueSign = { fg = colors.blue, bg = colors.sign_bg, reverse = config.invert_signs },
+    GruvboxPurpleSign = { fg = colors.purple, bg = colors.sign_bg, reverse = config.invert_signs },
+    GruvboxAquaSign = { fg = colors.aqua, bg = colors.sign_bg, reverse = config.invert_signs },
+    GruvboxOrangeSign = { fg = colors.orange, bg = colors.sign_bg, reverse = config.invert_signs },
     GruvboxRedUnderline = { undercurl = config.undercurl, sp = colors.red },
     GruvboxGreenUnderline = { undercurl = config.undercurl, sp = colors.green },
     GruvboxYellowUnderline = { undercurl = config.undercurl, sp = colors.yellow },
@@ -169,7 +175,7 @@ groups.setup = function()
     Question = { link = "GruvboxOrangeBold" },
     WarningMsg = { link = "GruvboxRedBold" },
     LineNr = { fg = colors.bg4 },
-    SignColumn = { bg = colors.bg1 },
+    SignColumn = { bg = colors.sign_bg },
     Folded = { fg = colors.gray, bg = colors.bg1, italic = config.italic },
     FoldColumn = { fg = colors.gray, bg = colors.bg1 },
     Cursor = { reverse = config.inverse },
