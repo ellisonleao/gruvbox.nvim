@@ -64,7 +64,24 @@ require("gruvbox").setup({
 vim.cmd("colorscheme gruvbox")
 ```
 
-## Overriding Highlight groups
+## Overriding
+
+###  Pallette
+
+You can specify your own palette colors. For example:
+
+```lua
+require("gruvbox").setup({
+    palette_overrides = {
+        bright_green = "#990000",
+    }
+})
+vim.cmd("colorscheme gruvbox")
+```
+
+More colors in the [palette.lua](lua/gruvbox/palette.lua) file
+
+###  Highlight groups
 
 If you don't enjoy the current color for a specific highlight group, now you can just override it in the setup. For
 example:

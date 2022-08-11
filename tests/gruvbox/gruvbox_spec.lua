@@ -15,6 +15,7 @@ describe("setup", function()
       invert_tabline = false,
       invert_intend_guides = false,
       contrast = "",
+      palette_overrides = {},
       overrides = {},
     }
 
@@ -35,6 +36,7 @@ describe("setup", function()
       invert_tabline = false,
       invert_intend_guides = false,
       contrast = "",
+      palette_overrides = {},
       overrides = {},
     }
 
@@ -102,6 +104,23 @@ describe("highlight overrides", function()
     local config = {
       overrides = {
         Function = { bg = "#990000" },
+      },
+    }
+
+    gruvbox.setup(config)
+    gruvbox.load()
+
+    local group_id = vim.api.nvim_get_hl_id_by_name("Function")
+    local values = {
+      background = vim.fn.synIDattr(group_id, "bg", "gui"),
+    }
+    assert.are.same(values, { background = "#990000" })
+  end)
+
+  it("should override palette", function()
+    local config = {
+      palette_overrides = {
+        bright_green = "#990000",
       },
     }
 
