@@ -255,7 +255,7 @@ groups.setup = function()
     GitSignsChange = { link = "GruvboxAquaSign" },
     GitSignsDelete = { link = "GruvboxRedSign" },
     -- termdebug
-    debugPC = { bg = colors.faded_blue },
+    debugPC = { bg = palette.faded_blue },
     debugBreakpoint = { link = "GruvboxRedSign" },
     -- vim-startify
     StartifyBracket = { link = "GruvboxFg3" },
