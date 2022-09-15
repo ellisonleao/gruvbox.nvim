@@ -16,6 +16,8 @@ describe("setup", function()
       invert_intend_guides = false,
       contrast = "",
       overrides = {},
+      dim_inactive = false,
+      transparent_mode = false,
     }
 
     gruvbox.setup()
@@ -36,6 +38,8 @@ describe("setup", function()
       invert_intend_guides = false,
       contrast = "",
       overrides = {},
+      dim_inactive = false,
+      transparent_mode = false,
     }
 
     gruvbox.setup({ undercurl = false, underline = false })

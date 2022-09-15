@@ -14,6 +14,8 @@ M.config = {
   inverse = true, -- invert background for search, diffs, statuslines and errors
   contrast = "", -- can be "hard", "soft" or empty string
   overrides = {},
+  dim_inactive = false,
+  transparent_mode = false,
 }
 
 function M.setup(config)
