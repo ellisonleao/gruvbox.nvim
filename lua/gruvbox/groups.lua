@@ -701,6 +701,18 @@ groups.setup = function()
     DashboardHeader = { link = "GruvboxAqua" },
     DashboardCenter = { link = "GruvboxYellow" },
     DashboardFooter = { fg = colors.purple, italic = config.italic },
+    -- mason
+    MasonHighlight = { fg = palette.neutral_blue },
+    MasonHighlightBlock = { fg = palette.dark0, bg = palette.neutral_blue },
+    MasonHighlightBlockBold = { fg = palette.dark0, bg = palette.neutral_blue, bold = true },
+    MasonHighlightSecondary = { fg = palette.neutral_yellow },
+    MasonHighlightBlockSecondary = { fg = palette.dark0, bg = palette.neutral_yellow },
+    MasonHighlightBlockBoldSecondary = { fg = palette.dark0, bg = palette.neutral_yellow, bold = true },
+    MasonHeader = { link = "MasonHighlightBlockBoldSecondary" },
+    MasonHeaderSecondary = { link = "MasonHighlightBlockBold" },
+    MasonMuted = { fg = palette.light4 },
+    MasonMutedBlock = { fg = palette.dark0, bg = palette.light4 },
+    MasonMutedBlockBold = { fg = palette.dark0, bg = palette.light4, bold = true },
   }
 
   for group, hl in pairs(config.overrides) do
