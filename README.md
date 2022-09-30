@@ -59,6 +59,7 @@ require("gruvbox").setup({
   invert_intend_guides = false,
   inverse = true, -- invert background for search, diffs, statuslines and errors
   contrast = "", -- can be "hard", "soft" or empty string
+  palette_overrides = {},
   overrides = {},
   dim_inactive = false,
   transparent_mode = false,
@@ -68,7 +69,7 @@ vim.cmd("colorscheme gruvbox")
 
 ## Overriding
 
-###  Pallette
+### Pallette
 
 You can specify your own palette colors. For example:
 
@@ -83,7 +84,7 @@ vim.cmd("colorscheme gruvbox")
 
 More colors in the [palette.lua](lua/gruvbox/palette.lua) file
 
-###  Highlight groups
+### Highlight groups
 
 If you don't enjoy the current color for a specific highlight group, now you can just override it in the setup. For
 example:
