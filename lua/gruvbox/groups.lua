@@ -93,9 +93,11 @@ end
 
 groups.setup = function()
   local config = require("gruvbox").config
-  local palette = require("gruvbox.palette")
-  local colors = get_base_colors(palette, config.contrast)
 
+  local palette = require("gruvbox.palette")
+  for k,v in pairs(config.palette_overrides) do palette[k] = v end
+
+  local colors = get_base_colors(palette, config.contrast)
   set_terminal_colors(colors)
 
   local groups = {
