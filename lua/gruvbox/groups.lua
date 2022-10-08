@@ -734,6 +734,8 @@ groups.setup = function()
     MasonMuted = { fg = palette.light4 },
     MasonMutedBlock = { fg = palette.dark0, bg = palette.light4 },
     MasonMutedBlockBold = { fg = palette.dark0, bg = palette.light4, bold = true },
+    -- lsp-inlayhints.nvim
+    LspInlayHint = { link = "comment" },
   }
 
   for group, hl in pairs(config.overrides) do
