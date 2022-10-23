@@ -741,7 +741,7 @@ groups.setup = function()
       groups[group].link = nil
     end
     for color_key, color in pairs(hl) do
-      if color:match("^[^#]") then
+      if color:match("^%a") then
         hl[color_key] = palette[color]
       end
     end
