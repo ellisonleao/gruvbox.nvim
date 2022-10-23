@@ -740,6 +740,11 @@ groups.setup = function()
     if groups[group] and not vim.tbl_isempty(hl) then
       groups[group].link = nil
     end
+    for color_key, color in pairs(hl) do
+      if color:match("^[^#]") then
+        hl[color_key] = palette[color]
+      end
+    end
     groups[group] = vim.tbl_extend("force", groups[group] or {}, hl)
   end
 
