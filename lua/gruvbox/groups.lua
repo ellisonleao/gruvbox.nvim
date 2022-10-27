@@ -319,13 +319,6 @@ groups.setup = function()
     ["@text.emphasis"] = { italic = config.italic },
     ["@text.underline"] = { underline = config.underline },
     ["@keyword.operator"] = { link = "GruvboxRed" },
-
-    -- nvim-treesitter (pre-0.8)
-    TSStrong = { link = "@text.strong" },
-    TSStrike = { link = "@text.strike" },
-    TSEmphasis = { link = "@text.emphasis" },
-    TSUnderline = { link = "@text.underline" },
-    TSKeywordOperator = { link = "@keyword.operator" },
     -- gitcommit
     gitcommitSelectedFile = { link = "GruvboxGreen" },
     gitcommitDiscardedFile = { link = "GruvboxRed" },
