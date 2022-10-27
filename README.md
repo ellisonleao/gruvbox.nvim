@@ -14,7 +14,7 @@ A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) them
 
 # Prerequisites
 
-Neovim 0.7.0+
+Neovim 0.8.0+
 
 # Installing
 
