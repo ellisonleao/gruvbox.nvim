@@ -309,6 +309,8 @@ groups.setup = function()
     ["@text.note"] = { link = "SpecialComment" },
     ["@text.warning"] = { link = "WarningMsg" },
     ["@text.danger"] = { link = "ErrorMsg" },
+    ["@text.diff.add"] = { link = "diffAdded" },
+    ["@text.diff.delete"] = { link = "diffRemoved" },
     ["@tag"] = { link = "Tag" },
     ["@tag.attribute"] = { link = "Identifier" },
     ["@tag.delimiter"] = { link = "Delimiter" },
