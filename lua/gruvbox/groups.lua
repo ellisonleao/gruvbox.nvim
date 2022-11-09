@@ -164,6 +164,8 @@ groups.setup = function()
     Underlined = { fg = colors.blue, underline = config.underline },
     StatusLine = { fg = colors.bg2, bg = colors.fg1, reverse = config.inverse },
     StatusLineNC = { fg = colors.bg1, bg = colors.fg4, reverse = config.inverse },
+    WinBar = { fg = colors.fg4, bg = colors.bg0 },
+    WinBarNC = { fg = colors.fg3, bg = colors.bg1 },
     VertSplit = { fg = colors.bg3, bg = colors.bg0 },
     WildMenu = { fg = colors.blue, bg = colors.bg2, bold = config.bold },
     Directory = { link = "GruvboxGreenBold" },
