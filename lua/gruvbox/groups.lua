@@ -402,6 +402,7 @@ groups.setup = function()
     CocDiagnosticsInfo = { link = "GruvboxBlue" },
     CocDiagnosticsHint = { link = "GruvboxAqua" },
     CocSelectedText = { link = "GruvboxRed" },
+    CocMenuSel = { link = "PmenuSel" },
     CocCodeLens = { link = "GruvboxGray" },
     CocErrorHighlight = { link = "GruvboxRedUnderline" },
     CocWarningHighlight = { link = "GruvboxOrangeUnderline" },
