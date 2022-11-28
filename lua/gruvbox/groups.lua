@@ -837,6 +837,14 @@ groups.setup = function()
     MasonMutedBlockBold = { fg = palette.dark0, bg = palette.light4, bold = true },
     -- lsp-inlayhints.nvim
     LspInlayHint = { link = "comment" },
+    -- carbon.nvim
+    CarbonFile = { link = "GruvboxFg1" },
+    CarbonExe = { link = "GruvboxYellow" },
+    CarbonSymlink = { link = "GruvboxAqua" },
+    CarbonBrokenSymlink = { link = "GruvboxRed" },
+    CarbonIndicator = { link = "GruvboxGray" },
+    CarbonDanger = { link = "GruvboxRed" },
+    CarbonPending = { link = "GruvboxYellow" },
   }
 
   for group, hl in pairs(config.overrides) do
