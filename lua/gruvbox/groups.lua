@@ -169,7 +169,7 @@ groups.setup = function()
     WinBarNC = { fg = colors.fg3, bg = colors.bg1 },
     VertSplit = { fg = colors.bg3, bg = colors.bg0 },
     WildMenu = { fg = colors.blue, bg = colors.bg2, bold = config.bold },
-    Directory = { link = "GruvboxGreenBold" },
+    Directory = { link = "GruvboxBlueBold" },
     Title = { link = "GruvboxGreenBold" },
     ErrorMsg = { fg = colors.bg0, bg = colors.red, bold = config.bold },
     MoreMsg = { link = "GruvboxYellowBold" },
