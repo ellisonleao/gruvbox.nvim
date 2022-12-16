@@ -159,7 +159,7 @@ groups.setup = function()
     Visual = { bg = colors.bg3, reverse = config.invert_selection },
     VisualNOS = { link = "Visual" },
     Search = { fg = colors.yellow, bg = colors.bg0, reverse = config.inverse },
-    IncSearch = { fg = colors.orange, bg = colors.bg0, reverse = config.inverse },
+    IncSearch = { fg = colors.yellow, bg = colors.bg0, reverse = config.inverse },
     CurSearch = { link = "IncSearch" },
     QuickFixLine = { fg = colors.bg0, bg = colors.yellow, bold = config.bold },
     Underlined = { fg = colors.blue, underline = config.underline },
