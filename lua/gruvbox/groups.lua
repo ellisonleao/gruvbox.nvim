@@ -252,6 +252,7 @@ groups.setup = function()
     LspCodeLens = { link = "GruvboxGray" },
     -- nvim-treesitter (0.8 compat)
     -- Adapted from https://github.com/nvim-treesitter/nvim-treesitter/commit/42ab95d5e11f247c6f0c8f5181b02e816caa4a4f#commitcomment-87014462
+    ["@annotation"] = { link = "Operator" },
     ["@comment"] = { link = "Comment" },
     ["@none"] = { bg = "NONE", fg = "NONE" },
     ["@preproc"] = { link = "PreProc" },
@@ -299,7 +300,7 @@ groups.setup = function()
     ["@constant"] = { link = "Constant" },
     ["@constant.builtin"] = { link = "Special" },
     ["@constant.macro"] = { link = "Define" },
-    ["@namespace"] = { link = "Include" },
+    ["@namespace"] = { link = "GruvboxFg1" },
     ["@symbol"] = { link = "Identifier" },
     ["@text"] = { link = "GruvboxFg1" },
     ["@text.title"] = { link = "Title" },
