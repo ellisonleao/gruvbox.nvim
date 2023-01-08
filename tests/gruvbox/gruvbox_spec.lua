@@ -19,6 +19,7 @@ describe("setup", function()
       overrides = {},
       dim_inactive = false,
       transparent_mode = false,
+      terminal = true,
     }
 
     gruvbox.setup()
@@ -42,6 +43,7 @@ describe("setup", function()
       overrides = {},
       dim_inactive = false,
       transparent_mode = false,
+      terminal = true
     }
 
     gruvbox.setup({ undercurl = false, underline = false })

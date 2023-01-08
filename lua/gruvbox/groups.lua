@@ -100,7 +100,9 @@ groups.setup = function()
   end
 
   local colors = get_base_colors(palette, config.contrast)
-  set_terminal_colors(colors)
+  if config.terminal then
+    set_terminal_colors(colors)
+  end
 
   local groups = {
     -- Base groups

@@ -63,6 +63,7 @@ require("gruvbox").setup({
   overrides = {},
   dim_inactive = false,
   transparent_mode = false,
+  terminal = true, -- enable/disable setting colors for the builtin terminal
 })
 vim.cmd("colorscheme gruvbox")
 ```

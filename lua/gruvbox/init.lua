@@ -17,6 +17,7 @@ M.config = {
   overrides = {},
   dim_inactive = false,
   transparent_mode = false,
+  terminal = true,
 }
 
 function M.setup(config)
