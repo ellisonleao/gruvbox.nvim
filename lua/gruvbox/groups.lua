@@ -225,6 +225,7 @@ groups.setup = function()
     SpellBad = { link = "GruvboxRedUnderline" },
     SpellLocal = { link = "GruvboxAquaUnderline" },
     SpellRare = { link = "GruvboxPurpleUnderline" },
+    Whitespace = { fg = colors.bg1 },
     -- LSP Diagnostic
     DiagnosticError = { link = "GruvboxRed" },
     DiagnosticSignError = { link = "GruvboxRedSign" },
