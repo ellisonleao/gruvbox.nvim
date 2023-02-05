@@ -1,75 +1,4 @@
-local groups = {}
-
-local function get_base_colors(colors, contrast)
-  local bg = vim.o.background
-  local base_colors = {
-    -- options (dark mode by default)
-    bg0 = colors.dark0,
-    bg1 = colors.dark1,
-    bg2 = colors.dark2,
-    bg3 = colors.dark3,
-    bg4 = colors.dark4,
-    fg0 = colors.light0,
-    fg1 = colors.light1,
-    fg2 = colors.light2,
-    fg3 = colors.light3,
-    fg4 = colors.light4,
-    red = colors.bright_red,
-    green = colors.bright_green,
-    yellow = colors.bright_yellow,
-    blue = colors.bright_blue,
-    purple = colors.bright_purple,
-    aqua = colors.bright_aqua,
-    orange = colors.bright_orange,
-    neutral_red = colors.neutral_red,
-    neutral_green = colors.neutral_green,
-    neutral_yellow = colors.neutral_yellow,
-    neutral_blue = colors.neutral_blue,
-    neutral_purple = colors.neutral_purple,
-    neutral_aqua = colors.neutral_aqua,
-  }
-
-  local light_colors = {
-    bg0 = colors.light0,
-    bg1 = colors.light1,
-    bg2 = colors.light2,
-    bg3 = colors.light3,
-    bg4 = colors.light4,
-    fg0 = colors.dark0,
-    fg1 = colors.dark1,
-    fg2 = colors.dark2,
-    fg3 = colors.dark3,
-    fg4 = colors.dark4,
-    red = colors.faded_red,
-    green = colors.faded_green,
-    yellow = colors.faded_yellow,
-    blue = colors.faded_blue,
-    purple = colors.faded_purple,
-    aqua = colors.faded_aqua,
-    orange = colors.faded_orange,
-    neutral_red = colors.neutral_red,
-    neutral_green = colors.neutral_green,
-    neutral_yellow = colors.neutral_yellow,
-    neutral_blue = colors.neutral_blue,
-    neutral_purple = colors.neutral_purple,
-    neutral_aqua = colors.neutral_aqua,
-  }
-
-  -- swap colors if light mode
-  if bg == "light" then
-    base_colors = light_colors
-  end
-
-  if contrast == "hard" then
-    base_colors.bg0 = colors[bg .. "0_hard"]
-  elseif contrast == "soft" then
-    base_colors.bg0 = colors[bg .. "0_soft"]
-  end
-
-  base_colors.gray = colors.gray
-
-  return base_colors
-end
+local M = {}
 
 -- neovim terminal mode colors
 local function set_terminal_colors(colors)
@@ -91,15 +20,10 @@ local function set_terminal_colors(colors)
   vim.g.terminal_color_15 = colors.fg1
 end
 
-groups.setup = function()
+M.setup = function()
   local config = require("gruvbox").config
+  local colors = require("gruvbox.palette").get_base_colors(vim.o.background, config.contrast)
 
-  local palette = require("gruvbox.palette")
-  for k, v in pairs(config.palette_overrides) do
-    palette[k] = v
-  end
-
-  local colors = get_base_colors(palette, config.contrast)
   set_terminal_colors(colors)
 
   local groups = {
@@ -344,24 +268,24 @@ groups.setup = function()
     GitSignsChange = { link = "GruvboxAquaSign" },
     GitSignsDelete = { link = "GruvboxRedSign" },
     -- nvim-tree
-    NvimTreeSymlink = { fg = palette.neutral_aqua },
-    NvimTreeRootFolder = { fg = palette.neutral_purple, bold = true },
-    NvimTreeFolderIcon = { fg = palette.neutral_blue, bold = true },
-    NvimTreeFileIcon = { fg = palette.light2 },
-    NvimTreeExecFile = { fg = palette.neutral_green, bold = true },
-    NvimTreeOpenedFile = { fg = palette.bright_red, bold = true },
-    NvimTreeSpecialFile = { fg = palette.neutral_yellow, bold = true, underline = true },
-    NvimTreeImageFile = { fg = palette.neutral_purple },
-    NvimTreeIndentMarker = { fg = palette.dark3 },
-    NvimTreeGitDirty = { fg = palette.neutral_yellow },
-    NvimTreeGitStaged = { fg = palette.neutral_yellow },
-    NvimTreeGitMerge = { fg = palette.neutral_purple },
-    NvimTreeGitRenamed = { fg = palette.neutral_purple },
-    NvimTreeGitNew = { fg = palette.neutral_yellow },
-    NvimTreeGitDeleted = { fg = palette.neutral_red },
-    NvimTreeWindowPicker = { bg = palette.faded_aqua },
+    NvimTreeSymlink = { fg = colors.neutral_aqua },
+    NvimTreeRootFolder = { fg = colors.neutral_purple, bold = true },
+    NvimTreeFolderIcon = { fg = colors.neutral_blue, bold = true },
+    NvimTreeFileIcon = { fg = colors.light2 },
+    NvimTreeExecFile = { fg = colors.neutral_green, bold = true },
+    NvimTreeOpenedFile = { fg = colors.bright_red, bold = true },
+    NvimTreeSpecialFile = { fg = colors.neutral_yellow, bold = true, underline = true },
+    NvimTreeImageFile = { fg = colors.neutral_purple },
+    NvimTreeIndentMarker = { fg = colors.dark3 },
+    NvimTreeGitDirty = { fg = colors.neutral_yellow },
+    NvimTreeGitStaged = { fg = colors.neutral_yellow },
+    NvimTreeGitMerge = { fg = colors.neutral_purple },
+    NvimTreeGitRenamed = { fg = colors.neutral_purple },
+    NvimTreeGitNew = { fg = colors.neutral_yellow },
+    NvimTreeGitDeleted = { fg = colors.neutral_red },
+    NvimTreeWindowPicker = { bg = colors.faded_aqua },
     -- termdebug
-    debugPC = { bg = palette.faded_blue },
+    debugPC = { bg = colors.faded_blue },
     debugBreakpoint = { link = "GruvboxRedSign" },
     -- vim-startify
     StartifyBracket = { link = "GruvboxFg3" },
@@ -837,17 +761,17 @@ groups.setup = function()
     DashboardCenter = { link = "GruvboxYellow" },
     DashboardFooter = { fg = colors.purple, italic = config.italic },
     -- mason
-    MasonHighlight = { fg = palette.neutral_blue },
-    MasonHighlightBlock = { fg = palette.dark0, bg = palette.neutral_blue },
-    MasonHighlightBlockBold = { fg = palette.dark0, bg = palette.neutral_blue, bold = true },
-    MasonHighlightSecondary = { fg = palette.neutral_yellow },
-    MasonHighlightBlockSecondary = { fg = palette.dark0, bg = palette.neutral_yellow },
-    MasonHighlightBlockBoldSecondary = { fg = palette.dark0, bg = palette.neutral_yellow, bold = true },
+    MasonHighlight = { link = "GruvboxAqua" },
+    MasonHighlightBlock = { fg = colors.bg0, bg = colors.blue },
+    MasonHighlightBlockBold = { fg = colors.bg0, bg = colors.blue, bold = true },
+    MasonHighlightSecondary = { fg = colors.yellow },
+    MasonHighlightBlockSecondary = { fg = colors.bg0, bg = colors.yellow },
+    MasonHighlightBlockBoldSecondary = { fg = colors.bg0, bg = colors.yellow, bold = true },
     MasonHeader = { link = "MasonHighlightBlockBoldSecondary" },
     MasonHeaderSecondary = { link = "MasonHighlightBlockBold" },
-    MasonMuted = { fg = palette.light4 },
-    MasonMutedBlock = { fg = palette.dark0, bg = palette.light4 },
-    MasonMutedBlockBold = { fg = palette.dark0, bg = palette.light4, bold = true },
+    MasonMuted = { fg = colors.fg4 },
+    MasonMutedBlock = { fg = colors.bg0, bg = colors.fg4 },
+    MasonMutedBlockBold = { fg = colors.bg0, bg = colors.fg4, bold = true },
     -- lsp-inlayhints.nvim
     LspInlayHint = { link = "comment" },
     -- carbon.nvim
@@ -870,4 +794,4 @@ groups.setup = function()
   return groups
 end
 
-return groups
+return M
