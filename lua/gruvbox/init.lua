@@ -24,8 +24,8 @@ function M.setup(config)
 end
 
 M.load = function()
-  if vim.version().minor < 7 then
-    vim.notify_once("gruvbox.nvim: you must use neovim 0.7 or higher")
+  if vim.version().minor < 8 then
+    vim.notify_once("gruvbox.nvim: you must use neovim 0.8 or higher")
     return
   end
 
