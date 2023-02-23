@@ -1,4 +1,4 @@
-<div align="center">
+ <div align="center">
       <h1> <img src="https://i.postimg.cc/WpQzgxVh/plugin-Icon.png" width="80px"><br/>gruvbox.nvim</h1>
      </div>
 <p align="center"> 
@@ -24,6 +24,12 @@ Using `packer`
 use { "ellisonleao/gruvbox.nvim" }
 ```
 
+Using `lazy.nvim`
+```lua
+-- It is adviced to put colorschemes with higher priority
+{'ellisonleao/gruvbox.nvim', priority=1000}
+```
+
 # Basic Usage
 
 Inside `init.vim`
@@ -37,7 +43,7 @@ Inside `init.lua`
 
 ```lua
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd.colorscheme("gruvbox")
 ```
 
 # Configuration
@@ -64,10 +70,12 @@ require("gruvbox").setup({
   dim_inactive = false,
   transparent_mode = false,
 })
-vim.cmd("colorscheme gruvbox")
+vim.cmd.colorscheme("gruvbox")
 ```
 
 ## Overriding
+
+Note: with 'NVIM v0.9.0+', you can now use `:Inspect` to see the highlight groups of the text under the cursor.
 
 ### Pallette
 
@@ -79,7 +87,7 @@ require("gruvbox").setup({
         bright_green = "#990000",
     }
 })
-vim.cmd("colorscheme gruvbox")
+vim.cmd.colorscheme("gruvbox")
 ```
 
 More colors in the [palette.lua](lua/gruvbox/palette.lua) file
@@ -95,7 +103,7 @@ require("gruvbox").setup({
         SignColumn = {bg = "#ff9900"}
     }
 })
-vim.cmd("colorscheme gruvbox")
+vim.cmd.colorscheme("gruvbox")
 ```
 
 Please note that the override values must follow the attributes from the highlight group map, such as:
@@ -106,3 +114,70 @@ Please note that the override values must follow the attributes from the highlig
 - **italic** - true or false for italic font
 
 Other values can be seen in `:h synIDattr`
+
+
+### Teesitter
+If you use [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) you may want to override the highlight groups for it. For example:
+
+```lua
+require("gruvbox").setup({
+  overrides = {
+    ["@comment"] = {bg = "#3c3836", fg = "#0E1018"},
+    ["@text.note"] = {bold = true, reverse = false, fg = "", bg = "#213352"},
+    ["@constant.builtin"] = { link = "GruvboxPurple"},
+    -- note with treesitter you may change highlights for specific languages
+    -- for example:
+    ["@namespace.latex"] = { link = "Include" },
+  }
+})
+```
+
+All the captures groups may be found in `:help treesitter-highlight-groups`
+
+
+## Example configuration in lua
+
+```lua
+--- This uses lazy.nvim
+require("lazy").setup({
+    {'ellisonleao/gruvbox.nvim', priority=1000, config = function()
+        require("gruvbox").setup({
+            contrast = "hard",
+            palette_overrides = {
+                dark0_hard = "#0E1018",
+            },
+            overrides = {
+                SignColumn = {bg = "#ff9900"},
+                Define = {link = "GruvboxPurple"},
+                Macro = {link = "GruvboxPurple"},
+                Comment = {fg = "#fe8019", italic = true},
+                
+                ["@constant.builtin"] = { link = "GruvboxPurple"},
+                ["@storageclass.lifetime"] = { link = "GruvboxAqua"},
+                ["@text.note"] = { link = "TODO" },
+                ["@namespace.latex"] = { link = "Include" },
+                
+                Folded = {italic = true, fg = "#fe8019", bg = "#3c3836"},
+                FoldColumn = {fg = "#fe8019", bg = "#0E1018"},
+                DiffAdd = {bold = true, reverse = false, fg = "", bg = "#2a4333"},
+                DiffChange = {bold = true, reverse = false, fg = "", bg = "#333841"},
+                DiffDelete = { bold = true, reverse = false, fg = "#442d30", bg = "#442d30"},
+                DiffText = {bold = true, reverse = false, fg = "", bg = "#213352"},
+
+                ContextVt = {fg = "#878787"},
+                DiagnosticVirtualTextWarn = {fg = "#dfaf87"},
+                
+                GruvboxOrangeSign = {fg = "#dfaf87", bg = ""},
+                GruvboxAquaSign = {fg = "#8EC07C", bg = ""},
+                GruvboxGreenSign = {fg = "#b8bb26", bg = ""},
+                GruvboxRedSign = {fg = "#fb4934", bg = ""},
+                GruvboxBlueSign = {fg = "#83a598", bg = ""},
+                WilderMenu = {fg = "#ebdbb2", bg = ""},
+                WilderAccent = {fg = "#f4468f", bg = ""}
+            }
+        })
+        vim.cmd.colorscheme("gruvbox")
+    end},
+})
+
+```
