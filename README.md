@@ -164,16 +164,12 @@ require("lazy").setup({
                 DiffDelete = { bold = true, reverse = false, fg = "#442d30", bg = "#442d30"},
                 DiffText = {bold = true, reverse = false, fg = "", bg = "#213352"},
 
-                ContextVt = {fg = "#878787"},
                 DiagnosticVirtualTextWarn = {fg = "#dfaf87"},
-                
                 GruvboxOrangeSign = {fg = "#dfaf87", bg = ""},
                 GruvboxAquaSign = {fg = "#8EC07C", bg = ""},
                 GruvboxGreenSign = {fg = "#b8bb26", bg = ""},
                 GruvboxRedSign = {fg = "#fb4934", bg = ""},
                 GruvboxBlueSign = {fg = "#83a598", bg = ""},
-                WilderMenu = {fg = "#ebdbb2", bg = ""},
-                WilderAccent = {fg = "#f4468f", bg = ""}
             }
         })
         vim.cmd.colorscheme("gruvbox")
