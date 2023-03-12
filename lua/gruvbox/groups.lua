@@ -125,7 +125,7 @@ M.setup = function()
     Repeat = { link = "GruvboxRed" },
     Label = { link = "GruvboxRed" },
     Exception = { link = "GruvboxRed" },
-    Operator = { fg = colors.orange, italic = config.italic },
+    Operator = { fg = colors.orange },
     Keyword = { link = "GruvboxRed" },
     Identifier = { link = "GruvboxBlue" },
     Function = { link = "GruvboxGreenBold" },
