@@ -69,7 +69,7 @@ vim.cmd("colorscheme gruvbox")
 
 ## Overriding
 
-### Pallette
+### Palette
 
 You can specify your own palette colors. For example:
 
