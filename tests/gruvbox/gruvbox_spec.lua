@@ -1,14 +1,25 @@
 require("plenary.reload").reload_module("gruvbox", true)
 local gruvbox = require("gruvbox")
+local default = gruvbox.config
 
 describe("setup", function()
   it("works with default values", function()
+    gruvbox.setup()
+    assert.are.same(gruvbox.config, default)
+  end)
+
+  it("works with old italic values", function()
     local expected = {
       undercurl = true,
       underline = true,
       bold = true,
       strikethrough = true,
-      italic = true,
+      italic = {
+        strings = true,
+        comments = true,
+        operators = false,
+        folds = true,
+      },
       inverse = true,
       invert_selection = false,
       invert_signs = false,
@@ -21,7 +32,7 @@ describe("setup", function()
       transparent_mode = false,
     }
 
-    gruvbox.setup()
+    gruvbox.setup({ italic = true })
     assert.are.same(gruvbox.config, expected)
   end)
 
@@ -30,8 +41,13 @@ describe("setup", function()
       undercurl = false,
       underline = false,
       bold = true,
+      italic = {
+        strings = true,
+        comments = true,
+        operators = false,
+        folds = true,
+      },
       strikethrough = true,
-      italic = true,
       inverse = true,
       invert_selection = false,
       invert_signs = false,
