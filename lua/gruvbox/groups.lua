@@ -110,7 +110,7 @@ M.setup = function()
     LineNr = { fg = colors.bg4 },
     SignColumn = config.transparent_mode and { bg = nil } or { bg = colors.bg1 },
     Folded = { fg = colors.gray, bg = colors.bg1, italic = config.italic },
-    FoldColumn = { fg = colors.gray, bg = colors.bg1 },
+    FoldColumn = config.transparent_mode and { fg = colors.gray, bg = nil } or { fg = colors.gray, bg = colors.bg1 },
     Cursor = { reverse = config.inverse },
     vCursor = { link = "Cursor" },
     iCursor = { link = "Cursor" },
@@ -125,7 +125,7 @@ M.setup = function()
     Repeat = { link = "GruvboxRed" },
     Label = { link = "GruvboxRed" },
     Exception = { link = "GruvboxRed" },
-    Operator = { fg = colors.orange, italic = config.italic },
+    Operator = { fg = colors.orange },
     Keyword = { link = "GruvboxRed" },
     Identifier = { link = "GruvboxBlue" },
     Function = { link = "GruvboxGreenBold" },
@@ -785,10 +785,16 @@ M.setup = function()
   }
 
   for group, hl in pairs(config.overrides) do
+    -- When `link` is set together with other attrs, only `link` will take effect.
+    -- e.g. `{ link = "GruvboxRed", fg = colors.blue }` The final color is red.
+    -- Dereference the `link` and let user overrides it's attr.
+    local link = nil
     if groups[group] and not vim.tbl_isempty(hl) then
-      groups[group].link = nil
+      link = groups[group]["link"]
+      groups[group]["link"] = nil
     end
-    groups[group] = vim.tbl_extend("force", groups[group] or {}, hl)
+
+    groups[group] = vim.tbl_extend("force", groups[group] or {}, groups[link] or {}, hl)
   end
 
   config.on_highlight(groups, colors)
