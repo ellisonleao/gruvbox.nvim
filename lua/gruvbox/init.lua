@@ -17,6 +17,7 @@ M.config = {
   overrides = {},
   dim_inactive = false,
   transparent_mode = false,
+  on_highlight = function(groups, colors) end,
 }
 
 function M.setup(config)

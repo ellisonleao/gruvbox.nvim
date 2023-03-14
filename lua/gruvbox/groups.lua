@@ -791,6 +791,8 @@ M.setup = function()
     groups[group] = vim.tbl_extend("force", groups[group] or {}, hl)
   end
 
+  config.on_highlight(groups, colors)
+
   return groups
 end
 
