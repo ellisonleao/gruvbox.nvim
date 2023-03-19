@@ -5,7 +5,12 @@ M.config = {
   undercurl = true,
   underline = true,
   bold = true,
-  italic = true,
+  italic = {
+    strings = true,
+    comments = true,
+    operators = false,
+    folds = true,
+  },
   strikethrough = true,
   invert_selection = false,
   invert_signs = false,
@@ -20,7 +25,14 @@ M.config = {
 }
 
 function M.setup(config)
-  M.config = vim.tbl_extend("force", M.config, config or {})
+  if config ~= nil and type(config.italic) == "boolean" then
+    vim.notify(
+      "[gruvbox] italic config has change. please check https://github.com/ellisonleao/gruvbox.nvim/issues/220",
+      vim.log.levels.WARN
+    )
+    config.italic = M.config.italic
+  end
+  M.config = vim.tbl_deep_extend("force", M.config, config or {})
 end
 
 M.load = function()
@@ -31,7 +43,7 @@ M.load = function()
 
   -- reset colors
   if vim.g.colors_name then
-    vim.cmd("hi clear")
+    vim.cmd.hi("clear")
   end
 
   vim.g.colors_name = "gruvbox"

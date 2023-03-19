@@ -1,0 +1,8 @@
+changelog:
+  categories:
+    - title: Breaking Changes 🛠
+      labels:
+        - breaking-change
+    - title: Other Fixes and Improvements
+      labels:
+        - "*"
