@@ -782,6 +782,8 @@ M.setup = function()
     CarbonIndicator = { link = "GruvboxGray" },
     CarbonDanger = { link = "GruvboxRed" },
     CarbonPending = { link = "GruvboxYellow" },
+    -- noice.nvim
+    NoiceCursor = { link = "TermCursor" },
   }
 
   for group, hl in pairs(config.overrides) do
