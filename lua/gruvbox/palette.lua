@@ -2,6 +2,10 @@
 local M = {}
 
 M.colors = {
+  dark_brown = "#3b3307",
+  dark_green = "#142a03",
+  dark_red = "#431313",
+  dark_yellow = "#4d520d",
   dark0_hard = "#1d2021",
   dark0 = "#282828",
   dark0_soft = "#32302f",
@@ -9,6 +13,10 @@ M.colors = {
   dark2 = "#504945",
   dark3 = "#665c54",
   dark4 = "#7c6f64",
+  light_brown = "#fdd69b",
+  light_green = "#d5e958",
+  light_red = "#ffb3a2",
+  light_yellow = "#ffdb57",
   light0_hard = "#f9f5d7",
   light0 = "#fbf1c7",
   light0_soft = "#f2e5bc",
@@ -77,6 +85,10 @@ M.get_base_colors = function(bg, contrast)
       neutral_blue = p.neutral_blue,
       neutral_purple = p.neutral_purple,
       neutral_aqua = p.neutral_aqua,
+      subtle_brown = p.dark_brown,
+      subtle_green = p.dark_green,
+      subtle_red = p.dark_red,
+      subtle_yellow = p.dark_yellow,
       gray = p.gray,
     },
     light = {
@@ -103,6 +115,10 @@ M.get_base_colors = function(bg, contrast)
       neutral_blue = p.neutral_blue,
       neutral_purple = p.neutral_purple,
       neutral_aqua = p.neutral_aqua,
+      subtle_brown = p.light_brown,
+      subtle_green = p.light_green,
+      subtle_red = p.light_red,
+      subtle_yellow = p.light_yellow,
       gray = p.gray,
     },
   }
