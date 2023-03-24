@@ -123,34 +123,37 @@ describe("highlight overrides", function()
   it("should override links", function()
     local config = {
       overrides = {
-        Function = { bg = "#990000" },
+        TelescopePreviewBorder = { fg = "#990000", bg = nil },
       },
     }
-
     gruvbox.setup(config)
     gruvbox.load()
 
-    local group_id = vim.api.nvim_get_hl_id_by_name("Function")
+    local group_id = vim.api.nvim_get_hl_id_by_name("TelescopePreviewBorder")
     local values = {
-      background = vim.fn.synIDattr(group_id, "bg", "gui"),
+      fg = vim.fn.synIDattr(group_id, "fg", "gui"),
     }
-    assert.are.same(values, { background = "#990000" })
+
+    local expected = {
+      fg = "#990000",
+    }
+    assert.are.same(expected, values)
   end)
 
   it("should override palette", function()
     local config = {
       palette_overrides = {
-        bright_green = "#990000",
+        gray = "#ff9900",
       },
     }
 
     gruvbox.setup(config)
     gruvbox.load()
 
-    local group_id = vim.api.nvim_get_hl_id_by_name("Function")
+    local group_id = vim.api.nvim_get_hl_id_by_name("Comment")
     local values = {
-      background = vim.fn.synIDattr(group_id, "bg", "gui"),
+      fg = vim.fn.synIDattr(group_id, "fg", "gui"),
     }
-    assert.are.same(values, { background = "#990000" })
+    assert.are.same(values, { fg = "#ff9900" })
   end)
 end)

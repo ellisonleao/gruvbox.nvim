@@ -787,16 +787,12 @@ M.setup = function()
   }
 
   for group, hl in pairs(config.overrides) do
-    -- When `link` is set together with other attrs, only `link` will take effect.
-    -- e.g. `{ link = "GruvboxRed", fg = colors.blue }` The final color is red.
-    -- Dereference the `link` and let user overrides it's attr.
-    local link = nil
-    if groups[group] and not vim.tbl_isempty(hl) then
-      link = groups[group]["link"]
-      groups[group]["link"] = nil
+    if groups[group] then
+      -- "link" should not mix with other configs (:h hi-link)
+      groups[group].link = nil
     end
 
-    groups[group] = vim.tbl_extend("force", groups[group] or {}, groups[link] or {}, hl)
+    groups[group] = vim.tbl_extend("force", groups[group] or {}, hl)
   end
 
   return groups
