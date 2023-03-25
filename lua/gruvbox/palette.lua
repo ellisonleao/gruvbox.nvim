@@ -52,8 +52,8 @@ M.get_base_colors = function(bg, contrast)
   local config = require("gruvbox").config
   local p = M.colors
 
-  for k, v in pairs(config.palette_overrides) do
-    p[k] = v
+  for color, hex in pairs(config.palette_overrides) do
+    p[color] = hex
   end
 
   if bg == nil then
