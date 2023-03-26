@@ -22,6 +22,7 @@ M.config = {
   overrides = {},
   dim_inactive = false,
   transparent_mode = false,
+  diff_syntax = true,
 }
 
 function M.setup(config)
