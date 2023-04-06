@@ -183,6 +183,19 @@ M.setup = function()
     LspReferenceText = { link = "GruvboxYellowBold" },
     LspReferenceWrite = { link = "GruvboxOrangeBold" },
     LspCodeLens = { link = "GruvboxGray" },
+
+    -- semantic token
+    -- adapted from https://github.com/jdrouhard/neovim/blob/9f035559defd9d575f37fd825954610065d9cf96/src/nvim/highlight_group.c#L267
+    ["@class"] = { link = "@constructor" },
+    ["@decorator"] = { link = "Identifier" },
+    ["@enum"] = { link = "@constructor" },
+    ["@enumMember"] = { link = "Constant" },
+    ["@event"] = { link = "Identifier" },
+    ["@interface"] = { link = "Identifier" },
+    ["@modifier"] = { link = "Identifier" },
+    ["@regexp"] = { link = "SpecialChar" },
+    ["@struct"] = { link = "@constructor" },
+    ["@typeParameter"] = { link = "Type" },
     -- nvim-treesitter (0.8 compat)
     -- Adapted from https://github.com/nvim-treesitter/nvim-treesitter/commit/42ab95d5e11f247c6f0c8f5181b02e816caa4a4f#commitcomment-87014462
     ["@annotation"] = { link = "Operator" },
