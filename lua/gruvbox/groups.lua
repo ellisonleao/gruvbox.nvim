@@ -787,6 +787,22 @@ M.setup = function()
     CarbonPending = { link = "GruvboxYellow" },
     -- noice.nvim
     NoiceCursor = { link = "TermCursor" },
+    -- notify.nvim
+    NotifyDEBUGBorder = { link = "GruvboxBlue" },
+    NotifyDEBUGIcon = { link = "GruvboxBlue" },
+    NotifyDEBUGTitle = { link = "GruvboxBlue" },
+    NotifyERRORBorder = { link = "GruvboxRed" },
+    NotifyERRORIcon = { link = "GruvboxRed" },
+    NotifyERRORTitle = { link = "GruvboxRed" },
+    NotifyINFOBorder = { link = "GruvboxAqua" },
+    NotifyINFOIcon = { link = "GruvboxAqua" },
+    NotifyINFOTitle = { link = "GruvboxAqua" },
+    NotifyTRACEBorder = { link = "GruvboxGreen" },
+    NotifyTRACEIcon = { link = "GruvboxGreen" },
+    NotifyTRACETitle = { link = "GruvboxGreen" },
+    NotifyWARNBorder = { link = "GruvboxYellow" },
+    NotifyWARNIcon = { link = "GruvboxYellow" },
+    NotifyWARNTitle = { link = "GruvboxYellow" },
   }
 
   for group, hl in pairs(config.overrides) do
