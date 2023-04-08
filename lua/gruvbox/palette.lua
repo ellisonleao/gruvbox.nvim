@@ -38,6 +38,30 @@ M.colors = {
   faded_aqua = "#427b58",
   faded_orange = "#af3a03",
   gray = "#928374",
+  dark0_red_soft = "#5a3530",
+  dark0_green_soft = "#4d4c2d",
+  dark0_yellow_soft = "#5a4c2f",
+  dark0_blue_soft = "#424744",
+  dark0_red = "#522f2a",
+  dark0_green = "#454528",
+  dark0_yellow = "#67552a",
+  dark0_blue = "#3a413e",
+  dark0_red_hard = "#492825",
+  dark0_green_hard = "#3c3f22",
+  dark0_yellow_hard = "#493f24",
+  dark0_blue_hard = "#313b39",
+  light0_red_soft = "#d08973",
+  light0_green_soft = "#c2b876",
+  light0_yellow_soft = "#dab979",
+  light0_blue_soft = "#94b2a1",
+  light0_red = "#d5917a",
+  light0_green = "#c7bf7d",
+  light0_yellow = "#dfc07f",
+  light0_blue = "#99b9a7",
+  light0_red_hard = "#d49383",
+  light0_green_hard = "#c6c187",
+  light0_yellow_hard = "#dec289",
+  light0_blue_hard = "#98bcb1",
 }
 
 M.get_base_colors = function(bg, contrast)
@@ -78,6 +102,10 @@ M.get_base_colors = function(bg, contrast)
       neutral_purple = p.neutral_purple,
       neutral_aqua = p.neutral_aqua,
       gray = p.gray,
+      bg0_red = p.dark0_red,
+      bg0_green = p.dark0_green,
+      bg0_yellow = p.dark0_yellow,
+      bg0_blue = p.dark0_blue,
     },
     light = {
       bg0 = p.light0,
@@ -104,11 +132,20 @@ M.get_base_colors = function(bg, contrast)
       neutral_purple = p.neutral_purple,
       neutral_aqua = p.neutral_aqua,
       gray = p.gray,
+      bg0_red = p.light0_red,
+      bg0_green = p.light0_green,
+      bg0_yellow = p.light0_yellow,
+      bg0_blue = p.light0_blue,
     },
   }
 
+  -- Change background values to match contrast
   if contrast ~= nil and contrast ~= "" then
-    colors[bg].bg0 = p[bg .. string.format("0_%s", contrast)]
+    local values = { "0", "0_red", "0_green", "0_yellow", "0_blue" }
+    for _, value in ipairs(values) do
+      local name = bg .. string.format("%s_%s", value, contrast)
+      colors[bg]["bg" .. value] = p[name]
+    end
   end
 
   return colors[bg]
