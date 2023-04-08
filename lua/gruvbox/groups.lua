@@ -184,6 +184,18 @@ M.setup = function()
     LspReferenceWrite = { link = "GruvboxOrangeBold" },
     LspCodeLens = { link = "GruvboxGray" },
     LspSignatureActiveParameter = { fg = colors.bright_orange, bold = true },
+    -- semantic token
+    -- adapted from https://github.com/jdrouhard/neovim/blob/9f035559defd9d575f37fd825954610065d9cf96/src/nvim/highlight_group.c#L267
+    ["@class"] = { link = "@constructor" },
+    ["@decorator"] = { link = "Identifier" },
+    ["@enum"] = { link = "@constructor" },
+    ["@enumMember"] = { link = "Constant" },
+    ["@event"] = { link = "Identifier" },
+    ["@interface"] = { link = "Identifier" },
+    ["@modifier"] = { link = "Identifier" },
+    ["@regexp"] = { link = "SpecialChar" },
+    ["@struct"] = { link = "@constructor" },
+    ["@typeParameter"] = { link = "Type" },
     -- nvim-treesitter (0.8 compat)
     -- Adapted from https://github.com/nvim-treesitter/nvim-treesitter/commit/42ab95d5e11f247c6f0c8f5181b02e816caa4a4f#commitcomment-87014462
     ["@annotation"] = { link = "Operator" },
@@ -788,6 +800,22 @@ M.setup = function()
     CarbonPending = { link = "GruvboxYellow" },
     -- noice.nvim
     NoiceCursor = { link = "TermCursor" },
+    -- notify.nvim
+    NotifyDEBUGBorder = { link = "GruvboxBlue" },
+    NotifyDEBUGIcon = { link = "GruvboxBlue" },
+    NotifyDEBUGTitle = { link = "GruvboxBlue" },
+    NotifyERRORBorder = { link = "GruvboxRed" },
+    NotifyERRORIcon = { link = "GruvboxRed" },
+    NotifyERRORTitle = { link = "GruvboxRed" },
+    NotifyINFOBorder = { link = "GruvboxAqua" },
+    NotifyINFOIcon = { link = "GruvboxAqua" },
+    NotifyINFOTitle = { link = "GruvboxAqua" },
+    NotifyTRACEBorder = { link = "GruvboxGreen" },
+    NotifyTRACEIcon = { link = "GruvboxGreen" },
+    NotifyTRACETitle = { link = "GruvboxGreen" },
+    NotifyWARNBorder = { link = "GruvboxYellow" },
+    NotifyWARNIcon = { link = "GruvboxYellow" },
+    NotifyWARNTitle = { link = "GruvboxYellow" },
   }
 
   for group, hl in pairs(config.overrides) do
