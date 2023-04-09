@@ -53,6 +53,7 @@ M.setup = function()
     GruvboxAquaBold = { fg = colors.aqua, bold = config.bold },
     GruvboxOrange = { fg = colors.orange },
     GruvboxOrangeBold = { fg = colors.orange, bold = config.bold },
+    GruvboxHighlight = { bg = colors.bg1 },
     GruvboxRedSign = config.transparent_mode and { fg = colors.red, reverse = config.invert_signs }
       or { fg = colors.red, bg = colors.bg1, reverse = config.invert_signs },
     GruvboxGreenSign = config.transparent_mode and { fg = colors.green, reverse = config.invert_signs }
@@ -179,9 +180,9 @@ M.setup = function()
     DiagnosticVirtualTextWarn = { link = "GruvboxYellow" },
     DiagnosticVirtualTextInfo = { link = "GruvboxBlue" },
     DiagnosticVirtualTextHint = { link = "GruvboxAqua" },
-    LspReferenceRead = { link = "GruvboxYellowBold" },
-    LspReferenceText = { link = "GruvboxYellowBold" },
-    LspReferenceWrite = { link = "GruvboxOrangeBold" },
+    LspReferenceRead = { link = "GruvboxHighlight" },
+    LspReferenceText = { link = "GruvboxHighlight" },
+    LspReferenceWrite = { link = "GruvboxHighlight" },
     LspCodeLens = { link = "GruvboxGray" },
     LspSignatureActiveParameter = { fg = colors.bright_orange, bold = true },
     -- semantic token
