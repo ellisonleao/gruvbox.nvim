@@ -68,6 +68,7 @@ require("gruvbox").setup({
   overrides = {},
   dim_inactive = false,
   transparent_mode = false,
+  diff_syntax_highlight = false, -- Only apply diff colors to the background to allow syntax highlighting
 })
 vim.cmd("colorscheme gruvbox")
 ```

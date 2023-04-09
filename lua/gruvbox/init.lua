@@ -22,7 +22,7 @@ M.config = {
   overrides = {},
   dim_inactive = false,
   transparent_mode = false,
-  diff_syntax_highlight = false,
+  diff_syntax_highlight = false, -- Only apply diff colors to the background to allow syntax highlighting
 }
 
 function M.setup(config)
