@@ -183,7 +183,7 @@ M.setup = function()
     LspReferenceText = { link = "GruvboxYellowBold" },
     LspReferenceWrite = { link = "GruvboxOrangeBold" },
     LspCodeLens = { link = "GruvboxGray" },
-    LspSignatureActiveParameter = { fg = colors.bg0, bg = colors.yellow },
+    LspSignatureActiveParameter = { link = "Search" },
     -- semantic token
     -- adapted from https://github.com/jdrouhard/neovim/blob/9f035559defd9d575f37fd825954610065d9cf96/src/nvim/highlight_group.c#L267
     ["@class"] = { link = "@constructor" },
