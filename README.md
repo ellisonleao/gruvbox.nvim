@@ -24,6 +24,12 @@ Using `packer`
 use { "ellisonleao/gruvbox.nvim" }
 ```
 
+Using `lazy.nvim`
+
+```lua
+{ "ellisonleao/gruvbox.nvim", priority = 1000 }
+```
+
 # Basic Usage
 
 Inside `init.vim`
