@@ -184,18 +184,6 @@ M.setup = function()
     LspReferenceWrite = { link = "GruvboxOrangeBold" },
     LspCodeLens = { link = "GruvboxGray" },
     LspSignatureActiveParameter = { link = "Search" },
-    -- semantic token
-    -- adapted from https://github.com/jdrouhard/neovim/blob/9f035559defd9d575f37fd825954610065d9cf96/src/nvim/highlight_group.c#L267
-    ["@class"] = { link = "@constructor" },
-    ["@decorator"] = { link = "Identifier" },
-    ["@enum"] = { link = "@constructor" },
-    ["@enumMember"] = { link = "Constant" },
-    ["@event"] = { link = "Identifier" },
-    ["@interface"] = { link = "Identifier" },
-    ["@modifier"] = { link = "Identifier" },
-    ["@regexp"] = { link = "SpecialChar" },
-    ["@struct"] = { link = "@constructor" },
-    ["@typeParameter"] = { link = "Type" },
 
     -- nvim-treesitter
     -- See `nvim-treesitter/CONTRIBUTING.md`
@@ -413,6 +401,24 @@ M.setup = function()
     ["@punctuation"] = { link = "Delimiter" },
     ["@macro"] = { link = "Macro" },
     ["@structure"] = { link = "Structure" },
+
+    -- Semantic token
+    -- See `:help lsp-semantic-highlight`
+    ["@lsp.type.class"] = { link = "@constructor" },
+    ["@lsp.type.decorator"] = { link = "@parameter" },
+    ["@lsp.type.enum"] = { link = "@type" },
+    ["@lsp.type.enumMember"] = { link = "@constant" },
+    ["@lsp.type.function"] = { link = "@function" },
+    ["@lsp.type.interface"] = { link = "@keyword" },
+    ["@lsp.type.macro"] = { link = "@macro" },
+    ["@lsp.type.method"] = { link = "@method" },
+    ["@lsp.type.namespace"] = { link = "@namespace" },
+    ["@lsp.type.parameter"] = { link = "@parameter" },
+    ["@lsp.type.property"] = { link = "@property" },
+    ["@lsp.type.struct"] = { link = "@constructor" },
+    ["@lsp.type.type"] = { link = "@type" },
+    ["@lsp.type.typeParameter"] = { link = "@type.definition" },
+    ["@lsp.type.variable"] = { link = "@variable" },
 
     -- gitcommit
     gitcommitSelectedFile = { link = "GruvboxGreen" },
