@@ -184,96 +184,242 @@ M.setup = function()
     LspReferenceWrite = { link = "GruvboxOrangeBold" },
     LspCodeLens = { link = "GruvboxGray" },
     LspSignatureActiveParameter = { link = "Search" },
-    -- semantic token
-    -- adapted from https://github.com/jdrouhard/neovim/blob/9f035559defd9d575f37fd825954610065d9cf96/src/nvim/highlight_group.c#L267
-    ["@class"] = { link = "@constructor" },
-    ["@decorator"] = { link = "Identifier" },
-    ["@enum"] = { link = "@constructor" },
-    ["@enumMember"] = { link = "Constant" },
-    ["@event"] = { link = "Identifier" },
-    ["@interface"] = { link = "Identifier" },
-    ["@modifier"] = { link = "Identifier" },
-    ["@regexp"] = { link = "SpecialChar" },
-    ["@struct"] = { link = "@constructor" },
-    ["@typeParameter"] = { link = "Type" },
-    -- nvim-treesitter (0.8 compat)
-    -- Adapted from https://github.com/nvim-treesitter/nvim-treesitter/commit/42ab95d5e11f247c6f0c8f5181b02e816caa4a4f#commitcomment-87014462
-    ["@annotation"] = { link = "Operator" },
+
+    -- nvim-treesitter
+    -- See `nvim-treesitter/CONTRIBUTING.md`
+
+    --
+    -- Misc
+    --
+    -- @comment               ; line and block comments
     ["@comment"] = { link = "Comment" },
+    -- @comment.documentation ; comments documenting code
+    -- @error                 ; syntax/parser errors
+    ["@error"] = { link = "Error" },
+    -- @none                  ; completely disable the highlight
     ["@none"] = { bg = "NONE", fg = "NONE" },
+    -- @preproc               ; various preprocessor directives & shebangs
     ["@preproc"] = { link = "PreProc" },
+    -- @define                ; preprocessor definition directives
     ["@define"] = { link = "Define" },
+    -- @operator              ; symbolic operators (e.g. `+` / `*`)
     ["@operator"] = { link = "Operator" },
+
+    --
+    -- Punctuation
+    --
+    -- @punctuation.delimiter ; delimiters (e.g. `;` / `.` / `,`)
     ["@punctuation.delimiter"] = { link = "Delimiter" },
+    -- @punctuation.bracket   ; brackets (e.g. `()` / `{}` / `[]`)
     ["@punctuation.bracket"] = { link = "Delimiter" },
+    -- @punctuation.special   ; special symbols (e.g. `{}` in string interpolation)
     ["@punctuation.special"] = { link = "Delimiter" },
+
+    --
+    -- Literals
+    --
+    -- @string               ; string literals
     ["@string"] = { link = "String" },
+    -- @string.documentation ; string documenting code (e.g. Python docstrings)
+    -- @string.regex         ; regular expressions
     ["@string.regex"] = { link = "String" },
+    -- @string.escape        ; escape sequences
     ["@string.escape"] = { link = "SpecialChar" },
+    -- @string.special       ; other special strings (e.g. dates)
     ["@string.special"] = { link = "SpecialChar" },
+
+    -- @character            ; character literals
     ["@character"] = { link = "Character" },
+    -- @character.special    ; special characters (e.g. wildcards)
     ["@character.special"] = { link = "SpecialChar" },
+
+    -- @boolean              ; boolean literals
     ["@boolean"] = { link = "Boolean" },
+    -- @number               ; numeric literals
     ["@number"] = { link = "Number" },
+    -- @float                ; floating-point number literals
     ["@float"] = { link = "Float" },
+
+    --
+    -- Functions
+    --
+    -- @function         ; function definitions
     ["@function"] = { link = "Function" },
-    ["@function.call"] = { link = "Function" },
+    -- @function.builtin ; built-in functions
     ["@function.builtin"] = { link = "Special" },
+    -- @function.call    ; function calls
+    ["@function.call"] = { link = "Function" },
+    -- @function.macro   ; preprocessor macros
     ["@function.macro"] = { link = "Macro" },
+
+    -- @method           ; method definitions
     ["@method"] = { link = "Function" },
+    -- @method.call      ; method calls
     ["@method.call"] = { link = "Function" },
+
+    -- @constructor      ; constructor calls and definitions
     ["@constructor"] = { link = "Special" },
+    -- @parameter        ; parameters of a function
     ["@parameter"] = { link = "Identifier" },
+
+    --
+    -- Keywords
+    --
+    -- @keyword             ; various keywords
     ["@keyword"] = { link = "Keyword" },
+    -- @keyword.coroutine   ; keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
+    -- @keyword.function    ; keywords that define a function (e.g. `func` in Go, `def` in Python)
     ["@keyword.function"] = { link = "Keyword" },
+    -- @keyword.operator    ; operators that are English words (e.g. `and` / `or`)
+    ["@keyword.operator"] = { link = "GruvboxRed" },
+    -- @keyword.return      ; keywords like `return` and `yield`
     ["@keyword.return"] = { link = "Keyword" },
+
+    -- @conditional         ; keywords related to conditionals (e.g. `if` / `else`)
     ["@conditional"] = { link = "Conditional" },
+    -- @conditional.ternary ; ternary operator (e.g. `?` / `:`)
+
+    -- @repeat              ; keywords related to loops (e.g. `for` / `while`)
     ["@repeat"] = { link = "Repeat" },
+    -- @debug               ; keywords related to debugging
     ["@debug"] = { link = "Debug" },
+    -- @label               ; GOTO and other labels (e.g. `label:` in C)
     ["@label"] = { link = "Label" },
+    -- @include             ; keywords for including modules (e.g. `import` / `from` in Python)
     ["@include"] = { link = "Include" },
+    -- @exception           ; keywords related to exceptions (e.g. `throw` / `catch`)
     ["@exception"] = { link = "Exception" },
+
+    --
+    -- Types
+    --
+    -- @type            ; type or class definitions and annotations
     ["@type"] = { link = "Type" },
+    -- @type.builtin    ; built-in types
     ["@type.builtin"] = { link = "Type" },
-    ["@type.qualifier"] = { link = "Type" },
+    -- @type.definition ; type definitions (e.g. `typedef` in C)
     ["@type.definition"] = { link = "Typedef" },
+    -- @type.qualifier  ; type qualifiers (e.g. `const`)
+    ["@type.qualifier"] = { link = "Type" },
+
+    -- @storageclass    ; modifiers that affect storage in memory or life-time
     ["@storageclass"] = { link = "StorageClass" },
+    -- @attribute       ; attribute annotations (e.g. Python decorators)
     ["@attribute"] = { link = "PreProc" },
+    -- @field           ; object and struct fields
     ["@field"] = { link = "Identifier" },
+    -- @property        ; similar to `@field`
     ["@property"] = { link = "Identifier" },
+
+    --
+    -- Identifiers
+    --
+    -- @variable         ; various variable names
     ["@variable"] = { link = "GruvboxFg1" },
+    -- @variable.builtin ; built-in variable names (e.g. `this`)
     ["@variable.builtin"] = { link = "Special" },
+
+    -- @constant         ; constant identifiers
     ["@constant"] = { link = "Constant" },
+    -- @constant.builtin ; built-in constant values
     ["@constant.builtin"] = { link = "Special" },
+    -- @constant.macro   ; constants defined by the preprocessor
     ["@constant.macro"] = { link = "Define" },
+
+    -- @namespace        ; modules or namespaces
     ["@namespace"] = { link = "GruvboxFg1" },
+    -- @symbol           ; symbols or atoms
     ["@symbol"] = { link = "Identifier" },
+
+    --
+    -- Text
+    --
+    -- @text                  ; non-structured text
     ["@text"] = { link = "GruvboxFg1" },
+    -- @text.strong           ; bold text
+    ["@text.strong"] = { bold = config.bold },
+    -- @text.emphasis         ; text with emphasis
+    ["@text.emphasis"] = { italic = config.italic.strings },
+    -- @text.underline        ; underlined text
+    ["@text.underline"] = { underline = config.underline },
+    -- @text.strike           ; strikethrough text
+    ["@text.strike"] = { strikethrough = config.strikethrough },
+    -- @text.title            ; text that is part of a title
     ["@text.title"] = { link = "Title" },
+    -- @text.literal          ; literal or verbatim text (e.g., inline code)
     ["@text.literal"] = { link = "String" },
+    -- @text.quote            ; text quotations
+    -- @text.uri              ; URIs (e.g. hyperlinks)
     ["@text.uri"] = { link = "Underlined" },
+    -- @text.math             ; math environments (e.g. `$ ... $` in LaTeX)
     ["@text.math"] = { link = "Special" },
+    -- @text.environment      ; text environments of markup languages
     ["@text.environment"] = { link = "Macro" },
+    -- @text.environment.name ; text indicating the type of an environment
     ["@text.environment.name"] = { link = "Type" },
+    -- @text.reference        ; text references, footnotes, citations, etc.
     ["@text.reference"] = { link = "Constant" },
+
+    -- @text.todo             ; todo notes
     ["@text.todo"] = { link = "Todo" },
-    ["@text.todo.unchecked"] = { link = "Todo" },
-    ["@text.todo.checked"] = { link = "Done" },
+    -- @text.note             ; info notes
     ["@text.note"] = { link = "SpecialComment" },
+    -- @text.warning          ; warning notes
     ["@text.warning"] = { link = "WarningMsg" },
+    -- @text.danger           ; danger/error notes
     ["@text.danger"] = { link = "ErrorMsg" },
+
+    -- @text.diff.add         ; added text (for diff files)
     ["@text.diff.add"] = { link = "diffAdded" },
+    -- @text.diff.delete      ; deleted text (for diff files)
     ["@text.diff.delete"] = { link = "diffRemoved" },
+
+    --
+    -- Tags
+    --
+    -- @tag           ; XML tag names
     ["@tag"] = { link = "Tag" },
+    -- @tag.attribute ; XML tag attributes
     ["@tag.attribute"] = { link = "Identifier" },
+    -- @tag.delimiter ; XML tag delimiters
     ["@tag.delimiter"] = { link = "Delimiter" },
 
-    -- nvim-treesitter (0.8 overrides)
-    ["@text.strong"] = { bold = config.bold },
-    ["@text.strike"] = { strikethrough = config.strikethrough },
-    ["@text.emphasis"] = { italic = config.italic.strings },
-    ["@text.underline"] = { underline = config.underline },
-    ["@keyword.operator"] = { link = "GruvboxRed" },
+    --
+    -- Conceal
+    --
+    -- @conceal ; for captures that are only used for concealing
+
+    --
+    -- Spell
+    --
+    -- @spell   ; for defining regions to be spellchecked
+    -- @nospell ; for defining regions that should NOT be spellchecked
+
+    -- Treesitter
+    -- See `:help treesitter`
+    -- Those are not part of the nvim-treesitter
+    ["@punctuation"] = { link = "Delimiter" },
+    ["@macro"] = { link = "Macro" },
+    ["@structure"] = { link = "Structure" },
+
+    -- Semantic token
+    -- See `:help lsp-semantic-highlight`
+    ["@lsp.type.class"] = { link = "@constructor" },
+    ["@lsp.type.decorator"] = { link = "@parameter" },
+    ["@lsp.type.enum"] = { link = "@type" },
+    ["@lsp.type.enumMember"] = { link = "@constant" },
+    ["@lsp.type.function"] = { link = "@function" },
+    ["@lsp.type.interface"] = { link = "@keyword" },
+    ["@lsp.type.macro"] = { link = "@macro" },
+    ["@lsp.type.method"] = { link = "@method" },
+    ["@lsp.type.namespace"] = { link = "@namespace" },
+    ["@lsp.type.parameter"] = { link = "@parameter" },
+    ["@lsp.type.property"] = { link = "@property" },
+    ["@lsp.type.struct"] = { link = "@constructor" },
+    ["@lsp.type.type"] = { link = "@type" },
+    ["@lsp.type.typeParameter"] = { link = "@type.definition" },
+    ["@lsp.type.variable"] = { link = "@variable" },
+
     -- gitcommit
     gitcommitSelectedFile = { link = "GruvboxGreen" },
     gitcommitDiscardedFile = { link = "GruvboxRed" },
