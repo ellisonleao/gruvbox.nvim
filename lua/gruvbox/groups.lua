@@ -194,8 +194,6 @@ M.setup = function()
     -- @comment               ; line and block comments
     ["@comment"] = { link = "Comment" },
     -- @comment.documentation ; comments documenting code
-    -- @error                 ; syntax/parser errors
-    ["@error"] = { link = "Error" },
     -- @none                  ; completely disable the highlight
     ["@none"] = { bg = "NONE", fg = "NONE" },
     -- @preproc               ; various preprocessor directives & shebangs
