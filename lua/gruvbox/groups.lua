@@ -267,7 +267,7 @@ M.setup = function()
     ["@keyword"] = { link = "Keyword" },
     -- @keyword.coroutine   ; keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
     -- @keyword.function    ; keywords that define a function (e.g. `func` in Go, `def` in Python)
-    ["@keyword.function"] = { link = "Keyword" },
+    ["@keyword.function"] = { link = "GruvboxPurple" },
     -- @keyword.operator    ; operators that are English words (e.g. `and` / `or`)
     ["@keyword.operator"] = { link = "GruvboxRed" },
     -- @keyword.return      ; keywords like `return` and `yield`
@@ -406,7 +406,7 @@ M.setup = function()
     ["@lsp.type.decorator"] = { link = "@parameter" },
     ["@lsp.type.enum"] = { link = "@type" },
     ["@lsp.type.enumMember"] = { link = "@constant" },
-    ["@lsp.type.function"] = { link = "@function" },
+    ["@lsp.type.function"] = {}, -- use treesitter
     ["@lsp.type.interface"] = { link = "@keyword" },
     ["@lsp.type.macro"] = { link = "@macro" },
     ["@lsp.type.method"] = { link = "@method" },
@@ -416,7 +416,7 @@ M.setup = function()
     ["@lsp.type.struct"] = { link = "@constructor" },
     ["@lsp.type.type"] = { link = "@type" },
     ["@lsp.type.typeParameter"] = { link = "@type.definition" },
-    ["@lsp.type.variable"] = { link = "@variable" },
+    ["@lsp.type.variable"] = {}, -- use treesitter
 
     -- gitcommit
     gitcommitSelectedFile = { link = "GruvboxGreen" },
