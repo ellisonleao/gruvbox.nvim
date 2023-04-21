@@ -967,6 +967,15 @@ M.setup = function()
     NotifyWARNBorder = { link = "GruvboxYellow" },
     NotifyWARNIcon = { link = "GruvboxYellow" },
     NotifyWARNTitle = { link = "GruvboxYellow" },
+
+    -- ts-rainbow2 (maintained fork)
+    TSRainbowRed = { fg = colors.red },
+    TSRainbowOrange = { fg = colors.orange },
+    TSRainbowYellow = { fg = colors.yellow },
+    TSRainbowGreen = { fg = colors.green },
+    TSRainbowBlue = { fg = colors.blue },
+    TSRainbowViolet = { fg = colors.purple },
+    TSRainbowCyan = { fg = colors.cyan },
   }
 
   for group, hl in pairs(config.overrides) do
