@@ -118,7 +118,9 @@ M.setup = function()
     lCursor = { link = "Cursor" },
     Special = { link = "GruvboxOrange" },
     Comment = { fg = colors.gray, italic = config.italic.comments },
-    Todo = { fg = colors.fg0, bold = config.bold, italic = config.italic.comments },
+    -- Todo         anything that needs extra attention; mostly the
+    --              keywords TODO FIXME and XXX
+    Todo = { fg = colors.bg0, bg = colors.yellow, bold = config.bold, italic = config.italic.comments },
     Done = { fg = colors.orange, bold = config.bold, italic = config.italic.comments },
     Error = { fg = colors.red, bold = config.bold, reverse = config.inverse },
     Statement = { link = "GruvboxRed" },
@@ -362,10 +364,14 @@ M.setup = function()
     ["@text.todo"] = { link = "Todo" },
     -- @text.note             ; info notes
     ["@text.note"] = { link = "SpecialComment" },
+    -- @text.note.comment     ; XXX in comments
+    ["@text.note.comment"] = { fg = colors.purple, bold = config.bold },
     -- @text.warning          ; warning notes
     ["@text.warning"] = { link = "WarningMsg" },
     -- @text.danger           ; danger/error notes
     ["@text.danger"] = { link = "ErrorMsg" },
+    -- @text.danger.comment   ; FIXME in comments
+    ["@text.danger.comment"] = { fg = colors.fg0, bg = colors.red, bold = config.bold },
 
     -- @text.diff.add         ; added text (for diff files)
     ["@text.diff.add"] = { link = "diffAdded" },
@@ -403,6 +409,7 @@ M.setup = function()
     -- Semantic token
     -- See `:help lsp-semantic-highlight`
     ["@lsp.type.class"] = { link = "@constructor" },
+    ["@lsp.type.comment"] = {}, -- do not overwrite comments
     ["@lsp.type.decorator"] = { link = "@parameter" },
     ["@lsp.type.enum"] = { link = "@type" },
     ["@lsp.type.enumMember"] = { link = "@constant" },
