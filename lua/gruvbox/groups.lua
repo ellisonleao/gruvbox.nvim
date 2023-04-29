@@ -358,7 +358,7 @@ M.setup = function()
 		TelescopePrompt = { link = "TelescopeNormal" },
 		TelescopePromptTitle = { fg = colors.bg0, bg = colors.aqua },
 		TelescopePreviewTitle = { fg = colors.bg0, bg = colors.orange },
-		TelescopeTitle = { fg = colors.bg, bg = colors.green },
+		TelescopeTitle = { fg = colors.bg0, bg = colors.green },
 		-- nvim-cmp
 		CmpItemAbbr = { link = "GruvboxFg0" },
 		CmpItemAbbrDeprecated = { link = "GruvboxFg1" },
