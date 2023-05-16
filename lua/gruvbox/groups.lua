@@ -436,7 +436,7 @@ M.setup = function()
     NvimTreeSymlink = { fg = colors.neutral_aqua },
     NvimTreeRootFolder = { fg = colors.neutral_purple, bold = true },
     NvimTreeFolderIcon = { fg = colors.neutral_blue, bold = true },
-    NvimTreeFileIcon = { fg = colors.light2 },
+    NvimTreeFileIcon = { fg = colors.neutral_blue },
     NvimTreeExecFile = { fg = colors.neutral_green, bold = true },
     NvimTreeOpenedFile = { fg = colors.bright_red, bold = true },
     NvimTreeSpecialFile = { fg = colors.neutral_yellow, bold = true, underline = true },
@@ -448,9 +448,9 @@ M.setup = function()
     NvimTreeGitRenamed = { fg = colors.neutral_purple },
     NvimTreeGitNew = { fg = colors.neutral_yellow },
     NvimTreeGitDeleted = { fg = colors.neutral_red },
-    NvimTreeWindowPicker = { bg = colors.faded_aqua },
+    NvimTreeWindowPicker = { bg = colors.aqua },
     -- termdebug
-    debugPC = { bg = colors.faded_blue },
+    debugPC = { bg = colors.blue },
     debugBreakpoint = { link = "GruvboxRedSign" },
     -- vim-startify
     StartifyBracket = { link = "GruvboxFg3" },
