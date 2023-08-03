@@ -408,19 +408,19 @@ M.setup = function()
 
     -- Semantic token
     -- See `:help lsp-semantic-highlight`
-    ["@lsp.type.class"] = { link = "@constructor" },
+    ["@lsp.type.class"] = { link = "@type" },
     ["@lsp.type.comment"] = {}, -- do not overwrite comments
-    ["@lsp.type.decorator"] = { link = "@parameter" },
+    ["@lsp.type.decorator"] = { link = "@macro" },
     ["@lsp.type.enum"] = { link = "@type" },
     ["@lsp.type.enumMember"] = { link = "@constant" },
     ["@lsp.type.function"] = { link = "@function" },
-    ["@lsp.type.interface"] = { link = "@keyword" },
+    ["@lsp.type.interface"] = { link = "@constructor" },
     ["@lsp.type.macro"] = { link = "@macro" },
     ["@lsp.type.method"] = { link = "@method" },
     ["@lsp.type.namespace"] = { link = "@namespace" },
     ["@lsp.type.parameter"] = { link = "@parameter" },
     ["@lsp.type.property"] = { link = "@property" },
-    ["@lsp.type.struct"] = { link = "@constructor" },
+    ["@lsp.type.struct"] = { link = "@type" },
     ["@lsp.type.type"] = { link = "@type" },
     ["@lsp.type.typeParameter"] = { link = "@type.definition" },
     ["@lsp.type.variable"] = { link = "@variable" },
