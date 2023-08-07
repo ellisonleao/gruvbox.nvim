@@ -974,6 +974,10 @@ M.setup = function()
     NotifyWARNBorder = { link = "GruvboxYellow" },
     NotifyWARNIcon = { link = "GruvboxYellow" },
     NotifyWARNTitle = { link = "GruvboxYellow" },
+    -- vim-illuminate
+    IlluminatedWordText = { link = "LspReferenceText" },
+    IlluminatedWordRead = { link = "LspReferenceRead" },
+    IlluminatedWordWrite = { link = "LspReferenceWrite" },
 
     -- ts-rainbow2 (maintained fork)
     TSRainbowRed = { fg = colors.red },
