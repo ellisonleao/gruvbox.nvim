@@ -928,7 +928,6 @@ M.setup = function()
     LspSagaDiagnosticHeader = { link = "GruvboxGreen" },
     LspSagaSignatureHelpBorder = { link = "GruvboxGreen" },
     SagaShadow = { link = "GruvboxBg0" },
-
     -- dashboard-nvim
     DashboardShortCut = { link = "GruvboxOrange" },
     DashboardHeader = { link = "GruvboxAqua" },
@@ -978,7 +977,6 @@ M.setup = function()
     IlluminatedWordText = { link = "LspReferenceText" },
     IlluminatedWordRead = { link = "LspReferenceRead" },
     IlluminatedWordWrite = { link = "LspReferenceWrite" },
-
     -- ts-rainbow2 (maintained fork)
     TSRainbowRed = { fg = colors.red },
     TSRainbowOrange = { fg = colors.orange },
@@ -987,6 +985,37 @@ M.setup = function()
     TSRainbowBlue = { fg = colors.blue },
     TSRainbowViolet = { fg = colors.purple },
     TSRainbowCyan = { fg = colors.cyan },
+    -- nvim-dap-ui
+    DapBreakpointSymbol = { fg = colors.red, bg = colors.bg1 },
+    DapStoppedSymbol = { fg = colors.green, bg = colors.bg1 },
+    DapUIBreakpointsCurrentLine = { link = 'GruvboxYellow' },
+    DapUIBreakpointsDisabledLine = { link = 'GruvboxGray' },
+    DapUIBreakpointsInfo = { link = 'GruvboxAqua' },
+    DapUIBreakpointsLine = { link = 'GruvboxYellow' },
+    DapUIBreakpointsPath = { link = 'GruvboxBlue' },
+    DapUICurrentFrameName = { link = 'GruvboxPurple' },
+    DapUIDecoration = { link = 'GruvboxPurple' },
+    DapUIEndofBuffer = { link = 'GruvboxBg2' },
+    DapUIFloatBorder = { link = 'GruvboxAqua' },
+    DapUILineNumber = { link = 'GruvboxYellow' },
+    DapUIModifiedValue = { link = 'GruvboxRed' },
+    DapUIPlayPause = { link = 'GruvboxGreen' },
+    DapUIRestart = { link = 'GruvboxGreen' },
+    DapUIScope = { link = 'GruvboxBlue' },
+    DapUISource = { link = 'GruvboxFg1' },
+    DapUIStepBack = { link = 'GruvboxBlue' },
+    DapUIStepInto = { link = 'GruvboxBlue' },
+    DapUIStepOut = { link = 'GruvboxBlue'  },
+    DapUIStepOver = { link = 'GruvboxBlue' },
+    DapUIStop = { link = 'GruvboxRed' },
+    DapUIStoppedThread = { link = 'GruvboxBlue' },
+    DapUIThread = { link = 'GruvboxBlue' },
+    DapUIType = { link = 'GruvboxOrange' },
+    DapUIUnavailable = { link = 'GruvboxGray' },
+    DapUIWatchesEmpty = { link = 'GruvboxGray' },
+    DapUIWatchesError = { link = 'GruvboxRed' },
+    DapUIWatchesValue = { link = 'GruvboxYellow' },
+    DapUIWinSelect = { link = 'GruvboxYellow' }
   }
 
   for group, hl in pairs(config.overrides) do
