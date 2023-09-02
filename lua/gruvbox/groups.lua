@@ -1016,6 +1016,11 @@ M.setup = function()
     DapUIWatchesError = { link = "GruvboxRed" },
     DapUIWatchesValue = { link = "GruvboxYellow" },
     DapUIWinSelect = { link = "GruvboxYellow" },
+    -- indent-blankline
+    IndentBlanklineChar = { fg = colors.dark3 },
+    IndentBlanklineSpaceChar = { fg = colors.dark3 },
+    IndentBlanklineSpaceCharBlankline = { fg = colors.dark3 },
+    IndentBlanklineContextChar = { fg = colors.gray },
   }
 
   for group, hl in pairs(config.overrides) do
