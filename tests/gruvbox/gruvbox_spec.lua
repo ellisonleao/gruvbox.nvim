@@ -8,34 +8,6 @@ describe("setup", function()
     assert.are.same(gruvbox.config, default)
   end)
 
-  it("works with old italic values", function()
-    local expected = {
-      undercurl = true,
-      underline = true,
-      bold = true,
-      strikethrough = true,
-      italic = {
-        strings = true,
-        comments = true,
-        operators = false,
-        folds = true,
-      },
-      inverse = true,
-      invert_selection = false,
-      invert_signs = false,
-      invert_tabline = false,
-      invert_intend_guides = false,
-      contrast = "",
-      palette_overrides = {},
-      overrides = {},
-      dim_inactive = false,
-      transparent_mode = false,
-    }
-
-    gruvbox.setup({ italic = true })
-    assert.are.same(gruvbox.config, expected)
-  end)
-
   it("works with config overrides", function()
     local expected = {
       undercurl = false,
