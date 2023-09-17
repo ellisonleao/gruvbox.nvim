@@ -9,6 +9,7 @@ local Gruvbox = {}
 ---@field comments boolean
 ---@field operators boolean
 ---@field folds boolean
+---@field emphasis boolean
 
 ---@class HighlightDefinition
 ---@field fg string?
