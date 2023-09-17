@@ -1,6 +1,7 @@
 local M = {}
 
--- neovim terminal mode colors
+-- set terminal mode colors
+---@param colors table
 local function set_terminal_colors(colors)
   vim.g.terminal_color_0 = colors.bg0
   vim.g.terminal_color_8 = colors.gray
@@ -20,9 +21,10 @@ local function set_terminal_colors(colors)
   vim.g.terminal_color_15 = colors.fg1
 end
 
-M.setup = function()
-  local config = require("gruvbox").config
-  local colors = require("gruvbox.palette").get_base_colors(vim.o.background, config.contrast)
+-- setup Gruvbox groups
+---@param config GruvboxConfig
+M.setup = function(config)
+  local colors = require("gruvbox.palette").get_base_colors(config.overrides, vim.o.background, config.contrast)
 
   set_terminal_colors(colors)
 

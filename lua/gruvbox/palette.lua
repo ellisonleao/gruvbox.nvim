@@ -1,7 +1,8 @@
--- gruvbox palette
 local M = {}
 
-M.colors = {
+-- main gruvbox colors
+---@class GruvboxColors
+local colors = {
   dark0_hard = "#1d2021",
   dark0 = "#282828",
   dark0_soft = "#32302f",
@@ -40,11 +41,14 @@ M.colors = {
   gray = "#928374",
 }
 
-M.get_base_colors = function(bg, contrast)
-  local config = require("gruvbox").config
-  local p = M.colors
+-- get a hex list of gruvbox colors based on config, bg and contrast
+---@param color_overrides GruvboxColors
+---@param bg? string
+---@param contrast Contrast
+M.get_base_colors = function(color_overrides, bg, contrast)
+  local p = colors
 
-  for color, hex in pairs(config.palette_overrides) do
+  for color, hex in pairs(color_overrides) do
     p[color] = hex
   end
 
@@ -52,7 +56,7 @@ M.get_base_colors = function(bg, contrast)
     bg = vim.o.background
   end
 
-  local colors = {
+  local color_groups = {
     dark = {
       bg0 = p.dark0,
       bg1 = p.dark1,
@@ -108,10 +112,10 @@ M.get_base_colors = function(bg, contrast)
   }
 
   if contrast ~= nil and contrast ~= "" then
-    colors[bg].bg0 = p[bg .. string.format("0_%s", contrast)]
+    color_groups[bg].bg0 = p[bg .. string.format("0_%s", contrast)]
   end
 
-  return colors[bg]
+  return color_groups[bg]
 end
 
 return M

@@ -68,6 +68,7 @@ function Gruvbox.setup(config)
   Gruvbox.config = vim.tbl_deep_extend("force", Gruvbox.config, config or {})
 end
 
+--- main load function
 Gruvbox.load = function()
   if vim.version().minor < 8 then
     vim.notify_once("gruvbox.nvim: you must use neovim 0.8 or higher")
@@ -75,14 +76,11 @@ Gruvbox.load = function()
   end
 
   -- reset colors
-  if vim.g.colors_name then
-    vim.cmd.hi("clear")
-  end
-
+  vim.cmd.hi("clear")
   vim.g.colors_name = "gruvbox"
   vim.o.termguicolors = true
 
-  local groups = require("gruvbox.groups").setup()
+  local groups = require("gruvbox.groups").setup(Gruvbox.config)
 
   -- add highlights
   for group, settings in pairs(groups) do
