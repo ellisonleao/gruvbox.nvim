@@ -24,7 +24,7 @@ end
 -- setup Gruvbox groups
 ---@param config GruvboxConfig
 M.setup = function(config)
-  local colors = require("gruvbox.palette").get_base_colors(config.overrides, vim.o.background, config.contrast)
+  local colors = require("gruvbox.palette").get_base_colors(config.palette_overrides, vim.o.background, config.contrast)
 
   set_terminal_colors(colors)
 
