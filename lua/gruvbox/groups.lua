@@ -25,7 +25,7 @@ M.setup = function(config)
       colors.fg1,
     }
     for index, value in ipairs(term_colors) do
-      vim.g["terminal_color_"..index-1] = value
+      vim.g["terminal_color_" .. index - 1] = value
     end
   end
 
