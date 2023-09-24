@@ -2,7 +2,13 @@ require("plenary.reload").reload_module("gruvbox", true)
 local gruvbox = require("gruvbox")
 local default = gruvbox.config
 
-describe("setup", function()
+local function clear_term_colors()
+  for item = 0, 15 do
+    vim.g["terminal_color_" .. item] = nil
+  end
+end
+
+describe("tests", function()
   it("works with default values", function()
     gruvbox.setup()
     assert.are.same(gruvbox.config, default)
@@ -10,6 +16,7 @@ describe("setup", function()
 
   it("works with config overrides", function()
     local expected = {
+      terminal_colors = true,
       undercurl = false,
       underline = false,
       bold = true,
@@ -36,9 +43,7 @@ describe("setup", function()
     gruvbox.setup({ undercurl = false, underline = false })
     assert.are.same(gruvbox.config, expected)
   end)
-end)
 
-describe("highlight overrides", function()
   it("should override a hightlight color", function()
     local config = {
       overrides = {
@@ -128,5 +133,22 @@ describe("highlight overrides", function()
       fg = vim.fn.synIDattr(group_id, "fg", "gui"),
     }
     assert.are.same(values, { fg = "#ff9900" })
+  end)
+
+  it("does not set terminal colors when terminal_colors is false", function()
+    clear_term_colors()
+    print("vim.g color before =>", vim.g.terminal_color_0, type(vim.g.terminal_color_0))
+    gruvbox.setup({ terminal_colors = false })
+    gruvbox.load()
+    print("vim.g color after =>", vim.g.terminal_color_0, type(vim.g.terminal_color_0))
+    assert.is_nil(vim.g.terminal_color_0)
+  end)
+
+  it("sets terminal colors when terminal_colors is true", function()
+    clear_term_colors()
+    gruvbox.setup({ terminal_colors = true })
+    gruvbox.load()
+    local colors = require("gruvbox.palette").get_base_colors({}, "dark", "")
+    assert.are.same(vim.g.terminal_color_0, colors.bg0)
   end)
 end)

@@ -28,6 +28,7 @@ local Gruvbox = {}
 ---@field nocombine boolean?
 
 ---@class GruvboxConfig
+---@field terminal_colors boolean?
 ---@field undercurl boolean?
 ---@field underline boolean?
 ---@field bold boolean?
@@ -42,6 +43,7 @@ local Gruvbox = {}
 ---@field overrides table<string, HighlightDefinition>?
 ---@field palette_overrides table<string, string>?
 Gruvbox.config = {
+  terminal_colors = true,
   undercurl = true,
   underline = true,
   bold = true,

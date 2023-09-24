@@ -54,6 +54,7 @@ Additional settings for gruvbox are:
 -- setup must be called before loading the colorscheme
 -- Default options:
 require("gruvbox").setup({
+  terminal_colors = true, -- add neovim terminal colors
   undercurl = true,
   underline = true,
   bold = true,

@@ -1,32 +1,33 @@
 local M = {}
 
--- set terminal mode colors
----@param colors table
-local function set_terminal_colors(colors)
-  vim.g.terminal_color_0 = colors.bg0
-  vim.g.terminal_color_8 = colors.gray
-  vim.g.terminal_color_1 = colors.neutral_red
-  vim.g.terminal_color_9 = colors.red
-  vim.g.terminal_color_2 = colors.neutral_green
-  vim.g.terminal_color_10 = colors.green
-  vim.g.terminal_color_3 = colors.neutral_yellow
-  vim.g.terminal_color_11 = colors.yellow
-  vim.g.terminal_color_4 = colors.neutral_blue
-  vim.g.terminal_color_12 = colors.blue
-  vim.g.terminal_color_5 = colors.neutral_purple
-  vim.g.terminal_color_13 = colors.purple
-  vim.g.terminal_color_6 = colors.neutral_aqua
-  vim.g.terminal_color_14 = colors.aqua
-  vim.g.terminal_color_7 = colors.fg4
-  vim.g.terminal_color_15 = colors.fg1
-end
-
 -- setup Gruvbox groups
 ---@param config GruvboxConfig
 M.setup = function(config)
   local colors = require("gruvbox.palette").get_base_colors(config.palette_overrides, vim.o.background, config.contrast)
 
-  set_terminal_colors(colors)
+  if config.terminal_colors then
+    local term_colors = {
+      colors.bg0,
+      colors.neutral_red,
+      colors.neutral_green,
+      colors.neutral_yellow,
+      colors.neutral_blue,
+      colors.neutral_purple,
+      colors.neutral_aqua,
+      colors.fg4,
+      colors.gray,
+      colors.red,
+      colors.green,
+      colors.yellow,
+      colors.blue,
+      colors.purple,
+      colors.aqua,
+      colors.fg1,
+    }
+    for index, value in ipairs(term_colors) do
+      vim.g["terminal_color_"..index-1] = value
+    end
+  end
 
   local groups = {
     GruvboxFg0 = { fg = colors.fg0 },
