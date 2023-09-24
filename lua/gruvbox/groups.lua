@@ -820,7 +820,6 @@ M.setup = function(config)
     ["@lsp.type.type"] = { link = "@type" },
     ["@lsp.type.typeParameter"] = { link = "@type.definition" },
     ["@lsp.type.variable"] = { link = "@variable" },
-
   }
 
   for group, hl in pairs(config.overrides) do
