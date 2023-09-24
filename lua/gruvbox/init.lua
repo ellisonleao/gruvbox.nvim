@@ -11,41 +11,42 @@ local Gruvbox = {}
 ---@field folds boolean
 
 ---@class HighlightDefinition
----@field fg string
----@field bg string
----@field sp string
----@field blend integer
----@field bold boolean
----@field standout boolean
----@field underline boolean
----@field undercurl boolean
----@field underdouble boolean
----@field underdotted boolean
----@field strikethrough boolean
----@field italic boolean
----@field reverse boolean
----@field nocombine boolean
+---@field fg string?
+---@field bg string?
+---@field sp string?
+---@field blend integer?
+---@field bold boolean?
+---@field standout boolean?
+---@field underline boolean?
+---@field undercurl boolean?
+---@field underdouble boolean?
+---@field underdotted boolean?
+---@field strikethrough boolean?
+---@field italic boolean?
+---@field reverse boolean?
+---@field nocombine boolean?
 
 ---@class GruvboxConfig
----@field undercurl boolean
----@field underline boolean
----@field bold boolean
----@field italic ItalicConfig
----@field strikethrough boolean
----@field contrast Contrast
----@field invert_selection boolean
----@field invert_signs boolean
----@field invert_tabline boolean
----@field invert_intend_guides boolean
----@field inverse boolean invert background for search, diffs, statuslines and errors
----@field overrides table<string, HighlightDefinition>
----@field palette_overrides table<string, string>
+---@field undercurl boolean?
+---@field underline boolean?
+---@field bold boolean?
+---@field italic ItalicConfig?
+---@field strikethrough boolean?
+---@field contrast Contrast?
+---@field invert_selection boolean?
+---@field invert_signs boolean?
+---@field invert_tabline boolean?
+---@field invert_intend_guides boolean?
+---@field inverse boolean?
+---@field overrides table<string, HighlightDefinition>?
+---@field palette_overrides table<string, string>?
 Gruvbox.config = {
   undercurl = true,
   underline = true,
   bold = true,
   italic = {
     strings = true,
+    emphasis = true,
     comments = true,
     operators = false,
     folds = true,

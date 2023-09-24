@@ -341,7 +341,7 @@ M.setup = function(config)
     -- @text.strong           ; bold text
     ["@text.strong"] = { bold = config.bold },
     -- @text.emphasis         ; text with emphasis
-    ["@text.emphasis"] = { italic = config.italic.strings },
+    ["@text.emphasis"] = { italic = config.italic.emphasis },
     -- @text.underline        ; underlined text
     ["@text.underline"] = { underline = config.underline },
     -- @text.strike           ; strikethrough text
