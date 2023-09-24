@@ -1,7 +1,47 @@
-local M = {}
+---@class Gruvbox
+---@field config GruvboxConfig
+local Gruvbox = {}
 
--- default configs
-M.config = {
+---@alias Contrast "hard" | "soft" | ""
+
+---@class ItalicConfig
+---@field strings boolean
+---@field comments boolean
+---@field operators boolean
+---@field folds boolean
+---@field emphasis boolean
+
+---@class HighlightDefinition
+---@field fg string?
+---@field bg string?
+---@field sp string?
+---@field blend integer?
+---@field bold boolean?
+---@field standout boolean?
+---@field underline boolean?
+---@field undercurl boolean?
+---@field underdouble boolean?
+---@field underdotted boolean?
+---@field strikethrough boolean?
+---@field italic boolean?
+---@field reverse boolean?
+---@field nocombine boolean?
+
+---@class GruvboxConfig
+---@field undercurl boolean?
+---@field underline boolean?
+---@field bold boolean?
+---@field italic ItalicConfig?
+---@field strikethrough boolean?
+---@field contrast Contrast?
+---@field invert_selection boolean?
+---@field invert_signs boolean?
+---@field invert_tabline boolean?
+---@field invert_intend_guides boolean?
+---@field inverse boolean?
+---@field overrides table<string, HighlightDefinition>?
+---@field palette_overrides table<string, string>?
+Gruvbox.config = {
   undercurl = true,
   underline = true,
   bold = true,
@@ -17,40 +57,32 @@ M.config = {
   invert_signs = false,
   invert_tabline = false,
   invert_intend_guides = false,
-  inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = "", -- can be "hard", "soft" or empty string
+  inverse = true,
+  contrast = "",
   palette_overrides = {},
   overrides = {},
   dim_inactive = false,
   transparent_mode = false,
 }
 
-function M.setup(config)
-  if config ~= nil and type(config.italic) == "boolean" then
-    vim.notify(
-      "[gruvbox] italic config has change. please check https://github.com/ellisonleao/gruvbox.nvim/issues/220",
-      vim.log.levels.WARN
-    )
-    config.italic = M.config.italic
-  end
-  M.config = vim.tbl_deep_extend("force", M.config, config or {})
+---@param config GruvboxConfig?
+function Gruvbox.setup(config)
+  Gruvbox.config = vim.tbl_deep_extend("force", Gruvbox.config, config or {})
 end
 
-M.load = function()
+--- main load function
+Gruvbox.load = function()
   if vim.version().minor < 8 then
     vim.notify_once("gruvbox.nvim: you must use neovim 0.8 or higher")
     return
   end
 
   -- reset colors
-  if vim.g.colors_name then
-    vim.cmd.hi("clear")
-  end
-
+  vim.cmd.hi("clear")
   vim.g.colors_name = "gruvbox"
   vim.o.termguicolors = true
 
-  local groups = require("gruvbox.groups").setup()
+  local groups = require("gruvbox.groups").setup(Gruvbox.config)
 
   -- add highlights
   for group, settings in pairs(groups) do
@@ -58,4 +90,4 @@ M.load = function()
   end
 end
 
-return M
+return Gruvbox

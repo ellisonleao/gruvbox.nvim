@@ -1,6 +1,7 @@
 local M = {}
 
--- neovim terminal mode colors
+-- set terminal mode colors
+---@param colors table
 local function set_terminal_colors(colors)
   vim.g.terminal_color_0 = colors.bg0
   vim.g.terminal_color_8 = colors.gray
@@ -20,14 +21,14 @@ local function set_terminal_colors(colors)
   vim.g.terminal_color_15 = colors.fg1
 end
 
-M.setup = function()
-  local config = require("gruvbox").config
-  local colors = require("gruvbox.palette").get_base_colors(vim.o.background, config.contrast)
+-- setup Gruvbox groups
+---@param config GruvboxConfig
+M.setup = function(config)
+  local colors = require("gruvbox.palette").get_base_colors(config.palette_overrides, vim.o.background, config.contrast)
 
   set_terminal_colors(colors)
 
   local groups = {
-    -- Base groups
     GruvboxFg0 = { fg = colors.fg0 },
     GruvboxFg1 = { fg = colors.fg1 },
     GruvboxFg2 = { fg = colors.fg2 },
@@ -118,8 +119,6 @@ M.setup = function()
     lCursor = { link = "Cursor" },
     Special = { link = "GruvboxOrange" },
     Comment = { fg = colors.gray, italic = config.italic.comments },
-    -- Todo         anything that needs extra attention; mostly the
-    --              keywords TODO FIXME and XXX
     Todo = { fg = colors.bg0, bg = colors.yellow, bold = config.bold, italic = config.italic.comments },
     Done = { fg = colors.orange, bold = config.bold, italic = config.italic.comments },
     Error = { fg = colors.red, bold = config.bold, reverse = config.inverse },
@@ -160,7 +159,6 @@ M.setup = function()
     SpellLocal = { link = "GruvboxAquaUnderline" },
     SpellRare = { link = "GruvboxPurpleUnderline" },
     Whitespace = { fg = colors.bg2 },
-    -- LSP Diagnostic
     DiagnosticError = { link = "GruvboxRed" },
     DiagnosticSignError = { link = "GruvboxRedSign" },
     DiagnosticUnderlineError = { link = "GruvboxRedUnderline" },
@@ -186,253 +184,11 @@ M.setup = function()
     LspReferenceWrite = { link = "GruvboxOrangeBold" },
     LspCodeLens = { link = "GruvboxGray" },
     LspSignatureActiveParameter = { link = "Search" },
-
-    -- nvim-treesitter
-    -- See `nvim-treesitter/CONTRIBUTING.md`
-
-    --
-    -- Misc
-    --
-    -- @comment               ; line and block comments
-    ["@comment"] = { link = "Comment" },
-    -- @comment.documentation ; comments documenting code
-    -- @none                  ; completely disable the highlight
-    ["@none"] = { bg = "NONE", fg = "NONE" },
-    -- @preproc               ; various preprocessor directives & shebangs
-    ["@preproc"] = { link = "PreProc" },
-    -- @define                ; preprocessor definition directives
-    ["@define"] = { link = "Define" },
-    -- @operator              ; symbolic operators (e.g. `+` / `*`)
-    ["@operator"] = { link = "Operator" },
-
-    --
-    -- Punctuation
-    --
-    -- @punctuation.delimiter ; delimiters (e.g. `;` / `.` / `,`)
-    ["@punctuation.delimiter"] = { link = "Delimiter" },
-    -- @punctuation.bracket   ; brackets (e.g. `()` / `{}` / `[]`)
-    ["@punctuation.bracket"] = { link = "Delimiter" },
-    -- @punctuation.special   ; special symbols (e.g. `{}` in string interpolation)
-    ["@punctuation.special"] = { link = "Delimiter" },
-
-    --
-    -- Literals
-    --
-    -- @string               ; string literals
-    ["@string"] = { link = "String" },
-    -- @string.documentation ; string documenting code (e.g. Python docstrings)
-    -- @string.regex         ; regular expressions
-    ["@string.regex"] = { link = "String" },
-    -- @string.escape        ; escape sequences
-    ["@string.escape"] = { link = "SpecialChar" },
-    -- @string.special       ; other special strings (e.g. dates)
-    ["@string.special"] = { link = "SpecialChar" },
-
-    -- @character            ; character literals
-    ["@character"] = { link = "Character" },
-    -- @character.special    ; special characters (e.g. wildcards)
-    ["@character.special"] = { link = "SpecialChar" },
-
-    -- @boolean              ; boolean literals
-    ["@boolean"] = { link = "Boolean" },
-    -- @number               ; numeric literals
-    ["@number"] = { link = "Number" },
-    -- @float                ; floating-point number literals
-    ["@float"] = { link = "Float" },
-
-    --
-    -- Functions
-    --
-    -- @function         ; function definitions
-    ["@function"] = { link = "Function" },
-    -- @function.builtin ; built-in functions
-    ["@function.builtin"] = { link = "Special" },
-    -- @function.call    ; function calls
-    ["@function.call"] = { link = "Function" },
-    -- @function.macro   ; preprocessor macros
-    ["@function.macro"] = { link = "Macro" },
-
-    -- @method           ; method definitions
-    ["@method"] = { link = "Function" },
-    -- @method.call      ; method calls
-    ["@method.call"] = { link = "Function" },
-
-    -- @constructor      ; constructor calls and definitions
-    ["@constructor"] = { link = "Special" },
-    -- @parameter        ; parameters of a function
-    ["@parameter"] = { link = "Identifier" },
-
-    --
-    -- Keywords
-    --
-    -- @keyword             ; various keywords
-    ["@keyword"] = { link = "Keyword" },
-    -- @keyword.coroutine   ; keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
-    -- @keyword.function    ; keywords that define a function (e.g. `func` in Go, `def` in Python)
-    ["@keyword.function"] = { link = "Keyword" },
-    -- @keyword.operator    ; operators that are English words (e.g. `and` / `or`)
-    ["@keyword.operator"] = { link = "GruvboxRed" },
-    -- @keyword.return      ; keywords like `return` and `yield`
-    ["@keyword.return"] = { link = "Keyword" },
-
-    -- @conditional         ; keywords related to conditionals (e.g. `if` / `else`)
-    ["@conditional"] = { link = "Conditional" },
-    -- @conditional.ternary ; ternary operator (e.g. `?` / `:`)
-
-    -- @repeat              ; keywords related to loops (e.g. `for` / `while`)
-    ["@repeat"] = { link = "Repeat" },
-    -- @debug               ; keywords related to debugging
-    ["@debug"] = { link = "Debug" },
-    -- @label               ; GOTO and other labels (e.g. `label:` in C)
-    ["@label"] = { link = "Label" },
-    -- @include             ; keywords for including modules (e.g. `import` / `from` in Python)
-    ["@include"] = { link = "Include" },
-    -- @exception           ; keywords related to exceptions (e.g. `throw` / `catch`)
-    ["@exception"] = { link = "Exception" },
-
-    --
-    -- Types
-    --
-    -- @type            ; type or class definitions and annotations
-    ["@type"] = { link = "Type" },
-    -- @type.builtin    ; built-in types
-    ["@type.builtin"] = { link = "Type" },
-    -- @type.definition ; type definitions (e.g. `typedef` in C)
-    ["@type.definition"] = { link = "Typedef" },
-    -- @type.qualifier  ; type qualifiers (e.g. `const`)
-    ["@type.qualifier"] = { link = "Type" },
-
-    -- @storageclass    ; modifiers that affect storage in memory or life-time
-    ["@storageclass"] = { link = "StorageClass" },
-    -- @attribute       ; attribute annotations (e.g. Python decorators)
-    ["@attribute"] = { link = "PreProc" },
-    -- @field           ; object and struct fields
-    ["@field"] = { link = "Identifier" },
-    -- @property        ; similar to `@field`
-    ["@property"] = { link = "Identifier" },
-
-    --
-    -- Identifiers
-    --
-    -- @variable         ; various variable names
-    ["@variable"] = { link = "GruvboxFg1" },
-    -- @variable.builtin ; built-in variable names (e.g. `this`)
-    ["@variable.builtin"] = { link = "Special" },
-
-    -- @constant         ; constant identifiers
-    ["@constant"] = { link = "Constant" },
-    -- @constant.builtin ; built-in constant values
-    ["@constant.builtin"] = { link = "Special" },
-    -- @constant.macro   ; constants defined by the preprocessor
-    ["@constant.macro"] = { link = "Define" },
-
-    -- @namespace        ; modules or namespaces
-    ["@namespace"] = { link = "GruvboxFg1" },
-    -- @symbol           ; symbols or atoms
-    ["@symbol"] = { link = "Identifier" },
-
-    --
-    -- Text
-    --
-    -- @text                  ; non-structured text
-    ["@text"] = { link = "GruvboxFg1" },
-    -- @text.strong           ; bold text
-    ["@text.strong"] = { bold = config.bold },
-    -- @text.emphasis         ; text with emphasis
-    ["@text.emphasis"] = { italic = config.italic.emphasis },
-    -- @text.underline        ; underlined text
-    ["@text.underline"] = { underline = config.underline },
-    -- @text.strike           ; strikethrough text
-    ["@text.strike"] = { strikethrough = config.strikethrough },
-    -- @text.title            ; text that is part of a title
-    ["@text.title"] = { link = "Title" },
-    -- @text.literal          ; literal or verbatim text (e.g., inline code)
-    ["@text.literal"] = { link = "String" },
-    -- @text.quote            ; text quotations
-    -- @text.uri              ; URIs (e.g. hyperlinks)
-    ["@text.uri"] = { link = "Underlined" },
-    -- @text.math             ; math environments (e.g. `$ ... $` in LaTeX)
-    ["@text.math"] = { link = "Special" },
-    -- @text.environment      ; text environments of markup languages
-    ["@text.environment"] = { link = "Macro" },
-    -- @text.environment.name ; text indicating the type of an environment
-    ["@text.environment.name"] = { link = "Type" },
-    -- @text.reference        ; text references, footnotes, citations, etc.
-    ["@text.reference"] = { link = "Constant" },
-
-    -- @text.todo             ; todo notes
-    ["@text.todo"] = { link = "Todo" },
-    -- @text.note             ; info notes
-    ["@text.note"] = { link = "SpecialComment" },
-    -- @text.note.comment     ; XXX in comments
-    ["@text.note.comment"] = { fg = colors.purple, bold = config.bold },
-    -- @text.warning          ; warning notes
-    ["@text.warning"] = { link = "WarningMsg" },
-    -- @text.danger           ; danger/error notes
-    ["@text.danger"] = { link = "ErrorMsg" },
-    -- @text.danger.comment   ; FIXME in comments
-    ["@text.danger.comment"] = { fg = colors.fg0, bg = colors.red, bold = config.bold },
-
-    -- @text.diff.add         ; added text (for diff files)
-    ["@text.diff.add"] = { link = "diffAdded" },
-    -- @text.diff.delete      ; deleted text (for diff files)
-    ["@text.diff.delete"] = { link = "diffRemoved" },
-
-    --
-    -- Tags
-    --
-    -- @tag           ; XML tag names
-    ["@tag"] = { link = "Tag" },
-    -- @tag.attribute ; XML tag attributes
-    ["@tag.attribute"] = { link = "Identifier" },
-    -- @tag.delimiter ; XML tag delimiters
-    ["@tag.delimiter"] = { link = "Delimiter" },
-
-    --
-    -- Conceal
-    --
-    -- @conceal ; for captures that are only used for concealing
-
-    --
-    -- Spell
-    --
-    -- @spell   ; for defining regions to be spellchecked
-    -- @nospell ; for defining regions that should NOT be spellchecked
-
-    -- Treesitter
-    -- See `:help treesitter`
-    -- Those are not part of the nvim-treesitter
-    ["@punctuation"] = { link = "Delimiter" },
-    ["@macro"] = { link = "Macro" },
-    ["@structure"] = { link = "Structure" },
-
-    -- Semantic token
-    -- See `:help lsp-semantic-highlight`
-    ["@lsp.type.class"] = { link = "@type" },
-    ["@lsp.type.comment"] = {}, -- do not overwrite comments
-    ["@lsp.type.decorator"] = { link = "@macro" },
-    ["@lsp.type.enum"] = { link = "@type" },
-    ["@lsp.type.enumMember"] = { link = "@constant" },
-    ["@lsp.type.function"] = { link = "@function" },
-    ["@lsp.type.interface"] = { link = "@constructor" },
-    ["@lsp.type.macro"] = { link = "@macro" },
-    ["@lsp.type.method"] = { link = "@method" },
-    ["@lsp.type.namespace"] = { link = "@namespace" },
-    ["@lsp.type.parameter"] = { link = "@parameter" },
-    ["@lsp.type.property"] = { link = "@property" },
-    ["@lsp.type.struct"] = { link = "@type" },
-    ["@lsp.type.type"] = { link = "@type" },
-    ["@lsp.type.typeParameter"] = { link = "@type.definition" },
-    ["@lsp.type.variable"] = { link = "@variable" },
-
-    -- gitcommit
     gitcommitSelectedFile = { link = "GruvboxGreen" },
     gitcommitDiscardedFile = { link = "GruvboxRed" },
-    -- gitsigns.nvim
     GitSignsAdd = { link = "GruvboxGreenSign" },
     GitSignsChange = { link = "GruvboxAquaSign" },
     GitSignsDelete = { link = "GruvboxRedSign" },
-    -- nvim-tree
     NvimTreeSymlink = { fg = colors.neutral_aqua },
     NvimTreeRootFolder = { fg = colors.neutral_purple, bold = true },
     NvimTreeFolderIcon = { fg = colors.neutral_blue, bold = true },
@@ -449,10 +205,8 @@ M.setup = function()
     NvimTreeGitNew = { fg = colors.neutral_yellow },
     NvimTreeGitDeleted = { fg = colors.neutral_red },
     NvimTreeWindowPicker = { bg = colors.faded_aqua },
-    -- termdebug
     debugPC = { bg = colors.faded_blue },
     debugBreakpoint = { link = "GruvboxRedSign" },
-    -- vim-startify
     StartifyBracket = { link = "GruvboxFg3" },
     StartifyFile = { link = "GruvboxFg1" },
     StartifyNumber = { link = "GruvboxBlue" },
@@ -464,10 +218,8 @@ M.setup = function()
     StartifyFooter = { link = "GruvboxBg2" },
     StartifyVar = { link = "StartifyPath" },
     StartifySelect = { link = "Title" },
-    -- vim-dirvish
     DirvishPathTail = { link = "GruvboxAqua" },
     DirvishArg = { link = "GruvboxYellow" },
-    -- netrw
     netrwDir = { link = "GruvboxAqua" },
     netrwClassify = { link = "GruvboxAqua" },
     netrwLink = { link = "GruvboxGray" },
@@ -478,7 +230,6 @@ M.setup = function()
     netrwHelpCmd = { link = "GruvboxAqua" },
     netrwCmdSep = { link = "GruvboxFg3" },
     netrwVersion = { link = "GruvboxGreen" },
-    -- nerdtree
     NERDTreeDir = { link = "GruvboxAqua" },
     NERDTreeDirSlash = { link = "GruvboxAqua" },
     NERDTreeOpenable = { link = "GruvboxOrange" },
@@ -490,7 +241,6 @@ M.setup = function()
     NERDTreeHelp = { link = "GruvboxFg1" },
     NERDTreeToggleOn = { link = "GruvboxGreen" },
     NERDTreeToggleOff = { link = "GruvboxRed" },
-    -- coc.nvim
     CocErrorSign = { link = "GruvboxRedSign" },
     CocWarningSign = { link = "GruvboxOrangeSign" },
     CocInfoSign = { link = "GruvboxBlueSign" },
@@ -510,7 +260,6 @@ M.setup = function()
     CocWarningHighlight = { link = "GruvboxOrangeUnderline" },
     CocInfoHighlight = { link = "GruvboxBlueUnderline" },
     CocHintHighlight = { link = "GruvboxAquaUnderline" },
-    -- telescope.nvim
     TelescopeNormal = { link = "GruvboxFg1" },
     TelescopeSelection = { link = "GruvboxOrangeBold" },
     TelescopeSelectionCaret = { link = "GruvboxRed" },
@@ -522,7 +271,6 @@ M.setup = function()
     TelescopeMatching = { link = "GruvboxBlue" },
     TelescopePromptPrefix = { link = "GruvboxRed" },
     TelescopePrompt = { link = "TelescopeNormal" },
-    -- nvim-cmp
     CmpItemAbbr = { link = "GruvboxFg0" },
     CmpItemAbbrDeprecated = { link = "GruvboxFg1" },
     CmpItemAbbrMatch = { link = "GruvboxBlueBold" },
@@ -561,7 +309,6 @@ M.setup = function()
     diffOldFile = { link = "GruvboxOrange" },
     diffLine = { link = "GruvboxBlue" },
     diffIndexLine = { link = "diffChanged" },
-    -- navic (highlight icons)
     NavicIconsFile = { link = "GruvboxBlue" },
     NavicIconsModule = { link = "GruvboxOrange" },
     NavicIconsNamespace = { link = "GruvboxBlue" },
@@ -590,7 +337,6 @@ M.setup = function()
     NavicIconsTypeParameter = { link = "GruvboxRed" },
     NavicText = { link = "GruvboxWhite" },
     NavicSeparator = { link = "GruvboxWhite" },
-    -- html
     htmlTag = { link = "GruvboxAquaBold" },
     htmlEndTag = { link = "GruvboxAquaBold" },
     htmlTagName = { link = "GruvboxBlue" },
@@ -617,7 +363,6 @@ M.setup = function()
       underline = config.underline,
     },
     htmlItalic = { fg = colors.fg0, bg = colors.bg0, italic = true },
-    -- xml
     xmlTag = { link = "GruvboxAquaBold" },
     xmlEndTag = { link = "GruvboxAquaBold" },
     xmlTagName = { link = "GruvboxBlue" },
@@ -636,7 +381,6 @@ M.setup = function()
     xmlAttribPunct = { link = "GruvboxGray" },
     xmlEntity = { link = "GruvboxRed" },
     xmlEntityPunct = { link = "GruvboxRed" },
-    -- clojure
     clojureKeyword = { link = "GruvboxBlue" },
     clojureCond = { link = "GruvboxOrange" },
     clojureSpecial = { link = "GruvboxOrange" },
@@ -659,11 +403,9 @@ M.setup = function()
     clojureDeref = { link = "GruvboxYellow" },
     clojureQuote = { link = "GruvboxYellow" },
     clojureUnquote = { link = "GruvboxYellow" },
-    -- C
     cOperator = { link = "GruvboxPurple" },
     cppOperator = { link = "GruvboxPurple" },
     cStructure = { link = "GruvboxOrange" },
-    -- python
     pythonBuiltin = { link = "GruvboxOrange" },
     pythonBuiltinObj = { link = "GruvboxOrange" },
     pythonBuiltinFunc = { link = "GruvboxOrange" },
@@ -681,7 +423,6 @@ M.setup = function()
     pythonConditional = { link = "GruvboxRed" },
     pythonRepeat = { link = "GruvboxRed" },
     pythonDottedName = { link = "GruvboxGreenBold" },
-    -- CSS
     cssBraces = { link = "GruvboxBlue" },
     cssFunctionName = { link = "GruvboxYellow" },
     cssIdentifier = { link = "GruvboxOrange" },
@@ -712,7 +453,6 @@ M.setup = function()
     cssRenderProp = { link = "GruvboxAqua" },
     cssColorProp = { link = "GruvboxAqua" },
     cssGeneratedContentProp = { link = "GruvboxAqua" },
-    -- javascript
     javaScriptBraces = { link = "GruvboxFg1" },
     javaScriptFunction = { link = "GruvboxAqua" },
     javaScriptIdentifier = { link = "GruvboxRed" },
@@ -720,7 +460,6 @@ M.setup = function()
     javaScriptNumber = { link = "GruvboxPurple" },
     javaScriptNull = { link = "GruvboxPurple" },
     javaScriptParens = { link = "GruvboxFg3" },
-    -- typescript
     typescriptReserved = { link = "GruvboxAqua" },
     typescriptLabel = { link = "GruvboxAqua" },
     typescriptFuncKeyword = { link = "GruvboxAqua" },
@@ -739,7 +478,6 @@ M.setup = function()
     typescriptHtmlElemProperties = { link = "GruvboxFg1" },
     typescriptNull = { link = "GruvboxPurple" },
     typescriptInterpolationDelimiter = { link = "GruvboxAqua" },
-    -- purescript
     purescriptModuleKeyword = { link = "GruvboxAqua" },
     purescriptModuleName = { link = "GruvboxFg1" },
     purescriptWhere = { link = "GruvboxAqua" },
@@ -755,35 +493,28 @@ M.setup = function()
     purescriptFunction = { link = "GruvboxFg1" },
     purescriptConditional = { link = "GruvboxOrange" },
     purescriptBacktick = { link = "GruvboxOrange" },
-    -- coffescript
     coffeeExtendedOp = { link = "GruvboxFg3" },
     coffeeSpecialOp = { link = "GruvboxFg3" },
     coffeeCurly = { link = "GruvboxOrange" },
     coffeeParen = { link = "GruvboxFg3" },
     coffeeBracket = { link = "GruvboxOrange" },
-    -- ruby
     rubyStringDelimiter = { link = "GruvboxGreen" },
     rubyInterpolationDelimiter = { link = "GruvboxAqua" },
     rubyDefinedOperator = { link = "rubyKeyword" },
-    -- objc
     objcTypeModifier = { link = "GruvboxRed" },
     objcDirective = { link = "GruvboxBlue" },
-    -- go
     goDirective = { link = "GruvboxAqua" },
     goConstants = { link = "GruvboxPurple" },
     goDeclaration = { link = "GruvboxRed" },
     goDeclType = { link = "GruvboxBlue" },
     goBuiltins = { link = "GruvboxOrange" },
-    -- lua
     luaIn = { link = "GruvboxRed" },
     luaFunction = { link = "GruvboxAqua" },
     luaTable = { link = "GruvboxOrange" },
-    -- moonscript
     moonSpecialOp = { link = "GruvboxFg3" },
     moonExtendedOp = { link = "GruvboxFg3" },
     moonFunction = { link = "GruvboxFg3" },
     moonObject = { link = "GruvboxYellow" },
-    -- java
     javaAnnotation = { link = "GruvboxBlue" },
     javaDocTags = { link = "GruvboxAqua" },
     javaCommentTitle = { link = "vimCommentTitle" },
@@ -795,12 +526,10 @@ M.setup = function()
     javaParen5 = { link = "GruvboxFg3" },
     javaOperator = { link = "GruvboxOrange" },
     javaVarArg = { link = "GruvboxGreen" },
-    -- elixir
     elixirDocString = { link = "Comment" },
     elixirStringDelimiter = { link = "GruvboxGreen" },
     elixirInterpolationDelimiter = { link = "GruvboxAqua" },
     elixirModuleDeclaration = { link = "GruvboxYellow" },
-    -- scala
     scalaNameDefinition = { link = "GruvboxFg1" },
     scalaCaseFollowing = { link = "GruvboxFg1" },
     scalaCapitalWord = { link = "GruvboxFg1" },
@@ -813,7 +542,6 @@ M.setup = function()
     scalaTypeTypePostDeclaration = { link = "GruvboxYellow" },
     scalaInstanceDeclaration = { link = "GruvboxFg1" },
     scalaInterpolation = { link = "GruvboxAqua" },
-    -- markdown
     markdownItalic = { fg = colors.fg3, italic = true },
     markdownBold = { fg = colors.fg3, bold = config.bold },
     markdownBoldItalic = { fg = colors.fg3, bold = config.bold, italic = true },
@@ -839,7 +567,6 @@ M.setup = function()
     markdownUrlTitleDelimiter = { link = "GruvboxGreen" },
     markdownLinkText = { fg = colors.gray, underline = config.underline },
     markdownIdDeclaration = { link = "markdownLinkText" },
-    -- haskell
     haskellType = { link = "GruvboxBlue" },
     haskellIdentifier = { link = "GruvboxAqua" },
     haskellSeparator = { link = "GruvboxFg4" },
@@ -874,12 +601,10 @@ M.setup = function()
     haskellTypeRoles = { link = "GruvboxRedBold" },
     haskellTypeForall = { link = "GruvboxRed" },
     haskellPatternKeyword = { link = "GruvboxBlue" },
-    -- json
     jsonKeyword = { link = "GruvboxGreen" },
     jsonQuote = { link = "GruvboxGreen" },
     jsonBraces = { link = "GruvboxFg1" },
     jsonString = { link = "GruvboxFg1" },
-    -- mail
     mailQuoted1 = { link = "GruvboxAqua" },
     mailQuoted2 = { link = "GruvboxPurple" },
     mailQuoted3 = { link = "GruvboxYellow" },
@@ -887,7 +612,6 @@ M.setup = function()
     mailQuoted5 = { link = "GruvboxRed" },
     mailQuoted6 = { link = "GruvboxOrange" },
     mailSignature = { link = "Comment" },
-    -- c#
     csBraces = { link = "GruvboxFg1" },
     csEndColon = { link = "GruvboxFg1" },
     csLogicSymbols = { link = "GruvboxFg1" },
@@ -897,7 +621,6 @@ M.setup = function()
     csInterpolationAlignDel = { link = "GruvboxAquaBold" },
     csInterpolationFormat = { link = "GruvboxAqua" },
     csInterpolationFormatDel = { link = "GruvboxAquaBold" },
-    -- rust btw
     rustSigil = { link = "GruvboxOrange" },
     rustEscape = { link = "GruvboxAqua" },
     rustStringContinuation = { link = "GruvboxAqua" },
@@ -906,13 +629,11 @@ M.setup = function()
     rustModPathSep = { link = "GruvboxFg2" },
     rustCommentLineDoc = { link = "Comment" },
     rustDefault = { link = "GruvboxAqua" },
-    -- ocaml
     ocamlOperator = { link = "GruvboxFg1" },
     ocamlKeyChar = { link = "GruvboxOrange" },
     ocamlArrow = { link = "GruvboxOrange" },
     ocamlInfixOpKeyword = { link = "GruvboxRed" },
     ocamlConstructor = { link = "GruvboxOrange" },
-    -- lspsaga.nvim
     LspSagaCodeActionTitle = { link = "Title" },
     LspSagaCodeActionBorder = { link = "GruvboxFg1" },
     LspSagaCodeActionContent = { fg = colors.green, bold = config.bold },
@@ -928,12 +649,10 @@ M.setup = function()
     LspSagaDiagnosticHeader = { link = "GruvboxGreen" },
     LspSagaSignatureHelpBorder = { link = "GruvboxGreen" },
     SagaShadow = { link = "GruvboxBg0" },
-    -- dashboard-nvim
     DashboardShortCut = { link = "GruvboxOrange" },
     DashboardHeader = { link = "GruvboxAqua" },
     DashboardCenter = { link = "GruvboxYellow" },
     DashboardFooter = { fg = colors.purple, italic = true },
-    -- mason
     MasonHighlight = { link = "GruvboxAqua" },
     MasonHighlightBlock = { fg = colors.bg0, bg = colors.blue },
     MasonHighlightBlockBold = { fg = colors.bg0, bg = colors.blue, bold = true },
@@ -945,9 +664,7 @@ M.setup = function()
     MasonMuted = { fg = colors.fg4 },
     MasonMutedBlock = { fg = colors.bg0, bg = colors.fg4 },
     MasonMutedBlockBold = { fg = colors.bg0, bg = colors.fg4, bold = true },
-    -- lsp-inlayhints.nvim
     LspInlayHint = { link = "comment" },
-    -- carbon.nvim
     CarbonFile = { link = "GruvboxFg1" },
     CarbonExe = { link = "GruvboxYellow" },
     CarbonSymlink = { link = "GruvboxAqua" },
@@ -955,9 +672,7 @@ M.setup = function()
     CarbonIndicator = { link = "GruvboxGray" },
     CarbonDanger = { link = "GruvboxRed" },
     CarbonPending = { link = "GruvboxYellow" },
-    -- noice.nvim
     NoiceCursor = { link = "TermCursor" },
-    -- notify.nvim
     NotifyDEBUGBorder = { link = "GruvboxBlue" },
     NotifyDEBUGIcon = { link = "GruvboxBlue" },
     NotifyDEBUGTitle = { link = "GruvboxBlue" },
@@ -973,11 +688,9 @@ M.setup = function()
     NotifyWARNBorder = { link = "GruvboxYellow" },
     NotifyWARNIcon = { link = "GruvboxYellow" },
     NotifyWARNTitle = { link = "GruvboxYellow" },
-    -- vim-illuminate
     IlluminatedWordText = { link = "LspReferenceText" },
     IlluminatedWordRead = { link = "LspReferenceRead" },
     IlluminatedWordWrite = { link = "LspReferenceWrite" },
-    -- ts-rainbow2 (maintained fork)
     TSRainbowRed = { fg = colors.red },
     TSRainbowOrange = { fg = colors.orange },
     TSRainbowYellow = { fg = colors.yellow },
@@ -985,7 +698,6 @@ M.setup = function()
     TSRainbowBlue = { fg = colors.blue },
     TSRainbowViolet = { fg = colors.purple },
     TSRainbowCyan = { fg = colors.cyan },
-    -- nvim-dap-ui
     DapBreakpointSymbol = { fg = colors.red, bg = colors.bg1 },
     DapStoppedSymbol = { fg = colors.green, bg = colors.bg1 },
     DapUIBreakpointsCurrentLine = { link = "GruvboxYellow" },
@@ -1016,6 +728,98 @@ M.setup = function()
     DapUIWatchesError = { link = "GruvboxRed" },
     DapUIWatchesValue = { link = "GruvboxYellow" },
     DapUIWinSelect = { link = "GruvboxYellow" },
+    ["@comment"] = { link = "Comment" },
+    ["@none"] = { bg = "NONE", fg = "NONE" },
+    ["@preproc"] = { link = "PreProc" },
+    ["@define"] = { link = "Define" },
+    ["@operator"] = { link = "Operator" },
+    ["@punctuation.delimiter"] = { link = "Delimiter" },
+    ["@punctuation.bracket"] = { link = "Delimiter" },
+    ["@punctuation.special"] = { link = "Delimiter" },
+    ["@string"] = { link = "String" },
+    ["@string.regex"] = { link = "String" },
+    ["@string.escape"] = { link = "SpecialChar" },
+    ["@string.special"] = { link = "SpecialChar" },
+    ["@character"] = { link = "Character" },
+    ["@character.special"] = { link = "SpecialChar" },
+    ["@boolean"] = { link = "Boolean" },
+    ["@number"] = { link = "Number" },
+    ["@float"] = { link = "Float" },
+    ["@function"] = { link = "Function" },
+    ["@function.builtin"] = { link = "Special" },
+    ["@function.call"] = { link = "Function" },
+    ["@function.macro"] = { link = "Macro" },
+    ["@method"] = { link = "Function" },
+    ["@method.call"] = { link = "Function" },
+    ["@constructor"] = { link = "Special" },
+    ["@parameter"] = { link = "Identifier" },
+    ["@keyword"] = { link = "Keyword" },
+    ["@keyword.function"] = { link = "Keyword" },
+    ["@keyword.operator"] = { link = "GruvboxRed" },
+    ["@keyword.return"] = { link = "Keyword" },
+    ["@conditional"] = { link = "Conditional" },
+    ["@repeat"] = { link = "Repeat" },
+    ["@debug"] = { link = "Debug" },
+    ["@label"] = { link = "Label" },
+    ["@include"] = { link = "Include" },
+    ["@exception"] = { link = "Exception" },
+    ["@type"] = { link = "Type" },
+    ["@type.builtin"] = { link = "Type" },
+    ["@type.definition"] = { link = "Typedef" },
+    ["@type.qualifier"] = { link = "Type" },
+    ["@storageclass"] = { link = "StorageClass" },
+    ["@attribute"] = { link = "PreProc" },
+    ["@field"] = { link = "Identifier" },
+    ["@property"] = { link = "Identifier" },
+    ["@variable"] = { link = "GruvboxFg1" },
+    ["@variable.builtin"] = { link = "Special" },
+    ["@constant"] = { link = "Constant" },
+    ["@constant.builtin"] = { link = "Special" },
+    ["@constant.macro"] = { link = "Define" },
+    ["@namespace"] = { link = "GruvboxFg1" },
+    ["@symbol"] = { link = "Identifier" },
+    ["@text"] = { link = "GruvboxFg1" },
+    ["@text.strong"] = { bold = config.bold },
+    ["@text.emphasis"] = { italic = config.italic.emphasis },
+    ["@text.underline"] = { underline = config.underline },
+    ["@text.strike"] = { strikethrough = config.strikethrough },
+    ["@text.title"] = { link = "Title" },
+    ["@text.literal"] = { link = "String" },
+    ["@text.uri"] = { link = "Underlined" },
+    ["@text.math"] = { link = "Special" },
+    ["@text.environment"] = { link = "Macro" },
+    ["@text.environment.name"] = { link = "Type" },
+    ["@text.reference"] = { link = "Constant" },
+    ["@text.todo"] = { link = "Todo" },
+    ["@text.note"] = { link = "SpecialComment" },
+    ["@text.note.comment"] = { fg = colors.purple, bold = config.bold },
+    ["@text.warning"] = { link = "WarningMsg" },
+    ["@text.danger"] = { link = "ErrorMsg" },
+    ["@text.danger.comment"] = { fg = colors.fg0, bg = colors.red, bold = config.bold },
+    ["@text.diff.add"] = { link = "diffAdded" },
+    ["@text.diff.delete"] = { link = "diffRemoved" },
+    ["@tag"] = { link = "Tag" },
+    ["@tag.attribute"] = { link = "Identifier" },
+    ["@tag.delimiter"] = { link = "Delimiter" },
+    ["@punctuation"] = { link = "Delimiter" },
+    ["@macro"] = { link = "Macro" },
+    ["@structure"] = { link = "Structure" },
+    ["@lsp.type.class"] = { link = "@type" },
+    ["@lsp.type.comment"] = {}, -- do not overwrite comments
+    ["@lsp.type.decorator"] = { link = "@macro" },
+    ["@lsp.type.enum"] = { link = "@type" },
+    ["@lsp.type.enumMember"] = { link = "@constant" },
+    ["@lsp.type.function"] = { link = "@function" },
+    ["@lsp.type.interface"] = { link = "@constructor" },
+    ["@lsp.type.macro"] = { link = "@macro" },
+    ["@lsp.type.method"] = { link = "@method" },
+    ["@lsp.type.namespace"] = { link = "@namespace" },
+    ["@lsp.type.parameter"] = { link = "@parameter" },
+    ["@lsp.type.property"] = { link = "@property" },
+    ["@lsp.type.struct"] = { link = "@type" },
+    ["@lsp.type.type"] = { link = "@type" },
+    ["@lsp.type.typeParameter"] = { link = "@type.definition" },
+    ["@lsp.type.variable"] = { link = "@variable" },
   }
 
   for group, hl in pairs(config.overrides) do
