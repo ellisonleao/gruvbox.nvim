@@ -80,7 +80,9 @@ Gruvbox.load = function()
   end
 
   -- reset colors
-  vim.cmd.hi("clear")
+  if vim.g.colors_name then
+    vim.cmd.hi("clear")
+  end
   vim.g.colors_name = "gruvbox"
   vim.o.termguicolors = true
 
