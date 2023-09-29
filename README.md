@@ -18,16 +18,16 @@ Neovim 0.8.0+
 
 # Installing
 
-Using `packer`
+## Using `packer`
 
 ```lua
 use { "ellisonleao/gruvbox.nvim" }
 ```
 
-Using `lazy.nvim`
+## Using `lazy.nvim`
 
 ```lua
-{ "ellisonleao/gruvbox.nvim", priority = 1000 }
+{ "ellisonleao/gruvbox.nvim", priority = 1000 , setup = true, opts = ...}
 ```
 
 # Basic Usage
@@ -51,7 +51,6 @@ vim.cmd([[colorscheme gruvbox]])
 Additional settings for gruvbox are:
 
 ```lua
--- setup must be called before loading the colorscheme
 -- Default options:
 require("gruvbox").setup({
   terminal_colors = true, -- add neovim terminal colors
@@ -80,6 +79,8 @@ require("gruvbox").setup({
 vim.cmd("colorscheme gruvbox")
 ```
 
+**VERY IMPORTANT**: Make sure to call setup() **BEFORE** calling the colorscheme command, to use your custom configs
+
 ## Overriding
 
 ### Palette
@@ -94,8 +95,6 @@ require("gruvbox").setup({
 })
 vim.cmd("colorscheme gruvbox")
 ```
-
-More colors in the [palette.lua](lua/gruvbox/palette.lua) file
 
 ### Highlight groups
 
