@@ -137,10 +137,8 @@ describe("tests", function()
 
   it("does not set terminal colors when terminal_colors is false", function()
     clear_term_colors()
-    print("vim.g color before =>", vim.g.terminal_color_0, type(vim.g.terminal_color_0))
     gruvbox.setup({ terminal_colors = false })
     gruvbox.load()
-    print("vim.g color after =>", vim.g.terminal_color_0, type(vim.g.terminal_color_0))
     assert.is_nil(vim.g.terminal_color_0)
   end)
 
@@ -148,7 +146,16 @@ describe("tests", function()
     clear_term_colors()
     gruvbox.setup({ terminal_colors = true })
     gruvbox.load()
-    local colors = require("gruvbox.palette").get_base_colors({}, "dark", "")
-    assert.are.same(vim.g.terminal_color_0, colors.bg0)
+
+    -- dark bg
+    local colors = require("gruvbox").palette
+    vim.opt.background = "dark"
+    assert.are.same(vim.g.terminal_color_0, colors.dark0)
+
+    -- light bg
+    clear_term_colors()
+    gruvbox.load()
+    vim.opt.background = "light"
+    assert.are.same(vim.g.terminal_color_0, colors.light0)
   end)
 end)

@@ -1,9 +1,218 @@
-local M = {}
+---@class Gruvbox
+---@field config GruvboxConfig
+---@field palette GruvboxPalette
+local Gruvbox = {}
 
--- setup Gruvbox groups
----@param config GruvboxConfig
-M.setup = function(config)
-  local colors = require("gruvbox.palette").get_base_colors(config.palette_overrides, vim.o.background, config.contrast)
+---@alias Contrast "hard" | "soft" | ""
+
+---@class ItalicConfig
+---@field strings boolean
+---@field comments boolean
+---@field operators boolean
+---@field folds boolean
+---@field emphasis boolean
+
+---@class HighlightDefinition
+---@field fg string?
+---@field bg string?
+---@field sp string?
+---@field blend integer?
+---@field bold boolean?
+---@field standout boolean?
+---@field underline boolean?
+---@field undercurl boolean?
+---@field underdouble boolean?
+---@field underdotted boolean?
+---@field strikethrough boolean?
+---@field italic boolean?
+---@field reverse boolean?
+---@field nocombine boolean?
+
+---@class GruvboxConfig
+---@field terminal_colors boolean?
+---@field undercurl boolean?
+---@field underline boolean?
+---@field bold boolean?
+---@field italic ItalicConfig?
+---@field strikethrough boolean?
+---@field contrast Contrast?
+---@field invert_selection boolean?
+---@field invert_signs boolean?
+---@field invert_tabline boolean?
+---@field invert_intend_guides boolean?
+---@field inverse boolean?
+---@field overrides table<string, HighlightDefinition>?
+---@field palette_overrides table<string, string>?
+Gruvbox.config = {
+  terminal_colors = true,
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = {
+    strings = true,
+    emphasis = true,
+    comments = true,
+    operators = false,
+    folds = true,
+  },
+  strikethrough = true,
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  inverse = true,
+  contrast = "",
+  palette_overrides = {},
+  overrides = {},
+  dim_inactive = false,
+  transparent_mode = false,
+}
+
+-- main gruvbox color palette
+---@class GruvboxPalette
+Gruvbox.palette = {
+  dark0_hard = "#1d2021",
+  dark0 = "#282828",
+  dark0_soft = "#32302f",
+  dark1 = "#3c3836",
+  dark2 = "#504945",
+  dark3 = "#665c54",
+  dark4 = "#7c6f64",
+  light0_hard = "#f9f5d7",
+  light0 = "#fbf1c7",
+  light0_soft = "#f2e5bc",
+  light1 = "#ebdbb2",
+  light2 = "#d5c4a1",
+  light3 = "#bdae93",
+  light4 = "#a89984",
+  bright_red = "#fb4934",
+  bright_green = "#b8bb26",
+  bright_yellow = "#fabd2f",
+  bright_blue = "#83a598",
+  bright_purple = "#d3869b",
+  bright_aqua = "#8ec07c",
+  bright_orange = "#fe8019",
+  neutral_red = "#cc241d",
+  neutral_green = "#98971a",
+  neutral_yellow = "#d79921",
+  neutral_blue = "#458588",
+  neutral_purple = "#b16286",
+  neutral_aqua = "#689d6a",
+  neutral_orange = "#d65d0e",
+  faded_red = "#9d0006",
+  faded_green = "#79740e",
+  faded_yellow = "#b57614",
+  faded_blue = "#076678",
+  faded_purple = "#8f3f71",
+  faded_aqua = "#427b58",
+  faded_orange = "#af3a03",
+  dark_red_hard = "#792329",
+  dark_red = "#722529",
+  dark_red_soft = "#7b2c2f",
+  light_red_hard = "#fc9690",
+  light_red = "#fc9487",
+  light_red_soft = "#f78b7f",
+  dark_green_hard = "#5a633a",
+  dark_green = "#62693e",
+  dark_green_soft = "#686d43",
+  light_green_hard = "#d3d6a5",
+  light_green = "#d5d39b",
+  light_green_soft = "#cecb94",
+  dark_aqua_hard = "#3e4934",
+  dark_aqua = "#49503b",
+  dark_aqua_soft = "#525742",
+  light_aqua_hard = "#e6e9c1",
+  light_aqua = "#e8e5b5",
+  light_aqua_soft = "#e1dbac",
+  gray = "#928374",
+}
+
+-- get a hex list of gruvbox colors based on current bg and constrast config
+local function get_colors()
+  local p = Gruvbox.palette
+  local config = Gruvbox.config
+
+  for color, hex in pairs(config.palette_overrides) do
+    p[color] = hex
+  end
+
+  local bg = vim.o.background
+  local contrast = config.contrast
+
+  local color_groups = {
+    dark = {
+      bg0 = p.dark0,
+      bg1 = p.dark1,
+      bg2 = p.dark2,
+      bg3 = p.dark3,
+      bg4 = p.dark4,
+      fg0 = p.light0,
+      fg1 = p.light1,
+      fg2 = p.light2,
+      fg3 = p.light3,
+      fg4 = p.light4,
+      red = p.bright_red,
+      green = p.bright_green,
+      yellow = p.bright_yellow,
+      blue = p.bright_blue,
+      purple = p.bright_purple,
+      aqua = p.bright_aqua,
+      orange = p.bright_orange,
+      neutral_red = p.neutral_red,
+      neutral_green = p.neutral_green,
+      neutral_yellow = p.neutral_yellow,
+      neutral_blue = p.neutral_blue,
+      neutral_purple = p.neutral_purple,
+      neutral_aqua = p.neutral_aqua,
+      dark_red = p.dark_red,
+      dark_green = p.dark_green,
+      dark_aqua = p.dark_aqua,
+      gray = p.gray,
+    },
+    light = {
+      bg0 = p.light0,
+      bg1 = p.light1,
+      bg2 = p.light2,
+      bg3 = p.light3,
+      bg4 = p.light4,
+      fg0 = p.dark0,
+      fg1 = p.dark1,
+      fg2 = p.dark2,
+      fg3 = p.dark3,
+      fg4 = p.dark4,
+      red = p.faded_red,
+      green = p.faded_green,
+      yellow = p.faded_yellow,
+      blue = p.faded_blue,
+      purple = p.faded_purple,
+      aqua = p.faded_aqua,
+      orange = p.faded_orange,
+      neutral_red = p.neutral_red,
+      neutral_green = p.neutral_green,
+      neutral_yellow = p.neutral_yellow,
+      neutral_blue = p.neutral_blue,
+      neutral_purple = p.neutral_purple,
+      neutral_aqua = p.neutral_aqua,
+      dark_red = p.light_red,
+      dark_green = p.light_green,
+      dark_aqua = p.light_aqua,
+      gray = p.gray,
+    },
+  }
+
+  if contrast ~= nil and contrast ~= "" then
+    color_groups[bg].bg0 = p[bg .. "0_" .. contrast]
+    color_groups[bg].dark_red = p[bg .. "_red_" .. contrast]
+    color_groups[bg].dark_green = p[bg .. "_green_" .. contrast]
+    color_groups[bg].dark_aqua = p[bg .. "_aqua_" .. contrast]
+  end
+
+  return color_groups[bg]
+end
+
+local function get_groups()
+  local colors = get_colors()
+  local config = Gruvbox.config
 
   if config.terminal_colors then
     local term_colors = {
@@ -151,10 +360,10 @@ M.setup = function(config)
     PmenuSel = { fg = colors.bg2, bg = colors.blue, bold = config.bold },
     PmenuSbar = { bg = colors.bg2 },
     PmenuThumb = { bg = colors.bg4 },
-    DiffDelete = { fg = colors.red, bg = colors.bg0, reverse = config.inverse },
-    DiffAdd = { fg = colors.green, bg = colors.bg0, reverse = config.inverse },
-    DiffChange = { fg = colors.aqua, bg = colors.bg0, reverse = config.inverse },
-    DiffText = { fg = colors.yellow, bg = colors.bg0, reverse = config.inverse },
+    DiffDelete = { bg = colors.dark_red },
+    DiffAdd = { bg = colors.dark_green },
+    DiffChange = { bg = colors.dark_aqua },
+    DiffText = { bg = colors.yellow },
     SpellCap = { link = "GruvboxBlueUnderline" },
     SpellBad = { link = "GruvboxRedUnderline" },
     SpellLocal = { link = "GruvboxAquaUnderline" },
@@ -180,6 +389,7 @@ M.setup = function(config)
     DiagnosticVirtualTextWarn = { link = "GruvboxYellow" },
     DiagnosticVirtualTextInfo = { link = "GruvboxBlue" },
     DiagnosticVirtualTextHint = { link = "GruvboxAqua" },
+    DiagnosticOk = { link = "GruvboxGreenSign" },
     LspReferenceRead = { link = "GruvboxYellowBold" },
     LspReferenceText = { link = "GruvboxYellowBold" },
     LspReferenceWrite = { link = "GruvboxOrangeBold" },
@@ -302,9 +512,9 @@ M.setup = function(config)
     CmpItemKindConstant = { link = "GruvboxOrange" },
     CmpItemKindStruct = { link = "GruvboxYellow" },
     CmpItemKindTypeParameter = { link = "GruvboxYellow" },
-    diffAdded = { link = "GruvboxGreen" },
-    diffRemoved = { link = "GruvboxRed" },
-    diffChanged = { link = "GruvboxAqua" },
+    diffAdded = { link = "DiffAdd" },
+    diffRemoved = { link = "DiffDelete" },
+    diffChanged = { link = "DiffChange" },
     diffFile = { link = "GruvboxOrange" },
     diffNewFile = { link = "GruvboxYellow" },
     diffOldFile = { link = "GruvboxOrange" },
@@ -729,6 +939,13 @@ M.setup = function(config)
     DapUIWatchesError = { link = "GruvboxRed" },
     DapUIWatchesValue = { link = "GruvboxYellow" },
     DapUIWinSelect = { link = "GruvboxYellow" },
+    NeogitDiffDelete = { link = "DiffDelete" },
+    NeogitDiffAdd = { link = "DiffAdd" },
+    NeogitHunkHeader = { link = "WinBar" },
+    NeogitHunkHeaderHighlight = { link = "WinBarNC" },
+    DiffviewStatusModified = { link = "GruvboxGreenBold" },
+    DiffviewFilePanelInsertions = { link = "GruvboxGreenBold" },
+    DiffviewFilePanelDeletions = { link = "GruvboxRedBold" },
     ["@comment"] = { link = "Comment" },
     ["@none"] = { bg = "NONE", fg = "NONE" },
     ["@preproc"] = { link = "PreProc" },
@@ -835,4 +1052,31 @@ M.setup = function(config)
   return groups
 end
 
-return M
+---@param config GruvboxConfig?
+Gruvbox.setup = function(config)
+  Gruvbox.config = vim.tbl_deep_extend("force", Gruvbox.config, config or {})
+end
+
+--- main load function
+Gruvbox.load = function()
+  if vim.version().minor < 8 then
+    vim.notify_once("gruvbox.nvim: you must use neovim 0.8 or higher")
+    return
+  end
+
+  -- reset colors
+  if vim.g.colors_name then
+    vim.cmd.hi("clear")
+  end
+  vim.g.colors_name = "gruvbox"
+  vim.o.termguicolors = true
+
+  local groups = get_groups()
+
+  -- add highlights
+  for group, settings in pairs(groups) do
+    vim.api.nvim_set_hl(0, group, settings)
+  end
+end
+
+return Gruvbox
