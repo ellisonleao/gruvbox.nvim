@@ -106,19 +106,38 @@ Gruvbox.palette = {
   faded_purple = "#8f3f71",
   faded_aqua = "#427b58",
   faded_orange = "#af3a03",
+  dark_red_hard = "#792329",
+  dark_red = "#722529",
+  dark_red_soft = "#7b2c2f",
+  light_red_hard = "#fc9690",
+  light_red = "#fc9487",
+  light_red_soft = "#f78b7f",
+  dark_green_hard = "#5a633a",
+  dark_green = "#62693e",
+  dark_green_soft = "#686d43",
+  light_green_hard = "#d3d6a5",
+  light_green = "#d5d39b",
+  light_green_soft = "#cecb94",
+  dark_aqua_hard = "#3e4934",
+  dark_aqua = "#49503b",
+  dark_aqua_soft = "#525742",
+  light_aqua_hard = "#e6e9c1",
+  light_aqua = "#e8e5b5",
+  light_aqua_soft = "#e1dbac",
   gray = "#928374",
 }
 
 -- get a hex list of gruvbox colors based on current bg and constrast config
 local function get_colors()
   local p = Gruvbox.palette
+  local config = Gruvbox.config
 
-  for color, hex in pairs(Gruvbox.config.palette_overrides) do
+  for color, hex in pairs(config.palette_overrides) do
     p[color] = hex
   end
 
   local bg = vim.o.background
-  local contrast = Gruvbox.config.contrast
+  local contrast = config.contrast
 
   local color_groups = {
     dark = {
@@ -145,6 +164,9 @@ local function get_colors()
       neutral_blue = p.neutral_blue,
       neutral_purple = p.neutral_purple,
       neutral_aqua = p.neutral_aqua,
+      dark_red = p.dark_red,
+      dark_green = p.dark_green,
+      dark_aqua = p.dark_aqua,
       gray = p.gray,
     },
     light = {
@@ -171,12 +193,18 @@ local function get_colors()
       neutral_blue = p.neutral_blue,
       neutral_purple = p.neutral_purple,
       neutral_aqua = p.neutral_aqua,
+      dark_red = p.light_red,
+      dark_green = p.light_green,
+      dark_aqua = p.light_aqua,
       gray = p.gray,
     },
   }
 
   if contrast ~= nil and contrast ~= "" then
-    color_groups[bg].bg0 = p[bg .. string.format("0_%s", contrast)]
+    color_groups[bg].bg0 = p[bg .. "0_" .. contrast]
+    color_groups[bg].dark_red = p[bg .. "_red_" .. contrast]
+    color_groups[bg].dark_green = p[bg .. "_green_" .. contrast]
+    color_groups[bg].dark_aqua = p[bg .. "_aqua_" .. contrast]
   end
 
   return color_groups[bg]
@@ -186,7 +214,7 @@ local function get_groups()
   local colors = get_colors()
   local config = Gruvbox.config
 
-  if Gruvbox.config.terminal_colors then
+  if config.terminal_colors then
     local term_colors = {
       colors.bg0,
       colors.neutral_red,
@@ -332,10 +360,10 @@ local function get_groups()
     PmenuSel = { fg = colors.bg2, bg = colors.blue, bold = config.bold },
     PmenuSbar = { bg = colors.bg2 },
     PmenuThumb = { bg = colors.bg4 },
-    DiffDelete = { fg = colors.red, bg = colors.bg0, reverse = config.inverse },
-    DiffAdd = { fg = colors.green, bg = colors.bg0, reverse = config.inverse },
-    DiffChange = { fg = colors.aqua, bg = colors.bg0, reverse = config.inverse },
-    DiffText = { fg = colors.yellow, bg = colors.bg0, reverse = config.inverse },
+    DiffDelete = { bg = colors.dark_red },
+    DiffAdd = { bg = colors.dark_green },
+    DiffChange = { bg = colors.dark_aqua },
+    DiffText = { bg = colors.yellow },
     SpellCap = { link = "GruvboxBlueUnderline" },
     SpellBad = { link = "GruvboxRedUnderline" },
     SpellLocal = { link = "GruvboxAquaUnderline" },
@@ -361,6 +389,7 @@ local function get_groups()
     DiagnosticVirtualTextWarn = { link = "GruvboxYellow" },
     DiagnosticVirtualTextInfo = { link = "GruvboxBlue" },
     DiagnosticVirtualTextHint = { link = "GruvboxAqua" },
+    DiagnosticOk = { link = "GruvboxGreenSign" },
     LspReferenceRead = { link = "GruvboxYellowBold" },
     LspReferenceText = { link = "GruvboxYellowBold" },
     LspReferenceWrite = { link = "GruvboxOrangeBold" },
@@ -483,9 +512,9 @@ local function get_groups()
     CmpItemKindConstant = { link = "GruvboxOrange" },
     CmpItemKindStruct = { link = "GruvboxYellow" },
     CmpItemKindTypeParameter = { link = "GruvboxYellow" },
-    diffAdded = { link = "GruvboxGreen" },
-    diffRemoved = { link = "GruvboxRed" },
-    diffChanged = { link = "GruvboxAqua" },
+    diffAdded = { link = "DiffAdd" },
+    diffRemoved = { link = "DiffDelete" },
+    diffChanged = { link = "DiffChange" },
     diffFile = { link = "GruvboxOrange" },
     diffNewFile = { link = "GruvboxYellow" },
     diffOldFile = { link = "GruvboxOrange" },
@@ -910,6 +939,13 @@ local function get_groups()
     DapUIWatchesError = { link = "GruvboxRed" },
     DapUIWatchesValue = { link = "GruvboxYellow" },
     DapUIWinSelect = { link = "GruvboxYellow" },
+    NeogitDiffDelete = { link = "DiffDelete" },
+    NeogitDiffAdd = { link = "DiffAdd" },
+    NeogitHunkHeader = { link = "WinBar" },
+    NeogitHunkHeaderHighlight = { link = "WinBarNC" },
+    DiffviewStatusModified = { link = "GruvboxGreenBold" },
+    DiffviewFilePanelInsertions = { link = "GruvboxGreenBold" },
+    DiffviewFilePanelDeletions = { link = "GruvboxRedBold" },
     ["@comment"] = { link = "Comment" },
     ["@none"] = { bg = "NONE", fg = "NONE" },
     ["@preproc"] = { link = "PreProc" },
