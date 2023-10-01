@@ -1,4 +1,4 @@
-*gruvbox.nvim.txt*      For Neovim >= 0.8.0     Last change: 2023 September 30
+*gruvbox.nvim.txt*       For Neovim >= 0.8.0      Last change: 2023 October 01
 
 ==============================================================================
 Table of Contents                             *gruvbox.nvim-table-of-contents*
@@ -42,7 +42,7 @@ USING PACKER                            *gruvbox.nvim-installing-using-packer*
 USING LAZY.NVIM                      *gruvbox.nvim-installing-using-lazy.nvim*
 
 >lua
-    { "ellisonleao/gruvbox.nvim", priority = 1000 , setup = true, opts = ...}
+    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...}
 <
 
 
