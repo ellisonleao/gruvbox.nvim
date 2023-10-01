@@ -27,7 +27,7 @@ use { "ellisonleao/gruvbox.nvim" }
 ## Using `lazy.nvim`
 
 ```lua
-{ "ellisonleao/gruvbox.nvim", priority = 1000 , setup = true, opts = ...}
+{ "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...}
 ```
 
 # Basic Usage
