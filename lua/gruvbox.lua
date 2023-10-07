@@ -909,8 +909,6 @@ local function get_groups()
     TSRainbowBlue = { fg = colors.blue },
     TSRainbowViolet = { fg = colors.purple },
     TSRainbowCyan = { fg = colors.cyan },
-    DapBreakpointSymbol = { fg = colors.red, bg = colors.bg1 },
-    DapStoppedSymbol = { fg = colors.green, bg = colors.bg1 },
     DapUIBreakpointsCurrentLine = { link = "GruvboxYellow" },
     DapUIBreakpointsDisabledLine = { link = "GruvboxGray" },
     DapUIBreakpointsInfo = { link = "GruvboxAqua" },
