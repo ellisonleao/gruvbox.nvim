@@ -304,7 +304,7 @@ local function get_groups()
     Search = { fg = colors.yellow, bg = colors.bg0, reverse = config.inverse },
     IncSearch = { fg = colors.orange, bg = colors.bg0, reverse = config.inverse },
     CurSearch = { link = "IncSearch" },
-    QuickFixLine = { fg = colors.bg0, bg = colors.yellow, bold = config.bold },
+    QuickFixLine = { link = "GruvboxPurple" },
     Underlined = { fg = colors.blue, underline = config.underline },
     StatusLine = { fg = colors.bg2, bg = colors.fg1, reverse = config.inverse },
     StatusLineNC = { fg = colors.bg1, bg = colors.fg4, reverse = config.inverse },
