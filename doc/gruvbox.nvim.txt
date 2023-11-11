@@ -7,6 +7,7 @@ Table of Contents                             *gruvbox.nvim-table-of-contents*
 2. Installing                                        |gruvbox.nvim-installing|
   - Using packer                        |gruvbox.nvim-installing-using-packer|
   - Using lazy.nvim                  |gruvbox.nvim-installing-using-lazy.nvim|
+  - Using vim-plug                    |gruvbox.nvim-installing-using-vim-plug|
 3. Basic Usage                                      |gruvbox.nvim-basic-usage|
 4. Configuration                                  |gruvbox.nvim-configuration|
   - Overriding                         |gruvbox.nvim-configuration-overriding|
@@ -43,6 +44,13 @@ USING LAZY.NVIM                      *gruvbox.nvim-installing-using-lazy.nvim*
 
 >lua
     { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...}
+<
+
+
+USING VIM-PLUG                        *gruvbox.nvim-installing-using-vim-plug*
+
+>vim
+    Plug 'ellisonleao/gruvbox.nvim'
 <
 
 
