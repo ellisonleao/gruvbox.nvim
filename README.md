@@ -30,6 +30,12 @@ use { "ellisonleao/gruvbox.nvim" }
 { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...}
 ```
 
+## Using `vim-plug`
+
+```vim
+Plug 'ellisonleao/gruvbox.nvim'
+```
+
 # Basic Usage
 
 Inside `init.vim`
