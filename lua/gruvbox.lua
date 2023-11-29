@@ -1023,7 +1023,7 @@ local function get_groups()
     ["@macro"] = { link = "Macro" },
     ["@structure"] = { link = "Structure" },
     ["@lsp.type.class"] = { link = "@type" },
-    ["@lsp.type.comment"] = {}, -- do not overwrite comments
+    ["@lsp.type.comment"] = { link = "@comment" },
     ["@lsp.type.decorator"] = { link = "@macro" },
     ["@lsp.type.enum"] = { link = "@type" },
     ["@lsp.type.enumMember"] = { link = "@constant" },
