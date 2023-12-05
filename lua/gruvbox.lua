@@ -354,7 +354,7 @@ local function get_groups()
     Boolean = { link = "NormalText" },
     Number = { link = "NormalText" },
     Float = { link = "NormalText" },
-    Type = { link = "GruvboxYellow" },
+    Type = { link = "NormalText" },
     StorageClass = { link = "GruvboxOrange" },
     Structure = { link = "GruvboxAqua" },
     Typedef = { link = "GruvboxYellow" },
