@@ -986,7 +986,7 @@ local function get_groups()
     ["@type"] = { link = "Type" },
     ["@type.builtin"] = { link = "Special" },
     ["@type.definition"] = { link = "Typedef" },
-    ["@type.qualifier"] = { link = "Type" },
+    ["@type.qualifier"] = { link = "Keyword" },
     ["@storageclass"] = { link = "StorageClass" },
     ["@attribute"] = { link = "PreProc" },
     ["@field"] = { link = "Identifier" },
