@@ -416,7 +416,7 @@ local function get_groups()
     NvimTreeGitNew = { fg = colors.neutral_yellow },
     NvimTreeGitDeleted = { fg = colors.neutral_red },
     NvimTreeWindowPicker = { bg = colors.aqua },
-    debugPC = { bg = colors.blue },
+    debugPC = { link = "DiffAdd" },
     debugBreakpoint = { link = "GruvboxRedSign" },
     StartifyBracket = { link = "GruvboxFg3" },
     StartifyFile = { link = "GruvboxFg1" },
