@@ -1009,6 +1009,8 @@ local function get_groups()
     ["@text.environment.name"] = { link = "Type" },
     ["@text.reference"] = { link = "Constant" },
     ["@text.todo"] = { link = "Todo" },
+    ["@text.todo.checked"] = { link = "GruvboxGreen" },
+    ["@text.todo.unchecked"] = { link = "GruvboxGray" },
     ["@text.note"] = { link = "SpecialComment" },
     ["@text.note.comment"] = { fg = colors.purple, bold = config.bold },
     ["@text.warning"] = { link = "WarningMsg" },
