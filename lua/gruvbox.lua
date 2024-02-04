@@ -127,6 +127,27 @@ Gruvbox.palette = {
   gray = "#928374",
 }
 
+local placeholders = {
+  bg0 = "@bg0",
+  bg1 = "@bg1",
+  bg2 = "@bg2",
+  bg3 = "@bg3",
+  bg4 = "@bg4",
+  fg0 = "@fg0",
+  fg1 = "@fg1",
+  fg2 = "@fg2",
+  fg3 = "@fg3",
+  fg4 = "@fg4",
+  red = "@red",
+  green = "@green",
+  yellow = "@yellow",
+  blue = "@blue",
+  purple = "@purple",
+  aqua = "@aqua",
+  orange = "@orange",
+}
+Gruvbox.palette = vim.tbl_extend("force", Gruvbox.palette, placeholders)
+
 -- get a hex list of gruvbox colors based on current bg and constrast config
 local function get_colors()
   local p = Gruvbox.palette
@@ -1081,16 +1102,25 @@ local function get_groups()
     ["@lsp.type.variable"] = { link = "@variable" },
   }
 
+  local placeholder_prefix = string.byte("@")
   for group, hl in pairs(config.overrides) do
     if groups[group] then
       -- "link" should not mix with other configs (:h hi-link)
       groups[group].link = nil
     end
 
+    if hl.bg and string.byte(hl.bg) == placeholder_prefix then
+      hl.bg = colors[hl.bg:sub(2)]
+    end
+
+    if hl.fg and string.byte(hl.fg) == placeholder_prefix then
+      hl.fg = colors[hl.fg:sub(2)]
+    end
+
     groups[group] = vim.tbl_extend("force", groups[group] or {}, hl)
   end
 
-  return groups
+  return groups, colors
 end
 
 ---@param config GruvboxConfig?
@@ -1112,12 +1142,19 @@ Gruvbox.load = function()
   vim.g.colors_name = "gruvbox"
   vim.o.termguicolors = true
 
-  local groups = get_groups()
+  -- re-add color placeholders so overrides will work correctly
+  Gruvbox.palette = vim.tbl_extend("force", Gruvbox.palette, placeholders)
+
+  local groups, colors = get_groups()
 
   -- add highlights
   for group, settings in pairs(groups) do
     vim.api.nvim_set_hl(0, group, settings)
   end
+
+  -- replace color placeholders with real colors, so other plugins
+  -- will be able to use require('gruvbox').palette
+  Gruvbox.palette = vim.tbl_extend("force", Gruvbox.palette, colors)
 end
 
 return Gruvbox
