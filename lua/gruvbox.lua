@@ -959,7 +959,7 @@ local function get_groups()
     ["@string.regexp"] = { link = "String" },
     ["@string.escape"] = { link = "SpecialChar" },
     ["@string.special"] = { link = "SpecialChar" },
-    ["@string.special.path"] = { link = "Underlined" },
+    ["@string.special.path"] = { link = "GruvboxOrange" },
     ["@string.special.symbol"] = { link = "Identifier" },
     ["@string.special.url"] = { link = "Underlined" },
     ["@character"] = { link = "Character" },
