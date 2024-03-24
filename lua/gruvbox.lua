@@ -1003,7 +1003,7 @@ local function get_groups()
     ["@attribute"] = { link = "PreProc" },
     ["@field"] = { link = "Identifier" },
     ["@property"] = { link = "Identifier" },
-    ["@variable"] = { link = "GruvboxFg1" },
+    ["@variable"] = {}, -- defer to treesitter for regular variables
     ["@variable.builtin"] = { link = "Special" },
     ["@variable.member"] = { link = "Identifier" },
     ["@variable.parameter"] = { link = "Identifier" },
@@ -1079,6 +1079,8 @@ local function get_groups()
     ["@lsp.type.type"] = { link = "@type" },
     ["@lsp.type.typeParameter"] = { link = "@type.definition" },
     ["@lsp.type.variable"] = { link = "@variable" },
+    --python
+    ["@lsp.type.namespace.python"] = { link = "@variable" },
   }
 
   for group, hl in pairs(config.overrides) do
