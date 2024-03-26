@@ -1003,7 +1003,7 @@ local function get_groups()
     ["@attribute"] = { link = "PreProc" },
     ["@field"] = { link = "Identifier" },
     ["@property"] = { link = "Identifier" },
-    ["@variable"] = {}, -- defer to treesitter for regular variables
+    ["@variable"] = { link = "GruvboxFg1" },
     ["@variable.builtin"] = { link = "Special" },
     ["@variable.member"] = { link = "Identifier" },
     ["@variable.parameter"] = { link = "Identifier" },
@@ -1078,7 +1078,7 @@ local function get_groups()
     ["@lsp.type.struct"] = { link = "@type" },
     ["@lsp.type.type"] = { link = "@type" },
     ["@lsp.type.typeParameter"] = { link = "@type.definition" },
-    ["@lsp.type.variable"] = { link = "@variable" },
+    ["@lsp.type.variable"] = {}, -- defer to treesitter for regular variables
     --python
     ["@lsp.type.namespace.python"] = { link = "@variable" },
   }
