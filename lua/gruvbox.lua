@@ -1014,7 +1014,7 @@ local function get_groups()
     ["@markup.strong"] = { bold = config.bold },
     ["@markup.emphasis"] = { italic = config.italic.emphasis },
     ["@markup.underline"] = { underline = config.underline },
-    ["@markup.strike"] = { strikethrough = config.strikethrough },
+    ["@markup.strikethrough"] = { strikethrough = config.strikethrough },
     ["@markup.heading"] = { link = "Title" },
     ["@markup.raw"] = { link = "String" },
     ["@markup.math"] = { link = "Special" },
