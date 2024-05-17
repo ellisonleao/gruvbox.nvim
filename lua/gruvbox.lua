@@ -1079,6 +1079,7 @@ local function get_groups()
     ["@lsp.type.type"] = { link = "@type" },
     ["@lsp.type.typeParameter"] = { link = "@type.definition" },
     ["@lsp.type.variable"] = { link = "@variable" },
+    EndOfBuffer = { link = "GruvboxBg0" },
   }
 
   for group, hl in pairs(config.overrides) do
