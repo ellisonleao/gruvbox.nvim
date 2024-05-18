@@ -370,6 +370,7 @@ local function get_groups()
     SpellRare = { link = "GruvboxPurpleUnderline" },
     Whitespace = { fg = colors.bg2 },
     Delimiter = { link = "GruvboxOrange" },
+    EndOfBuffer = { link = "NonText" },
     DiagnosticError = { link = "GruvboxRed" },
     DiagnosticSignError = { link = "GruvboxRedSign" },
     DiagnosticUnderlineError = { link = "GruvboxRedUnderline" },
@@ -919,7 +920,7 @@ local function get_groups()
     DapUIBreakpointsPath = { link = "GruvboxBlue" },
     DapUICurrentFrameName = { link = "GruvboxPurple" },
     DapUIDecoration = { link = "GruvboxPurple" },
-    DapUIEndofBuffer = { link = "GruvboxBg2" },
+    DapUIEndofBuffer = { link = "EndOfBuffer" },
     DapUIFloatBorder = { link = "GruvboxAqua" },
     DapUILineNumber = { link = "GruvboxYellow" },
     DapUIModifiedValue = { link = "GruvboxRed" },
@@ -1080,7 +1081,6 @@ local function get_groups()
     ["@lsp.type.type"] = { link = "@type" },
     ["@lsp.type.typeParameter"] = { link = "@type.definition" },
     ["@lsp.type.variable"] = { link = "@variable" },
-    EndOfBuffer = { link = "GruvboxBg0" },
   }
 
   for group, hl in pairs(config.overrides) do
