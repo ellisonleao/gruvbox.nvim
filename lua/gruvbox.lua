@@ -1056,7 +1056,12 @@ local function get_groups()
     MiniTablineCurrent = { fg = colors.green, bg = colors.bg1, bold = config.bold, reverse = config.invert_tabline },
     MiniTablineFill = { link = "TabLineFill" },
     MiniTablineHidden = { fg = colors.bg4, bg = colors.bg1, reverse = config.invert_tabline },
-    MiniTablineModifiedCurrent = { fg = colors.bg1, bg = colors.green, bold = config.bold, reverse = config.invert_tabline },
+    MiniTablineModifiedCurrent = {
+      fg = colors.bg1,
+      bg = colors.green,
+      bold = config.bold,
+      reverse = config.invert_tabline,
+    },
     MiniTablineModifiedHidden = { fg = colors.bg1, bg = colors.bg4, reverse = config.invert_tabline },
     MiniTablineModifiedVisible = { fg = colors.bg1, bg = colors.fg1, reverse = config.invert_tabline },
     MiniTablineTabpagesection = { link = "Search" },
