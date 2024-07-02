@@ -312,7 +312,7 @@ local function get_groups()
     WinBarNC = { fg = colors.fg3, bg = colors.bg1 },
     WinSeparator = config.transparent_mode and { fg = colors.bg3, bg = nil } or { fg = colors.bg3, bg = colors.bg0 },
     WildMenu = { fg = colors.blue, bg = colors.bg2, bold = config.bold },
-    Directory = { link = "GruvboxBlueBold" },
+    Directory = { link = "GruvboxGreenBold" },
     Title = { link = "GruvboxGreenBold" },
     ErrorMsg = { fg = colors.bg0, bg = colors.red, bold = config.bold },
     MoreMsg = { link = "GruvboxYellowBold" },
