@@ -400,7 +400,7 @@ local function get_groups()
     gitcommitSelectedFile = { link = "GruvboxGreen" },
     gitcommitDiscardedFile = { link = "GruvboxRed" },
     GitSignsAdd = { link = "GruvboxGreen" },
-    GitSignsChange = { link = "GruvboxAqua" },
+    GitSignsChange = { link = "GruvboxOrange" },
     GitSignsDelete = { link = "GruvboxRed" },
     NvimTreeSymlink = { fg = colors.neutral_aqua },
     NvimTreeRootFolder = { fg = colors.neutral_purple, bold = true },
