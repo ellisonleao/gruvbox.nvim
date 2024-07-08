@@ -41,7 +41,7 @@ local Gruvbox = {}
 ---@field invert_tabline boolean?
 ---@field invert_intend_guides boolean?
 ---@field inverse boolean?
----@field overrides table<string, HighlightDefinition>?
+---@field overrides [table<string, HighlightDefinition> | fun(colors: table<string, string>): table<string, HighlightDefinition>]
 ---@field palette_overrides table<string, string>?
 Gruvbox.config = {
   terminal_colors = true,
@@ -1205,7 +1205,16 @@ local function get_groups()
     ["@lsp.type.variable"] = { link = "@variable" },
   }
 
-  for group, hl in pairs(config.overrides) do
+  local overrides = {}
+  if config.overrides ~= nil then
+    if type(config.overrides) == "table" then
+      overrides = config.overrides
+    elseif type(config.overrides) == "function" then
+      overrides = config.overrides(colors)
+    end
+  end
+
+  for group, hl in pairs(overrides) do
     if groups[group] then
       -- "link" should not mix with other configs (:h hi-link)
       groups[group].link = nil

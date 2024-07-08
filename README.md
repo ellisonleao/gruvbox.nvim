@@ -128,6 +128,27 @@ require("gruvbox").setup({
 vim.cmd("colorscheme gruvbox")
 ```
 
+`overrides` can also be a `function(colors)` which returns table of overriden groups
+
+```lua
+require("gruvbox").setup({
+    overrides = function(colors)
+        return {
+            Title = { link = "GruvboxYellowBold" },
+            ["@comment"] = { fg = colors.gray, italic = true, bold = false },
+        }
+    end
+})
+vim.cmd("colorscheme gruvbox")
+```
+
+`colors` has those fields:
+  * `bg0`, `bg1`, `bg2`, `bg3`, `bg4`,
+  * `fg0`, `fg1`, `fg2`, `fg3`, `fg4`,
+  * `red`, `green`, `yellow`, `blue`, `purple`, `aqua`, `orange`, `gray`,
+  * `neutral_red`, `neutral_green`, `neutral_yellow`, `neutral_blue`, `neutral_purple`, `neutral_aqua`,
+  * `dark_red`, `dark_green`, `dark_aqua`.
+
 Please note that the override values must follow the attributes from the highlight group map, such as:
 
 - **fg** - foreground color
