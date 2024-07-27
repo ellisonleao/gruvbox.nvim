@@ -1061,16 +1061,16 @@ end
 
 --- main load function
 Gruvbox.load = function()
-  if vim.version().minor < 8 then
+  --[[ if vim.version().minor < 8 then
     vim.notify_once("gruvbox.nvim: you must use neovim 0.8 or higher")
     return
-  end
+  end ]]
 
   -- reset colors
   if vim.g.colors_name then
     vim.cmd.hi("clear")
   end
-  vim.g.colors_name = "gruvbox"
+  vim.g.colors_name = "gruvboxmy"
   vim.o.termguicolors = true
 
   local groups = get_groups()
