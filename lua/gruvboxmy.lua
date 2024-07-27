@@ -349,9 +349,9 @@ local function get_groups()
     Operator = { fg = colors.orange, italic = config.italic.operators },
     Keyword = { link = "GruvboxRed" },
     Identifier = { link = "GruvboxBlue" },
-    -- Function = { link = "GruvboxGreenBold" },
+    Function = { link = "GruvboxGreenBold" },
     -- Function = { link = "GruvboxYellowBold" },
-    Function = { link = "GruvboxBlueBold" },
+    -- Function = { link = "GruvboxBlueBold" },   -- было это
     -- Function = { link = "GruvboxPurpleBold" },
     -- Function = { link = "GruvboxAquaBold" },
     -- Function = { link = "GruvboxOrangeBold" },
