@@ -670,21 +670,6 @@ local function get_groups()
     typescriptHtmlElemProperties = { link = "GruvboxFg1" },
     typescriptNull = { link = "GruvboxPurple" },
     typescriptInterpolationDelimiter = { link = "GruvboxAqua" },
-    purescriptModuleKeyword = { link = "GruvboxAqua" },
-    purescriptModuleName = { link = "GruvboxFg1" },
-    purescriptWhere = { link = "GruvboxAqua" },
-    purescriptDelimiter = { link = "GruvboxFg4" },
-    purescriptType = { link = "GruvboxFg1" },
-    purescriptImportKeyword = { link = "GruvboxAqua" },
-    purescriptHidingKeyword = { link = "GruvboxAqua" },
-    purescriptAsKeyword = { link = "GruvboxAqua" },
-    purescriptStructure = { link = "GruvboxAqua" },
-    purescriptOperator = { link = "GruvboxBlue" },
-    purescriptTypeVar = { link = "GruvboxFg1" },
-    purescriptConstructor = { link = "GruvboxFg1" },
-    purescriptFunction = { link = "GruvboxFg1" },
-    purescriptConditional = { link = "GruvboxOrange" },
-    purescriptBacktick = { link = "GruvboxOrange" },
     coffeeExtendedOp = { link = "GruvboxFg3" },
     coffeeSpecialOp = { link = "GruvboxFg3" },
     coffeeCurly = { link = "GruvboxOrange" },
@@ -1035,10 +1020,6 @@ end
 
 --- main load function
 Gruvbox.load = function()
-  --[[ if vim.version().minor < 8 then
-    vim.notify_once("gruvbox.nvim: you must use neovim 0.8 or higher")
-    return
-  end ]]
 
   -- reset colors
   if vim.g.colors_name then
