@@ -249,7 +249,8 @@ local function get_groups()
   local colors = get_colors()
   local config = Gruvbox.config
 
-  if config.terminal_colors then
+  -- setting terminal colors is only supported for RGB
+  if config.terminal_colors and vim.o.termguicolors then
     local term_colors = {
       colors.bg0,
       colors.neutral_red,
@@ -269,7 +270,7 @@ local function get_groups()
       colors.fg1,
     }
     for index, value in ipairs(term_colors) do
-      vim.g["terminal_color_" .. index - 1] = value
+      vim.g["terminal_color_" .. index - 1] = value.gui
     end
   end
 
