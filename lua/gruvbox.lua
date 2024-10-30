@@ -71,59 +71,60 @@ Gruvbox.config = {
 -- main gruvbox color palette
 ---@class GruvboxPalette
 Gruvbox.palette = {
- dark0 = { ["gui"] = "#282828", ["cterm"] = 235 },
- dark0_soft = { ["gui"] = "#32302f", ["cterm"] = 236 },
- dark1 = { ["gui"] = "#3c3836", ["cterm"] = 237 },
- dark2 = { ["gui"] = "#504945", ["cterm"] = 239 },
- dark3 = { ["gui"] = "#665c54", ["cterm"] = 59 },
- dark4 = { ["gui"] = "#7c6f64", ["cterm"] = 242 },
- light0_hard = { ["gui"] = "#f9f5d7", ["cterm"] = 230 },
- light0 = { ["gui"] = "#fbf1c7", ["cterm"] = 230 },
- light0_soft = { ["gui"] = "#f2e5bc", ["cterm"] = 223 },
- light1 = { ["gui"] = "#ebdbb2", ["cterm"] = 187 },
- light2 = { ["gui"] = "#d5c4a1", ["cterm"] = 187 },
- light3 = { ["gui"] = "#bdae93", ["cterm"] = 144 },
- light4 = { ["gui"] = "#a89984", ["cterm"] = 138 },
- bright_red = { ["gui"] = "#fb4934", ["cterm"] = 203 },
- bright_green = { ["gui"] = "#b8bb26", ["cterm"] = 142 },
- bright_yellow = { ["gui"] = "#fabd2f", ["cterm"] = 214 },
- bright_blue = { ["gui"] = "#83a598", ["cterm"] = 108 },
- bright_purple = { ["gui"] = "#d3869b", ["cterm"] = 174 },
- bright_aqua = { ["gui"] = "#8ec07c", ["cterm"] = 108 },
- bright_orange = { ["gui"] = "#fe8019", ["cterm"] = 208 },
- neutral_red = { ["gui"] = "#cc241d", ["cterm"] = 160 },
- neutral_green = { ["gui"] = "#98971a", ["cterm"] = 100 },
- neutral_yellow = { ["gui"] = "#d79921", ["cterm"] = 172 },
- neutral_blue = { ["gui"] = "#458588", ["cterm"] = 66 },
- neutral_purple = { ["gui"] = "#b16286", ["cterm"] = 132 },
- neutral_aqua = { ["gui"] = "#689d6a", ["cterm"] = 71 },
- neutral_orange = { ["gui"] = "#d65d0e", ["cterm"] = 166 },
- faded_red = { ["gui"] = "#9d0006", ["cterm"] = 124 },
- faded_green = { ["gui"] = "#79740e", ["cterm"] = 100 },
- faded_yellow = { ["gui"] = "#b57614", ["cterm"] = 136 },
- faded_blue = { ["gui"] = "#076678", ["cterm"] = 24 },
- faded_purple = { ["gui"] = "#8f3f71", ["cterm"] = 95 },
- faded_aqua = { ["gui"] = "#427b58", ["cterm"] = 65 },
- faded_orange = { ["gui"] = "#af3a03", ["cterm"] = 130 },
- dark_red_hard = { ["gui"] = "#792329", ["cterm"] = 88 },
- dark_red = { ["gui"] = "#722529", ["cterm"] = 237 },
- dark_red_soft = { ["gui"] = "#7b2c2f", ["cterm"] = 238 },
- light_red_hard = { ["gui"] = "#fc9690", ["cterm"] = 210 },
- light_red = { ["gui"] = "#fc9487", ["cterm"] = 210 },
- light_red_soft = { ["gui"] = "#f78b7f", ["cterm"] = 210 },
- dark_green_hard = { ["gui"] = "#5a633a", ["cterm"] = 240 },
- dark_green = { ["gui"] = "#62693e", ["cterm"] = 240 },
- dark_green_soft = { ["gui"] = "#686d43", ["cterm"] = 59 },
- light_green_hard = { ["gui"] = "#d3d6a5", ["cterm"] = 187 },
- light_green = { ["gui"] = "#d5d39b", ["cterm"] = 186 },
- light_green_soft = { ["gui"] = "#cecb94", ["cterm"] = 186 },
- dark_aqua_hard = { ["gui"] = "#3e4934", ["cterm"] = 238 },
- dark_aqua = { ["gui"] = "#49503b", ["cterm"] = 238 },
- dark_aqua_soft = { ["gui"] = "#525742", ["cterm"] = 239 },
- light_aqua_hard = { ["gui"] = "#e6e9c1", ["cterm"] = 187 },
- light_aqua = { ["gui"] = "#e8e5b5", ["cterm"] = 187 },
- light_aqua_soft = { ["gui"] = "#e1dbac", ["cterm"] = 187 },
- gray = { ["gui"] = "#928374", ["cterm"] = 244 }
+  dark0_hard = { gui = "#1d2021", cterm = 234 },
+  dark0 = { gui = "#282828", cterm = 235 },
+  dark0_soft = { gui = "#32302f", cterm = 236 },
+  dark1 = { gui = "#3c3836", cterm = 237 },
+  dark2 = { gui = "#504945", cterm = 239 },
+  dark3 = { gui = "#665c54", cterm = 59 },
+  dark4 = { gui = "#7c6f64", cterm = 242 },
+  light0_hard = { gui = "#f9f5d7", cterm = 230 },
+  light0 = { gui = "#fbf1c7", cterm = 230 },
+  light0_soft = { gui = "#f2e5bc", cterm = 223 },
+  light1 = { gui = "#ebdbb2", cterm = 187 },
+  light2 = { gui = "#d5c4a1", cterm = 187 },
+  light3 = { gui = "#bdae93", cterm = 144 },
+  light4 = { gui = "#a89984", cterm = 138 },
+  bright_red = { gui = "#fb4934", cterm = 203 },
+  bright_green = { gui = "#b8bb26", cterm = 142 },
+  bright_yellow = { gui = "#fabd2f", cterm = 214 },
+  bright_blue = { gui = "#83a598", cterm = 108 },
+  bright_purple = { gui = "#d3869b", cterm = 174 },
+  bright_aqua = { gui = "#8ec07c", cterm = 108 },
+  bright_orange = { gui = "#fe8019", cterm = 208 },
+  neutral_red = { gui = "#cc241d", cterm = 160 },
+  neutral_green = { gui = "#98971a", cterm = 100 },
+  neutral_yellow = { gui = "#d79921", cterm = 172 },
+  neutral_blue = { gui = "#458588", cterm = 66 },
+  neutral_purple = { gui = "#b16286", cterm = 132 },
+  neutral_aqua = { gui = "#689d6a", cterm = 71 },
+  neutral_orange = { gui = "#d65d0e", cterm = 166 },
+  faded_red = { gui = "#9d0006", cterm = 124 },
+  faded_green = { gui = "#79740e", cterm = 100 },
+  faded_yellow = { gui = "#b57614", cterm = 136 },
+  faded_blue = { gui = "#076678", cterm = 24 },
+  faded_purple = { gui = "#8f3f71", cterm = 95 },
+  faded_aqua = { gui = "#427b58", cterm = 65 },
+  faded_orange = { gui = "#af3a03", cterm = 130 },
+  dark_red_hard = { gui = "#792329", cterm = 88 },
+  dark_red = { gui = "#722529", cterm = 237 },
+  dark_red_soft = { gui = "#7b2c2f", cterm = 238 },
+  light_red_hard = { gui = "#fc9690", cterm = 210 },
+  light_red = { gui = "#fc9487", cterm = 210 },
+  light_red_soft = { gui = "#f78b7f", cterm = 210 },
+  dark_green_hard = { gui = "#5a633a", cterm = 240 },
+  dark_green = { gui = "#62693e", cterm = 240 },
+  dark_green_soft = { gui = "#686d43", cterm = 59 },
+  light_green_hard = { gui = "#d3d6a5", cterm = 187 },
+  light_green = { gui = "#d5d39b", cterm = 186 },
+  light_green_soft = { gui = "#cecb94", cterm = 186 },
+  dark_aqua_hard = { gui = "#3e4934", cterm = 238 },
+  dark_aqua = { gui = "#49503b", cterm = 238 },
+  dark_aqua_soft = { gui = "#525742", cterm = 239 },
+  light_aqua_hard = { gui = "#e6e9c1", cterm = 187 },
+  light_aqua = { gui = "#e8e5b5", cterm = 187 },
+  light_aqua_soft = { gui = "#e1dbac", cterm = 187 },
+  gray = { gui = "#928374", cterm = 244 },
 }
 
 -- get a hex list of gruvbox colors based on current bg and constrast config
@@ -209,14 +210,14 @@ local function get_colors()
   return color_groups[bg]
 end
 
--- apply gui and cterm colors to the highlight groups given as an argument. 
+-- apply gui and cterm colors to the highlight groups given as an argument.
 -- function works in-place, thus hl_groups will be altered
 local function expand_colors_in_highlights(hl_groups)
   -- iterate over highlights
-  for k,hl in pairs(hl_groups) do
-    -- check if foreground value is set and expand and replace 
+  for k, hl in pairs(hl_groups) do
+    -- check if foreground value is set and expand and replace
     if hl.fg ~= nil then
-      if hl.fg == "NONE" then 
+      if hl.fg == "NONE" then
         hl.ctermfg = "NONE"
         hl.fg = "NONE"
       else
@@ -224,9 +225,9 @@ local function expand_colors_in_highlights(hl_groups)
         hl.fg = hl.fg.gui
       end
     end
-    -- check if background value is set and expand and replace 
+    -- check if background value is set and expand and replace
     if hl.bg ~= nil then
-      if hl.bg == "NONE" then 
+      if hl.bg == "NONE" then
         hl.ctermbg = "NONE"
         hl.bg = "NONE"
       else
@@ -234,9 +235,9 @@ local function expand_colors_in_highlights(hl_groups)
         hl.bg = hl.bg.gui
       end
     end
-    -- check if background value is set and expand and replace 
+    -- check if background value is set and expand and replace
     if hl.sp ~= nil then
-      if hl.sp == "NONE" then 
+      if hl.sp == "NONE" then
         hl.sp = "NONE"
       else
         hl.sp = hl.sp.gui
@@ -244,7 +245,7 @@ local function expand_colors_in_highlights(hl_groups)
     end
   end
 end
-  
+
 local function get_groups()
   local colors = get_colors()
   local config = Gruvbox.config
