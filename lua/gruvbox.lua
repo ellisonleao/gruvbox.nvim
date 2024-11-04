@@ -213,35 +213,28 @@ end
 -- apply gui and cterm colors to the highlight groups given as an argument.
 -- function works in-place, thus hl_groups will be altered
 local function expand_colors_in_highlights(hl_groups)
+  local function expand_highlight_prop(hl, prop)
+    if hl[prop] == nil then
+      return
+    end
+    if hl[prop] == "NONE" then
+      if prop ~= "sp" then
+        hl["cterm" .. prop] = "NONE"
+      end
+      hl[prop] = "NONE"
+    else
+      if prop ~= "sp" then
+        hl["cterm" .. prop] = hl[prop].cterm
+      end
+      hl[prop] = hl[prop].gui
+    end
+  end
+
   -- iterate over highlights
-  for k, hl in pairs(hl_groups) do
-    -- check if foreground value is set and expand and replace
-    if hl.fg ~= nil then
-      if hl.fg == "NONE" then
-        hl.ctermfg = "NONE"
-        hl.fg = "NONE"
-      else
-        hl.ctermfg = hl.fg.cterm
-        hl.fg = hl.fg.gui
-      end
-    end
-    -- check if background value is set and expand and replace
-    if hl.bg ~= nil then
-      if hl.bg == "NONE" then
-        hl.ctermbg = "NONE"
-        hl.bg = "NONE"
-      else
-        hl.ctermbg = hl.bg.cterm
-        hl.bg = hl.bg.gui
-      end
-    end
-    -- check if background value is set and expand and replace
-    if hl.sp ~= nil then
-      if hl.sp == "NONE" then
-        hl.sp = "NONE"
-      else
-        hl.sp = hl.sp.gui
-      end
+  for _, hl in pairs(hl_groups) do
+    -- check if cterm values are set, expand and replace
+    for _, prop in pairs({ "fg", "bg", "sp" }) do
+      expand_highlight_prop(hl, prop)
     end
   end
 end
