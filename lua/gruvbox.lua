@@ -43,7 +43,7 @@ local Gruvbox = {}
 ---@field inverse boolean?
 ---@field overrides table<string, HighlightDefinition>?
 ---@field palette_overrides table<string, string>?
----@field enable_256_colors boolean?
+---@field truecolor boolean?
 Gruvbox.config = {
   terminal_colors = true,
   undercurl = true,
@@ -134,8 +134,13 @@ local function get_colors()
   local p = Gruvbox.palette
   local config = Gruvbox.config
 
-  for color, hex in pairs(config.palette_overrides) do
-    p[color] = hex
+  for color, value in pairs(config.palette_overrides) do
+    if type(value) == "table" then
+      p[color] = value
+    else
+      p[color] = { gui = value }
+    end
+    print(p[color])
   end
 
   local bg = vim.o.background
@@ -1274,11 +1279,7 @@ Gruvbox.load = function()
   end
   vim.g.colors_name = "gruvbox"
 
-  if Gruvbox.config.enable_256_colors then
-    vim.o.termguicolors = false
-  else
-    vim.o.termguicolors = true
-  end
+  vim.o.termguicolors = Gruvbox.config.truecolor
 
   local groups = get_groups()
 
