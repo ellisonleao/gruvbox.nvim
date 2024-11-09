@@ -1075,7 +1075,7 @@ local function get_groups()
     MiniTestFail = { link = "GruvboxRedBold" },
     MiniTestPass = { link = "GruvboxGreenBold" },
     MiniTrailspace = { bg = colors.red },
-    NeoTreeFloatNormal = { fg = colors.fg1, bg = colors.bg0 },
+    NeoTreeFloatNormal = { fg = colors.blue, bg = colors.bg0 },
     NeoTreeFloatBorder = { fg = colors.bg3, bg = colors.bg0 },
     NeoTreeFloatTitle = { fg = colors.fg1, bg = colors.bg0 },
     NeoTreeTitleBar = { fg = colors.bg3, bg = colors.bg0, reverse = true },
