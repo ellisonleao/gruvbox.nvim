@@ -1077,7 +1077,7 @@ local function get_groups()
     MiniTrailspace = { bg = colors.red },
     NeoTreeFloatNormal = { fg = colors.fg1, bg = colors.bg0 },
     NeoTreeFloatBorder = { fg = colors.bg3, bg = colors.bg0 },
-    NeoTreeFloatTitle = { fg = colors.blue, bg = colors.bg0 },
+    NeoTreeFloatTitle = { fg = colors.green, bg = colors.bg0 },
     NeoTreeTitleBar = { fg = colors.bg3, bg = colors.bg0, reverse = true },
     NeoTreeBufferNumber = { fg = colors.orange },
     NeoTreeMessage = { fg = colors.gray, italic = true },
