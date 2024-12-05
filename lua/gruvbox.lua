@@ -545,6 +545,7 @@ local function get_groups()
     BlinkCmpKindStruct = { link = "GruvboxYellow" },
     BlinkCmpKindTypeParameter = { link = "GruvboxYellow" },
     BlinkCmpSource = { link = "GruvboxGray" },
+    BlinkCmpGhostText = { link = "GruvboxBg4" },
     diffAdded = { link = "DiffAdd" },
     diffRemoved = { link = "DiffDelete" },
     diffChanged = { link = "DiffChange" },
