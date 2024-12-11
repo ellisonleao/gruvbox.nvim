@@ -371,6 +371,8 @@ local function get_groups()
     SpellLocal = { link = "GruvboxAquaUnderline" },
     SpellRare = { link = "GruvboxPurpleUnderline" },
     Whitespace = { fg = colors.bg2 },
+    IndentLine = { fg = colors.bg3 },
+    IndentLineCurrent = { fg = colors.fg4 },
     DiagnosticError = { link = "GruvboxRed" },
     DiagnosticSignError = { link = "GruvboxRedSign" },
     DiagnosticUnderlineError = { link = "GruvboxRedUnderline" },
