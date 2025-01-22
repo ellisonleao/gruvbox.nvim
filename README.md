@@ -69,7 +69,7 @@ require("gruvbox").setup({
     comments = true,
     operators = false,
     folds = true,
-    keywords = true,
+    keywords = false,
   },
   strikethrough = true,
   invert_selection = false,
