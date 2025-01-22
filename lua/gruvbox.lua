@@ -217,22 +217,22 @@ local function get_groups()
 
   if config.terminal_colors then
     local term_colors = {
-      colors.bg0,
-      colors.neutral_red,
-      colors.neutral_green,
-      colors.neutral_yellow,
-      colors.neutral_blue,
-      colors.neutral_purple,
-      colors.neutral_aqua,
-      colors.fg4,
-      colors.gray,
-      colors.red,
-      colors.green,
-      colors.yellow,
-      colors.blue,
-      colors.purple,
-      colors.aqua,
-      colors.fg1,
+      colors.bg0,          -- 0: black
+      colors.neutral_red,  -- 1: red
+      colors.neutral_green, -- 2: green
+      colors.neutral_yellow, -- 3: yellow
+      colors.neutral_blue, -- 4: blue
+      colors.neutral_purple, -- 5: magenta
+      colors.neutral_aqua, -- 6: cyan
+      colors.fg4,          -- 7: white
+      colors.gray,         -- 8: bright black
+      colors.red,          -- 9: bright red
+      colors.green,        -- 10: bright green
+      colors.yellow,       -- 11: bright yellow
+      colors.blue,         -- 12: bright blue
+      colors.purple,       -- 13: bright magenta
+      colors.aqua,         -- 14: bright cyan
+      colors.fg1,          -- 15: bright white
     }
     for index, value in ipairs(term_colors) do
       vim.g["terminal_color_" .. index - 1] = value
