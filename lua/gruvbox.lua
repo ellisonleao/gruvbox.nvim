@@ -11,6 +11,7 @@ local Gruvbox = {}
 ---@field operators boolean
 ---@field folds boolean
 ---@field emphasis boolean
+---@field keywords boolean
 
 ---@class HighlightDefinition
 ---@field fg string?
@@ -338,7 +339,7 @@ local function get_groups()
     Label = { link = "GruvboxRed" },
     Exception = { link = "GruvboxRed" },
     Operator = { fg = colors.orange, italic = config.italic.operators },
-    Keyword = { link = "GruvboxRed" },
+    Keyword = { fg = colors.red, italic = config.italic.keywords },
     Identifier = { link = "GruvboxBlue" },
     Function = { link = "GruvboxGreenBold" },
     PreProc = { link = "GruvboxAqua" },
