@@ -135,6 +135,7 @@ Gruvbox.palette = {
   light_aqua_soft = "#e1dbac",
   gray = "#928374",
   -- gray2 = "#336699",
+	-- новый цвет для сообщений с предупреждениями
   gray2 = "#2f5e8c",
 }
 
