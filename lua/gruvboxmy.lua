@@ -134,6 +134,8 @@ Gruvbox.palette = {
   light_aqua = "#e8e5b5",
   light_aqua_soft = "#e1dbac",
   gray = "#928374",
+  -- gray2 = "#336699",
+  gray2 = "#2f5e8c",
 }
 
 -- get a hex list of gruvbox colors based on current bg and constrast config
@@ -177,6 +179,7 @@ local function get_colors()
       dark_green = p.dark_green,
       dark_aqua = p.dark_aqua,
       gray = p.gray,
+      gray2 = p.gray2,
     },
     light = {
       bg0 = p.light0,
@@ -206,6 +209,7 @@ local function get_colors()
       dark_green = p.light_green,
       dark_aqua = p.light_aqua,
       gray = p.gray,
+      gray2 = p.gray2,
     },
   }
 
@@ -234,6 +238,7 @@ local function get_groups()
       colors.neutral_aqua,
       colors.fg4,
       colors.gray,
+      colors.gray2,
       colors.red,
       colors.green,
       colors.yellow,
@@ -254,6 +259,7 @@ local function get_groups()
     GruvboxFg3 = { fg = colors.fg3 },
     GruvboxFg4 = { fg = colors.fg4 },
     GruvboxGray = { fg = colors.gray },
+    GruvboxGray2 = { fg = colors.gray2 },
     GruvboxBg0 = { fg = colors.bg0 },
     GruvboxBg1 = { fg = colors.bg1 },
     GruvboxBg2 = { fg = colors.bg2 },
@@ -400,7 +406,9 @@ local function get_groups()
     DiagnosticFloatingInfo = { link = "GruvboxBlue" },
     DiagnosticFloatingHint = { link = "GruvboxAqua" },
     DiagnosticVirtualTextError = { link = "GruvboxRed" },
-    DiagnosticVirtualTextWarn = { link = "GruvboxYellow" },
+		-- добовление инфо к строке кода с предупреждение о возможной ошибки
+    -- DiagnosticVirtualTextWarn = { link = "GruvboxYellow" },
+    DiagnosticVirtualTextWarn = { link = "GruvboxGray2" },
     DiagnosticVirtualTextInfo = { link = "GruvboxBlue" },
     DiagnosticVirtualTextHint = { link = "GruvboxAqua" },
     DiagnosticOk = { link = "GruvboxGreenSign" },
@@ -770,6 +778,7 @@ local function get_groups()
     LspSagaCodeActionContent = { fg = colors.green, bold = config.bold },
     LspSagaLspFinderBorder = { link = "GruvboxFg1" },
     LspSagaAutoPreview = { link = "GruvboxOrange" },
+    -- LspSagaAutoPreview = { link = "GruvboxBlue" },
     TargetWord = { fg = colors.blue, bold = config.bold },
     FinderSeparator = { link = "GruvboxAqua" },
     LspSagaDefPreviewBorder = { link = "GruvboxBlue" },
