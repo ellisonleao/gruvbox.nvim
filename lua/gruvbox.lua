@@ -466,6 +466,7 @@ local function get_groups()
     CocDiagnosticsWarning = { link = "GruvboxOrange" },
     CocDiagnosticsInfo = { link = "GruvboxBlue" },
     CocDiagnosticsHint = { link = "GruvboxAqua" },
+    CocSearch = { link = "GruvboxBlue" },
     CocSelectedText = { link = "GruvboxRed" },
     CocMenuSel = { link = "PmenuSel" },
     CocCodeLens = { link = "GruvboxGray" },
