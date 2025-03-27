@@ -81,6 +81,7 @@ require("gruvbox").setup({
   overrides = {},
   dim_inactive = false,
   transparent_mode = false,
+  truecolor = true, -- enable vim.o.termguicolor. If false, adapt to support 256 color terminals
 })
 vim.cmd("colorscheme gruvbox")
 ```
@@ -97,10 +98,13 @@ You can specify your own palette colors. For example:
 require("gruvbox").setup({
     palette_overrides = {
         bright_green = "#990000",
+        white = { gui = "#ffffff", cterm=255 }
     }
 })
 vim.cmd("colorscheme gruvbox")
 ```
+Note that the color can be specified as hex if truecolor=true, otherwise, use the form `{ gui = #RRGGBB, cterm=30 }` which allows to 
+specify a cterm color index. 
 
 ### Highlight groups
 
@@ -134,5 +138,14 @@ Please note that the override values must follow the attributes from the highlig
 - **bg** - background color
 - **bold** - true or false for bold font
 - **italic** - true or false for italic font
+- ctermfg - cterm color index foreground (for 256 color terminals)
+- ctermbg - cterm color index background (for 256 color terminals)
 
 Other values can be seen in [`synIDattr`](<https://neovim.io/doc/user/builtin.html#synIDattr()>)
+
+
+### 256 color terminals 
+
+Disable the truecolor flag and the plugin will select similar colors from the 256 color palette. 
+Make sure to set the cterm index if overrides are made. 
+
