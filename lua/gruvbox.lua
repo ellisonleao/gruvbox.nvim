@@ -393,6 +393,7 @@ local function get_groups()
     DiagnosticVirtualTextHint = { link = "GruvboxAqua" },
     DiagnosticOk = { link = "GruvboxGreenSign" },
     LspReferenceRead = { link = "GruvboxYellowBold" },
+    LspReferenceTarget = { link = "Visual" },
     LspReferenceText = { link = "GruvboxYellowBold" },
     LspReferenceWrite = { link = "GruvboxOrangeBold" },
     LspCodeLens = { link = "GruvboxGray" },
