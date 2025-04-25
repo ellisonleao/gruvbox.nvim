@@ -1109,6 +1109,7 @@ local function get_groups()
     MiniTestFail = { link = "GruvboxRedBold" },
     MiniTestPass = { link = "GruvboxGreenBold" },
     MiniTrailspace = { bg = colors.red },
+    WhichKeyTitle = { link = "NormalFloat" },
     ["@comment"] = { link = "Comment" },
     ["@none"] = { bg = "NONE", fg = "NONE" },
     ["@preproc"] = { link = "PreProc" },
