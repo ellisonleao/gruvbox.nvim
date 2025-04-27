@@ -39,7 +39,6 @@ local Gruvbox = {}
 ---@field invert_selection boolean?
 ---@field invert_signs boolean?
 ---@field invert_tabline boolean?
----@field invert_intend_guides boolean?
 ---@field inverse boolean?
 ---@field overrides table<string, HighlightDefinition>?
 ---@field palette_overrides table<string, string>?
@@ -59,7 +58,6 @@ Gruvbox.config = {
   invert_selection = false,
   invert_signs = false,
   invert_tabline = false,
-  invert_intend_guides = false,
   inverse = true,
   contrast = "",
   palette_overrides = {},
