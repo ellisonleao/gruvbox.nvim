@@ -29,19 +29,21 @@ local Gruvbox = {}
 ---@field nocombine boolean?
 
 ---@class GruvboxConfig
----@field terminal_colors boolean?
----@field undercurl boolean?
----@field underline boolean?
 ---@field bold boolean?
----@field italic ItalicConfig?
----@field strikethrough boolean?
 ---@field contrast Contrast?
+---@field dim_inactive boolean?
+---@field inverse boolean?
 ---@field invert_selection boolean?
 ---@field invert_signs boolean?
 ---@field invert_tabline boolean?
----@field inverse boolean?
+---@field italic ItalicConfig?
 ---@field overrides table<string, HighlightDefinition>?
 ---@field palette_overrides table<string, string>?
+---@field strikethrough boolean?
+---@field terminal_colors boolean?
+---@field transparent_mode boolean?
+---@field undercurl boolean?
+---@field underline boolean?
 Gruvbox.config = {
   terminal_colors = true,
   undercurl = true,
