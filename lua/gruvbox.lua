@@ -42,6 +42,8 @@ local Gruvbox = {}
 ---@field inverse boolean?
 ---@field overrides table<string, HighlightDefinition>?
 ---@field palette_overrides table<string, string>?
+---@field dim_inactive boolean?
+---@field transparent_mode boolean?
 Gruvbox.config = {
   terminal_colors = true,
   undercurl = true,
