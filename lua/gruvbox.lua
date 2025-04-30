@@ -35,13 +35,13 @@ local Gruvbox = {}
 ---@field bold boolean?
 ---@field italic ItalicConfig?
 ---@field strikethrough boolean?
----@field contrast Contrast?
 ---@field invert_selection boolean?
 ---@field invert_signs boolean?
 ---@field invert_tabline boolean?
 ---@field inverse boolean?
----@field overrides table<string, HighlightDefinition>?
+---@field contrast Contrast?
 ---@field palette_overrides table<string, string>?
+---@field overrides table<string, HighlightDefinition>?
 ---@field dim_inactive boolean?
 ---@field transparent_mode boolean?
 Gruvbox.config = {
