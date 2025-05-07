@@ -42,6 +42,7 @@ local Gruvbox = {}
 ---@field strikethrough boolean?
 ---@field terminal_colors boolean?
 ---@field transparent_mode boolean?
+---@field transparent_floats boolean?
 ---@field undercurl boolean?
 ---@field underline boolean?
 Gruvbox.config = {
@@ -66,6 +67,7 @@ Gruvbox.config = {
   overrides = {},
   dim_inactive = false,
   transparent_mode = false,
+  transparent_floats = false,
 }
 
 -- main gruvbox color palette
@@ -286,7 +288,8 @@ local function get_groups()
     GruvboxAquaUnderline = { undercurl = config.undercurl, sp = colors.aqua },
     GruvboxOrangeUnderline = { undercurl = config.undercurl, sp = colors.orange },
     Normal = config.transparent_mode and { fg = colors.fg1, bg = nil } or { fg = colors.fg1, bg = colors.bg0 },
-    NormalFloat = config.transparent_mode and { fg = colors.fg1, bg = nil } or { fg = colors.fg1, bg = colors.bg1 },
+    NormalFloat = (config.transparent_mode and config.transparent_floats) and { fg = colors.fg1, bg = nil }
+      or { fg = colors.fg1, bg = colors.bg1 },
     NormalNC = config.dim_inactive and { fg = colors.fg0, bg = colors.bg1 } or { link = "Normal" },
     CursorLine = { bg = colors.bg1 },
     CursorColumn = { link = "CursorLine" },
