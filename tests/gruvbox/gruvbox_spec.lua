@@ -157,4 +157,33 @@ describe("tests", function()
     vim.opt.background = "light"
     assert.are.same(vim.g.terminal_color_0, colors.light0)
   end)
+
+  it("multiple calls to setup() are independent", function()
+    -- First call to setup
+    gruvbox.setup({
+      contrast = "soft",
+      overrides = { CursorLine = { bg = "#FF0000" } },
+    })
+    assert.are.same(gruvbox.config.contrast, "soft")
+    assert.are.same(gruvbox.config.overrides.CursorLine.bg, "#FF0000")
+
+    -- Second call to setup
+    gruvbox.setup({ contrast = "hard" })
+    assert.are.same(gruvbox.config.contrast, "hard")
+    -- Check that overrides from the first call are not present
+    assert.is_nil(gruvbox.config.overrides.CursorLine)
+
+    -- Third call to setup with different overrides
+    gruvbox.setup({
+      overrides = { Normal = { fg = "#00FF00" } },
+    })
+    assert.are.same(gruvbox.config.contrast, "") -- Contrast should be reset to default (empty string)
+    assert.is_nil(gruvbox.config.overrides.CursorLine) -- Still no CursorLine override
+    assert.are.same(gruvbox.config.overrides.Normal.fg, "#00FF00") -- New override is present
+
+    -- Call setup with no arguments to reset to defaults
+    gruvbox.setup()
+    assert.are.same(gruvbox.config.contrast, "")
+    assert.is_nil(gruvbox.config.overrides.Normal)
+  end)
 end)
