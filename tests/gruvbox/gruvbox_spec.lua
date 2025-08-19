@@ -37,6 +37,7 @@ describe("tests", function()
       overrides = {},
       dim_inactive = false,
       transparent_mode = false,
+      transparent_floats = false,
     }
 
     gruvbox.setup({ undercurl = false, underline = false })
