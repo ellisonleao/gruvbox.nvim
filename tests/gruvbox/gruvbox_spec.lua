@@ -186,4 +186,19 @@ describe("tests", function()
     assert.are.same(gruvbox.config.contrast, "")
     assert.is_nil(gruvbox.config.overrides.Normal)
   end)
+
+  it("should set NeoTreeSignColumn background to NONE", function()
+    gruvbox.setup()
+    gruvbox.load()
+
+    local group_id = vim.api.nvim_get_hl_id_by_name("NeoTreeSignColumn")
+    local values = {
+      bg = vim.fn.synIDattr(group_id, "bg", "gui"),
+    }
+
+    local expected = {
+      bg = "",  -- "NONE" translates to empty string in synIDattr
+    }
+    assert.are.same(expected, values)
+  end)
 end)
