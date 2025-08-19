@@ -376,6 +376,7 @@ local function get_groups()
     DiagnosticError = { link = "GruvboxRed" },
     DiagnosticWarn = { link = "GruvboxYellow" },
     DiagnosticInfo = { link = "GruvboxBlue" },
+    DiagnosticDeprecated = { strikethrough = config.strikethrough },
     DiagnosticHint = { link = "GruvboxAqua" },
     DiagnosticOk = { link = "GruvboxGreen" },
     DiagnosticSignError = { link = "GruvboxRedSign" },
