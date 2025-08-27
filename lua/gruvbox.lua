@@ -1306,6 +1306,11 @@ local function get_groups()
       groups[group].link = nil
     end
 
+    -- handle case where foreground and background colors are from the palette
+    hl.fg = colors[hl.fg] or hl.fg
+    hl.bg = colors[hl.bg] or hl.bg
+    hl.sp = colors[hl.bg] or hl.sp
+
     groups[group] = vim.tbl_extend("force", groups[group] or {}, hl)
   end
 
