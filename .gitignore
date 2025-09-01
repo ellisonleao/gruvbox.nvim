@@ -1,0 +1,9 @@
+# Build artifacts and dependencies
+nvim-linux64/
+nvim-linux64.tar.gz
+nvim.appimage
+stylua
+stylua.zip
+
+# Test dependencies
+vendor/
