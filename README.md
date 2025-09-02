@@ -110,6 +110,7 @@ example:
 require("gruvbox").setup({
     overrides = {
         SignColumn = {bg = "#ff9900"}
+        FoldColumn = {bg = "bg4"} -- string can also be a color from the palette
     }
 })
 vim.cmd("colorscheme gruvbox")
