@@ -564,7 +564,7 @@ local function get_groups()
     BlinkPairsGreen = { link = "GruvboxGreen" },
     BlinkPairsBlue = { link = "GruvboxBlue" },
     BlinkPairsCyan = { link = "GruvboxAqua" },
-    BlinkPairsViolet = { link = "GruvboxPurple" },
+    BlinkPairsPurple = { link = "GruvboxPurple" },
     BlinkIndentRed = { link = "GruvboxRed" },
     BlinkIndentOrange = { link = "GruvboxOrange" },
     BlinkIndentYellow = { link = "GruvboxYellow" },
