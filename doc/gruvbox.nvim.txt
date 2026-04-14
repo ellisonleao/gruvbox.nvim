@@ -1,10 +1,12 @@
-*gruvbox.nvim.txt*        For Neovim >= 0.8.0       Last change: 2026 March 09
+*gruvbox.nvim.txt*
+                             For Neovim >= 0.8.0    Last change: 2026 April 14
 
 ==============================================================================
 Table of Contents                             *gruvbox.nvim-table-of-contents*
 
 1. Prerequisites                                  |gruvbox.nvim-prerequisites|
 2. Installing                                        |gruvbox.nvim-installing|
+  - Using vim.pack (Neovim 0.12+)|gruvbox.nvim-installing-using-vim.pack-(neovim-0.12+)|
   - Using packer                        |gruvbox.nvim-installing-using-packer|
   - Using lazy.nvim                  |gruvbox.nvim-installing-using-lazy.nvim|
   - Using vim-plug                    |gruvbox.nvim-installing-using-vim-plug|
@@ -31,6 +33,18 @@ Neovim 0.8.0+
 
 ==============================================================================
 2. Installing                                        *gruvbox.nvim-installing*
+
+
+USING VIM.PACK (NEOVIM 0.12+)*gruvbox.nvim-installing-using-vim.pack-(neovim-0.12+)*
+
+>lua
+    vim.pack.add({
+      "ellisonleao/gruvbox.nvim"
+    })
+    
+    require("gruvbox").setup()
+    vim.cmd.colorscheme("gruvbox")
+<
 
 
 USING PACKER                            *gruvbox.nvim-installing-using-packer*
