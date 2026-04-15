@@ -22,7 +22,7 @@ Neovim 0.8.0+
 
 ```lua
 vim.pack.add({
-  "ellisonleao/gruvbox.nvim"
+  "https://github.com/ellisonleao/gruvbox.nvim"
 })
 
 require("gruvbox").setup()
