@@ -1,5 +1,5 @@
 *gruvbox.nvim.txt*
-                             For Neovim >= 0.8.0    Last change: 2026 April 14
+                             For Neovim >= 0.8.0    Last change: 2026 April 15
 
 ==============================================================================
 Table of Contents                             *gruvbox.nvim-table-of-contents*
