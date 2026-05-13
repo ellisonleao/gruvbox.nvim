@@ -1177,6 +1177,7 @@ local function get_groups()
     NeoTreeTitleBar = { fg = colors.fg1, bg = colors.bg2 },
     NeoTreeDirectoryIcon = { link = "GruvboxGreen" },
     NeoTreeDirectoryName = { link = "GruvboxGreenBold" },
+    CopilotSuggestion = { fg = colors.bg4, italic = config.italic.comments },
     ["@comment"] = { link = "Comment" },
     ["@none"] = { bg = "NONE", fg = "NONE" },
     ["@preproc"] = { link = "PreProc" },
