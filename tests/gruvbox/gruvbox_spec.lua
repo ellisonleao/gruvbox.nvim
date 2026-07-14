@@ -20,6 +20,7 @@ describe("tests", function()
       undercurl = false,
       underline = false,
       bold = true,
+      compile = false,
       italic = {
         strings = true,
         emphasis = true,

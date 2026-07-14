@@ -30,6 +30,7 @@ local Gruvbox = {}
 
 ---@class GruvboxConfig
 ---@field bold boolean?
+---@field compile boolean?
 ---@field contrast Contrast?
 ---@field dim_inactive boolean?
 ---@field inverse boolean?
@@ -49,6 +50,7 @@ local default_config = {
   undercurl = true,
   underline = true,
   bold = true,
+  compile = false,
   italic = {
     strings = true,
     emphasis = true,
@@ -130,7 +132,7 @@ Gruvbox.palette = {
 }
 
 -- get a hex list of gruvbox colors based on current bg and constrast config
-local function get_colors()
+local function get_colors(bg)
   local p = Gruvbox.palette
   local config = Gruvbox.config
 
@@ -138,7 +140,7 @@ local function get_colors()
     p[color] = hex
   end
 
-  local bg = vim.o.background
+  bg = bg or vim.o.background
   local contrast = config.contrast
 
   local color_groups = {
@@ -212,12 +214,13 @@ local function get_colors()
   return color_groups[bg]
 end
 
-local function get_groups()
-  local colors = get_colors()
+local function get_groups(bg)
+  local colors = get_colors(bg)
   local config = Gruvbox.config
 
+  local term_colors = {}
   if config.terminal_colors then
-    local term_colors = {
+    local term_palette = {
       colors.bg0,
       colors.neutral_red,
       colors.neutral_green,
@@ -235,8 +238,8 @@ local function get_groups()
       colors.aqua,
       colors.fg1,
     }
-    for index, value in ipairs(term_colors) do
-      vim.g["terminal_color_" .. index - 1] = value
+    for index, value in ipairs(term_palette) do
+      term_colors["terminal_color_" .. index - 1] = value
     end
   end
 
@@ -1355,7 +1358,67 @@ local function get_groups()
     groups[group] = vim.tbl_extend("force", groups[group] or {}, hl)
   end
 
-  return groups
+  return groups, term_colors
+end
+
+local PATH_SEP = vim.loop.os_uname().version:match("Windows") and "\\" or "/"
+
+-- location of the compiled cache, keyed by background ("dark"/"light")
+local function get_compiled_path(bg)
+  return table.concat({ vim.fn.stdpath("cache"), "gruvbox", bg .. "_compiled.lua" }, PATH_SEP)
+end
+
+--- compile the highlight groups for the given background into a cache file
+---@param bg string "dark" or "light"
+local function compile(bg)
+  vim.loop.fs_mkdir(vim.fn.stdpath("cache") .. PATH_SEP .. "gruvbox", 448)
+
+  local fname = get_compiled_path(bg)
+  local file, err = io.open(fname, "wb")
+  if not file or err then
+    vim.notify("gruvbox.nvim: Error writing " .. fname .. ":\n" .. (err or ""), vim.log.levels.ERROR)
+    return
+  end
+
+  local groups, term_colors = get_groups(bg)
+
+  local lines = {
+    "return string.dump(function()",
+    "local nvim_set_hl = vim.api.nvim_set_hl",
+    "local g = vim.g",
+  }
+  local inspect = vim.inspect
+  for group, settings in pairs(groups) do
+    table.insert(lines, ('nvim_set_hl(0, "%s", %s)'):format(group, inspect(settings):gsub("%s", "")))
+  end
+  for name, value in pairs(term_colors) do
+    table.insert(lines, ('g["%s"] = "%s"'):format(name, value))
+  end
+  table.insert(lines, "end)")
+
+  local blob = table.concat(lines, "\n")
+  local dumped = assert(loadstring(blob, "=(gruvbox.compile)"))()
+  file:write(dumped)
+  file:close()
+end
+
+--- load a previously compiled cache file for the given background
+---@param bg string "dark" or "light"
+---@return boolean status true if the cache existed and was loaded
+local function load_compiled(bg)
+  local f = loadfile(get_compiled_path(bg))
+  if f then
+    f()
+    return true
+  end
+  return false
+end
+
+--- compile the highlight groups for both backgrounds
+Gruvbox.compile = function()
+  for _, bg in ipairs({ "dark", "light" }) do
+    compile(bg)
+  end
 end
 
 ---@param config GruvboxConfig?
@@ -1378,12 +1441,33 @@ Gruvbox.load = function()
   vim.g.colors_name = "gruvbox"
   vim.o.termguicolors = true
 
-  local groups = get_groups()
+  if Gruvbox.config.compile then
+    local bg = vim.o.background
+    -- (re)compile if the cache is missing, then load it
+    if not load_compiled(bg) then
+      Gruvbox.compile()
+      load_compiled(bg)
+    end
+    return
+  end
+
+  local groups, term_colors = get_groups()
 
   -- add highlights
   for group, settings in pairs(groups) do
     vim.api.nvim_set_hl(0, group, settings)
   end
+
+  -- set terminal colors
+  for name, value in pairs(term_colors) do
+    vim.g[name] = value
+  end
 end
+
+vim.api.nvim_create_user_command("GruvboxCompile", function()
+  Gruvbox.compile()
+  vim.notify("gruvbox.nvim: compiled successfully!", vim.log.levels.INFO)
+  Gruvbox.load()
+end, {})
 
 return Gruvbox
