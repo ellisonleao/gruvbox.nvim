@@ -215,6 +215,11 @@ end
 local function get_groups()
   local colors = get_colors()
   local config = Gruvbox.config
+  local normal_float_bg = colors.bg1
+
+  if config.overrides.NormalFloat and config.overrides.NormalFloat.bg ~= nil then
+    normal_float_bg = config.overrides.NormalFloat.bg
+  end
 
   if config.terminal_colors then
     local term_colors = {
@@ -289,8 +294,9 @@ local function get_groups()
     GruvboxOrangeUnderline = { undercurl = config.undercurl, sp = colors.orange },
     Normal = config.transparent_mode and { fg = colors.fg1, bg = nil } or { fg = colors.fg1, bg = colors.bg0 },
     NormalFloat = config.transparent_mode and { fg = colors.fg1, bg = nil } or { fg = colors.fg1, bg = colors.bg1 },
-    FloatTitle = { link = "NormalFloat" },
-    FloatFooter = { link = "NormalFloat" },
+    FloatTitle = config.transparent_mode and { link = "Title" }
+      or { fg = colors.green, bg = normal_float_bg, bold = config.bold },
+    FloatFooter = { link = "FloatTitle" },
     NormalNC = config.dim_inactive and { fg = colors.fg0, bg = colors.bg1 } or { link = "Normal" },
     CursorLine = { bg = colors.bg1 },
     CursorColumn = { link = "CursorLine" },
