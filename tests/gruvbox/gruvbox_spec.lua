@@ -158,6 +158,36 @@ describe("tests", function()
     assert.are.same(vim.g.terminal_color_0, colors.light0)
   end)
 
+  it("keeps floating titles styled like titles while adding the float background", function()
+    gruvbox.setup()
+    gruvbox.load()
+
+    local float_title = vim.api.nvim_get_hl(0, { name = "FloatTitle", link = false })
+    local title = vim.api.nvim_get_hl(0, { name = "Title", link = false })
+    local normal_float = vim.api.nvim_get_hl(0, { name = "NormalFloat", link = false })
+    assert.are.same(float_title.fg, title.fg)
+    assert.are.same(float_title.bold, title.bold)
+    assert.are.same(float_title.bg, normal_float.bg)
+    assert.are.same(vim.api.nvim_get_hl(0, { name = "FloatFooter", link = true }).link, "FloatTitle")
+  end)
+
+  it("uses overridden NormalFloat backgrounds for floating titles", function()
+    gruvbox.setup({ overrides = { NormalFloat = { bg = "#ff9900" } } })
+    gruvbox.load()
+
+    local float_title = vim.api.nvim_get_hl(0, { name = "FloatTitle", link = false })
+    local normal_float = vim.api.nvim_get_hl(0, { name = "NormalFloat", link = false })
+    assert.are.same(float_title.bg, normal_float.bg)
+  end)
+
+  it("keeps floating titles transparent with the Title styling", function()
+    gruvbox.setup({ transparent_mode = true })
+    gruvbox.load()
+
+    assert.are.same(vim.api.nvim_get_hl(0, { name = "FloatTitle", link = true }).link, "Title")
+    assert.are.same(vim.api.nvim_get_hl(0, { name = "FloatFooter", link = true }).link, "FloatTitle")
+  end)
+
   it("multiple calls to setup() are independent", function()
     -- First call to setup
     gruvbox.setup({
