@@ -1,5 +1,5 @@
 *gruvbox.nvim.txt*
-                             For Neovim >= 0.8.0    Last change: 2026 April 15
+                          For Neovim >= 0.8.0    Last change: 2026 November 04
 
 ==============================================================================
 Table of Contents                             *gruvbox.nvim-table-of-contents*
@@ -41,7 +41,7 @@ USING VIM.PACK (NEOVIM 0.12+)*gruvbox.nvim-installing-using-vim.pack-(neovim-0.1
     vim.pack.add({
       "https://github.com/ellisonleao/gruvbox.nvim"
     })
-    
+
     require("gruvbox").setup()
     vim.cmd.colorscheme("gruvbox")
 <
